@@ -2,408 +2,2663 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EduPro-NG</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduPro-NG | Digital Nigerian School</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f7f5;color:#172033}
-header{background:#08783f;color:#fff;padding:18px}
-.logo{font-size:26px;font-weight:bold}
-main{max-width:950px;margin:auto;padding:18px}
-.hero{background:#08783f;color:white;padding:28px;border-radius:20px;margin-bottom:20px}
-.hero h1{font-size:31px;margin:0 0 10px}
-.hero p{font-size:17px;line-height:1.6}
-button{border:0;border-radius:11px;padding:13px 17px;font-weight:bold;cursor:pointer}
-.start,.back{background:white;color:#08783f}
-h2{margin-top:28px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-.card{background:white;padding:19px;border-radius:16px;box-shadow:0 3px 12px #ddd;cursor:pointer}
-.card b{font-size:18px}.card p{color:#667085;margin-bottom:0}
-.panel{background:white;padding:22px;border-radius:18px;box-shadow:0 3px 12px #ddd;margin-bottom:18px}
-.hidden{display:none}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
-.tab{background:#e8f4ed;color:#08783f}
-.tab.active{background:#08783f;color:white}
-.topic{background:#f0f7f2;padding:16px;border-radius:13px;margin:9px 0;cursor:pointer}
-.topic b{font-size:17px}
-.lesson{line-height:1.7;font-size:16px}
-.lesson h2{color:#08783f}
-.example{background:#fff8df;padding:17px;border-radius:13px;margin:18px 0}
-.key{background:#e8f4ed;padding:17px;border-radius:13px}
-.option{display:block;width:100%;text-align:left;background:#edf0f4;margin:9px 0}
-.option.selected{background:#ccebd8}
-.correct{background:#ccebd8!important}
-.wrong{background:#ffd6d6!important}
-.quiztop{display:flex;justify-content:space-between;font-weight:bold}
-#feedback{font-weight:bold;font-size:17px;line-height:1.5}
-.pro{background:#172033;color:white;padding:24px;border-radius:18px;margin-top:20px}
-.pro strong{color:#ffd166;font-size:20px}
-footer{text-align:center;padding:35px;color:#667085}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.hero h1{font-size:27px}}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f7fb;
+  color:#172033
+}
+header{
+  background:#073b2a;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10
+}
+.logo{
+  font-size:23px;
+  font-weight:bold
+}
+.logo span{color:#72e6a5}
+button{
+  border:0;
+  cursor:pointer;
+  border-radius:10px;
+  padding:11px 16px;
+  font-weight:bold
+}
+.header-btn{
+  background:#72e6a5;
+  color:#073b2a
+}
+.hero{
+  background:linear-gradient(135deg,#073b2a,#0b6043);
+  color:white;
+  padding:55px 6% 65px
+}
+.hero h1{
+  font-size:40px;
+  margin:0 0 12px
+}
+.hero p{
+  max-width:700px;
+  line-height:1.7;
+  color:#dcefe7
+}
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:30px auto
+}
+.search{
+  width:100%;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+  margin-bottom:25px
+}
+.section-title{
+  margin:35px 0 15px
+}
+.level-grid,.subject-grid,.topic-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px
+}
+.card{
+  background:white;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 5px 18px rgba(0,0,0,.07);
+  transition:.2s;
+  cursor:pointer
+}
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(0,0,0,.11)
+}
+.card h3{margin:8px 0}
+.icon{
+  font-size:35px
+}
+.small{
+  color:#667085;
+  line-height:1.5;
+  font-size:14px
+}
+.level-card{
+  border-left:5px solid #0b7652
+}
+.exam-card{
+  border-left:5px solid #e4a11b
+}
+.subject-card{
+  min-height:145px
+}
+.subject-card button{
+  background:#073b2a;
+  color:white;
+  margin-top:8px
+}
+.hidden{display:none!important}
+.back{
+  background:#e9eef2;
+  margin-bottom:20px
+}
+.page-head{
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:20px
+}
+.tabs{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  margin:15px 0
+}
+.tab{
+  white-space:nowrap;
+  background:#e7ece9;
+  color:#173d30
+}
+.tab.active{
+  background:#073b2a;
+  color:white
+}
+.chapter{
+  background:white;
+  border-radius:15px;
+  margin-bottom:15px;
+  overflow:hidden;
+  box-shadow:0 3px 12px rgba(0,0,0,.05)
+}
+.chapter-title{
+  padding:17px;
+  background:#edf7f2;
+  font-weight:bold
+}
+.topic{
+  padding:15px 17px;
+  border-top:1px solid #eee;
+  cursor:pointer
+}
+.topic:hover{background:#fafafa}
+.topic.done{
+  color:#087443;
+  font-weight:bold
+}
+.lesson{
+  background:white;
+  padding:28px;
+  border-radius:18px;
+  line-height:1.75;
+  box-shadow:0 5px 18px rgba(0,0,0,.06)
+}
+.lesson h2{color:#073b2a}
+.lesson h3{margin-top:25px;color:#0b6043}
+.objectives,.keybox,.example,.mistakes,.exercise{
+  padding:18px;
+  border-radius:12px;
+  margin:18px 0
+}
+.objectives{background:#eef8f3}
+.keybox{background:#fff8df}
+.example{background:#eef5ff}
+.mistakes{background:#fff0f0}
+.exercise{background:#f4f1ff}
+.lesson li{margin:7px 0}
+.nav-buttons{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:20px
+}
+.primary{
+  background:#073b2a;
+  color:white
+}
+.secondary{
+  background:#e8ecef
+}
+.quiz-box{
+  background:white;
+  padding:25px;
+  border-radius:18px;
+  box-shadow:0 5px 18px rgba(0,0,0,.06)
+}
+.option{
+  display:block;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  margin:10px 0;
+  cursor:pointer
+}
+.option:hover{background:#f5f8f6}
+.result{
+  margin-top:15px;
+  padding:15px;
+  border-radius:10px;
+  background:#eef8f3
+}
+.pro{
+  background:linear-gradient(135deg,#111827,#243b53);
+  color:white;
+  border-radius:20px;
+  padding:30px;
+  margin:40px 0
+}
+.pro button{
+  background:#ffd166;
+  color:#111
+}
+.progress{
+  background:#e5e7eb;
+  height:9px;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:10px
+}
+.progress-bar{
+  height:100%;
+  background:#0b7652;
+  width:0%
+}
+footer{
+  background:#073b2a;
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:50px
+}
+@media(max-width:600px){
+  .hero h1{font-size:30px}
+  .hero{padding:40px 5%}
+  .container{width:94%}
+  .lesson{padding:20px}
+}
 </style>
 </head>
 
 <body>
+
 <header>
-<div class="logo">📚 EduPro-NG</div>
-<div>Learn • Practice • Pass</div>
+  <div class="logo">EduPro-<span>NG</span> 📚</div>
+  <button class="header-btn" onclick="goHome()">Home</button>
 </header>
 
-<main>
+<section id="home">
 
 <section class="hero">
-<h1>Prepare Smarter for Nigerian Exams</h1>
-<p>Learn school subjects, understand difficult topics, practise questions and prepare for JAMB, WAEC, NECO and GCE.</p>
-<button class="start" onclick="document.getElementById('subjects').scrollIntoView()">Start Learning</button>
+  <h1>Your Digital Nigerian School 🎓</h1>
+  <p>
+    Learn school subjects, study textbook-style lessons, practise exercises
+    and test yourself with original exam-preparation questions.
+  </p>
 </section>
 
-<section id="home">
-<h2 id="subjects">📚 Subjects & Exams</h2>
-<div class="grid">
-<div class="card" onclick="openSubject('Mathematics')">➗ <b>Mathematics</b><p>Lessons, examples & practice</p></div>
-<div class="card" onclick="openSubject('English')">📖 <b>English</b><p>Grammar, vocabulary & comprehension</p></div>
-<div class="card" onclick="openSubject('Physics')">⚡ <b>Physics</b><p>Theory, formulas & calculations</p></div>
-<div class="card" onclick="openSubject('Chemistry')">🧪 <b>Chemistry</b><p>Atoms, reactions & calculations</p></div>
-<div class="card" onclick="openSubject('Biology')">🧬 <b>Biology</b><p>Living things & diagrams</p></div>
-<div class="card" onclick="openSubject('Government')">🏛️ <b>Government</b><p>Politics, democracy & civics</p></div>
-<div class="card" onclick="openSubject('Economics')">💰 <b>Economics</b><p>Markets, demand & supply</p></div>
-<div class="card" onclick="openSubject('Geography')">🌍 <b>Geography</b><p>Earth, maps & environment</p></div>
-<div class="card" onclick="openSubject('Literature')">📚 <b>Literature</b><p>Prose, drama & poetry</p></div>
-<div class="card" onclick="openSubject('Computer Studies')">💻 <b>Computer Studies</b><p>ICT & computer fundamentals</p></div>
-<div class="card" onclick="openSubject('JAMB / UTME')">🎯 <b>JAMB / UTME</b><p>CBT preparation</p></div>
-<div class="card" onclick="openSubject('WAEC')">📝 <b>WAEC</b><p>WASSCE preparation</p></div>
-<div class="card" onclick="openSubject('NECO')">📘 <b>NECO</b><p>Exam preparation</p></div>
-<div class="card" onclick="openSubject('GCE')">🎓 <b>GCE</b><p>Revision & practice</p></div>
+<div class="container">
+
+<input id="searchBox" class="search"
+placeholder="🔎 Search Mathematics, Biology, Agriculture, JAMB, WAEC..."
+oninput="searchEverything()">
+
+<h2 class="section-title">Choose Your Level</h2>
+
+<div id="levelGrid" class="level-grid"></div>
+
+<div class="pro">
+  <h2>⭐ EduPro-NG PRO</h2>
+  <p>
+    Unlock harder practice questions, advanced exam preparation and premium
+    learning features.
+  </p>
+  <h2>₦500 / month</h2>
+  <button onclick="alert('PRO subscription will be connected when the payment system is added.')">
+    Upgrade to PRO
+  </button>
+</div>
+
+</div>
+</section>
+
+<section id="levelPage" class="hidden">
+<div class="container">
+
+<button class="back" onclick="goHome()">← Back to Levels</button>
+
+<div id="levelHeader" class="page-head"></div>
+
+<input id="subjectSearch" class="search"
+placeholder="🔎 Search subjects..."
+oninput="filterSubjects()">
+
+<div id="subjectGrid" class="subject-grid"></div>
+
 </div>
 </section>
 
 <section id="subjectPage" class="hidden">
-<button class="back" onclick="goHome()">← Back to Subjects</button>
-<div class="panel">
-<h1 id="subjectTitle"></h1>
-<p id="subjectIntro"></p>
+<div class="container">
+
+<button class="back" onclick="openLevel(currentLevel)">
+← Back to Subjects
+</button>
+
+<div id="subjectHeader" class="page-head"></div>
 
 <div class="tabs">
-<button id="learnTab" class="tab active" onclick="showLearn()">📖 Learn</button>
-<button id="quizTab" class="tab" onclick="showQuiz()">📝 Quiz</button>
+  <button class="tab active" onclick="showSubjectTab('chapters',this)">
+    📖 Chapters
+  </button>
+  <button class="tab" onclick="showSubjectTab('quiz',this)">
+    🧠 Course Quiz
+  </button>
 </div>
 
-<div id="learnArea">
-<h2>📚 Topics</h2>
-<div id="topicList"></div>
-<div id="lessonArea" class="hidden">
-<button class="back" onclick="closeLesson()">← Back to Topics</button>
-<div class="lesson">
-<h1 id="lessonTitle"></h1>
-<div id="lessonText"></div>
-</div>
-</div>
-</div>
+<div id="chaptersTab"></div>
+<div id="quizTab" class="hidden"></div>
 
-<div id="quizArea" class="hidden">
-<div class="quiztop">
-<span id="quizNumber"></span>
-<span id="score">Score: 0</span>
-</div>
-<h2 id="quizQuestion"></h2>
-<div id="quizOptions"></div>
-<button onclick="submitAnswer()">Submit Answer</button>
-<p id="feedback"></p>
-<button onclick="nextQuestion()">Next Question →</button>
-</div>
 </div>
 </section>
 
-<section class="pro">
-<h2>⭐ EduPro-NG PRO</h2>
-<p>Harder questions, timed CBT, mock examinations, detailed explanations and advanced revision.</p>
-<p><strong>₦500 / month</strong></p>
-<button onclick="alert('PRO features are coming soon.')">PRO Coming Soon</button>
+<section id="lessonPage" class="hidden">
+<div class="container">
+
+<button class="back" onclick="openSubject(currentSubject)">
+← Back to Chapters
+</button>
+
+<div id="lessonContent"></div>
+
+<div class="nav-buttons">
+  <button class="secondary" onclick="previousTopic()">← Previous</button>
+  <button class="primary" onclick="markComplete()">✓ Mark Complete</button>
+  <button class="secondary" onclick="nextTopic()">Next →</button>
+</div>
+
+</div>
 </section>
 
-<footer>EduPro-NG<br>Nigerian Education Platform</footer>
-</main>
+<footer>
+  <h3>EduPro-NG 📚</h3>
+  <p>Learn • Practise • Prepare • Succeed</p>
+  <p>Built for Nigerian students 🇳🇬</p>
+</footer>
 
 <script>
-const subjects={
-"Mathematics":{
-intro:"Build your Mathematics knowledge from basic concepts to difficult examination problems.",
-topics:[
-["➗ Algebra","Algebra uses letters to represent unknown values. Example: if 2x + 4 = 12, subtract 4 to get 2x = 8, then divide by 2. Therefore x = 4.","Always perform the same operation on both sides of an equation."],
-["📊 Percentages","A percentage means a number out of 100. To find 20% of 50, calculate 20/100 × 50 = 10. Percentages are useful in profit, discount, interest and examination problems.","Remember that percentage changes may be calculated from different starting values."],
-["📐 Geometry","Geometry deals with shapes, angles, lengths and areas. The angles inside a triangle always add up to 180 degrees.","If two angles of a triangle are 60° and 70°, the third angle is 50°."]
-],
-q:[
-["If 3x = 18, what is x?",["3","6","9","12"],1,"Divide both sides by 3: x = 18 ÷ 3 = 6."],
-["What is 20% of 50?",["5","10","15","20"],1,"20/100 × 50 = 10."],
-["The angles of a triangle add up to:",["90°","180°","270°","360°"],1,"The three interior angles of every triangle total 180°."]
-]},
-"Physics":{
-intro:"Understand the laws of motion, energy, electricity and other physical phenomena.",
-topics:[
-["🏃 Motion","Motion describes a change in position. Speed is calculated by dividing distance by time. For example, a car travelling 100 metres in 5 seconds has a speed of 20 m/s.","Formula: Speed = Distance ÷ Time."],
-["⚡ Electricity","Electric current is the flow of electric charge. Voltage is the potential difference that drives current through a circuit.","A circuit must have a complete conducting path for current to flow."],
-["🔋 Energy","Energy is the ability to do work. Kinetic energy is associated with motion, while potential energy is stored energy.","A moving car has kinetic energy because it is moving."]
-],
-q:[
-["A car travels 100 m in 5 s. Its speed is:",["10 m/s","20 m/s","25 m/s","50 m/s"],1,"Speed = distance ÷ time = 100 ÷ 5 = 20 m/s."],
-["Which energy is associated with motion?",["Chemical","Kinetic","Nuclear","Potential"],1,"Kinetic energy is the energy possessed by an object because of its motion."],
-["What is needed for current to flow in a simple circuit?",["An open path","A complete path","Only a bulb","Only a switch"],1,"Electric current requires a complete conducting path."]
-]},
-"Chemistry":{
-intro:"Learn about matter, atoms, chemical reactions, bonding, acids and bases.",
-topics:[
-["⚛️ Atomic Structure","An atom is the basic unit of an element. It contains protons, neutrons and electrons. Protons are positive, electrons are negative and neutrons have no charge.","The number of protons in an atom is its atomic number."],
-["🧪 Acids and Bases","Acids and bases have different chemical properties. An acid can react with a base in a neutralisation reaction to form salt and water.","Acid + Base → Salt + Water."],
-["🔗 Chemical Bonding","Atoms combine to form compounds. Ionic bonding involves transfer of electrons, while covalent bonding involves sharing electrons.","Sodium chloride is an example of a compound with ionic bonding."]
-],
-q:[
-["Which particle has a negative charge?",["Proton","Neutron","Electron","Nucleus"],2,"Electrons carry negative electric charge."],
-["A neutralisation reaction can produce:",["Salt and water","Only oxygen","Only hydrogen","Carbon"],0,"An acid reacting with a base can produce salt and water."],
-["Covalent bonding involves:",["Sharing electrons","Destroying atoms","Only losing protons","Creating neutrons"],0,"Covalent bonds form when atoms share electrons."]
-]},
-"Biology":{
-intro:"Study living organisms, cells, plants, animals and the human body.",
-topics:[
-["🧬 The Cell","The cell is the basic structural and functional unit of life. Cells contain structures that perform specialised functions.","Plant cells have structures such as a cell wall and chloroplasts that are not found in typical animal cells."],
-["🌱 Photosynthesis","Photosynthesis is the process by which green plants use light energy to make food from carbon dioxide and water. Chlorophyll absorbs light energy.","Word equation: Carbon dioxide + Water → Glucose + Oxygen."],
-["❤️ Human Body","The human body contains systems that work together. The circulatory system transports substances around the body, while the respiratory system is involved in gas exchange.","The heart pumps blood around the body."]
-],
-q:[
-["The basic unit of life is the:",["Organ","Cell","Tissue","System"],1,"Cells are the basic structural and functional units of living organisms."],
-["Which substance helps plants absorb light?",["Chlorophyll","Protein","Starch","Salt"],0,"Chlorophyll absorbs light energy for photosynthesis."],
-["Which organ pumps blood?",["Lung","Kidney","Heart","Stomach"],2,"The heart pumps blood through the circulatory system."]
-]},
-"English":{
-intro:"Improve grammar, vocabulary, comprehension and effective communication.",
-topics:[
-["📖 Grammar","Grammar is the system of rules used to form correct sentences. A sentence normally contains a subject and a predicate.","Always check subject-verb agreement."],
-["✍️ Parts of Speech","Nouns name people, places, things or ideas. Verbs show actions or states. Adjectives describe nouns.","Example: 'The clever student answered quickly.' Clever describes student."],
-["🗣️ Vocabulary","Vocabulary is the collection of words a person understands and uses. Learning synonyms and antonyms improves expression.","Reading regularly is one of the best ways to develop vocabulary."]
-],
-q:[
-["Which word is a verb?",["Beautiful","Run","School","Careful"],1,"'Run' expresses an action, so it is a verb."],
-["Which word is a noun?",["Quickly","Beautiful","Teacher","Run"],2,"Teacher names a person, making it a noun."],
-["The opposite of 'ancient' is:",["Old","Modern","Past","Early"],1,"Modern means relating to the present or recent times."]
-]},
-"Government":{
-intro:"Learn how states are governed, how citizens participate and how political institutions work.",
-topics:[
-["🏛️ Democracy","Democracy is a system of government in which citizens participate in choosing their representatives.","Free and fair elections are important in representative democracy."],
-["🗳️ Elections","Elections allow eligible citizens to choose candidates for public offices.","Citizens should understand candidates and participate responsibly."],
-["⚖️ Constitution","A constitution provides fundamental rules and principles for governing a state.","It can define government institutions and citizens' rights and duties."]
-],
-q:[
-["Democracy is mainly associated with:",["Citizen participation","Military rule","No elections","Absolute rule"],0,"Democracy involves participation by citizens in governance."],
-["What allows citizens to choose representatives?",["Elections","Taxes","Weather","Trade"],0,"Elections provide a mechanism for choosing representatives."],
-["A constitution mainly provides:",["Rules for governing","Weather reports","Sports results","Market prices"],0,"A constitution establishes fundamental rules and principles of government."]
-]},
-"Economics":{
-intro:"Understand scarcity, demand, supply, markets, production and the choices people make with limited resources.",
-topics:[
-["💰 Scarcity","Scarcity exists because resources are limited while human wants are numerous. Because of scarcity, choices must be made.","Every economic choice can involve an opportunity cost."],
-["📈 Demand","Demand is the quantity of a good or service consumers are willing and able to buy at a given price.","Price and quantity demanded often move in opposite directions, other things being equal."],
-["🏪 Market","A market is a system where buyers and sellers interact to exchange goods and services.","Markets can operate in physical locations or through digital platforms."]
-],
-q:[
-["The basic economic problem is:",["Scarcity","Weather","Transportation","Population"],0,"Resources are scarce while human wants are unlimited."],
-["Demand refers to what consumers are willing and able to:",["Buy","Destroy","Produce only","Tax"],0,"Demand concerns consumers' willingness and ability to purchase goods or services."],
-["A market involves interaction between:",["Buyers and sellers","Only teachers","Only farmers","Only students"],0,"Markets involve buyers and sellers exchanging goods and services."]
-]},
-"Geography":{
-intro:"Study the Earth, maps, weather, climate, population and the relationship between people and their environment.",
-topics:[
-["🌍 The Earth","Earth has land, water and an atmosphere. Its physical features influence human activities.","Geography connects physical processes with human activities."],
-["🗺️ Maps","A map is a representation of part of the Earth's surface. Maps can show roads, rivers, settlements and other features.","A map scale helps us understand the relationship between map distance and real distance."],
-["🌦️ Weather","Weather describes atmospheric conditions at a particular place and time, including temperature, rainfall and wind.","Climate describes long-term patterns of weather."]
-],
-q:[
-["A map represents:",["Places and features","Only animals","Only people","Only oceans"],0,"Maps represent places and features of the Earth's surface."],
-["Weather describes conditions over:",["A particular time","Thousands of years only","No time","Only one season"],0,"Weather refers to atmospheric conditions at a particular time and place."],
-["Long-term patterns of weather are called:",["Climate","Speed","Gravity","Pressure"],0,"Climate describes long-term weather patterns."]
-]},
-"Literature":{
-intro:"Explore prose, drama, poetry, literary devices, characters, themes and interpretation.",
-topics:[
-["📚 Prose","Prose uses ordinary written language and includes novels and short stories.","When studying prose, pay attention to plot, characters, setting and themes."],
-["🎭 Drama","Drama is literature written to be performed by actors. It may contain dialogue, scenes and stage directions.","Characters reveal their personalities through actions and dialogue."],
-["🎵 Poetry","Poetry uses carefully arranged language, rhythm and imagery to express ideas and emotions.","Poems may use devices such as metaphor, simile and personification."]
-],
-q:[
-["Which form is normally written for performance?",["Drama","Dictionary","Report","Notice"],0,"Drama is written for performance by actors."],
-["A novel is an example of:",["Prose","Drama only","Formula","Map"],0,"Novels are works of prose fiction."],
-["A comparison using 'like' or 'as' is called:",["Simile","Irony","Plot","Setting"],0,"A simile compares two things using 'like' or 'as'."]
-]},
-"Computer Studies":{
-intro:"Learn computer fundamentals, hardware, software, networks, data and digital technology.",
-topics:[
-["💻 Computer","A computer is an electronic device that accepts data, processes it and produces information.","A basic computer system includes input, processing, storage and output."],
-["⌨️ Hardware","Hardware means the physical components of a computer, such as the keyboard, monitor, mouse and processor.","You can physically touch hardware."],
-["🧠 Software","Software consists of programs and instructions that tell a computer what to do.","Operating systems and applications are examples of software."]
-],
-q:[
-["Which is computer hardware?",["Keyboard","Password","Algorithm","Website"],0,"A keyboard is a physical computer component."],
-["Which is software?",["Monitor","Keyboard","Operating system","Mouse"],2,"An operating system is software."],
-["A computer processes:",["Data","Only paper","Only electricity","Only books"],0,"Computers process data to produce useful information."]
-]},
-"JAMB / UTME":{
-intro:"Build strong understanding and examination skills for computer-based JAMB/UTME preparation.",
-topics:[
-["🎯 Study Strategy","Study one topic at a time, understand the concept, practise and review mistakes.","Understanding is more useful than memorising answers without knowing why."],
-["⏱️ CBT Skills","Computer-based tests require careful reading and time management.","Read each question carefully before selecting an option."],
-["📝 Revision","Regular revision helps reinforce knowledge and reveals weak areas.","Keep a record of topics you find difficult and revisit them."]
-],
-q:[
-["A good study method is to:",["Understand and practise","Study only on exam day","Avoid revision","Skip difficult topics"],0,"Understanding and regular practice build stronger exam preparation."],
-["In a CBT exam, students should:",["Read carefully","Rush every question","Ignore instructions","Guess everything"],0,"Careful reading reduces avoidable mistakes."],
-["Revision helps students to:",["Reinforce knowledge","Forget topics","Avoid studying","Remove exams"],0,"Revision reinforces previously learned information."]
-]},
-"WAEC":{
-intro:"Prepare for WASSCE through learning, revision, examples and examination practice.",
-topics:[
-["📖 Learning","Understand the syllabus and build knowledge topic by topic.","Do not rely only on memorising answers."],
-["📝 Practice","Practise questions after studying a topic and review mistakes.","Mistakes can show exactly what needs more study."],
-["🎯 Examination","Read instructions carefully and manage your time during examinations.","Leave enough time to review your answers."]
-],
-q:[
-["After making a practice mistake, you should:",["Review it","Ignore it","Stop studying","Delete it"],0,"Reviewing mistakes helps identify and correct weak areas."],
-["Before answering an exam question, you should:",["Read it carefully","Ignore it","Guess immediately","Skip all instructions"],0,"Careful reading helps you understand exactly what is being asked."],
-["Good revision should be:",["Regular","Only one day","Never done","Random"],0,"Regular revision is more effective than last-minute study."]
-]},
-"NECO":{
-intro:"Prepare for NECO examinations through structured lessons, revision and practice.",
-topics:[
-["📚 Learning","Study each subject systematically and understand important concepts.","Break large topics into smaller sections."],
-["🔄 Revision","Review topics repeatedly and focus on areas that are difficult.","Short, regular revision sessions can be effective."],
-["📝 Practice","Use exercises to test whether you can apply what you have learned.","Always check why an answer is correct or incorrect."]
-],
-q:[
-["A useful way to study a large topic is to:",["Break it into sections","Avoid it","Memorise everything at once","Ignore it"],0,"Smaller sections make large topics easier to manage."],
-["Revision should be:",["Regular","Never","Only after results","Only during holidays"],0,"Regular revision reinforces learning."],
-["Practice questions help you:",["Test understanding","Avoid learning","Forget concepts","Skip revision"],0,"Practice tests whether you can apply what you learned."]
-]},
-"GCE":{
-intro:"Build knowledge and examination confidence through lessons, examples and regular practice.",
-topics:[
-["📖 Lessons","Read and understand concepts before attempting difficult exercises.","Make notes of important definitions and formulas."],
-["✏️ Exercises","Attempt exercises after studying each topic.","Use incorrect answers as learning opportunities."],
-["🎯 Exam Review","Review difficult topics and practise managing examination time.","Stay organised and avoid last-minute preparation."]
-],
-q:[
-["What should come before difficult exercises?",["Understanding the lesson","Ignoring the lesson","Guessing","Stopping study"],0,"Understanding the lesson gives you the foundation for exercises."],
-["Incorrect answers can help you:",["Find weak areas","Avoid learning","Forget topics","Stop revision"],0,"Mistakes can identify areas that need more attention."],
-["Good examination preparation should be:",["Organised","Last-minute only","Random","Avoided"],0,"Organised preparation makes revision more effective."]
-]}
+
+/* =========================================================
+   EDUPro-NG CURRICULUM
+========================================================= */
+
+const levels = {
+
+JSS1:{
+ name:"JSS 1",
+ type:"JSS",
+ icon:"🏫",
+ subjects:[
+ "Mathematics",
+ "English Studies",
+ "Basic Science and Technology",
+ "Agricultural Science",
+ "Digital Technologies",
+ "Citizenship and Heritage Studies",
+ "Social Studies",
+ "Business Studies",
+ "Basic Technology"
+ ]},
+
+JSS2:{
+ name:"JSS 2",
+ type:"JSS",
+ icon:"🏫",
+ subjects:[
+ "Mathematics",
+ "English Studies",
+ "Basic Science and Technology",
+ "Agricultural Science",
+ "Digital Technologies",
+ "Citizenship and Heritage Studies",
+ "Social Studies",
+ "Business Studies",
+ "Basic Technology"
+ ]},
+
+JSS3:{
+ name:"JSS 3",
+ type:"JSS",
+ icon:"🏫",
+ subjects:[
+ "Mathematics",
+ "English Studies",
+ "Basic Science and Technology",
+ "Agricultural Science",
+ "Digital Technologies",
+ "Citizenship and Heritage Studies",
+ "Social Studies",
+ "Business Studies",
+ "Basic Technology"
+ ]},
+
+SSS1:{
+ name:"SSS 1",
+ type:"SSS",
+ icon:"🎓",
+ subjects:[
+ "General Mathematics",
+ "English Language",
+ "Physics",
+ "Chemistry",
+ "Biology",
+ "Agricultural Science",
+ "Economics",
+ "Government",
+ "Literature in English",
+ "Digital Technologies",
+ "Geography"
+ ]},
+
+SSS2:{
+ name:"SSS 2",
+ type:"SSS",
+ icon:"🎓",
+ subjects:[
+ "General Mathematics",
+ "English Language",
+ "Physics",
+ "Chemistry",
+ "Biology",
+ "Agricultural Science",
+ "Economics",
+ "Government",
+ "Literature in English",
+ "Digital Technologies",
+ "Geography"
+ ]},
+
+SSS3:{
+ name:"SSS 3",
+ type:"SSS",
+ icon:"🎓",
+ subjects:[
+ "General Mathematics",
+ "English Language",
+ "Physics",
+ "Chemistry",
+ "Biology",
+ "Agricultural Science",
+ "Economics",
+ "Government",
+ "Literature in English",
+ "Digital Technologies",
+ "Geography"
+ ]},
+
+JAMB:{
+ name:"JAMB / UTME",
+ type:"EXAM",
+ icon:"🎯",
+ subjects:[
+ "Use of English",
+ "Mathematics",
+ "Physics",
+ "Chemistry",
+ "Biology",
+ "Agricultural Science",
+ "Economics",
+ "Government",
+ "Literature in English",
+ "Geography"
+ ]},
+
+WAEC:{
+ name:"WAEC",
+ type:"EXAM",
+ icon:"📝",
+ subjects:[
+ "English Language",
+ "Mathematics",
+ "Physics",
+ "Chemistry",
+ "Biology",
+ "Agricultural Science",
+ "Economics",
+ "Government",
+ "Literature in English",
+ "Geography",
+ "Digital Technologies"
+ ]},
+
+NECO:{
+ name:"NECO",
+ type:"EXAM",
+ icon:"📘",
+ subjects:[
+ "English Language",
+ "Mathematics",
+ "Physics",
+ "Chemistry",
+ "Biology",
+ "Agricultural Science",
+ "Economics",
+ "Government",
+ "Literature in English",
+ "Geography",
+ "Digital Technologies"
+ ]},
+
+GCE:{
+ name:"GCE",
+ type:"EXAM",
+ icon:"🎓",
+ subjects:[
+ "English Language",
+ "Mathematics",
+ "Physics",
+ "Chemistry",
+ "Biology",
+ "Agricultural Science",
+ "Economics",
+ "Government",
+ "Literature in English",
+ "Geography"
+ ]}
+
 };
 
-let current="",qi=0,score=0,answered=false;
 
-function openSubject(s){
-current=s;
-let d=subjects[s];
+/* =========================================================
+   TOPIC DATABASE
+========================================================= */
+
+const topicDB = {
+
+JSS:{
+
+"Mathematics":{
+"First Term":[
+"Whole Numbers and Place Value",
+"Factors and Multiples",
+"Fractions",
+"Decimals",
+"Directed Numbers",
+"Basic Algebra",
+"Simple Linear Equations"
+],
+"Second Term":[
+"Angles",
+"Triangles",
+"Quadrilaterals",
+"Perimeter",
+"Area",
+"Data Collection",
+"Tables and Charts"
+],
+"Third Term":[
+"Ratio",
+"Proportion",
+"Percentages",
+"Simple Interest",
+"Probability",
+"Statistics",
+"Revision"
+]},
+
+"English Studies":{
+"First Term":[
+"Parts of Speech",
+"Nouns",
+"Pronouns",
+"Verbs",
+"Adjectives",
+"Sentence Construction",
+"Comprehension"
+],
+"Second Term":[
+"Adverbs",
+"Prepositions",
+"Conjunctions",
+"Tenses",
+"Subject and Predicate",
+"Letter Writing",
+"Summary Writing"
+],
+"Third Term":[
+"Direct and Indirect Speech",
+"Active and Passive Voice",
+"Vocabulary Development",
+"Essay Writing",
+"Comprehension Skills",
+"Oral English",
+"Revision"
+]},
+
+"Basic Science and Technology":{
+"First Term":[
+"Living and Non-Living Things",
+"Measurement",
+"Matter",
+"Energy",
+"Heat",
+"Light",
+"Sound"
+],
+"Second Term":[
+"The Human Body",
+"Nutrition",
+"Personal Health",
+"Water",
+"Air",
+"Soil",
+"Environmental Pollution"
+],
+"Third Term":[
+"Force",
+"Machines",
+"Electricity",
+"Magnetism",
+"Technology",
+"Safety",
+"Revision"
+]},
+
+"Agricultural Science":{
+"First Term":[
+"Meaning of Agriculture",
+"Importance of Agriculture",
+"Branches of Agriculture",
+"Farm Tools",
+"Farm Safety",
+"Soil",
+"Types of Soil"
+],
+"Second Term":[
+"Crop Production",
+"Seed Selection",
+"Planting Methods",
+"Crop Maintenance",
+"Weeds",
+"Crop Pests",
+"Crop Diseases"
+],
+"Third Term":[
+"Farm Animals",
+"Animal Feeds",
+"Livestock Management",
+"Poultry Farming",
+"Fish Farming",
+"Farm Records",
+"Agricultural Marketing"
+]},
+
+"Digital Technologies":{
+"First Term":[
+"Meaning of Computer",
+"Parts of a Computer",
+"Input Devices",
+"Output Devices",
+"Storage Devices",
+"Computer Safety",
+"Data and Information"
+],
+"Second Term":[
+"Operating Systems",
+"Word Processing",
+"Keyboard Skills",
+"File Management",
+"Internet Basics",
+"Online Safety",
+"Digital Citizenship"
+],
+"Third Term":[
+"Computer Networks",
+"Programming Basics",
+"Algorithms",
+"Flowcharts",
+"Spreadsheets",
+"Presentation Software",
+"Revision"
+]},
+
+"Citizenship and Heritage Studies":{
+"First Term":[
+"Meaning of Citizenship",
+"Rights and Duties",
+"National Identity",
+"Culture",
+"Family Values",
+"Community",
+"Respect"
+],
+"Second Term":[
+"Democracy",
+"Leadership",
+"Rule of Law",
+"Human Rights",
+"National Symbols",
+"Unity",
+"Peace"
+],
+"Third Term":[
+"Responsible Citizenship",
+"National Development",
+"Corruption",
+"Drug Abuse",
+"Conflict Resolution",
+"Environmental Responsibility",
+"Revision"
+]},
+
+"Social Studies":{
+"First Term":[
+"Meaning of Social Studies",
+"Family",
+"Culture",
+"Socialization",
+"Community",
+"Values",
+"Human Relationships"
+],
+"Second Term":[
+"Marriage",
+"Population",
+"Transportation",
+"Communication",
+"Environment",
+"Health",
+"Social Problems"
+],
+"Third Term":[
+"Leadership",
+"Cooperation",
+"Conflict",
+"Crime",
+"Drug Abuse",
+"National Unity",
+"Revision"
+]},
+
+"Business Studies":{
+"First Term":[
+"Meaning of Business",
+"Office",
+"Office Equipment",
+"Communication",
+"Filing",
+"Entrepreneurship",
+"Trade"
+],
+"Second Term":[
+"Buying and Selling",
+"Consumer",
+"Advertising",
+"Banking",
+"Money",
+"Saving",
+"Insurance"
+],
+"Third Term":[
+"Bookkeeping",
+"Simple Accounts",
+"Profit and Loss",
+"Stock",
+"Business Documents",
+"Transportation",
+"Revision"
+]},
+
+"Basic Technology":{
+"First Term":[
+"Technology",
+"Workshop Safety",
+"Measuring Tools",
+"Drawing Instruments",
+"Materials",
+"Wood",
+"Metal"
+],
+"Second Term":[
+"Woodworking",
+"Metalworking",
+"Plastics",
+"Machines",
+"Simple Machines",
+"Maintenance",
+"Tools"
+],
+"Third Term":[
+"Building Materials",
+"Electrical Technology",
+"Mechanical Technology",
+"Energy",
+"Technology and Society",
+"Safety",
+"Revision"
+]}
+
+},
+
+
+/* =========================================================
+   SENIOR SECONDARY
+========================================================= */
+
+SSS:{
+
+"General Mathematics":{
+"First Term":[
+"Number Bases",
+"Indices",
+"Logarithms",
+"Surds",
+"Sets",
+"Algebraic Expressions",
+"Linear Equations"
+],
+"Second Term":[
+"Quadratic Equations",
+"Sequences",
+"Variation",
+"Trigonometry",
+"Geometry",
+"Mensuration",
+"Coordinate Geometry"
+],
+"Third Term":[
+"Statistics",
+"Probability",
+"Vectors",
+"Functions",
+"Graphs",
+"Financial Mathematics",
+"Revision"
+]},
+
+"English Language":{
+"First Term":[
+"Comprehension",
+"Summary",
+"Grammar",
+"Parts of Speech",
+"Tenses",
+"Vocabulary",
+"Essay Writing"
+],
+"Second Term":[
+"Formal Letters",
+"Informal Letters",
+"Reports",
+"Articles",
+"Argumentative Writing",
+"Oral English",
+"Sentence Structure"
+],
+"Third Term":[
+"Figures of Speech",
+"Lexis and Structure",
+"Comprehension Practice",
+"Summary Practice",
+"Speech Writing",
+"Debate",
+"Revision"
+]},
+
+"Physics":{
+"First Term":[
+"Physical Quantities",
+"Measurement",
+"Motion",
+"Speed and Velocity",
+"Acceleration",
+"Force",
+"Work Energy and Power"
+],
+"Second Term":[
+"Heat",
+"Temperature",
+"Expansion",
+"Waves",
+"Sound",
+"Light",
+"Reflection and Refraction"
+],
+"Third Term":[
+"Electricity",
+"Current",
+"Voltage",
+"Resistance",
+"Magnetism",
+"Electromagnetism",
+"Electronics"
+]},
+
+"Chemistry":{
+"First Term":[
+"Introduction to Chemistry",
+"Atoms",
+"Atomic Structure",
+"Periodic Table",
+"Chemical Bonding",
+"Chemical Formulae",
+"Mole Concept"
+],
+"Second Term":[
+"Chemical Reactions",
+"Acids Bases and Salts",
+"Solubility",
+"Water",
+"Air",
+"Metals",
+"Non-Metals"
+],
+"Third Term":[
+"Organic Chemistry",
+"Hydrocarbons",
+"Alcohols",
+"Environmental Chemistry",
+"Petroleum",
+"Polymers",
+"Revision"
+]},
+
+"Biology":{
+"First Term":[
+"Characteristics of Living Things",
+"Cell Structure",
+"Cell Division",
+"Nutrition",
+"Photosynthesis",
+"Respiration",
+"Transport System"
+],
+"Second Term":[
+"Excretion",
+"Support and Movement",
+"Reproduction",
+"Growth",
+"Coordination",
+"Sense Organs",
+"Health and Disease"
+],
+"Third Term":[
+"Genetics",
+"Heredity",
+"Evolution",
+"Ecology",
+"Food Chains",
+"Population",
+"Conservation"
+]},
+
+"Agricultural Science":{
+"First Term":[
+"Meaning and Importance of Agriculture",
+"Factors Affecting Agriculture",
+"Branches of Agriculture",
+"Farm Tools and Machinery",
+"Farm Safety",
+"Soil Formation",
+"Physical Properties of Soil",
+"Chemical Properties of Soil"
+],
+"Second Term":[
+"Crop Production",
+"Seed Selection",
+"Planting Methods",
+"Crop Nutrition",
+"Weed Control",
+"Crop Pests",
+"Crop Diseases",
+"Farm Management"
+],
+"Third Term":[
+"Animal Production",
+"Animal Nutrition",
+"Livestock Management",
+"Poultry Production",
+"Fishery",
+"Pasture and Forage Crops",
+"Farm Records",
+"Agricultural Economics"
+]},
+
+"Economics":{
+"First Term":[
+"Meaning of Economics",
+"Scarcity and Choice",
+"Opportunity Cost",
+"Scale of Preference",
+"Demand",
+"Supply",
+"Price Determination"
+],
+"Second Term":[
+"Production",
+"Factors of Production",
+"Division of Labour",
+"Market",
+"Money",
+"Banking",
+"Inflation"
+],
+"Third Term":[
+"National Income",
+"Population",
+"Unemployment",
+"International Trade",
+"Balance of Payments",
+"Economic Development",
+"Public Finance"
+]},
+
+"Government":{
+"First Term":[
+"Meaning of Government",
+"State",
+"Nation",
+"Power",
+"Authority",
+"Legitimacy",
+"Political Socialization"
+],
+"Second Term":[
+"Constitution",
+"Democracy",
+"Political Parties",
+"Pressure Groups",
+"Electoral Systems",
+"Legislature",
+"Executive"
+],
+"Third Term":[
+"Judiciary",
+"Federalism",
+"Local Government",
+"Public Administration",
+"Foreign Policy",
+"International Organizations",
+"Nigerian Government"
+]},
+
+"Literature in English":{
+"First Term":[
+"Introduction to Literature",
+"Prose",
+"Plot",
+"Characterization",
+"Setting",
+"Theme",
+"Point of View"
+],
+"Second Term":[
+"Drama",
+"Elements of Drama",
+"Tragedy",
+"Comedy",
+"Stagecraft",
+"Dialogue",
+"Conflict"
+],
+"Third Term":[
+"Poetry",
+"Types of Poetry",
+"Figures of Speech",
+"Rhyme",
+"Rhythm",
+"Tone",
+"Poetic Devices"
+]},
+
+"Digital Technologies":{
+"First Term":[
+"Computer Hardware",
+"Computer Software",
+"Operating Systems",
+"Data Representation",
+"Number Systems",
+"Computer Security",
+"File Management"
+],
+"Second Term":[
+"Computer Networks",
+"Internet",
+"Web Technologies",
+"Databases",
+"Spreadsheets",
+"Word Processing",
+"Presentation Tools"
+],
+"Third Term":[
+"Algorithms",
+"Flowcharts",
+"Programming",
+"Variables",
+"Cybersecurity",
+"Digital Ethics",
+"Revision"
+]},
+
+"Geography":{
+"First Term":[
+"Earth",
+"Latitude and Longitude",
+"Map Reading",
+"Scale",
+"Relief",
+"Rocks",
+"Weather"
+],
+"Second Term":[
+"Climate",
+"Vegetation",
+"Soils",
+"Population",
+"Settlement",
+"Transportation",
+"Communication"
+],
+"Third Term":[
+"Agriculture",
+"Industry",
+"Mineral Resources",
+"Environmental Problems",
+"Regional Geography",
+"Map Interpretation",
+"Revision"
+]}
+
+},
+
+
+/* =========================================================
+   EXAM PREPARATION
+========================================================= */
+
+EXAM:{
+
+"English Language":{
+"Module 1":[
+"Comprehension",
+"Summary",
+"Lexis and Structure",
+"Grammar",
+"Vocabulary"
+],
+"Module 2":[
+"Essay Writing",
+"Formal Letter",
+"Informal Letter",
+"Article Writing",
+"Argumentative Essay"
+],
+"Module 3":[
+"Oral English",
+"Sentence Completion",
+"Error Identification",
+"Exam Practice",
+"Full Revision"
+]},
+
+"Use of English":{
+"Module 1":[
+"Comprehension",
+"Lexis and Structure",
+"Grammar",
+"Vocabulary",
+"Sentence Interpretation"
+],
+"Module 2":[
+"Oral English",
+"Synonyms",
+"Antonyms",
+"Sentence Completion",
+"Idioms"
+],
+"Module 3":[
+"Reading Skills",
+"Summary",
+"Exam Strategy",
+"Timed Practice",
+"Full Revision"
+]},
+
+"Mathematics":{
+"Module 1":[
+"Number Bases",
+"Fractions",
+"Percentages",
+"Indices",
+"Logarithms",
+"Sets"
+],
+"Module 2":[
+"Algebra",
+"Quadratic Equations",
+"Sequences",
+"Trigonometry",
+"Mensuration",
+"Coordinate Geometry"
+],
+"Module 3":[
+"Statistics",
+"Probability",
+"Vectors",
+"Financial Mathematics",
+"Exam Practice",
+"Full Revision"
+]},
+
+"Physics":{
+"Module 1":[
+"Measurement",
+"Motion",
+"Force",
+"Energy",
+"Work Power and Machines"
+],
+"Module 2":[
+"Heat",
+"Waves",
+"Sound",
+"Light",
+"Optics"
+],
+"Module 3":[
+"Electricity",
+"Magnetism",
+"Electromagnetism",
+"Modern Physics",
+"Exam Practice"
+]},
+
+"Chemistry":{
+"Module 1":[
+"Atomic Structure",
+"Periodic Table",
+"Chemical Bonding",
+"Mole Concept",
+"Chemical Equations"
+],
+"Module 2":[
+"Acids Bases and Salts",
+"Solubility",
+"Metals",
+"Non-Metals",
+"Chemical Reactions"
+],
+"Module 3":[
+"Organic Chemistry",
+"Hydrocarbons",
+"Petroleum",
+"Environmental Chemistry",
+"Exam Practice"
+]},
+
+"Biology":{
+"Module 1":[
+"Cell Biology",
+"Nutrition",
+"Photosynthesis",
+"Respiration",
+"Transport"
+],
+"Module 2":[
+"Excretion",
+"Reproduction",
+"Coordination",
+"Health and Disease",
+"Genetics"
+],
+"Module 3":[
+"Ecology",
+"Evolution",
+"Conservation",
+"Food Chains",
+"Exam Practice"
+]},
+
+"Agricultural Science":{
+"Module 1":[
+"Agriculture and Society",
+"Soil Science",
+"Farm Tools",
+"Crop Production",
+"Crop Nutrition"
+],
+"Module 2":[
+"Weed Control",
+"Pests and Diseases",
+"Animal Nutrition",
+"Livestock Production",
+"Poultry Production"
+],
+"Module 3":[
+"Fisheries",
+"Pasture",
+"Farm Records",
+"Agricultural Economics",
+"Exam Practice"
+]},
+
+"Economics":{
+"Module 1":[
+"Scarcity",
+"Opportunity Cost",
+"Demand",
+"Supply",
+"Elasticity"
+],
+"Module 2":[
+"Production",
+"Market",
+"Money",
+"Banking",
+"Inflation"
+],
+"Module 3":[
+"National Income",
+"International Trade",
+"Development",
+"Public Finance",
+"Exam Practice"
+]},
+
+"Government":{
+"Module 1":[
+"State",
+"Power",
+"Authority",
+"Constitution",
+"Democracy"
+],
+"Module 2":[
+"Political Parties",
+"Electoral Systems",
+"Legislature",
+"Executive",
+"Judiciary"
+],
+"Module 3":[
+"Federalism",
+"Local Government",
+"Foreign Policy",
+"International Organizations",
+"Exam Practice"
+]},
+
+"Literature in English":{
+"Module 1":[
+"Prose",
+"Plot",
+"Character",
+"Setting",
+"Theme"
+],
+"Module 2":[
+"Drama",
+"Tragedy",
+"Comedy",
+"Conflict",
+"Stagecraft"
+],
+"Module 3":[
+"Poetry",
+"Rhyme",
+"Rhythm",
+"Figures of Speech",
+"Exam Practice"
+]},
+
+"Geography":{
+"Module 1":[
+"Map Reading",
+"Scale",
+"Latitude",
+"Longitude",
+"Relief"
+],
+"Module 2":[
+"Weather",
+"Climate",
+"Vegetation",
+"Soil",
+"Population"
+],
+"Module 3":[
+"Agriculture",
+"Industry",
+"Resources",
+"Environment",
+"Exam Practice"
+]}
+
+}
+
+};
+
+
+/* =========================================================
+   SUBJECT ICONS
+========================================================= */
+
+const icons={
+"Mathematics":"📐",
+"General Mathematics":"📐",
+"English Studies":"📚",
+"English Language":"📚",
+"Use of English":"📖",
+"Basic Science and Technology":"🔬",
+"Physics":"⚡",
+"Chemistry":"🧪",
+"Biology":"🧬",
+"Agricultural Science":"🌱",
+"Digital Technologies":"💻",
+"Citizenship and Heritage Studies":"🇳🇬",
+"Social Studies":"🌍",
+"Business Studies":"💼",
+"Basic Technology":"🛠️",
+"Economics":"💰",
+"Government":"🏛️",
+"Literature in English":"📕",
+"Geography":"🌍"
+};
+
+
+/* =========================================================
+   LESSON PROFILES
+========================================================= */
+
+const profiles={
+
+"Meaning of Agriculture":{
+intro:"Agriculture is the science, art and business of cultivating crops and rearing animals for human use.",
+points:[
+"Agriculture provides food.",
+"It supplies raw materials for industries.",
+"It creates employment.",
+"It can generate income and foreign exchange.",
+"It supports rural development."
+],
+example:"A farmer who grows maize for food and sells part of the harvest is practising crop production.",
+exercise:"State five importance of agriculture."
+},
+
+"Soil":{
+intro:"Soil is the upper layer of the earth's surface in which plants grow. It contains mineral particles, organic matter, air, water and living organisms.",
+points:[
+"Sand gives soil good drainage.",
+"Clay holds more water.",
+"Loam generally provides a good balance for many crops.",
+"Organic matter improves soil fertility.",
+"Soil supports plant roots."
+],
+example:"A loamy soil can be suitable for many food crops because it contains a useful balance of sand, clay and organic matter.",
+exercise:"Mention three components of soil."
+},
+
+"Types of Soil":{
+intro:"The major soil types commonly studied are sandy soil, clay soil and loamy soil.",
+points:[
+"Sandy soil has large particles and drains quickly.",
+"Clay soil has very small particles and holds water strongly.",
+"Loamy soil contains a mixture of sand, clay and organic matter.",
+"Different crops have different soil requirements."
+],
+example:"A soil that feels gritty and allows water to pass through quickly is likely to contain a large amount of sand.",
+exercise:"Compare sandy soil and clay soil."
+},
+
+"Crop Production":{
+intro:"Crop production involves the activities used to grow crops successfully from land preparation through harvesting.",
+points:[
+"Land must be prepared before planting.",
+"Good quality seeds improve establishment.",
+"Correct spacing reduces competition.",
+"Weeds and pests should be controlled.",
+"Harvesting should be done at the appropriate stage."
+],
+example:"A farmer may clear and prepare a field, plant selected maize seeds at suitable spacing, weed the field and harvest mature cobs.",
+exercise:"List five stages involved in crop production."
+},
+
+"Farm Tools":{
+intro:"Farm tools are implements used to perform agricultural operations more easily and efficiently.",
+points:[
+"The cutlass is used for clearing and cutting.",
+"The hoe is used for digging and weeding.",
+"The rake is used for gathering materials.",
+"The shovel can be used for moving soil.",
+"Tools should be cleaned and stored properly."
+],
+example:"A hoe can be used to loosen soil around a crop and remove weeds.",
+exercise:"Name five farm tools and state one use of each."
+},
+
+"Animal Nutrition":{
+intro:"Animal nutrition is the study of the nutrients animals need for growth, maintenance, reproduction and production.",
+points:[
+"Carbohydrates supply energy.",
+"Proteins support growth and tissue repair.",
+"Minerals support body functions.",
+"Vitamins help regulate body processes.",
+"Water is essential for life."
+],
+example:"A growing chicken requires a balanced feed containing adequate protein, energy, minerals, vitamins and water.",
+exercise:"List six classes of nutrients needed by farm animals."
+},
+
+"Livestock Management":{
+intro:"Livestock management involves caring for farm animals so that they remain healthy and productive.",
+points:[
+"Animals require suitable housing.",
+"They need balanced feed and clean water.",
+"Good sanitation reduces disease.",
+"Vaccination may help prevent some diseases.",
+"Proper records help farmers manage production."
+],
+example:"A poultry farmer can improve flock performance by providing clean housing, adequate feed, water and appropriate disease prevention.",
+exercise:"State five good livestock management practices."
+},
+
+"Fish Farming":{
+intro:"Fish farming, or aquaculture, involves raising fish under controlled conditions for food or commercial purposes.",
+points:[
+"Fish require suitable water.",
+"Stocking density should be controlled.",
+"Fish need appropriate feed.",
+"Water quality must be monitored.",
+"Fish are harvested when they reach marketable size."
+],
+example:"A farmer may raise catfish in a managed pond or tank and feed them regularly until they reach market size.",
+exercise:"State four requirements for successful fish farming."
+},
+
+"Cell Structure":{
+intro:"The cell is the basic structural and functional unit of living organisms.",
+points:[
+"The cell membrane controls movement of substances.",
+"The cytoplasm is the site of many chemical reactions.",
+"The nucleus contains genetic material in typical eukaryotic cells.",
+"Plant cells have a cell wall.",
+"Plant cells usually contain chloroplasts."
+],
+example:"A plant cell differs from an animal cell because it has structures such as a cell wall and chloroplasts.",
+exercise:"State three differences between a plant cell and an animal cell."
+},
+
+"Photosynthesis":{
+intro:"Photosynthesis is the process by which green plants use light energy to manufacture food from carbon dioxide and water.",
+points:[
+"Chlorophyll absorbs light energy.",
+"Carbon dioxide enters mainly through stomata.",
+"Water is absorbed by roots.",
+"Glucose is produced.",
+"Oxygen is released as a by-product."
+],
+example:"A green leaf exposed to light can manufacture glucose when carbon dioxide and water are available.",
+exercise:"Write the word equation for photosynthesis."
+},
+
+"Respiration":{
+intro:"Respiration is the process by which cells release usable energy from food.",
+points:[
+"Aerobic respiration uses oxygen.",
+"It releases energy from glucose.",
+"Carbon dioxide and water are products of aerobic respiration.",
+"Energy released supports cellular activities.",
+"Anaerobic respiration occurs without oxygen."
+],
+example:"During vigorous exercise, muscle cells may temporarily rely more on anaerobic respiration when oxygen supply cannot meet demand.",
+exercise:"Differentiate between aerobic and anaerobic respiration."
+},
+
+"Nutrition":{
+intro:"Nutrition is the process by which organisms obtain and use nutrients for energy, growth, repair and normal functioning.",
+points:[
+"Plants can manufacture organic food.",
+"Animals obtain nutrients from food.",
+"Balanced diets contain different nutrient groups.",
+"Poor nutrition can cause health problems.",
+"Water is also essential."
+],
+example:"A balanced meal may contain carbohydrate, protein, vegetables or fruits, healthy fats and water.",
+exercise:"What is a balanced diet?"
+},
+
+"Motion":{
+intro:"Motion occurs when an object's position changes with time relative to a reference point.",
+points:[
+"Distance is the total path covered.",
+"Displacement has magnitude and direction.",
+"Speed is distance divided by time.",
+"Velocity is displacement divided by time.",
+"Acceleration is change in velocity per unit time."
+],
+example:"If a car travels 100 metres in 5 seconds, its average speed is 20 m/s.",
+exercise:"A runner covers 200 m in 20 s. Calculate the average speed."
+},
+
+"Force":{
+intro:"A force is a push or pull that can change the motion or shape of an object.",
+points:[
+"Force has magnitude and direction.",
+"Force can accelerate an object.",
+"Force can change direction of motion.",
+"Balanced forces produce no acceleration.",
+"Unbalanced forces can change motion."
+],
+example:"Pushing a stationary box with sufficient force can make it move.",
+exercise:"State three effects of force."
+},
+
+"Work Energy and Power":{
+intro:"Work is done when a force causes displacement in its direction. Energy is the capacity to do work, while power is the rate of doing work.",
+points:[
+"Work is measured in joules.",
+"Energy can exist in different forms.",
+"Power is measured in watts.",
+"Mechanical energy includes kinetic and potential energy.",
+"Energy can be transferred from one form to another."
+],
+example:"If a 10 N force moves an object 5 m in the direction of the force, work done is 50 J.",
+exercise:"Calculate the work done when a 20 N force moves an object 3 m."
+},
+
+"Atomic Structure":{
+intro:"Atoms are made of subatomic particles including protons, neutrons and electrons.",
+points:[
+"Protons have positive charge.",
+"Electrons have negative charge.",
+"Neutrons have no electrical charge.",
+"The nucleus contains protons and neutrons.",
+"Electrons occupy regions around the nucleus."
+],
+example:"A neutral atom has equal numbers of protons and electrons.",
+exercise:"Name the three major subatomic particles."
+},
+
+"Chemical Bonding":{
+intro:"Chemical bonding explains how atoms combine to form substances.",
+points:[
+"Ionic bonding involves transfer of electrons.",
+"Covalent bonding involves sharing of electrons.",
+"Metallic bonding occurs among metal atoms.",
+"Bonding helps atoms achieve more stable arrangements.",
+"The type of bond affects properties."
+],
+example:"Sodium chloride is commonly used to illustrate ionic bonding because electrons are transferred between sodium and chlorine atoms.",
+exercise:"Differentiate between ionic and covalent bonding."
+},
+
+"Acids Bases and Salts":{
+intro:"Acids and bases are important classes of chemical substances. Their reactions can produce salts.",
+points:[
+"Many acids have a sour taste, but chemicals should never be tasted.",
+"Bases can neutralize acids.",
+"Indicators can help identify acidic or alkaline solutions.",
+"Neutralization produces salt and water in many cases.",
+"pH is used to describe acidity or alkalinity."
+],
+example:"Hydrochloric acid reacting with sodium hydroxide is an example of neutralization.",
+exercise:"What is neutralization?"
+},
+
+"Demand":{
+intro:"Demand refers to the quantity of a good or service consumers are willing and able to buy at a given price and time.",
+points:[
+"Demand is different from mere desire.",
+"Price often affects quantity demanded.",
+"Income can affect demand.",
+"Prices of related goods can affect demand.",
+"Tastes and preferences can affect demand."
+],
+example:"If the price of a product falls and consumers buy more of it, this illustrates movement along a demand curve, other factors remaining constant.",
+exercise:"State four factors that can affect demand."
+},
+
+"Supply":{
+intro:"Supply refers to the quantity of a good or service producers are willing and able to offer for sale at a given price and time.",
+points:[
+"Price can influence quantity supplied.",
+"Production costs affect supply.",
+"Technology can affect supply.",
+"Government policies may affect supply.",
+"Weather can influence agricultural supply."
+],
+example:"A rise in production cost may reduce the amount producers are willing to supply at a given price.",
+exercise:"Mention four factors affecting supply."
+},
+
+"Scarcity and Choice":{
+intro:"Scarcity exists because human wants are numerous while resources available to satisfy them are limited.",
+points:[
+"Resources are limited.",
+"Human wants are unlimited.",
+"Choice becomes necessary.",
+"Every choice has a cost.",
+"Scarcity is a basic economic problem."
+],
+example:"A student with limited money who chooses between buying a textbook and another item faces scarcity and choice.",
+exercise:"Explain scarcity in your own words."
+},
+
+"Constitution":{
+intro:"A constitution is the set of fundamental rules and principles by which a state is governed.",
+points:[
+"It defines government powers.",
+"It can protect citizens' rights.",
+"It describes institutions of government.",
+"It may explain how leaders are chosen.",
+"It provides a framework for governance."
+],
+example:"Rules specifying the powers of the executive, legislature and judiciary are constitutional provisions.",
+exercise:"State four functions of a constitution."
+},
+
+"Democracy":{
+intro:"Democracy is a system of government in which political authority is exercised directly or through representatives chosen by the people.",
+points:[
+"Citizens participate in government.",
+"Elections are important.",
+"Rule of law is important.",
+"Fundamental rights should be respected.",
+"Accountability is expected."
+],
+example:"A country holding competitive elections where citizens choose representatives is practising a democratic process.",
+exercise:"State five features of democracy."
+},
+
+"Prose":{
+intro:"Prose is ordinary written or spoken language arranged in sentences and paragraphs rather than verse.",
+points:[
+"Prose may be fictional or non-fictional.",
+"Novels and short stories are examples.",
+"Characters take part in events.",
+"Setting refers to time and place.",
+"Theme expresses an important idea."
+],
+example:"A short story about a student overcoming hardship can use character, setting and plot to communicate a theme.",
+exercise:"Define prose and name two forms of prose."
+},
+
+"Poetry":{
+intro:"Poetry is a literary form that uses carefully chosen language, sound, imagery and structure to communicate ideas and emotions.",
+points:[
+"Poems may use rhythm.",
+"Some poems use rhyme.",
+"Imagery creates mental pictures.",
+"Poets use figures of speech.",
+"Tone expresses attitude or emotion."
+],
+example:"A poet may compare a person's courage to a lion to create vivid imagery.",
+exercise:"Mention five features commonly found in poetry."
+},
+
+"Computer Hardware":{
+intro:"Computer hardware refers to the physical components of a computer system that can be seen and touched.",
+points:[
+"The keyboard is an input device.",
+"The monitor is an output device.",
+"The CPU processes instructions.",
+"Storage devices keep data.",
+"Hardware works with software."
+],
+example:"A keyboard sends typed information into a computer, while a monitor displays information from the computer.",
+exercise:"Give five examples of computer hardware."
+},
+
+"Computer Networks":{
+intro:"A computer network is a group of connected computers and devices that can communicate and share resources.",
+points:[
+"Networks can share files.",
+"They can share hardware resources.",
+"Local Area Networks cover relatively small areas.",
+"Wide Area Networks cover larger areas.",
+"Network security is important."
+],
+example:"Computers in a school computer laboratory can be connected to share a printer and exchange files.",
+exercise:"State three advantages of computer networking."
+},
+
+"Latitude and Longitude":{
+intro:"Latitude and longitude are imaginary lines used to locate places on the earth.",
+points:[
+"Latitude measures distance north or south of the Equator.",
+"Longitude measures distance east or west of the Prime Meridian.",
+"The Equator is 0° latitude.",
+"The Prime Meridian is 0° longitude.",
+"Coordinates help locate places."
+],
+example:"A location's latitude and longitude can be used together to identify its position on a map.",
+exercise:"Differentiate between latitude and longitude."
+}
+
+};
+
+
+/* =========================================================
+   GENERIC LESSON CONTENT
+========================================================= */
+
+function getProfile(topic,subject){
+
+if(profiles[topic]) return profiles[topic];
+
+let subjectText={
+"Mathematics":"Mathematics develops logical thinking and helps learners solve problems using numbers, symbols, patterns and measurements.",
+"General Mathematics":"Mathematics develops logical thinking and problem-solving skills using numbers, algebra, geometry, statistics and other mathematical ideas.",
+"English Language":"English Language develops communication skills in reading, writing, listening and speaking.",
+"English Studies":"English Studies develops effective communication through reading, writing, grammar, vocabulary and oral language.",
+"Physics":"Physics studies matter, energy, motion and the interactions that explain many natural phenomena.",
+"Chemistry":"Chemistry studies substances, their properties, composition and the changes they undergo.",
+"Biology":"Biology is the study of living organisms and their relationships with one another and their environment.",
+"Agricultural Science":"Agricultural Science applies scientific knowledge to crop production, animal production, soil management and agricultural business.",
+"Economics":"Economics examines how people and societies make choices about scarce resources.",
+"Government":"Government studies political institutions, political processes, authority and how states are governed.",
+"Literature in English":"Literature examines imaginative works such as prose, drama and poetry and the ideas communicated through them.",
+"Digital Technologies":"Digital Technologies develops knowledge and skills for using computers, digital systems, information and technology safely.",
+"Geography":"Geography studies places, people, environments and the physical and human processes that shape the earth.",
+"Basic Science and Technology":"Basic Science and Technology introduces scientific ideas, technology, health, environment and everyday applications.",
+"Citizenship and Heritage Studies":"This subject develops understanding of citizenship, values, heritage, rights, responsibilities and national development.",
+"Social Studies":"Social Studies helps learners understand people, relationships, society, culture and social problems.",
+"Business Studies":"Business Studies introduces commercial activities, office work, trade, entrepreneurship and basic financial ideas.",
+"Basic Technology":"Basic Technology introduces tools, materials, machines, technical drawing, safety and practical technology."
+};
+
+return{
+intro:(subjectText[subject]||"This lesson introduces an important concept in the subject.")+
+" In this lesson, you will study "+topic+" and learn how the idea is used in school work and everyday situations.",
+points:[
+"Understand the meaning of "+topic+".",
+"Identify the main ideas connected with the topic.",
+"Apply what you learn to simple examples.",
+"Use correct subject terminology.",
+"Practise questions based on the topic."
+],
+example:"For example, a student should be able to explain "+topic+" clearly, identify its important features and apply the idea when answering a related question.",
+exercise:"Write a short explanation of "+topic+" and list three important points you have learnt."
+};
+
+}
+
+
+/* =========================================================
+   QUIZ QUESTION BANK
+========================================================= */
+
+const quizBank={
+
+"Mathematics":[
+["What is 25% of 200?",["25","40","50","75"],2,"25% of 200 is 50."],
+["If x + 7 = 15, what is x?",["6","7","8","9"],2,"Subtract 7 from both sides: x = 8."],
+["What is 3/4 as a decimal?",["0.25","0.5","0.75","1.25"],2,"3 divided by 4 equals 0.75."],
+["A triangle has angles 50° and 60°. Find the third angle.",["60°","70°","80°","90°"],1,"Angles in a triangle add up to 180°."],
+["What is the probability of getting a head when tossing a fair coin?",["0","1/4","1/2","1"],2,"There are two equally likely outcomes, so the probability is 1/2."]
+],
+
+"General Mathematics":[
+["What is the value of 2³?",["5","6","8","9"],2,"2 × 2 × 2 = 8."],
+["Solve x + 5 = 12.",["5","6","7","8"],2,"x = 12 - 5 = 7."],
+["What is 20% of 150?",["20","25","30","35"],2,"0.20 × 150 = 30."],
+["The sum of angles in a triangle is:",["90°","180°","270°","360°"],1,"The interior angles of a triangle sum to 180°."],
+["If a fair die is thrown, how many possible outcomes are there?",["4","5","6","8"],2,"A standard die has six faces."]
+],
+
+"Physics":[
+["Which quantity is measured in metres?",["Mass","Length","Time","Temperature"],1,"The SI unit of length is the metre."],
+["Speed is calculated as:",["Time ÷ distance","Distance ÷ time","Mass ÷ volume","Force ÷ area"],1,"Speed = distance ÷ time."],
+["The SI unit of force is:",["Joule","Watt","Newton","Pascal"],2,"Force is measured in newtons."],
+["Which form of energy is associated with motion?",["Chemical","Kinetic","Potential","Nuclear"],1,"Kinetic energy is energy due to motion."],
+["What instrument measures temperature?",["Barometer","Thermometer","Ammeter","Voltmeter"],1,"A thermometer measures temperature."]
+],
+
+"Chemistry":[
+["The centre of an atom is called the:",["Shell","Nucleus","Ion","Molecule"],1,"The nucleus contains protons and neutrons."],
+["Which particle has a negative charge?",["Proton","Neutron","Electron","Nucleus"],2,"Electrons carry negative charge."],
+["A substance with pH below 7 is generally:",["Acidic","Neutral","Alkaline","Metallic"],0,"A pH below 7 indicates acidity."],
+["Which gas is needed for aerobic respiration?",["Nitrogen","Oxygen","Hydrogen","Helium"],1,"Aerobic respiration requires oxygen."],
+["A bond formed by sharing electrons is:",["Ionic","Covalent","Metallic","Nuclear"],1,"Covalent bonding involves shared electrons."]
+],
+
+"Biology":[
+["The basic unit of life is the:",["Organ","Cell","Tissue","System"],1,"The cell is the basic structural and functional unit of life."],
+["Photosynthesis mainly occurs in the:",["Nucleus","Chloroplast","Ribosome","Vacuole"],1,"Chloroplasts contain chlorophyll and are the main site of photosynthesis."],
+["Which gas is released during photosynthesis?",["Carbon dioxide","Nitrogen","Oxygen","Hydrogen"],2,"Oxygen is released during photosynthesis."],
+["Which system transports blood around the body?",["Digestive","Circulatory","Respiratory","Skeletal"],1,"The circulatory system transports blood."],
+["The passing of characteristics from parents to offspring is called:",["Respiration","Heredity","Digestion","Excretion"],1,"Heredity is the transmission of characteristics."]
+],
+
+"Agricultural Science":[
+["Which tool is commonly used for cutting weeds and small bushes?",["Cutlass","Ruler","Compass","Thermometer"],0,"A cutlass is commonly used for clearing and cutting vegetation."],
+["Which soil type generally has good drainage?",["Sandy soil","Heavy clay","Pure clay","Waterlogged soil"],0,"Sandy soil has relatively large particles and drains quickly."],
+["Which nutrient mainly supports growth and tissue repair in animals?",["Protein","Water only","Salt","Fibre"],0,"Protein is important for growth and tissue repair."],
+["Which activity is part of crop production?",["Weeding","Typing","Printing","Programming"],0,"Weeding is an important crop production activity."],
+["Fish farming is also known as:",["Aquaculture","Apiculture","Silviculture","Horticulture"],0,"Aquaculture is the controlled production of aquatic organisms such as fish."]
+],
+
+"Economics":[
+["The basic economic problem arises because resources are:",["Unlimited","Scarce","Free","Infinite"],1,"Resources are scarce relative to unlimited human wants."],
+["The next best alternative forgone is called:",["Profit","Demand","Opportunity cost","Supply"],2,"Opportunity cost is the next best alternative forgone."],
+["A rise in price generally causes quantity demanded to:",["Rise","Fall","Remain exactly the same","Double"],1,"Other things equal, quantity demanded usually falls when price rises."],
+["Which is a factor of production?",["Land","Inflation","Price","Demand"],0,"Land is one of the traditional factors of production."],
+["Persistent general rise in prices is called:",["Deflation","Inflation","Recession","Scarcity"],1,"Inflation is a sustained general increase in prices."]
+],
+
+"Government":[
+["The supreme law of a state is generally its:",["Manifesto","Constitution","Budget","Campaign"],1,"The constitution provides the fundamental legal framework of the state."],
+["A system in which citizens choose representatives is:",["Democracy","Dictatorship","Monarchy only","Anarchy"],0,"Representative democracy involves choosing representatives."],
+["Which arm of government makes laws?",["Judiciary","Legislature","Executive","Civil service"],1,"The legislature makes laws."],
+["Which arm interprets laws?",["Judiciary","Legislature","Executive","Media"],0,"The judiciary interprets and applies the law."],
+["An election is primarily a process for:",["Choosing representatives","Writing textbooks","Producing food","Measuring rainfall"],0,"Elections allow citizens to choose political representatives."]
+],
+
+"Digital Technologies":[
+["Which is an input device?",["Monitor","Keyboard","Speaker","Projector"],1,"A keyboard sends data into the computer."],
+["Which device displays information?",["Monitor","Keyboard","Mouse pad","Microphone"],0,"A monitor is an output device."],
+["CPU stands for:",["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Power Unit"],0,"CPU means Central Processing Unit."],
+["A network connects computers so they can:",["Only play music","Communicate and share resources","Become televisions","Stop processing"],1,"Networks allow communication and resource sharing."],
+["Which is important for online safety?",["Sharing passwords","Using strong passwords","Opening every link","Ignoring security"],1,"Strong passwords are an important security practice."]
+],
+
+"Literature in English":[
+["A story's main message is its:",["Theme","Setting","Chapter","Title"],0,"Theme is the central idea or message."],
+["The time and place of a story is its:",["Plot","Setting","Conflict","Narrator"],1,"Setting refers to time and place."],
+["A literary work written for performance is:",["Drama","Dictionary","Report","Invoice"],0,"Drama is designed for performance."],
+["A comparison using 'like' or 'as' is:",["Simile","Irony","Pun","Alliteration"],0,"A simile compares using words such as 'like' or 'as'."],
+["A poem may use rhythm to create:",["A pattern of sound","A bank account","A map","A laboratory"],0,"Rhythm is a pattern of beats or stresses in language."]
+],
+
+"Geography":[
+["The Equator is:",["0° latitude","90° latitude","0° longitude","180° longitude"],0,"The Equator is 0° latitude."],
+["The Prime Meridian is:",["0° longitude","90° longitude","0° latitude","180° latitude"],0,"The Prime Meridian is 0° longitude."],
+["A map scale shows the relationship between:",["Map distance and ground distance","Rain and wind","Population and food","Temperature and pressure only"],0,"Scale relates distance on a map to actual ground distance."],
+["Weather refers to atmospheric conditions over:",["A short period","Thousands of years only","A century only","No period"],0,"Weather describes short-term atmospheric conditions."],
+["Which is a human feature?",["Road","River","Mountain","Valley"],0,"Roads are constructed by people."]
+]
+
+};
+
+
+/* =========================================================
+   APP STATE
+========================================================= */
+
+let currentLevel="";
+let currentSubject="";
+let currentTerm="";
+let currentTopicIndex=0;
+let allCurrentTopics=[];
+let quizQuestions=[];
+let quizIndex=0;
+let quizScore=0;
+
+let progressData=JSON.parse(
+localStorage.getItem("eduproProgress")||"{}"
+);
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function renderLevels(){
+
+const grid=document.getElementById("levelGrid");
+
+grid.innerHTML=Object.entries(levels).map(([key,l])=>`
+
+<div class="card ${l.type==="EXAM"?"exam-card":"level-card"}"
+onclick="openLevel('${key}')">
+
+<div class="icon">${l.icon}</div>
+
+<h3>${l.name}</h3>
+
+<p class="small">
+${l.type==="EXAM"
+?"Exam preparation, practice and revision"
+:"School textbook lessons, exercises and quizzes"}
+</p>
+
+</div>
+
+`).join("");
+
+}
+
+renderLevels();
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function hideAll(){
 document.getElementById("home").classList.add("hidden");
-document.getElementById("subjectPage").classList.remove("hidden");
-document.getElementById("subjectTitle").textContent="📚 "+s;
-document.getElementById("subjectIntro").textContent=d.intro;
-showLearn();
-renderTopics();
-window.scrollTo(0,0);
-}
-
-function renderTopics(){
-document.getElementById("topicList").innerHTML=subjects[current].topics.map((t,i)=>
-`<div class="topic" onclick="openLesson(${i})"><b>${t[0]}</b><br><small>Tap to read this lesson →</small></div>`).join("");
-}
-
-function openLesson(i){
-let t=subjects[current].topics[i];
-document.getElementById("topicList").classList.add("hidden");
-document.getElementById("lessonArea").classList.remove("hidden");
-document.getElementById("lessonTitle").textContent=t[0];
-document.getElementById("lessonText").innerHTML=
-`<p>${t[1]}</p>
-<div class="example"><h2>💡 Example / Understanding</h2><p>${t[2]}</p></div>
-<div class="key"><h2>⭐ Key Point</h2><p>Read this topic carefully, understand the idea, and try to explain it in your own words before moving to practice.</p></div>
-<h2>🧠 Study Tip</h2><p>After reading this lesson, test yourself without looking at the answer. Then return to the quiz section and practise.</p>`;
-window.scrollTo(0,0);
-}
-
-function closeLesson(){
-document.getElementById("lessonArea").classList.add("hidden");
-document.getElementById("topicList").classList.remove("hidden");
-}
-
-function showLearn(){
-document.getElementById("learnArea").classList.remove("hidden");
-document.getElementById("quizArea").classList.add("hidden");
-document.getElementById("learnTab").classList.add("active");
-document.getElementById("quizTab").classList.remove("active");
-}
-
-function showQuiz(){
-document.getElementById("learnArea").classList.add("hidden");
-document.getElementById("quizArea").classList.remove("hidden");
-document.getElementById("learnTab").classList.remove("active");
-document.getElementById("quizTab").classList.add("active");
-qi=0;score=0;answered=false;loadQuestion();window.scrollTo(0,0);
-}
-
-function loadQuestion(){
-let q=subjects[current].q[qi];
-document.getElementById("quizNumber").textContent="Question "+(qi+1)+" of "+subjects[current].q.length;
-document.getElementById("score").textContent="Score: "+score;
-document.getElementById("quizQuestion").textContent=q[0];
-document.getElementById("feedback").textContent="";
-answered=false;
-document.getElementById("quizOptions").innerHTML=q[1].map((x,i)=>
-`<button class="option" onclick="selectOption(${i})">${String.fromCharCode(65+i)}. ${x}</button>`).join("");
-}
-
-let selected=-1;
-function selectOption(i){
-if(answered)return;
-selected=i;
-document.querySelectorAll(".option").forEach((b,n)=>b.classList.toggle("selected",n===i));
-}
-
-function submitAnswer(){
-if(answered)return;
-if(selected<0){document.getElementById("feedback").textContent="⚠️ Please select an answer first.";return}
-let q=subjects[current].q[qi];
-answered=true;
-let buttons=document.querySelectorAll(".option");
-buttons[q[2]].classList.add("correct");
-if(selected===q[2]){
-score++;
-document.getElementById("feedback").textContent="✅ Correct! "+q[3];
-}else{
-buttons[selected].classList.add("wrong");
-document.getElementById("feedback").textContent="❌ Not correct. "+q[3];
-}
-document.getElementById("score").textContent="Score: "+score;
-}
-
-function nextQuestion(){
-if(!answered){
-document.getElementById("feedback").textContent="⚠️ Submit your answer first.";
-return;
-}
-qi++;
-if(qi>=subjects[current].q.length){
-document.getElementById("quizQuestion").textContent="🎉 Quiz Complete!";
-document.getElementById("quizOptions").innerHTML="";
-document.getElementById("feedback").textContent="You scored "+score+" out of "+subjects[current].q.length+". Keep learning and practising!";
-return;
-}
-selected=-1;
-loadQuestion();
+document.getElementById("levelPage").classList.add("hidden");
+document.getElementById("subjectPage").classList.add("hidden");
+document.getElementById("lessonPage").classList.add("hidden");
 }
 
 function goHome(){
-document.getElementById("subjectPage").classList.add("hidden");
+hideAll();
 document.getElementById("home").classList.remove("hidden");
 window.scrollTo(0,0);
 }
+
+function openLevel(level){
+
+currentLevel=level;
+
+hideAll();
+
+document.getElementById("levelPage").classList.remove("hidden");
+
+const l=levels[level];
+
+document.getElementById("levelHeader").innerHTML=`
+<h1>${l.icon} ${l.name}</h1>
+<p class="small">
+Choose a subject to enter the digital textbook.
+Each subject contains learning modules, lessons, exercises and quizzes.
+</p>
+`;
+
+document.getElementById("subjectSearch").value="";
+
+renderSubjects();
+
+window.scrollTo(0,0);
+}
+
+
+function renderSubjects(filter=""){
+
+const grid=document.getElementById("subjectGrid");
+
+const subjects=levels[currentLevel].subjects.filter(s=>
+s.toLowerCase().includes(filter.toLowerCase())
+);
+
+grid.innerHTML=subjects.map(subject=>`
+
+<div class="card subject-card"
+data-subject="${subject.toLowerCase()}">
+
+<div class="icon">${icons[subject]||"📘"}</div>
+
+<h3>${subject}</h3>
+
+<p class="small">
+Textbook lessons • Exercises • Quiz
+</p>
+
+<button onclick="event.stopPropagation();openSubject('${subject}')">
+Open Course →
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+function filterSubjects(){
+renderSubjects(document.getElementById("subjectSearch").value);
+}
+
+
+/* =========================================================
+   SUBJECT
+========================================================= */
+
+function getSubjectData(){
+
+const levelType=levels[currentLevel].type;
+
+return topicDB[levelType]?.[currentSubject]||{};
+}
+
+function openSubject(subject){
+
+currentSubject=subject;
+
+hideAll();
+
+document.getElementById("subjectPage").classList.remove("hidden");
+
+document.getElementById("subjectHeader").innerHTML=`
+
+<h1>${icons[subject]||"📘"} ${subject}</h1>
+
+<p class="small">
+${levels[currentLevel].name} • Digital Textbook Course
+</p>
+
+<div class="progress">
+<div id="courseProgress" class="progress-bar"></div>
+</div>
+
+<p id="progressText" class="small"></p>
+`;
+
+showSubjectTab("chapters",document.querySelector(".tab"));
+
+window.scrollTo(0,0);
+}
+
+
+function showSubjectTab(tab,button){
+
+document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+
+if(button)button.classList.add("active");
+
+if(tab==="chapters"){
+
+document.getElementById("chaptersTab").classList.remove("hidden");
+document.getElementById("quizTab").classList.add("hidden");
+
+renderChapters();
+
+}else{
+
+document.getElementById("chaptersTab").classList.add("hidden");
+document.getElementById("quizTab").classList.remove("hidden");
+
+renderCourseQuiz();
+
+}
+
+}
+
+
+/* =========================================================
+   CHAPTERS
+========================================================= */
+
+function renderChapters(){
+
+const data=getSubjectData();
+const box=document.getElementById("chaptersTab");
+
+let html="";
+
+Object.entries(data).forEach(([term,topics],termIndex)=>{
+
+html+=`
+
+<h2 class="section-title">${term}</h2>
+`;
+
+for(let i=0;i<topics.length;i+=2){
+
+let chapterTopics=topics.slice(i,i+2);
+
+html+=`
+<div class="chapter">
+
+<div class="chapter-title">
+📖 Chapter ${Math.floor(i/2)+1} — ${chapterTopics[0]}
+</div>
+`;
+
+chapterTopics.forEach((topic,j)=>{
+
+let key=progressKey(term,topic);
+
+html+=`
+<div class="topic ${progressData[key]?"done":""}"
+onclick="openLesson('${term}',${i+j})">
+
+${progressData[key]?"✓ ":""} 
+${i+j+1}. ${topic}
+
+</div>
+`;
+
+});
+
+html+=`</div>`;
+
+}
+
+});
+
+box.innerHTML=html;
+
+updateProgress();
+
+}
+
+
+/* =========================================================
+   LESSON
+========================================================= */
+
+function openLesson(term,index){
+
+currentTerm=term;
+
+const topics=getSubjectData()[term];
+
+currentTopicIndex=index;
+
+allCurrentTopics=topics;
+
+renderLesson();
+
+}
+
+
+function renderLesson(){
+
+hideAll();
+
+document.getElementById("lessonPage").classList.remove("hidden");
+
+const topic=allCurrentTopics[currentTopicIndex];
+
+const data=getProfile(topic,currentSubject);
+
+const chapter=Math.floor(currentTopicIndex/2)+1;
+
+document.getElementById("lessonContent").innerHTML=`
+
+<div class="lesson">
+
+<p class="small">
+${levels[currentLevel].name} • ${currentSubject} • ${currentTerm}
+</p>
+
+<h2>Chapter ${chapter}: ${topic}</h2>
+
+<div class="objectives">
+
+<h3>🎯 Learning Objectives</h3>
+
+<ul>
+${data.points.slice(0,4).map(x=>`<li>Understand ${x.toLowerCase()}</li>`).join("")}
+</ul>
+
+</div>
+
+<h3>📖 Introduction</h3>
+
+<p>${data.intro}</p>
+
+<h3>🧠 What You Should Know</h3>
+
+<p>
+The important idea in this lesson is <strong>${topic}</strong>.
+Students should understand the meaning of the concept, recognise its
+main features and be able to apply the knowledge when answering questions.
+</p>
+
+<h3>📚 Key Points</h3>
+
+<div class="keybox">
+
+<ul>
+${data.points.map(x=>`<li>${x}</li>`).join("")}
+</ul>
+
+</div>
+
+<h3>✏️ Worked Example</h3>
+
+<div class="example">
+<strong>Example:</strong>
+<p>${data.example}</p>
+</div>
+
+<h3>⚠️ Common Mistakes</h3>
+
+<div class="mistakes">
+
+<ul>
+<li>Do not memorise definitions without understanding them.</li>
+<li>Read every question carefully.</li>
+<li>Use correct subject terminology.</li>
+<li>Show your working when calculation is required.</li>
+</ul>
+
+</div>
+
+<h3>📝 Student Exercise</h3>
+
+<div class="exercise">
+
+<p>${data.exercise}</p>
+
+<ol>
+<li>Explain the main idea in your own words.</li>
+<li>List three important facts from this lesson.</li>
+<li>Give one real-life example related to the topic.</li>
+</ol>
+
+</div>
+
+<h3>📌 Lesson Summary</h3>
+
+<p>
+You have studied <strong>${topic}</strong>.
+Review the key points, attempt the exercise and then use the
+course quiz to test your understanding.
+</p>
+
+</div>
+`;
+
+window.scrollTo(0,0);
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function progressKey(term,topic){
+
+return currentLevel+"|"+currentSubject+"|"+term+"|"+topic;
+
+}
+
+function markComplete(){
+
+const topic=allCurrentTopics[currentTopicIndex];
+
+progressData[progressKey(currentTerm,topic)]=true;
+
+localStorage.setItem(
+"eduproProgress",
+JSON.stringify(progressData)
+);
+
+alert("Lesson marked as completed ✓");
+
+renderLesson();
+
+}
+
+function updateProgress(){
+
+const data=getSubjectData();
+
+let total=0;
+let done=0;
+
+Object.entries(data).forEach(([term,topics])=>{
+
+topics.forEach(topic=>{
+
+total++;
+
+if(progressData[progressKey(term,topic)])done++;
+
+});
+
+});
+
+let percent=total?Math.round(done/total*100):0;
+
+const bar=document.getElementById("courseProgress");
+
+if(bar)bar.style.width=percent+"%";
+
+const text=document.getElementById("progressText");
+
+if(text)
+text.textContent=done+" of "+total+" lessons completed ("+percent+"%)";
+
+}
+
+
+/* =========================================================
+   NEXT / PREVIOUS
+========================================================= */
+
+function nextTopic(){
+
+if(currentTopicIndex<allCurrentTopics.length-1){
+
+currentTopicIndex++;
+renderLesson();
+
+}else{
+
+alert("You have reached the end of this term. Great work! 🎉");
+
+}
+
+}
+
+function previousTopic(){
+
+if(currentTopicIndex>0){
+
+currentTopicIndex--;
+renderLesson();
+
+}else{
+
+alert("This is the first lesson in this module.");
+
+}
+
+}
+
+
+/* =========================================================
+   COURSE QUIZ
+========================================================= */
+
+function renderCourseQuiz(){
+
+const box=document.getElementById("quizTab");
+
+const questions=quizBank[currentSubject]||quizBank["Mathematics"];
+
+quizQuestions=[...questions];
+
+quizIndex=0;
+quizScore=0;
+
+box.innerHTML=`
+
+<div class="quiz-box">
+
+<h2>🧠 ${currentSubject} Course Quiz</h2>
+
+<p class="small">
+Test your understanding with original practice questions.
+</p>
+
+<div id="quizQuestion"></div>
+
+</div>
+`;
+
+showQuestion();
+
+}
+
+
+function showQuestion(){
+
+const box=document.getElementById("quizQuestion");
+
+if(quizIndex>=quizQuestions.length){
+
+box.innerHTML=`
+
+<h2>🎉 Quiz Complete!</h2>
+
+<p>
+You scored <strong>${quizScore}/${quizQuestions.length}</strong>.
+</p>
+
+<p>
+${quizScore===quizQuestions.length
+?"Excellent! Perfect score. 🔥"
+:quizScore>=quizQuestions.length/2
+?"Good work. Review your lessons and try again."
+:"Keep studying. Go back to the textbook lessons and try again."}
+</p>
+
+<button class="primary" onclick="renderCourseQuiz()">
+Try Again
+</button>
+`;
+
+return;
+
+}
+
+const q=quizQuestions[quizIndex];
+
+box.innerHTML=`
+
+<p>
+<strong>Question ${quizIndex+1} of ${quizQuestions.length}</strong>
+</p>
+
+<h3>${q[0]}</h3>
+
+<div id="options">
+
+${q[1].map((option,i)=>`
+
+<label class="option">
+
+<input type="radio"
+name="answer"
+value="${i}">
+
+${String.fromCharCode(65+i)}. ${option}
+
+</label>
+
+`).join("")}
+
+</div>
+
+<button class="primary" onclick="submitAnswer()">
+Submit Answer
+</button>
+
+<div id="answerResult"></div>
+
+`;
+
+}
+
+
+function submitAnswer(){
+
+const selected=document.querySelector(
+'input[name="answer"]:checked'
+);
+
+if(!selected){
+
+alert("Please choose an answer first.");
+
+return;
+
+}
+
+const answer=Number(selected.value);
+const q=quizQuestions[quizIndex];
+
+const result=document.getElementById("answerResult");
+
+if(answer===q[2]){
+
+quizScore++;
+
+result.innerHTML=`
+<div class="result">
+<strong>✅ Correct!</strong>
+<p>${q[3]}</p>
+<button class="primary" onclick="nextQuestion()">Next Question →</button>
+</div>
+`;
+
+}else{
+
+result.innerHTML=`
+<div class="result">
+<strong>❌ Not correct.</strong>
+<p><strong>Correct answer:</strong> ${q[1][q[2]]}</p>
+<p>${q[3]}</p>
+<button class="primary" onclick="nextQuestion()">Next Question →</button>
+</div>
+`;
+
+}
+
+document.querySelectorAll(
+'input[name="answer"]'
+).forEach(x=>x.disabled=true);
+
+}
+
+function nextQuestion(){
+
+quizIndex++;
+showQuestion();
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchEverything(){
+
+const value=document
+.getElementById("searchBox")
+.value
+.toLowerCase()
+.trim();
+
+if(!value){
+
+renderLevels();
+
+return;
+
+}
+
+const matches=[];
+
+Object.entries(levels).forEach(([key,level])=>{
+
+level.subjects.forEach(subject=>{
+
+if(subject.toLowerCase().includes(value)){
+
+matches.push({
+level:key,
+subject:subject
+});
+
+}
+
+});
+
+});
+
+const grid=document.getElementById("levelGrid");
+
+if(matches.length===0){
+
+grid.innerHTML=`
+<div class="card">
+<h3>No result found</h3>
+<p class="small">
+Try searching Mathematics, Biology, Agriculture,
+Physics, Chemistry, JAMB or WAEC.
+</p>
+</div>
+`;
+
+return;
+
+}
+
+grid.innerHTML=matches.map(x=>`
+
+<div class="card" onclick="openLevel('${x.level}')">
+
+<div class="icon">${icons[x.subject]||"📘"}</div>
+
+<h3>${x.subject}</h3>
+
+<p class="small">${levels[x.level].name}</p>
+
+</div>
+
+`).join("");
+
+}
+
 </script>
+
 </body>
 </html>
