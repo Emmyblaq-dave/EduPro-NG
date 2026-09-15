@@ -2,104 +2,164 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EduPro-NG</title>
-
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#f5f7fb;color:#172033}
-header{background:#08783f;color:white;padding:20px}
-.logo{font-size:26px;font-weight:bold}
-.tag{margin-top:5px}
-main{max-width:900px;margin:auto;padding:18px}
-.hero{background:#08783f;color:white;padding:25px;border-radius:20px}
-.hero h1{font-size:30px;margin-top:0}
-.hero p{font-size:17px;line-height:1.5}
-button{border:0;border-radius:10px;padding:12px 16px;font-weight:bold}
-.start{background:white;color:#08783f}
-h2{margin-top:28px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.card{background:white;padding:17px;border-radius:15px;box-shadow:0 3px 12px #ddd}
-.card b{font-size:17px}
-.card p{color:#667085;font-size:13px}
-.quiz,.pro{background:white;padding:20px;border-radius:18px;margin-top:15px;box-shadow:0 3px 12px #ddd}
-.option{display:block;width:100%;margin:8px 0;text-align:left;background:#eef1f5}
-.pro{background:#172033;color:white}
-.pro strong{color:#ffd166}
-footer{text-align:center;padding:30px;color:#667085}
-@media(max-width:500px){.grid{grid-template-columns:1fr}.hero h1{font-size:27px}}
+*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f5f7fb;color:#172033}
+header{background:#08783f;color:white;padding:20px}.logo{font-size:25px;font-weight:bold}
+main{max-width:900px;margin:auto;padding:18px}.hero,.lesson,.quiz,.pro{border-radius:18px;padding:20px;margin-bottom:16px}
+.hero{background:#08783f;color:white}.hero h1{font-size:29px}.hero button,.back{background:white;color:#08783f}
+button{border:0;border-radius:10px;padding:12px 16px;font-weight:bold;margin:5px 0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:white;padding:18px;border-radius:15px;box-shadow:0 3px 12px #ddd;cursor:pointer}
+.card:hover{transform:scale(1.01)}.card b{font-size:17px}.card p{color:#667085}
+.lesson,.quiz{background:white;box-shadow:0 3px 12px #ddd}.lesson h2{color:#08783f}
+.topic{background:#eef7f1;padding:14px;border-radius:12px;margin:8px 0;cursor:pointer}
+.option{display:block;width:100%;text-align:left;background:#eef1f5}.hidden{display:none}
+.pro{background:#172033;color:white}footer{text-align:center;padding:30px;color:#667085}
+@media(max-width:500px){.grid{grid-template-columns:1fr}.hero h1{font-size:26px}}
 </style>
 </head>
 
 <body>
-
-<header>
-<div class="logo">📚 EduPro-NG</div>
-<div class="tag">Learn • Practice • Pass</div>
-</header>
+<header><div class="logo">📚 EduPro-NG</div><div>Learn • Practice • Pass</div></header>
 
 <main>
-
 <section class="hero">
 <h1>Prepare Smarter for Nigerian Exams</h1>
-<p>JAMB, WAEC, NECO, GCE and secondary school subjects with quizzes, lessons and exam practice.</p>
-<button class="start" onclick="document.getElementById('subjects').scrollIntoView()">Start Learning</button>
+<p>Learn, understand and practise JAMB, WAEC, NECO, GCE and secondary school subjects.</p>
+<button onclick="document.getElementById('subjects').scrollIntoView()">Start Learning</button>
 </section>
 
+<div id="home">
 <h2 id="subjects">📚 Subjects & Exams</h2>
-
 <div class="grid">
-
-<div class="card">🎯 <b>JAMB / UTME</b><p>CBT practice</p></div>
-<div class="card">📝 <b>WAEC</b><p>WASSCE preparation</p></div>
-<div class="card">📘 <b>NECO</b><p>Exam preparation</p></div>
-<div class="card">🎓 <b>GCE</b><p>Practice tests</p></div>
-<div class="card">➗ <b>Mathematics</b><p>Hard problems</p></div>
-<div class="card">📖 <b>English</b><p>Grammar and comprehension</p></div>
-<div class="card">⚡ <b>Physics</b><p>Calculations and theory</p></div>
-<div class="card">🧪 <b>Chemistry</b><p>Reactions and calculations</p></div>
-<div class="card">🧬 <b>Biology</b><p>Concepts and diagrams</p></div>
-<div class="card">🏛️ <b>Government</b><p>Politics and civics</p></div>
-<div class="card">💰 <b>Economics</b><p>Markets and theory</p></div>
-<div class="card">🌍 <b>Geography</b><p>Maps and environment</p></div>
-<div class="card">📚 <b>Literature</b><p>Texts and analysis</p></div>
-<div class="card">💻 <b>Computer Studies</b><p>ICT practice</p></div>
-
+<div class="card" onclick="openSubject('JAMB / UTME')">🎯 <b>JAMB / UTME</b><p>CBT preparation</p></div>
+<div class="card" onclick="openSubject('WAEC')">📝 <b>WAEC</b><p>WASSCE preparation</p></div>
+<div class="card" onclick="openSubject('NECO')">📘 <b>NECO</b><p>Exam preparation</p></div>
+<div class="card" onclick="openSubject('GCE')">🎓 <b>GCE</b><p>Practice and revision</p></div>
+<div class="card" onclick="openSubject('Mathematics')">➗ <b>Mathematics</b><p>Lessons and examples</p></div>
+<div class="card" onclick="openSubject('English')">📖 <b>English</b><p>Grammar and comprehension</p></div>
+<div class="card" onclick="openSubject('Physics')">⚡ <b>Physics</b><p>Theory and calculations</p></div>
+<div class="card" onclick="openSubject('Chemistry')">🧪 <b>Chemistry</b><p>Lessons and reactions</p></div>
+<div class="card" onclick="openSubject('Biology')">🧬 <b>Biology</b><p>Lessons and diagrams</p></div>
+<div class="card" onclick="openSubject('Government')">🏛️ <b>Government</b><p>Government studies</p></div>
+<div class="card" onclick="openSubject('Economics')">💰 <b>Economics</b><p>Economic concepts</p></div>
+<div class="card" onclick="openSubject('Geography')">🌍 <b>Geography</b><p>People and environment</p></div>
+<div class="card" onclick="openSubject('Literature')">📚 <b>Literature</b><p>Texts and analysis</p></div>
+<div class="card" onclick="openSubject('Computer Studies')">💻 <b>Computer Studies</b><p>ICT lessons</p></div>
+</div>
 </div>
 
-<h2>🔥 Daily Challenge</h2>
-
+<section id="page" class="hidden">
+<button class="back" onclick="goHome()">← Back to Subjects</button>
+<div class="lesson">
+<h1 id="title"></h1>
+<p id="intro"></p>
+<h2>📖 Learn</h2>
+<div id="topics"></div>
+</div>
 <div class="quiz">
-<p><b>Mathematics:</b> A quantity increases by 20% and then decreases by 20%. What is the overall change?</p>
-
-<button class="option" onclick="answer(false)">A. No change</button>
-<button class="option" onclick="answer(false)">B. 2% increase</button>
-<button class="option" onclick="answer(true)">C. 4% decrease</button>
-<button class="option" onclick="answer(false)">D. 4% increase</button>
-
-<p id="result"></p>
+<h2>📝 Quick Practice</h2>
+<p id="question"></p>
+<div id="options"></div>
+<p id="feedback"></p>
+<button onclick="nextQuestion()">Next Question →</button>
 </div>
+</section>
 
-<div class="pro">
+<section class="pro">
 <h2>⭐ EduPro-NG PRO</h2>
 <p>Harder questions, timed CBT, mock exams and detailed explanations.</p>
-<p><strong>₦500 / month</strong></p>
-<button onclick="alert('PRO payment coming soon')">PRO Coming Soon</button>
-</div>
-
-<footer>
-EduPro-NG<br>
-Nigerian Education Platform
-</footer>
-
+<strong>₦500 / month</strong>
+</section>
+<footer>EduPro-NG<br>Nigerian Education Platform</footer>
 </main>
 
 <script>
-function answer(correct){
-document.getElementById("result").innerHTML=
-correct?"✅ Correct! The answer is 4% decrease.":"❌ Try again.";
+const data={
+"Chemistry":{
+intro:"Chemistry is the study of matter, its properties, composition and the changes it undergoes.",
+topics:[
+["⚛️ Atomic Structure","An atom is the basic unit of an element. It contains protons, neutrons and electrons. Protons have positive charge, electrons have negative charge, while neutrons have no charge. The atomic number of an element is the number of protons in its atom."],
+["🧪 Acids and Bases","Acids are substances that produce hydrogen ions in aqueous solution. Bases can neutralise acids. A neutralisation reaction between an acid and a base produces salt and water."],
+["🔗 Chemical Bonding","Atoms can combine to form compounds. Ionic bonding involves transfer of electrons, while covalent bonding involves sharing of electrons."]
+],q:["Which particle has a negative charge?",["Proton","Neutron","Electron","Nucleus"],2]},
+"Mathematics":{
+intro:"Mathematics helps students develop logical thinking and solve numerical problems.",
+topics:[
+["➗ Algebra","Algebra uses letters and symbols to represent unknown quantities. For example, if x + 5 = 12, subtracting 5 from both sides gives x = 7."],
+["📐 Geometry","Geometry deals with shapes, sizes, angles and space. The angles in a triangle add up to 180°."],
+["📊 Percentages","A percentage means a quantity out of 100. To find 20% of 50, calculate 20/100 × 50 = 10."]
+],q:["If 3x = 18, what is x?",["3","6","9","12"],1]},
+"Physics":{
+intro:"Physics explains matter, energy, motion, forces and how the physical world works.",
+topics:[
+["🏃 Motion","Speed describes how quickly an object covers distance. Speed = distance ÷ time."],
+["⚡ Electricity","Electric current is the flow of electric charge through a conductor. Voltage provides the potential difference that drives current."],
+["🔋 Energy","Energy is the ability to do work. Common forms include kinetic, potential, thermal and electrical energy."]
+],q:["A car travels 100 m in 5 s. What is its average speed?",["10 m/s","20 m/s","25 m/s","50 m/s"],1]},
+"Biology":{
+intro:"Biology is the scientific study of living organisms.",
+topics:[
+["🧬 The Cell","The cell is the basic structural and functional unit of life. Plant and animal cells have structures that perform different functions."],
+["🌱 Photosynthesis","Green plants use light energy to make food from carbon dioxide and water. Chlorophyll helps absorb light energy."],
+["❤️ Human Body","The human body contains systems that work together, including the digestive, respiratory and circulatory systems."]
+],q:["What is the basic unit of life?",["Organ","Cell","Tissue","System"],1]},
+"English":{
+intro:"English helps students communicate clearly through reading, writing, speaking and listening.",
+topics:[
+["📖 Grammar","Grammar describes the rules used to form correct sentences."],
+["✍️ Parts of Speech","Nouns name people, places, animals or things. Verbs express actions or states."],
+["🗣️ Vocabulary","Learning vocabulary improves understanding and helps students express ideas accurately."]
+],q:["Which word is a verb?",["Beautiful","Quickly","Run","School"],2]},
+"Government":{
+intro:"Government deals with how societies are organised, governed and administered.",
+topics:[["🏛️ Democracy","Democracy is a system in which citizens participate in choosing their representatives."],["🗳️ Elections","Elections allow eligible citizens to choose among candidates for public office."],["⚖️ Constitution","A constitution establishes fundamental rules and principles for governing a state."]],q:["What is democracy mainly associated with?",["Military rule","Citizen participation","Absolute monarchy","No elections"],1]},
+"Economics":{
+intro:"Economics studies how people and societies use limited resources to satisfy needs and wants.",
+topics:[["💰 Scarcity","Scarcity exists because resources are limited while human wants are numerous."],["📈 Demand","Demand refers to the quantity of a good consumers are willing and able to buy at a given price."],["🏪 Market","A market is a system where buyers and sellers interact to exchange goods and services."]],q:["What is the basic economic problem?",["Scarcity","Rainfall","Population","Transportation"],0]},
+"Geography":{
+intro:"Geography studies the Earth, its physical features, people and environment.",
+topics:[["🌍 Earth","Earth has land, water and an atmosphere that support life."],["🗺️ Maps","Maps represent places and features of the Earth's surface."],["🌦️ Weather","Weather describes atmospheric conditions at a particular place and time."]],q:["What does a map represent?",["Only people","Places and features","Only animals","Only weather"],1]},
+"Literature":{
+intro:"Literature uses written and spoken works to express ideas, experiences and imagination.",
+topics:[["📚 Prose","Prose is written or spoken language in its ordinary form, including novels and short stories."],["🎭 Drama","Drama is literature written for performance by actors."],["🎵 Poetry","Poetry uses carefully arranged language, rhythm and imagery to express ideas and emotions."]],q:["Which form is normally written for performance?",["Drama","Dictionary","Essay","Report"],0]},
+"Computer Studies":{
+intro:"Computer Studies teaches students how computers and digital systems work.",
+topics:[["💻 Computer","A computer is an electronic device that processes data into useful information."],["⌨️ Hardware","Hardware refers to the physical parts of a computer, such as the keyboard, monitor and processor."],["🧠 Software","Software consists of programs and instructions that tell a computer what to do."]],q:["Which is computer hardware?",["Keyboard","Browser history","Password","Algorithm"],0]},
+"JAMB / UTME":{
+intro:"JAMB / UTME preparation requires strong understanding, regular practice and good examination technique.",
+topics:[["🎯 Study Strategy","Study one topic at a time, understand the concept, practise questions and review your mistakes."],["⏱️ CBT Practice","Computer-based testing requires students to manage time carefully while answering questions."],["📝 Revision","Regular revision helps students remember important concepts and identify weak areas."]],q:["What is a good study approach?",["Avoid revision","Understand and practise","Study only on exam day","Skip difficult topics"],1]},
+"WAEC":{
+intro:"WAEC preparation combines understanding the syllabus, studying lessons and practising examination questions.",
+topics:[["📖 Study","Understand each topic before attempting difficult questions."],["📝 Practice","Practise regularly and review mistakes."],["🎯 Examination","Read instructions carefully and manage examination time."]],q:["What should you do after making a mistake in practice?",["Ignore it","Review and understand it","Stop studying","Delete the question"],1]},
+"NECO":{
+intro:"NECO preparation should combine learning, revision and regular practice.",
+topics:[["📚 Learning","Build a strong understanding of each topic."],["🔄 Revision","Review previously studied topics regularly."],["📝 Practice","Use practice questions to test your understanding."]],q:["Why is revision useful?",["It replaces learning","It reinforces understanding","It prevents studying","It removes exams"],1]},
+"GCE":{
+intro:"GCE students can improve their performance through organised study and consistent practice.",
+topics:[["📖 Lessons","Study concepts carefully and make useful notes."],["📝 Exercises","Attempt exercises after studying each topic."],["🎯 Review","Review weak areas before examinations."]],q:["What helps identify weak areas?",["Regular practice","Avoiding questions","Skipping revision","Studying nothing"],0]}
+};
+let current="",correct=0;
+function openSubject(s){
+current=s;let d=data[s]||data["Chemistry"];
+document.getElementById("home").classList.add("hidden");
+document.getElementById("page").classList.remove("hidden");
+document.getElementById("title").textContent="📚 "+s;
+document.getElementById("intro").textContent=d.intro;
+document.getElementById("topics").innerHTML=d.topics.map((t,i)=>`<div class="topic" onclick="showTopic(${i})"><b>${t[0]}</b></div>`).join("");
+document.getElementById("question").textContent=d.q[0];
+document.getElementById("options").innerHTML=d.q[1].map((x,i)=>`<button class="option" onclick="check(${i})">${String.fromCharCode(65+i)}. ${x}</button>`).join("");
+document.getElementById("feedback").textContent="";
 }
+function showTopic(i){
+let d=data[current];alert(d.topics[i][0]+"\n\n"+d.topics[i][1]);
+}
+function check(i){
+let d=data[current];document.getElementById("feedback").textContent=i===d.q[2]?"✅ Correct!":"❌ Not correct. Read the lesson again and try the next question.";
+}
+function nextQuestion(){document.getElementById("feedback").textContent="Keep practising! More questions will be added to EduPro-NG."}
+function goHome(){document.getElementById("page").classList.add("hidden");document.getElementById("home").classList.remove("hidden")}
 </script>
-
 </body>
 </html>
