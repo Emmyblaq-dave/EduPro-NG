@@ -5,161 +5,405 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>EduPro-NG</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial;background:#f5f7fb;color:#172033}
-header{background:#08783f;color:white;padding:20px}.logo{font-size:25px;font-weight:bold}
-main{max-width:900px;margin:auto;padding:18px}.hero,.lesson,.quiz,.pro{border-radius:18px;padding:20px;margin-bottom:16px}
-.hero{background:#08783f;color:white}.hero h1{font-size:29px}.hero button,.back{background:white;color:#08783f}
-button{border:0;border-radius:10px;padding:12px 16px;font-weight:bold;margin:5px 0}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{background:white;padding:18px;border-radius:15px;box-shadow:0 3px 12px #ddd;cursor:pointer}
-.card:hover{transform:scale(1.01)}.card b{font-size:17px}.card p{color:#667085}
-.lesson,.quiz{background:white;box-shadow:0 3px 12px #ddd}.lesson h2{color:#08783f}
-.topic{background:#eef7f1;padding:14px;border-radius:12px;margin:8px 0;cursor:pointer}
-.option{display:block;width:100%;text-align:left;background:#eef1f5}.hidden{display:none}
-.pro{background:#172033;color:white}footer{text-align:center;padding:30px;color:#667085}
-@media(max-width:500px){.grid{grid-template-columns:1fr}.hero h1{font-size:26px}}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7f5;color:#172033}
+header{background:#08783f;color:#fff;padding:18px}
+.logo{font-size:26px;font-weight:bold}
+main{max-width:950px;margin:auto;padding:18px}
+.hero{background:#08783f;color:white;padding:28px;border-radius:20px;margin-bottom:20px}
+.hero h1{font-size:31px;margin:0 0 10px}
+.hero p{font-size:17px;line-height:1.6}
+button{border:0;border-radius:11px;padding:13px 17px;font-weight:bold;cursor:pointer}
+.start,.back{background:white;color:#08783f}
+h2{margin-top:28px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
+.card{background:white;padding:19px;border-radius:16px;box-shadow:0 3px 12px #ddd;cursor:pointer}
+.card b{font-size:18px}.card p{color:#667085;margin-bottom:0}
+.panel{background:white;padding:22px;border-radius:18px;box-shadow:0 3px 12px #ddd;margin-bottom:18px}
+.hidden{display:none}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}
+.tab{background:#e8f4ed;color:#08783f}
+.tab.active{background:#08783f;color:white}
+.topic{background:#f0f7f2;padding:16px;border-radius:13px;margin:9px 0;cursor:pointer}
+.topic b{font-size:17px}
+.lesson{line-height:1.7;font-size:16px}
+.lesson h2{color:#08783f}
+.example{background:#fff8df;padding:17px;border-radius:13px;margin:18px 0}
+.key{background:#e8f4ed;padding:17px;border-radius:13px}
+.option{display:block;width:100%;text-align:left;background:#edf0f4;margin:9px 0}
+.option.selected{background:#ccebd8}
+.correct{background:#ccebd8!important}
+.wrong{background:#ffd6d6!important}
+.quiztop{display:flex;justify-content:space-between;font-weight:bold}
+#feedback{font-weight:bold;font-size:17px;line-height:1.5}
+.pro{background:#172033;color:white;padding:24px;border-radius:18px;margin-top:20px}
+.pro strong{color:#ffd166;font-size:20px}
+footer{text-align:center;padding:35px;color:#667085}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.hero h1{font-size:27px}}
 </style>
 </head>
 
 <body>
-<header><div class="logo">📚 EduPro-NG</div><div>Learn • Practice • Pass</div></header>
+<header>
+<div class="logo">📚 EduPro-NG</div>
+<div>Learn • Practice • Pass</div>
+</header>
 
 <main>
+
 <section class="hero">
 <h1>Prepare Smarter for Nigerian Exams</h1>
-<p>Learn, understand and practise JAMB, WAEC, NECO, GCE and secondary school subjects.</p>
-<button onclick="document.getElementById('subjects').scrollIntoView()">Start Learning</button>
+<p>Learn school subjects, understand difficult topics, practise questions and prepare for JAMB, WAEC, NECO and GCE.</p>
+<button class="start" onclick="document.getElementById('subjects').scrollIntoView()">Start Learning</button>
 </section>
 
-<div id="home">
+<section id="home">
 <h2 id="subjects">📚 Subjects & Exams</h2>
 <div class="grid">
+<div class="card" onclick="openSubject('Mathematics')">➗ <b>Mathematics</b><p>Lessons, examples & practice</p></div>
+<div class="card" onclick="openSubject('English')">📖 <b>English</b><p>Grammar, vocabulary & comprehension</p></div>
+<div class="card" onclick="openSubject('Physics')">⚡ <b>Physics</b><p>Theory, formulas & calculations</p></div>
+<div class="card" onclick="openSubject('Chemistry')">🧪 <b>Chemistry</b><p>Atoms, reactions & calculations</p></div>
+<div class="card" onclick="openSubject('Biology')">🧬 <b>Biology</b><p>Living things & diagrams</p></div>
+<div class="card" onclick="openSubject('Government')">🏛️ <b>Government</b><p>Politics, democracy & civics</p></div>
+<div class="card" onclick="openSubject('Economics')">💰 <b>Economics</b><p>Markets, demand & supply</p></div>
+<div class="card" onclick="openSubject('Geography')">🌍 <b>Geography</b><p>Earth, maps & environment</p></div>
+<div class="card" onclick="openSubject('Literature')">📚 <b>Literature</b><p>Prose, drama & poetry</p></div>
+<div class="card" onclick="openSubject('Computer Studies')">💻 <b>Computer Studies</b><p>ICT & computer fundamentals</p></div>
 <div class="card" onclick="openSubject('JAMB / UTME')">🎯 <b>JAMB / UTME</b><p>CBT preparation</p></div>
 <div class="card" onclick="openSubject('WAEC')">📝 <b>WAEC</b><p>WASSCE preparation</p></div>
 <div class="card" onclick="openSubject('NECO')">📘 <b>NECO</b><p>Exam preparation</p></div>
-<div class="card" onclick="openSubject('GCE')">🎓 <b>GCE</b><p>Practice and revision</p></div>
-<div class="card" onclick="openSubject('Mathematics')">➗ <b>Mathematics</b><p>Lessons and examples</p></div>
-<div class="card" onclick="openSubject('English')">📖 <b>English</b><p>Grammar and comprehension</p></div>
-<div class="card" onclick="openSubject('Physics')">⚡ <b>Physics</b><p>Theory and calculations</p></div>
-<div class="card" onclick="openSubject('Chemistry')">🧪 <b>Chemistry</b><p>Lessons and reactions</p></div>
-<div class="card" onclick="openSubject('Biology')">🧬 <b>Biology</b><p>Lessons and diagrams</p></div>
-<div class="card" onclick="openSubject('Government')">🏛️ <b>Government</b><p>Government studies</p></div>
-<div class="card" onclick="openSubject('Economics')">💰 <b>Economics</b><p>Economic concepts</p></div>
-<div class="card" onclick="openSubject('Geography')">🌍 <b>Geography</b><p>People and environment</p></div>
-<div class="card" onclick="openSubject('Literature')">📚 <b>Literature</b><p>Texts and analysis</p></div>
-<div class="card" onclick="openSubject('Computer Studies')">💻 <b>Computer Studies</b><p>ICT lessons</p></div>
+<div class="card" onclick="openSubject('GCE')">🎓 <b>GCE</b><p>Revision & practice</p></div>
+</div>
+</section>
+
+<section id="subjectPage" class="hidden">
+<button class="back" onclick="goHome()">← Back to Subjects</button>
+<div class="panel">
+<h1 id="subjectTitle"></h1>
+<p id="subjectIntro"></p>
+
+<div class="tabs">
+<button id="learnTab" class="tab active" onclick="showLearn()">📖 Learn</button>
+<button id="quizTab" class="tab" onclick="showQuiz()">📝 Quiz</button>
+</div>
+
+<div id="learnArea">
+<h2>📚 Topics</h2>
+<div id="topicList"></div>
+<div id="lessonArea" class="hidden">
+<button class="back" onclick="closeLesson()">← Back to Topics</button>
+<div class="lesson">
+<h1 id="lessonTitle"></h1>
+<div id="lessonText"></div>
+</div>
 </div>
 </div>
 
-<section id="page" class="hidden">
-<button class="back" onclick="goHome()">← Back to Subjects</button>
-<div class="lesson">
-<h1 id="title"></h1>
-<p id="intro"></p>
-<h2>📖 Learn</h2>
-<div id="topics"></div>
+<div id="quizArea" class="hidden">
+<div class="quiztop">
+<span id="quizNumber"></span>
+<span id="score">Score: 0</span>
 </div>
-<div class="quiz">
-<h2>📝 Quick Practice</h2>
-<p id="question"></p>
-<div id="options"></div>
+<h2 id="quizQuestion"></h2>
+<div id="quizOptions"></div>
+<button onclick="submitAnswer()">Submit Answer</button>
 <p id="feedback"></p>
 <button onclick="nextQuestion()">Next Question →</button>
+</div>
 </div>
 </section>
 
 <section class="pro">
 <h2>⭐ EduPro-NG PRO</h2>
-<p>Harder questions, timed CBT, mock exams and detailed explanations.</p>
-<strong>₦500 / month</strong>
+<p>Harder questions, timed CBT, mock examinations, detailed explanations and advanced revision.</p>
+<p><strong>₦500 / month</strong></p>
+<button onclick="alert('PRO features are coming soon.')">PRO Coming Soon</button>
 </section>
+
 <footer>EduPro-NG<br>Nigerian Education Platform</footer>
 </main>
 
 <script>
-const data={
-"Chemistry":{
-intro:"Chemistry is the study of matter, its properties, composition and the changes it undergoes.",
-topics:[
-["⚛️ Atomic Structure","An atom is the basic unit of an element. It contains protons, neutrons and electrons. Protons have positive charge, electrons have negative charge, while neutrons have no charge. The atomic number of an element is the number of protons in its atom."],
-["🧪 Acids and Bases","Acids are substances that produce hydrogen ions in aqueous solution. Bases can neutralise acids. A neutralisation reaction between an acid and a base produces salt and water."],
-["🔗 Chemical Bonding","Atoms can combine to form compounds. Ionic bonding involves transfer of electrons, while covalent bonding involves sharing of electrons."]
-],q:["Which particle has a negative charge?",["Proton","Neutron","Electron","Nucleus"],2]},
+const subjects={
 "Mathematics":{
-intro:"Mathematics helps students develop logical thinking and solve numerical problems.",
+intro:"Build your Mathematics knowledge from basic concepts to difficult examination problems.",
 topics:[
-["➗ Algebra","Algebra uses letters and symbols to represent unknown quantities. For example, if x + 5 = 12, subtracting 5 from both sides gives x = 7."],
-["📐 Geometry","Geometry deals with shapes, sizes, angles and space. The angles in a triangle add up to 180°."],
-["📊 Percentages","A percentage means a quantity out of 100. To find 20% of 50, calculate 20/100 × 50 = 10."]
-],q:["If 3x = 18, what is x?",["3","6","9","12"],1]},
+["➗ Algebra","Algebra uses letters to represent unknown values. Example: if 2x + 4 = 12, subtract 4 to get 2x = 8, then divide by 2. Therefore x = 4.","Always perform the same operation on both sides of an equation."],
+["📊 Percentages","A percentage means a number out of 100. To find 20% of 50, calculate 20/100 × 50 = 10. Percentages are useful in profit, discount, interest and examination problems.","Remember that percentage changes may be calculated from different starting values."],
+["📐 Geometry","Geometry deals with shapes, angles, lengths and areas. The angles inside a triangle always add up to 180 degrees.","If two angles of a triangle are 60° and 70°, the third angle is 50°."]
+],
+q:[
+["If 3x = 18, what is x?",["3","6","9","12"],1,"Divide both sides by 3: x = 18 ÷ 3 = 6."],
+["What is 20% of 50?",["5","10","15","20"],1,"20/100 × 50 = 10."],
+["The angles of a triangle add up to:",["90°","180°","270°","360°"],1,"The three interior angles of every triangle total 180°."]
+]},
 "Physics":{
-intro:"Physics explains matter, energy, motion, forces and how the physical world works.",
+intro:"Understand the laws of motion, energy, electricity and other physical phenomena.",
 topics:[
-["🏃 Motion","Speed describes how quickly an object covers distance. Speed = distance ÷ time."],
-["⚡ Electricity","Electric current is the flow of electric charge through a conductor. Voltage provides the potential difference that drives current."],
-["🔋 Energy","Energy is the ability to do work. Common forms include kinetic, potential, thermal and electrical energy."]
-],q:["A car travels 100 m in 5 s. What is its average speed?",["10 m/s","20 m/s","25 m/s","50 m/s"],1]},
+["🏃 Motion","Motion describes a change in position. Speed is calculated by dividing distance by time. For example, a car travelling 100 metres in 5 seconds has a speed of 20 m/s.","Formula: Speed = Distance ÷ Time."],
+["⚡ Electricity","Electric current is the flow of electric charge. Voltage is the potential difference that drives current through a circuit.","A circuit must have a complete conducting path for current to flow."],
+["🔋 Energy","Energy is the ability to do work. Kinetic energy is associated with motion, while potential energy is stored energy.","A moving car has kinetic energy because it is moving."]
+],
+q:[
+["A car travels 100 m in 5 s. Its speed is:",["10 m/s","20 m/s","25 m/s","50 m/s"],1,"Speed = distance ÷ time = 100 ÷ 5 = 20 m/s."],
+["Which energy is associated with motion?",["Chemical","Kinetic","Nuclear","Potential"],1,"Kinetic energy is the energy possessed by an object because of its motion."],
+["What is needed for current to flow in a simple circuit?",["An open path","A complete path","Only a bulb","Only a switch"],1,"Electric current requires a complete conducting path."]
+]},
+"Chemistry":{
+intro:"Learn about matter, atoms, chemical reactions, bonding, acids and bases.",
+topics:[
+["⚛️ Atomic Structure","An atom is the basic unit of an element. It contains protons, neutrons and electrons. Protons are positive, electrons are negative and neutrons have no charge.","The number of protons in an atom is its atomic number."],
+["🧪 Acids and Bases","Acids and bases have different chemical properties. An acid can react with a base in a neutralisation reaction to form salt and water.","Acid + Base → Salt + Water."],
+["🔗 Chemical Bonding","Atoms combine to form compounds. Ionic bonding involves transfer of electrons, while covalent bonding involves sharing electrons.","Sodium chloride is an example of a compound with ionic bonding."]
+],
+q:[
+["Which particle has a negative charge?",["Proton","Neutron","Electron","Nucleus"],2,"Electrons carry negative electric charge."],
+["A neutralisation reaction can produce:",["Salt and water","Only oxygen","Only hydrogen","Carbon"],0,"An acid reacting with a base can produce salt and water."],
+["Covalent bonding involves:",["Sharing electrons","Destroying atoms","Only losing protons","Creating neutrons"],0,"Covalent bonds form when atoms share electrons."]
+]},
 "Biology":{
-intro:"Biology is the scientific study of living organisms.",
+intro:"Study living organisms, cells, plants, animals and the human body.",
 topics:[
-["🧬 The Cell","The cell is the basic structural and functional unit of life. Plant and animal cells have structures that perform different functions."],
-["🌱 Photosynthesis","Green plants use light energy to make food from carbon dioxide and water. Chlorophyll helps absorb light energy."],
-["❤️ Human Body","The human body contains systems that work together, including the digestive, respiratory and circulatory systems."]
-],q:["What is the basic unit of life?",["Organ","Cell","Tissue","System"],1]},
+["🧬 The Cell","The cell is the basic structural and functional unit of life. Cells contain structures that perform specialised functions.","Plant cells have structures such as a cell wall and chloroplasts that are not found in typical animal cells."],
+["🌱 Photosynthesis","Photosynthesis is the process by which green plants use light energy to make food from carbon dioxide and water. Chlorophyll absorbs light energy.","Word equation: Carbon dioxide + Water → Glucose + Oxygen."],
+["❤️ Human Body","The human body contains systems that work together. The circulatory system transports substances around the body, while the respiratory system is involved in gas exchange.","The heart pumps blood around the body."]
+],
+q:[
+["The basic unit of life is the:",["Organ","Cell","Tissue","System"],1,"Cells are the basic structural and functional units of living organisms."],
+["Which substance helps plants absorb light?",["Chlorophyll","Protein","Starch","Salt"],0,"Chlorophyll absorbs light energy for photosynthesis."],
+["Which organ pumps blood?",["Lung","Kidney","Heart","Stomach"],2,"The heart pumps blood through the circulatory system."]
+]},
 "English":{
-intro:"English helps students communicate clearly through reading, writing, speaking and listening.",
+intro:"Improve grammar, vocabulary, comprehension and effective communication.",
 topics:[
-["📖 Grammar","Grammar describes the rules used to form correct sentences."],
-["✍️ Parts of Speech","Nouns name people, places, animals or things. Verbs express actions or states."],
-["🗣️ Vocabulary","Learning vocabulary improves understanding and helps students express ideas accurately."]
-],q:["Which word is a verb?",["Beautiful","Quickly","Run","School"],2]},
+["📖 Grammar","Grammar is the system of rules used to form correct sentences. A sentence normally contains a subject and a predicate.","Always check subject-verb agreement."],
+["✍️ Parts of Speech","Nouns name people, places, things or ideas. Verbs show actions or states. Adjectives describe nouns.","Example: 'The clever student answered quickly.' Clever describes student."],
+["🗣️ Vocabulary","Vocabulary is the collection of words a person understands and uses. Learning synonyms and antonyms improves expression.","Reading regularly is one of the best ways to develop vocabulary."]
+],
+q:[
+["Which word is a verb?",["Beautiful","Run","School","Careful"],1,"'Run' expresses an action, so it is a verb."],
+["Which word is a noun?",["Quickly","Beautiful","Teacher","Run"],2,"Teacher names a person, making it a noun."],
+["The opposite of 'ancient' is:",["Old","Modern","Past","Early"],1,"Modern means relating to the present or recent times."]
+]},
 "Government":{
-intro:"Government deals with how societies are organised, governed and administered.",
-topics:[["🏛️ Democracy","Democracy is a system in which citizens participate in choosing their representatives."],["🗳️ Elections","Elections allow eligible citizens to choose among candidates for public office."],["⚖️ Constitution","A constitution establishes fundamental rules and principles for governing a state."]],q:["What is democracy mainly associated with?",["Military rule","Citizen participation","Absolute monarchy","No elections"],1]},
+intro:"Learn how states are governed, how citizens participate and how political institutions work.",
+topics:[
+["🏛️ Democracy","Democracy is a system of government in which citizens participate in choosing their representatives.","Free and fair elections are important in representative democracy."],
+["🗳️ Elections","Elections allow eligible citizens to choose candidates for public offices.","Citizens should understand candidates and participate responsibly."],
+["⚖️ Constitution","A constitution provides fundamental rules and principles for governing a state.","It can define government institutions and citizens' rights and duties."]
+],
+q:[
+["Democracy is mainly associated with:",["Citizen participation","Military rule","No elections","Absolute rule"],0,"Democracy involves participation by citizens in governance."],
+["What allows citizens to choose representatives?",["Elections","Taxes","Weather","Trade"],0,"Elections provide a mechanism for choosing representatives."],
+["A constitution mainly provides:",["Rules for governing","Weather reports","Sports results","Market prices"],0,"A constitution establishes fundamental rules and principles of government."]
+]},
 "Economics":{
-intro:"Economics studies how people and societies use limited resources to satisfy needs and wants.",
-topics:[["💰 Scarcity","Scarcity exists because resources are limited while human wants are numerous."],["📈 Demand","Demand refers to the quantity of a good consumers are willing and able to buy at a given price."],["🏪 Market","A market is a system where buyers and sellers interact to exchange goods and services."]],q:["What is the basic economic problem?",["Scarcity","Rainfall","Population","Transportation"],0]},
+intro:"Understand scarcity, demand, supply, markets, production and the choices people make with limited resources.",
+topics:[
+["💰 Scarcity","Scarcity exists because resources are limited while human wants are numerous. Because of scarcity, choices must be made.","Every economic choice can involve an opportunity cost."],
+["📈 Demand","Demand is the quantity of a good or service consumers are willing and able to buy at a given price.","Price and quantity demanded often move in opposite directions, other things being equal."],
+["🏪 Market","A market is a system where buyers and sellers interact to exchange goods and services.","Markets can operate in physical locations or through digital platforms."]
+],
+q:[
+["The basic economic problem is:",["Scarcity","Weather","Transportation","Population"],0,"Resources are scarce while human wants are unlimited."],
+["Demand refers to what consumers are willing and able to:",["Buy","Destroy","Produce only","Tax"],0,"Demand concerns consumers' willingness and ability to purchase goods or services."],
+["A market involves interaction between:",["Buyers and sellers","Only teachers","Only farmers","Only students"],0,"Markets involve buyers and sellers exchanging goods and services."]
+]},
 "Geography":{
-intro:"Geography studies the Earth, its physical features, people and environment.",
-topics:[["🌍 Earth","Earth has land, water and an atmosphere that support life."],["🗺️ Maps","Maps represent places and features of the Earth's surface."],["🌦️ Weather","Weather describes atmospheric conditions at a particular place and time."]],q:["What does a map represent?",["Only people","Places and features","Only animals","Only weather"],1]},
+intro:"Study the Earth, maps, weather, climate, population and the relationship between people and their environment.",
+topics:[
+["🌍 The Earth","Earth has land, water and an atmosphere. Its physical features influence human activities.","Geography connects physical processes with human activities."],
+["🗺️ Maps","A map is a representation of part of the Earth's surface. Maps can show roads, rivers, settlements and other features.","A map scale helps us understand the relationship between map distance and real distance."],
+["🌦️ Weather","Weather describes atmospheric conditions at a particular place and time, including temperature, rainfall and wind.","Climate describes long-term patterns of weather."]
+],
+q:[
+["A map represents:",["Places and features","Only animals","Only people","Only oceans"],0,"Maps represent places and features of the Earth's surface."],
+["Weather describes conditions over:",["A particular time","Thousands of years only","No time","Only one season"],0,"Weather refers to atmospheric conditions at a particular time and place."],
+["Long-term patterns of weather are called:",["Climate","Speed","Gravity","Pressure"],0,"Climate describes long-term weather patterns."]
+]},
 "Literature":{
-intro:"Literature uses written and spoken works to express ideas, experiences and imagination.",
-topics:[["📚 Prose","Prose is written or spoken language in its ordinary form, including novels and short stories."],["🎭 Drama","Drama is literature written for performance by actors."],["🎵 Poetry","Poetry uses carefully arranged language, rhythm and imagery to express ideas and emotions."]],q:["Which form is normally written for performance?",["Drama","Dictionary","Essay","Report"],0]},
+intro:"Explore prose, drama, poetry, literary devices, characters, themes and interpretation.",
+topics:[
+["📚 Prose","Prose uses ordinary written language and includes novels and short stories.","When studying prose, pay attention to plot, characters, setting and themes."],
+["🎭 Drama","Drama is literature written to be performed by actors. It may contain dialogue, scenes and stage directions.","Characters reveal their personalities through actions and dialogue."],
+["🎵 Poetry","Poetry uses carefully arranged language, rhythm and imagery to express ideas and emotions.","Poems may use devices such as metaphor, simile and personification."]
+],
+q:[
+["Which form is normally written for performance?",["Drama","Dictionary","Report","Notice"],0,"Drama is written for performance by actors."],
+["A novel is an example of:",["Prose","Drama only","Formula","Map"],0,"Novels are works of prose fiction."],
+["A comparison using 'like' or 'as' is called:",["Simile","Irony","Plot","Setting"],0,"A simile compares two things using 'like' or 'as'."]
+]},
 "Computer Studies":{
-intro:"Computer Studies teaches students how computers and digital systems work.",
-topics:[["💻 Computer","A computer is an electronic device that processes data into useful information."],["⌨️ Hardware","Hardware refers to the physical parts of a computer, such as the keyboard, monitor and processor."],["🧠 Software","Software consists of programs and instructions that tell a computer what to do."]],q:["Which is computer hardware?",["Keyboard","Browser history","Password","Algorithm"],0]},
+intro:"Learn computer fundamentals, hardware, software, networks, data and digital technology.",
+topics:[
+["💻 Computer","A computer is an electronic device that accepts data, processes it and produces information.","A basic computer system includes input, processing, storage and output."],
+["⌨️ Hardware","Hardware means the physical components of a computer, such as the keyboard, monitor, mouse and processor.","You can physically touch hardware."],
+["🧠 Software","Software consists of programs and instructions that tell a computer what to do.","Operating systems and applications are examples of software."]
+],
+q:[
+["Which is computer hardware?",["Keyboard","Password","Algorithm","Website"],0,"A keyboard is a physical computer component."],
+["Which is software?",["Monitor","Keyboard","Operating system","Mouse"],2,"An operating system is software."],
+["A computer processes:",["Data","Only paper","Only electricity","Only books"],0,"Computers process data to produce useful information."]
+]},
 "JAMB / UTME":{
-intro:"JAMB / UTME preparation requires strong understanding, regular practice and good examination technique.",
-topics:[["🎯 Study Strategy","Study one topic at a time, understand the concept, practise questions and review your mistakes."],["⏱️ CBT Practice","Computer-based testing requires students to manage time carefully while answering questions."],["📝 Revision","Regular revision helps students remember important concepts and identify weak areas."]],q:["What is a good study approach?",["Avoid revision","Understand and practise","Study only on exam day","Skip difficult topics"],1]},
+intro:"Build strong understanding and examination skills for computer-based JAMB/UTME preparation.",
+topics:[
+["🎯 Study Strategy","Study one topic at a time, understand the concept, practise and review mistakes.","Understanding is more useful than memorising answers without knowing why."],
+["⏱️ CBT Skills","Computer-based tests require careful reading and time management.","Read each question carefully before selecting an option."],
+["📝 Revision","Regular revision helps reinforce knowledge and reveals weak areas.","Keep a record of topics you find difficult and revisit them."]
+],
+q:[
+["A good study method is to:",["Understand and practise","Study only on exam day","Avoid revision","Skip difficult topics"],0,"Understanding and regular practice build stronger exam preparation."],
+["In a CBT exam, students should:",["Read carefully","Rush every question","Ignore instructions","Guess everything"],0,"Careful reading reduces avoidable mistakes."],
+["Revision helps students to:",["Reinforce knowledge","Forget topics","Avoid studying","Remove exams"],0,"Revision reinforces previously learned information."]
+]},
 "WAEC":{
-intro:"WAEC preparation combines understanding the syllabus, studying lessons and practising examination questions.",
-topics:[["📖 Study","Understand each topic before attempting difficult questions."],["📝 Practice","Practise regularly and review mistakes."],["🎯 Examination","Read instructions carefully and manage examination time."]],q:["What should you do after making a mistake in practice?",["Ignore it","Review and understand it","Stop studying","Delete the question"],1]},
+intro:"Prepare for WASSCE through learning, revision, examples and examination practice.",
+topics:[
+["📖 Learning","Understand the syllabus and build knowledge topic by topic.","Do not rely only on memorising answers."],
+["📝 Practice","Practise questions after studying a topic and review mistakes.","Mistakes can show exactly what needs more study."],
+["🎯 Examination","Read instructions carefully and manage your time during examinations.","Leave enough time to review your answers."]
+],
+q:[
+["After making a practice mistake, you should:",["Review it","Ignore it","Stop studying","Delete it"],0,"Reviewing mistakes helps identify and correct weak areas."],
+["Before answering an exam question, you should:",["Read it carefully","Ignore it","Guess immediately","Skip all instructions"],0,"Careful reading helps you understand exactly what is being asked."],
+["Good revision should be:",["Regular","Only one day","Never done","Random"],0,"Regular revision is more effective than last-minute study."]
+]},
 "NECO":{
-intro:"NECO preparation should combine learning, revision and regular practice.",
-topics:[["📚 Learning","Build a strong understanding of each topic."],["🔄 Revision","Review previously studied topics regularly."],["📝 Practice","Use practice questions to test your understanding."]],q:["Why is revision useful?",["It replaces learning","It reinforces understanding","It prevents studying","It removes exams"],1]},
+intro:"Prepare for NECO examinations through structured lessons, revision and practice.",
+topics:[
+["📚 Learning","Study each subject systematically and understand important concepts.","Break large topics into smaller sections."],
+["🔄 Revision","Review topics repeatedly and focus on areas that are difficult.","Short, regular revision sessions can be effective."],
+["📝 Practice","Use exercises to test whether you can apply what you have learned.","Always check why an answer is correct or incorrect."]
+],
+q:[
+["A useful way to study a large topic is to:",["Break it into sections","Avoid it","Memorise everything at once","Ignore it"],0,"Smaller sections make large topics easier to manage."],
+["Revision should be:",["Regular","Never","Only after results","Only during holidays"],0,"Regular revision reinforces learning."],
+["Practice questions help you:",["Test understanding","Avoid learning","Forget concepts","Skip revision"],0,"Practice tests whether you can apply what you learned."]
+]},
 "GCE":{
-intro:"GCE students can improve their performance through organised study and consistent practice.",
-topics:[["📖 Lessons","Study concepts carefully and make useful notes."],["📝 Exercises","Attempt exercises after studying each topic."],["🎯 Review","Review weak areas before examinations."]],q:["What helps identify weak areas?",["Regular practice","Avoiding questions","Skipping revision","Studying nothing"],0]}
+intro:"Build knowledge and examination confidence through lessons, examples and regular practice.",
+topics:[
+["📖 Lessons","Read and understand concepts before attempting difficult exercises.","Make notes of important definitions and formulas."],
+["✏️ Exercises","Attempt exercises after studying each topic.","Use incorrect answers as learning opportunities."],
+["🎯 Exam Review","Review difficult topics and practise managing examination time.","Stay organised and avoid last-minute preparation."]
+],
+q:[
+["What should come before difficult exercises?",["Understanding the lesson","Ignoring the lesson","Guessing","Stopping study"],0,"Understanding the lesson gives you the foundation for exercises."],
+["Incorrect answers can help you:",["Find weak areas","Avoid learning","Forget topics","Stop revision"],0,"Mistakes can identify areas that need more attention."],
+["Good examination preparation should be:",["Organised","Last-minute only","Random","Avoided"],0,"Organised preparation makes revision more effective."]
+]}
 };
-let current="",correct=0;
+
+let current="",qi=0,score=0,answered=false;
+
 function openSubject(s){
-current=s;let d=data[s]||data["Chemistry"];
+current=s;
+let d=subjects[s];
 document.getElementById("home").classList.add("hidden");
-document.getElementById("page").classList.remove("hidden");
-document.getElementById("title").textContent="📚 "+s;
-document.getElementById("intro").textContent=d.intro;
-document.getElementById("topics").innerHTML=d.topics.map((t,i)=>`<div class="topic" onclick="showTopic(${i})"><b>${t[0]}</b></div>`).join("");
-document.getElementById("question").textContent=d.q[0];
-document.getElementById("options").innerHTML=d.q[1].map((x,i)=>`<button class="option" onclick="check(${i})">${String.fromCharCode(65+i)}. ${x}</button>`).join("");
+document.getElementById("subjectPage").classList.remove("hidden");
+document.getElementById("subjectTitle").textContent="📚 "+s;
+document.getElementById("subjectIntro").textContent=d.intro;
+showLearn();
+renderTopics();
+window.scrollTo(0,0);
+}
+
+function renderTopics(){
+document.getElementById("topicList").innerHTML=subjects[current].topics.map((t,i)=>
+`<div class="topic" onclick="openLesson(${i})"><b>${t[0]}</b><br><small>Tap to read this lesson →</small></div>`).join("");
+}
+
+function openLesson(i){
+let t=subjects[current].topics[i];
+document.getElementById("topicList").classList.add("hidden");
+document.getElementById("lessonArea").classList.remove("hidden");
+document.getElementById("lessonTitle").textContent=t[0];
+document.getElementById("lessonText").innerHTML=
+`<p>${t[1]}</p>
+<div class="example"><h2>💡 Example / Understanding</h2><p>${t[2]}</p></div>
+<div class="key"><h2>⭐ Key Point</h2><p>Read this topic carefully, understand the idea, and try to explain it in your own words before moving to practice.</p></div>
+<h2>🧠 Study Tip</h2><p>After reading this lesson, test yourself without looking at the answer. Then return to the quiz section and practise.</p>`;
+window.scrollTo(0,0);
+}
+
+function closeLesson(){
+document.getElementById("lessonArea").classList.add("hidden");
+document.getElementById("topicList").classList.remove("hidden");
+}
+
+function showLearn(){
+document.getElementById("learnArea").classList.remove("hidden");
+document.getElementById("quizArea").classList.add("hidden");
+document.getElementById("learnTab").classList.add("active");
+document.getElementById("quizTab").classList.remove("active");
+}
+
+function showQuiz(){
+document.getElementById("learnArea").classList.add("hidden");
+document.getElementById("quizArea").classList.remove("hidden");
+document.getElementById("learnTab").classList.remove("active");
+document.getElementById("quizTab").classList.add("active");
+qi=0;score=0;answered=false;loadQuestion();window.scrollTo(0,0);
+}
+
+function loadQuestion(){
+let q=subjects[current].q[qi];
+document.getElementById("quizNumber").textContent="Question "+(qi+1)+" of "+subjects[current].q.length;
+document.getElementById("score").textContent="Score: "+score;
+document.getElementById("quizQuestion").textContent=q[0];
 document.getElementById("feedback").textContent="";
+answered=false;
+document.getElementById("quizOptions").innerHTML=q[1].map((x,i)=>
+`<button class="option" onclick="selectOption(${i})">${String.fromCharCode(65+i)}. ${x}</button>`).join("");
 }
-function showTopic(i){
-let d=data[current];alert(d.topics[i][0]+"\n\n"+d.topics[i][1]);
+
+let selected=-1;
+function selectOption(i){
+if(answered)return;
+selected=i;
+document.querySelectorAll(".option").forEach((b,n)=>b.classList.toggle("selected",n===i));
 }
-function check(i){
-let d=data[current];document.getElementById("feedback").textContent=i===d.q[2]?"✅ Correct!":"❌ Not correct. Read the lesson again and try the next question.";
+
+function submitAnswer(){
+if(answered)return;
+if(selected<0){document.getElementById("feedback").textContent="⚠️ Please select an answer first.";return}
+let q=subjects[current].q[qi];
+answered=true;
+let buttons=document.querySelectorAll(".option");
+buttons[q[2]].classList.add("correct");
+if(selected===q[2]){
+score++;
+document.getElementById("feedback").textContent="✅ Correct! "+q[3];
+}else{
+buttons[selected].classList.add("wrong");
+document.getElementById("feedback").textContent="❌ Not correct. "+q[3];
 }
-function nextQuestion(){document.getElementById("feedback").textContent="Keep practising! More questions will be added to EduPro-NG."}
-function goHome(){document.getElementById("page").classList.add("hidden");document.getElementById("home").classList.remove("hidden")}
+document.getElementById("score").textContent="Score: "+score;
+}
+
+function nextQuestion(){
+if(!answered){
+document.getElementById("feedback").textContent="⚠️ Submit your answer first.";
+return;
+}
+qi++;
+if(qi>=subjects[current].q.length){
+document.getElementById("quizQuestion").textContent="🎉 Quiz Complete!";
+document.getElementById("quizOptions").innerHTML="";
+document.getElementById("feedback").textContent="You scored "+score+" out of "+subjects[current].q.length+". Keep learning and practising!";
+return;
+}
+selected=-1;
+loadQuestion();
+}
+
+function goHome(){
+document.getElementById("subjectPage").classList.add("hidden");
+document.getElementById("home").classList.remove("hidden");
+window.scrollTo(0,0);
+}
 </script>
 </body>
 </html>
