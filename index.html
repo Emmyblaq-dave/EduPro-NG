@@ -3,159 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>EduPro-NG</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f7fb;
-  color: #172033;
-}
-
-header {
-  background: #0b6b3a;
-  color: white;
-  padding: 18px 16px;
-}
-
-.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.tag {
-  margin-top: 5px;
-  font-size: 13px;
-}
-
-main {
-  max-width: 1000px;
-  margin: auto;
-  padding: 18px;
-}
-
-.hero {
-  background: #0b6b3a;
-  color: white;
-  border-radius: 20px;
-  padding: 25px 18px;
-  margin-bottom: 22px;
-}
-
-.hero h1 {
-  margin-top: 0;
-  font-size: 30px;
-}
-
-.hero p {
-  line-height: 1.5;
-}
-
-.btn {
-  border: none;
-  border-radius: 12px;
-  padding: 12px 17px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.btn-light {
-  background: white;
-  color: #0b6b3a;
-}
-
-.section-title {
-  margin-top: 25px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-}
-
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-}
-
-.icon {
-  font-size: 28px;
-}
-
-.card h3 {
-  margin: 8px 0 5px;
-  font-size: 17px;
-}
-
-.card p {
-  margin: 0;
-  color: #667085;
-  font-size: 13px;
-}
-
-.quiz {
-  background: white;
-  border-radius: 18px;
-  padding: 18px;
-  margin-top: 18px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-}
-
-.option {
-  width: 100%;
-  margin: 7px 0;
-  text-align: left;
-  background: #f2f4f7;
-  color: #172033;
-}
-
-#result {
-  margin-top: 12px;
-  font-weight: bold;
-}
-
-.pro {
-  margin-top: 22px;
-  background: #172033;
-  color: white;
-  border-radius: 18px;
-  padding: 20px;
-}
-
-.pro strong {
-  color: #ffd166;
-}
-
-footer {
-  text-align: center;
-  color: #667085;
-  padding: 30px 10px;
-  font-size: 13px;
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#f5f7fb;color:#172033}
+header{background:#08783f;color:white;padding:20px}
+.logo{font-size:26px;font-weight:bold}
+.tag{margin-top:5px}
+main{max-width:900px;margin:auto;padding:18px}
+.hero{background:#08783f;color:white;padding:25px;border-radius:20px}
+.hero h1{font-size:30px;margin-top:0}
+.hero p{font-size:17px;line-height:1.5}
+button{border:0;border-radius:10px;padding:12px 16px;font-weight:bold}
+.start{background:white;color:#08783f}
+h2{margin-top:28px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.card{background:white;padding:17px;border-radius:15px;box-shadow:0 3px 12px #ddd}
+.card b{font-size:17px}
+.card p{color:#667085;font-size:13px}
+.quiz,.pro{background:white;padding:20px;border-radius:18px;margin-top:15px;box-shadow:0 3px 12px #ddd}
+.option{display:block;width:100%;margin:8px 0;text-align:left;background:#eef1f5}
+.pro{background:#172033;color:white}
+.pro strong{color:#ffd166}
+footer{text-align:center;padding:30px;color:#667085}
+@media(max-width:500px){.grid{grid-template-columns:1fr}.hero h1{font-size:27px}}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">📚 EduPro-NG</div>
-  <div class="tag">Learn • Practice • Pass</div>
+<div class="logo">📚 EduPro-NG</div>
+<div class="tag">Learn • Practice • Pass</div>
 </header>
 
 <main>
 
 <section class="hero">
-  <h1>Prepare Smarter for Nigerian Exams</h1>
+<h1>Prepare Smarter for Nigerian Exams</h1>
+<p>JAMB, WAEC, NECO, GCE and secondary school subjects with quizzes, lessons and exam practice.</p>
+<button class="start" onclick="document.getElementById('subjects').scrollIntoView()">Start Learning</button>
+</section>
 
-  <p>
-    Prepare for JAMB, WAEC, NECO, GCE and secondary school subjects
-    with quizzes, lessons and difficult exam-style practice
+<h2 id="subjects">📚 Subjects & Exams</h2>
+
+<div class="grid">
+
+<div class="card">🎯 <b>JAMB / UTME</b><p>CBT practice</p></div>
+<div class="card">📝 <b>WAEC</b><p>WASSCE preparation</p></div>
+<div class="card">📘 <b>NECO</b><p>Exam preparation</p></div>
+<div class="card">🎓 <b>GCE</b><p>Practice tests</p></div>
+<div class="card">➗ <b>Mathematics</b><p>Hard problems</p></div>
+<div class="card">📖 <b>English</b><p>Grammar and comprehension</p></div>
+<div class="card">⚡ <b>Physics</b><p>Calculations and theory</p></div>
+<div class="card">🧪 <b>Chemistry</b><p>Reactions and calculations</p></div>
+<div class="card">🧬 <b>Biology</b><p>Concepts and diagrams</p></div>
+<div class="card">🏛️ <b>Government</b><p>Politics and civics</p></div>
+<div class="card">💰 <b>Economics</b><p>Markets and theory</p></div>
+<div class="card">🌍 <b>Geography</b><p>Maps and environment</p></div>
+<div class="card">📚 <b>Literature</b><p>Texts and analysis</p></div>
+<div class="card">💻 <b>Computer Studies</b><p>ICT practice</p></div>
+
+</div>
+
+<h2>🔥 Daily Challenge</h2>
+
+<div class="quiz">
+<p><b>Mathematics:</b> A quantity increases by 20% and then decreases by 20%. What is the overall change?</p>
+
+<button class="option" onclick="answer(false)">A. No change</button>
+<button class="option" onclick="answer(false)">B. 2% increase</button>
+<button class="option" onclick="answer(true)">C. 4% decrease</button>
+<button class="option" onclick="answer(false)">D. 4% increase</button>
+
+<p id="result"></p>
+</div>
+
+<div class="pro">
+<h2>⭐ EduPro-NG PRO</h2>
+<p>Harder questions, timed CBT, mock exams and detailed explanations.</p>
+<p><strong>₦500 / month</strong></p>
+<button onclick="alert('PRO payment coming soon')">PRO Coming Soon</button>
+</div>
+
+<footer>
+EduPro-NG<br>
+Nigerian Education Platform
+</footer>
+
+</main>
+
+<script>
+function answer(correct){
+document.getElementById("result").innerHTML=
+correct?"✅ Correct! The answer is 4% decrease.":"❌ Try again.";
+}
+</script>
+
+</body>
+</html>
