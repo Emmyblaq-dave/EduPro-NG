@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EduPro-NG | Nigerian Exam Preparation</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: #0b6b3a;
+      color: white;
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: #ffd23f;
+    }
+
+    .menu-btn {
+      background: white;
+      color: #0b6b3a;
+      border: none;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b6b3a, #159957);
+      color: white;
+      padding: 45px 20px;
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 650px;
+    }
+
+    .buttons {
+      margin-top: 22px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      padding: 13px 18px;
+      border-radius: 9px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-yellow {
+      background: #ffd23f;
+      color: #172033;
+    }
+
+    .btn-white {
+      background: white;
+      color: #0b6b3a;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px 20px;
+    }
+
+    .section-title {
+      margin: 25px 0 15px;
+      font-size: 24px;
+    }
+
+    .exam-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+    }
+
+    .exam-card {
+      background: white;
+      padding: 18px 12px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+      cursor: pointer;
+      border: 1px solid #e8ebf0;
+    }
+
+    .exam-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .exam-icon {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 13px;
+    }
+
+    .subject {
+      background: white;
+      padding: 20px 15px;
+      border-radius: 13px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+      cursor: pointer;
+      border: 1px solid #e8ebf0;
+    }
+
+    .subject-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .subject h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .subject p {
+      font-size: 12px;
+      color: #687386;
+    }
+
+    .challenge {
+      margin-top: 30px;
+      background: #172033;
+      color: white;
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .challenge h2 {
+      margin-bottom: 10px;
+    }
+
+    .challenge p {
+      color: #dbe1eb;
+      line-height: 1.5;
+    }
+
+    .pro {
+      margin-top: 20px;
+      background: linear-gradient(135deg, #ffd23f, #ffb703);
+      color: #172033;
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .pro h2 {
+      margin-bottom: 8px;
+    }
+
+    .pro ul {
+      margin: 15px 0 0 20px;
+      line-height: 1.8;
+    }
+
+    .question-box {
+      display: none;
+      margin-top: 30px;
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .question-box h2 {
+      margin-bottom: 15px;
+    }
+
+    .option {
+      display: block;
+      width: 100%;
+      text-align: left;
+      margin: 10px 0;
+      padding: 14px;
+      border: 1px solid #d9dee7;
+      border-radius: 9px;
+      background: #fafbfc;
+      cursor: pointer;
+    }
+
+    .option:hover {
+      background: #eef7f2;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #172033;
+      color: white;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    footer p {
+      margin: 5px;
+      color: #cbd2dd;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 27px;
+      }
+
+      .hero {
+        padding: 35px 18px;
+      }
+
+      main {
+        padding: 20px 15px;
+      }
+
+      .section-title {
+        font-size: 21px;
+      }
+    }
+  </style>
