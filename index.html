@@ -3,250 +3,391 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EduPro-NG | Digital Nigerian School</title>
+<title>EduPro-NG — Learn. Understand. Practise. Succeed.</title>
 
 <style>
+:root{
+  --bg:#0b1220;
+  --bg2:#101a2d;
+  --card:#162238;
+  --card2:#1b2a43;
+  --border:#293b58;
+  --text:#e8eef7;
+  --muted:#9eacc0;
+  --green:#35d07f;
+  --green2:#20b96b;
+  --blue:#4da3ff;
+  --gold:#f5c451;
+  --danger:#ff6b6b;
+  --shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
 *{box-sizing:border-box}
+
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:#f5f7fb;
-  color:#172033
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
 }
+
+button,input,select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
 header{
-  background:#073b2a;
-  color:white;
-  padding:15px 5%;
+  background:rgba(11,18,32,.96);
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(12px);
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
+  padding:15px 18px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:sticky;
-  top:0;
-  z-index:10
+  gap:12px;
 }
+
 .logo{
-  font-size:23px;
-  font-weight:bold
+  font-size:21px;
+  font-weight:800;
+  color:var(--green);
 }
-.logo span{color:#72e6a5}
-button{
-  border:0;
-  cursor:pointer;
+
+.tag{
+  font-size:11px;
+  color:var(--muted);
+}
+
+.nav button{
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--text);
   border-radius:10px;
-  padding:11px 16px;
-  font-weight:bold
+  padding:8px 12px;
 }
-.header-btn{
-  background:#72e6a5;
-  color:#073b2a
-}
-.hero{
-  background:linear-gradient(135deg,#073b2a,#0b6043);
-  color:white;
-  padding:55px 6% 65px
-}
-.hero h1{
-  font-size:40px;
-  margin:0 0 12px
-}
-.hero p{
-  max-width:700px;
-  line-height:1.7;
-  color:#dcefe7
-}
+
 .container{
-  width:90%;
-  max-width:1200px;
-  margin:30px auto
+  max-width:1100px;
+  margin:auto;
+  padding:22px 16px 60px;
 }
+
+.hero{
+  background:linear-gradient(145deg,#13243a,#101b2d);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:27px 22px;
+  box-shadow:var(--shadow);
+  margin-bottom:20px;
+}
+
+.hero h1{
+  margin:0 0 8px;
+  font-size:30px;
+}
+
+.hero p{
+  color:var(--muted);
+  margin:5px 0;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:20px;
+  background:#173b32;
+  color:var(--green);
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.section-title{
+  margin:28px 0 12px;
+  font-size:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:12px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+  border-color:#3d5678;
+}
+
+.clickable{
+  cursor:pointer;
+}
+
+.card h3{
+  margin:0 0 5px;
+  font-size:16px;
+}
+
+.card p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.level-card{
+  text-align:center;
+  padding:20px 10px;
+}
+
+.level-card .icon{
+  font-size:28px;
+  margin-bottom:6px;
+}
+
 .search{
   width:100%;
-  padding:15px;
-  border:1px solid #ddd;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:#111d31;
+  color:var(--text);
+  outline:none;
+  margin:8px 0 16px;
+}
+
+.search:focus{
+  border-color:var(--green);
+}
+
+.hidden{
+  display:none!important;
+}
+
+.btn{
+  border:0;
   border-radius:12px;
-  font-size:16px;
-  margin-bottom:25px
+  padding:11px 16px;
+  font-weight:bold;
+  background:var(--green);
+  color:#06140d;
 }
-.section-title{
-  margin:35px 0 15px
+
+.btn.secondary{
+  background:var(--card2);
+  color:var(--text);
+  border:1px solid var(--border);
 }
-.level-grid,.subject-grid,.topic-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px
+
+.btn.gold{
+  background:var(--gold);
+  color:#191300;
 }
-.card{
-  background:white;
-  border-radius:16px;
-  padding:20px;
-  box-shadow:0 5px 18px rgba(0,0,0,.07);
-  transition:.2s;
-  cursor:pointer
+
+.btn.danger{
+  background:var(--danger);
+  color:#210707;
 }
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 24px rgba(0,0,0,.11)
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:16px;
 }
-.card h3{margin:8px 0}
-.icon{
-  font-size:35px
+
+.breadcrumb{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:12px;
 }
-.small{
-  color:#667085;
-  line-height:1.5;
-  font-size:14px
-}
-.level-card{
-  border-left:5px solid #0b7652
-}
-.exam-card{
-  border-left:5px solid #e4a11b
-}
-.subject-card{
-  min-height:145px
-}
-.subject-card button{
-  background:#073b2a;
-  color:white;
-  margin-top:8px
-}
-.hidden{display:none!important}
-.back{
-  background:#e9eef2;
-  margin-bottom:20px
-}
-.page-head{
-  background:white;
+
+.lesson{
+  background:#111c2e;
+  border:1px solid var(--border);
   border-radius:18px;
-  padding:25px;
-  margin-bottom:20px
+  padding:22px;
+  box-shadow:var(--shadow);
 }
+
+.lesson h1{
+  line-height:1.25;
+  margin-top:0;
+}
+
+.lesson h2{
+  color:var(--green);
+  margin-top:27px;
+}
+
+.lesson h3{
+  color:#c9d8ec;
+}
+
+.definition{
+  background:#172b3c;
+  border-left:4px solid var(--green);
+  padding:14px 16px;
+  border-radius:8px;
+  margin:14px 0;
+}
+
+.formula{
+  background:#0a1625;
+  border:1px solid #29415d;
+  padding:18px;
+  border-radius:12px;
+  text-align:center;
+  font-size:21px;
+  font-weight:bold;
+  margin:15px 0;
+  overflow-x:auto;
+}
+
+.example{
+  background:#18283c;
+  border:1px solid #2b415f;
+  border-radius:12px;
+  padding:16px;
+  margin:15px 0;
+}
+
+.step{
+  margin:7px 0;
+  padding-left:8px;
+}
+
+.keypoints{
+  background:#142d28;
+  border:1px solid #245a4a;
+  border-radius:12px;
+  padding:16px;
+}
+
+.exercise{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:16px;
+  margin:12px 0;
+}
+
+.option{
+  display:block;
+  width:100%;
+  text-align:left;
+  margin:8px 0;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#111d31;
+  color:var(--text);
+}
+
+.option:hover{
+  border-color:var(--green);
+}
+
+.correct{
+  border-color:var(--green)!important;
+  background:#123426!important;
+}
+
+.wrong{
+  border-color:var(--danger)!important;
+  background:#32191d!important;
+}
+
+.explanation{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:9px;
+}
+
 .tabs{
   display:flex;
   gap:8px;
   overflow-x:auto;
-  margin:15px 0
+  margin-bottom:16px;
 }
+
 .tab{
   white-space:nowrap;
-  background:#e7ece9;
-  color:#173d30
+  background:var(--card);
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:10px 14px;
+  border-radius:10px;
 }
+
 .tab.active{
-  background:#073b2a;
-  color:white
+  background:var(--green);
+  color:#06140d;
+  border-color:var(--green);
 }
-.chapter{
-  background:white;
-  border-radius:15px;
-  margin-bottom:15px;
-  overflow:hidden;
-  box-shadow:0 3px 12px rgba(0,0,0,.05)
-}
-.chapter-title{
-  padding:17px;
-  background:#edf7f2;
-  font-weight:bold
-}
-.topic{
-  padding:15px 17px;
-  border-top:1px solid #eee;
-  cursor:pointer
-}
-.topic:hover{background:#fafafa}
-.topic.done{
-  color:#087443;
-  font-weight:bold
-}
-.lesson{
-  background:white;
-  padding:28px;
-  border-radius:18px;
-  line-height:1.75;
-  box-shadow:0 5px 18px rgba(0,0,0,.06)
-}
-.lesson h2{color:#073b2a}
-.lesson h3{margin-top:25px;color:#0b6043}
-.objectives,.keybox,.example,.mistakes,.exercise{
-  padding:18px;
-  border-radius:12px;
-  margin:18px 0
-}
-.objectives{background:#eef8f3}
-.keybox{background:#fff8df}
-.example{background:#eef5ff}
-.mistakes{background:#fff0f0}
-.exercise{background:#f4f1ff}
-.lesson li{margin:7px 0}
-.nav-buttons{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:20px
-}
-.primary{
-  background:#073b2a;
-  color:white
-}
-.secondary{
-  background:#e8ecef
-}
-.quiz-box{
-  background:white;
-  padding:25px;
-  border-radius:18px;
-  box-shadow:0 5px 18px rgba(0,0,0,.06)
-}
-.option{
-  display:block;
-  padding:15px;
-  border:1px solid #ddd;
-  border-radius:10px;
-  margin:10px 0;
-  cursor:pointer
-}
-.option:hover{background:#f5f8f6}
-.result{
-  margin-top:15px;
-  padding:15px;
-  border-radius:10px;
-  background:#eef8f3
-}
-.pro{
-  background:linear-gradient(135deg,#111827,#243b53);
-  color:white;
-  border-radius:20px;
-  padding:30px;
-  margin:40px 0
-}
-.pro button{
-  background:#ffd166;
-  color:#111
-}
-.progress{
-  background:#e5e7eb;
+
+.progress-wrap{
+  background:#0a1422;
   height:9px;
   border-radius:10px;
   overflow:hidden;
-  margin-top:10px
+  margin-top:8px;
 }
-.progress-bar{
+
+.progress{
   height:100%;
-  background:#0b7652;
-  width:0%
+  background:var(--green);
+  width:0%;
 }
+
+.dictionary-result{
+  padding:13px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  margin:8px 0;
+}
+
+.pro{
+  background:linear-gradient(145deg,#2b2411,#1d1a12);
+  border:1px solid #625323;
+}
+
+.small{
+  font-size:12px;
+  color:var(--muted);
+}
+
 footer{
-  background:#073b2a;
-  color:white;
   text-align:center;
-  padding:30px;
-  margin-top:50px
+  color:var(--muted);
+  padding:30px 10px;
+  border-top:1px solid var(--border);
+  margin-top:30px;
 }
+
 @media(max-width:600px){
-  .hero h1{font-size:30px}
-  .hero{padding:40px 5%}
-  .container{width:94%}
-  .lesson{padding:20px}
+  .hero h1{font-size:25px}
+  .container{padding:16px 12px 45px}
+  .lesson{padding:17px}
 }
 </style>
 </head>
@@ -254,2409 +395,1884 @@ footer{
 <body>
 
 <header>
-  <div class="logo">EduPro-<span>NG</span> 📚</div>
-  <button class="header-btn" onclick="goHome()">Home</button>
+  <div class="nav">
+    <div>
+      <div class="logo">📚 EduPro-NG</div>
+      <div class="tag">Learn. Understand. Practise. Succeed.</div>
+    </div>
+    <button onclick="goHome()">Home</button>
+  </div>
 </header>
 
-<section id="home">
+<main class="container">
 
-<section class="hero">
-  <h1>Your Digital Nigerian School 🎓</h1>
-  <p>
-    Learn school subjects, study textbook-style lessons, practise exercises
-    and test yourself with original exam-preparation questions.
-  </p>
-</section>
+<div id="home">
 
-<div class="container">
+  <section class="hero">
+    <span class="badge">FREE DIGITAL TEXTBOOK</span>
+    <h1>Learn without expensive textbooks.</h1>
+    <p>
+      Study school subjects with proper academic definitions,
+      explanations, examples, calculations, exercises and quizzes.
+    </p>
 
-<input id="searchBox" class="search"
-placeholder="🔎 Search Mathematics, Biology, Agriculture, JAMB, WAEC..."
-oninput="searchEverything()">
+    <div class="actions">
+      <button class="btn" onclick="showLevels()">Start Studying</button>
+      <button class="btn secondary" onclick="showDictionary()">📖 Dictionary</button>
+    </div>
+  </section>
 
-<h2 class="section-title">Choose Your Level</h2>
+  <h2 class="section-title">Choose your level</h2>
 
-<div id="levelGrid" class="level-grid"></div>
+  <div class="grid">
 
-<div class="pro">
-  <h2>⭐ EduPro-NG PRO</h2>
-  <p>
-    Unlock harder practice questions, advanced exam preparation and premium
-    learning features.
-  </p>
-  <h2>₦500 / month</h2>
-  <button onclick="alert('PRO subscription will be connected when the payment system is added.')">
-    Upgrade to PRO
-  </button>
+    <div class="card level-card clickable" onclick="selectLevel('JSS1')">
+      <div class="icon">📘</div>
+      <h3>JSS 1</h3>
+      <p>Junior Secondary</p>
+    </div>
+
+    <div class="card level-card clickable" onclick="selectLevel('JSS2')">
+      <div class="icon">📗</div>
+      <h3>JSS 2</h3>
+      <p>Junior Secondary</p>
+    </div>
+
+    <div class="card level-card clickable" onclick="selectLevel('JSS3')">
+      <div class="icon">📕</div>
+      <h3>JSS 3</h3>
+      <p>Junior Secondary</p>
+    </div>
+
+    <div class="card level-card clickable" onclick="selectLevel('SSS1')">
+      <div class="icon">📚</div>
+      <h3>SSS 1</h3>
+      <p>Senior Secondary</p>
+    </div>
+
+    <div class="card level-card clickable" onclick="selectLevel('SSS2')">
+      <div class="icon">📚</div>
+      <h3>SSS 2</h3>
+      <p>Senior Secondary</p>
+    </div>
+
+    <div class="card level-card clickable" onclick="selectLevel('SSS3')">
+      <div class="icon">🎓</div>
+      <h3>SSS 3</h3>
+      <p>Exam preparation</p>
+    </div>
+
+    <div class="card level-card clickable" onclick="selectLevel('JAMB')">
+      <div class="icon">📝</div>
+      <h3>JAMB</h3>
+      <p>UTME preparation</p>
+    </div>
+
+    <div class="card level-card clickable" onclick="selectLevel('WAEC')">
+      <div class="icon">📝</div>
+      <h3>WAEC</h3>
+      <p>Exam preparation</p>
+    </div>
+
+    <div class="card level-card clickable" onclick="selectLevel('NECO')">
+      <div class="icon">📝</div>
+      <h3>NECO</h3>
+      <p>Exam preparation</p>
+    </div>
+
+    <div class="card level-card clickable" onclick="selectLevel('UNIVERSITY')">
+      <div class="icon">🎓</div>
+      <h3>University</h3>
+      <p>Courses & modules</p>
+    </div>
+
+  </div>
+
+  <h2 class="section-title">Why EduPro-NG?</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>📖 Textbook Learning</h3>
+      <p>Read complete lessons instead of only short notes.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧮 Real Calculations</h3>
+      <p>Learn formulas and solve calculations step by step.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧪 Science</h3>
+      <p>Elements, symbols, formulas, nomenclature and concepts.</p>
+    </div>
+
+    <div class="card">
+      <h3>📝 Practice</h3>
+      <p>Exercises based directly on what you studied.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Quiz</h3>
+      <p>Test definitions, concepts, examples and calculations.</p>
+    </div>
+
+    <div class="card pro">
+      <h3>⭐ EduPro PRO</h3>
+      <p>Advanced practice and harder exam preparation — ₦500/month.</p>
+    </div>
+  </div>
+
 </div>
 
-</div>
-</section>
 
-<section id="levelPage" class="hidden">
-<div class="container">
-
-<button class="back" onclick="goHome()">← Back to Levels</button>
-
-<div id="levelHeader" class="page-head"></div>
-
-<input id="subjectSearch" class="search"
-placeholder="🔎 Search subjects..."
-oninput="filterSubjects()">
-
-<div id="subjectGrid" class="subject-grid"></div>
-
-</div>
-</section>
-
-<section id="subjectPage" class="hidden">
-<div class="container">
-
-<button class="back" onclick="openLevel(currentLevel)">
-← Back to Subjects
-</button>
-
-<div id="subjectHeader" class="page-head"></div>
-
-<div class="tabs">
-  <button class="tab active" onclick="showSubjectTab('chapters',this)">
-    📖 Chapters
-  </button>
-  <button class="tab" onclick="showSubjectTab('quiz',this)">
-    🧠 Course Quiz
-  </button>
+<div id="levels" class="hidden">
+  <div class="breadcrumb">Home › Choose Level</div>
+  <h2>Select a level</h2>
+  <div id="levelGrid" class="grid"></div>
 </div>
 
-<div id="chaptersTab"></div>
-<div id="quizTab" class="hidden"></div>
 
-</div>
-</section>
+<div id="subjects" class="hidden">
+  <div class="breadcrumb">
+    <span id="subjectLevel"></span> › Subjects
+  </div>
 
-<section id="lessonPage" class="hidden">
-<div class="container">
+  <h2 id="subjectTitle">Subjects</h2>
 
-<button class="back" onclick="openSubject(currentSubject)">
-← Back to Chapters
-</button>
+  <input
+    id="subjectSearch"
+    class="search"
+    placeholder="Search subject..."
+    oninput="renderSubjects()"
+  >
 
-<div id="lessonContent"></div>
-
-<div class="nav-buttons">
-  <button class="secondary" onclick="previousTopic()">← Previous</button>
-  <button class="primary" onclick="markComplete()">✓ Mark Complete</button>
-  <button class="secondary" onclick="nextTopic()">Next →</button>
+  <div id="subjectGrid" class="grid"></div>
 </div>
 
+
+<div id="course" class="hidden">
+
+  <div class="breadcrumb">
+    <span id="courseBread"></span>
+  </div>
+
+  <div class="tabs">
+    <button id="learnTab" class="tab active" onclick="openCourseTab('learn')">📖 Study</button>
+    <button id="practiceTab" class="tab" onclick="openCourseTab('practice')">✍️ Practice</button>
+    <button id="quizTab" class="tab" onclick="openCourseTab('quiz')">📝 Quiz</button>
+  </div>
+
+  <div id="learnPanel"></div>
+  <div id="practicePanel" class="hidden"></div>
+  <div id="quizPanel" class="hidden"></div>
+
 </div>
-</section>
+
+
+<div id="dictionary" class="hidden">
+
+  <div class="breadcrumb">Home › Academic Dictionary</div>
+
+  <section class="hero">
+    <span class="badge">REFERENCE TOOL</span>
+    <h1>Academic Dictionary</h1>
+    <p>Search important school terms, definitions, formulas and concepts.</p>
+
+    <input
+      id="dictionarySearch"
+      class="search"
+      placeholder="Search e.g. noun, velocity, atom, democracy..."
+      oninput="searchDictionary()"
+    >
+
+    <div id="dictionaryResults"></div>
+  </section>
+
+</div>
+
+
+<div id="motivation" class="hidden">
+  <section class="hero">
+    <span class="badge">KEEP GOING</span>
+    <h1>📚 Your education matters.</h1>
+    <p>
+      You do not need expensive textbooks to begin learning.
+      Study one topic at a time, practise what you learn,
+      correct your mistakes and keep improving.
+    </p>
+    <div class="actions">
+      <button class="btn" onclick="showLevels()">Continue Studying</button>
+    </div>
+  </section>
+</div>
+
+</main>
 
 <footer>
-  <h3>EduPro-NG 📚</h3>
-  <p>Learn • Practise • Prepare • Succeed</p>
-  <p>Built for Nigerian students 🇳🇬</p>
+  <strong>EduPro-NG</strong><br>
+  Learn. Understand. Practise. Succeed.<br>
+  <span class="small">Built as a growing Nigerian digital learning platform.</span>
 </footer>
+
 
 <script>
 
-/* =========================================================
-   EDUPro-NG CURRICULUM
-========================================================= */
+const subjects = {
 
-const levels = {
+  "JSS1":[
+    ["Mathematics","🧮"],
+    ["English Studies","📘"],
+    ["Basic Science","🔬"],
+    ["Basic Technology","⚙️"],
+    ["Computer Studies","💻"],
+    ["Agricultural Science","🌱"],
+    ["Business Studies","💼"],
+    ["Civic Education","🏛️"],
+    ["Social Studies","🌍"],
+    ["Home Economics","🏠"]
+  ],
 
-JSS1:{
- name:"JSS 1",
- type:"JSS",
- icon:"🏫",
- subjects:[
- "Mathematics",
- "English Studies",
- "Basic Science and Technology",
- "Agricultural Science",
- "Digital Technologies",
- "Citizenship and Heritage Studies",
- "Social Studies",
- "Business Studies",
- "Basic Technology"
- ]},
+  "JSS2":[
+    ["Mathematics","🧮"],
+    ["English Studies","📘"],
+    ["Basic Science","🔬"],
+    ["Basic Technology","⚙️"],
+    ["Computer Studies","💻"],
+    ["Agricultural Science","🌱"],
+    ["Business Studies","💼"],
+    ["Civic Education","🏛️"],
+    ["Social Studies","🌍"],
+    ["Home Economics","🏠"]
+  ],
 
-JSS2:{
- name:"JSS 2",
- type:"JSS",
- icon:"🏫",
- subjects:[
- "Mathematics",
- "English Studies",
- "Basic Science and Technology",
- "Agricultural Science",
- "Digital Technologies",
- "Citizenship and Heritage Studies",
- "Social Studies",
- "Business Studies",
- "Basic Technology"
- ]},
+  "JSS3":[
+    ["Mathematics","🧮"],
+    ["English Studies","📘"],
+    ["Basic Science","🔬"],
+    ["Basic Technology","⚙️"],
+    ["Computer Studies","💻"],
+    ["Agricultural Science","🌱"],
+    ["Business Studies","💼"],
+    ["Civic Education","🏛️"],
+    ["Social Studies","🌍"],
+    ["Home Economics","🏠"]
+  ],
 
-JSS3:{
- name:"JSS 3",
- type:"JSS",
- icon:"🏫",
- subjects:[
- "Mathematics",
- "English Studies",
- "Basic Science and Technology",
- "Agricultural Science",
- "Digital Technologies",
- "Citizenship and Heritage Studies",
- "Social Studies",
- "Business Studies",
- "Basic Technology"
- ]},
+  "SSS1":[
+    ["General Mathematics","🧮"],
+    ["English Language","📘"],
+    ["Physics","⚛️"],
+    ["Chemistry","🧪"],
+    ["Biology","🧬"],
+    ["Agricultural Science","🌱"],
+    ["Economics","💰"],
+    ["Government","🏛️"],
+    ["Literature in English","📚"],
+    ["Geography","🌍"],
+    ["Accounting","📊"],
+    ["Digital Technologies","💻"]
+  ],
 
-SSS1:{
- name:"SSS 1",
- type:"SSS",
- icon:"🎓",
- subjects:[
- "General Mathematics",
- "English Language",
- "Physics",
- "Chemistry",
- "Biology",
- "Agricultural Science",
- "Economics",
- "Government",
- "Literature in English",
- "Digital Technologies",
- "Geography"
- ]},
+  "SSS2":[
+    ["General Mathematics","🧮"],
+    ["English Language","📘"],
+    ["Physics","⚛️"],
+    ["Chemistry","🧪"],
+    ["Biology","🧬"],
+    ["Agricultural Science","🌱"],
+    ["Economics","💰"],
+    ["Government","🏛️"],
+    ["Literature in English","📚"],
+    ["Geography","🌍"],
+    ["Accounting","📊"],
+    ["Digital Technologies","💻"]
+  ],
 
-SSS2:{
- name:"SSS 2",
- type:"SSS",
- icon:"🎓",
- subjects:[
- "General Mathematics",
- "English Language",
- "Physics",
- "Chemistry",
- "Biology",
- "Agricultural Science",
- "Economics",
- "Government",
- "Literature in English",
- "Digital Technologies",
- "Geography"
- ]},
+  "SSS3":[
+    ["General Mathematics","🧮"],
+    ["English Language","📘"],
+    ["Physics","⚛️"],
+    ["Chemistry","🧪"],
+    ["Biology","🧬"],
+    ["Agricultural Science","🌱"],
+    ["Economics","💰"],
+    ["Government","🏛️"],
+    ["Literature in English","📚"],
+    ["Geography","🌍"],
+    ["Accounting","📊"],
+    ["Digital Technologies","💻"]
+  ],
 
-SSS3:{
- name:"SSS 3",
- type:"SSS",
- icon:"🎓",
- subjects:[
- "General Mathematics",
- "English Language",
- "Physics",
- "Chemistry",
- "Biology",
- "Agricultural Science",
- "Economics",
- "Government",
- "Literature in English",
- "Digital Technologies",
- "Geography"
- ]},
+  "JAMB":[
+    ["Mathematics","🧮"],
+    ["English Language","📘"],
+    ["Physics","⚛️"],
+    ["Chemistry","🧪"],
+    ["Biology","🧬"],
+    ["Economics","💰"],
+    ["Government","🏛️"],
+    ["Literature in English","📚"],
+    ["Geography","🌍"],
+    ["Accounting","📊"]
+  ],
 
-JAMB:{
- name:"JAMB / UTME",
- type:"EXAM",
- icon:"🎯",
- subjects:[
- "Use of English",
- "Mathematics",
- "Physics",
- "Chemistry",
- "Biology",
- "Agricultural Science",
- "Economics",
- "Government",
- "Literature in English",
- "Geography"
- ]},
+  "WAEC":[
+    ["Mathematics","🧮"],
+    ["English Language","📘"],
+    ["Physics","⚛️"],
+    ["Chemistry","🧪"],
+    ["Biology","🧬"],
+    ["Agricultural Science","🌱"],
+    ["Economics","💰"],
+    ["Government","🏛️"],
+    ["Literature in English","📚"],
+    ["Geography","🌍"],
+    ["Accounting","📊"],
+    ["Computer Studies","💻"]
+  ],
 
-WAEC:{
- name:"WAEC",
- type:"EXAM",
- icon:"📝",
- subjects:[
- "English Language",
- "Mathematics",
- "Physics",
- "Chemistry",
- "Biology",
- "Agricultural Science",
- "Economics",
- "Government",
- "Literature in English",
- "Geography",
- "Digital Technologies"
- ]},
+  "NECO":[
+    ["Mathematics","🧮"],
+    ["English Language","📘"],
+    ["Physics","⚛️"],
+    ["Chemistry","🧪"],
+    ["Biology","🧬"],
+    ["Agricultural Science","🌱"],
+    ["Economics","💰"],
+    ["Government","🏛️"],
+    ["Literature in English","📚"],
+    ["Geography","🌍"],
+    ["Accounting","📊"]
+  ],
 
-NECO:{
- name:"NECO",
- type:"EXAM",
- icon:"📘",
- subjects:[
- "English Language",
- "Mathematics",
- "Physics",
- "Chemistry",
- "Biology",
- "Agricultural Science",
- "Economics",
- "Government",
- "Literature in English",
- "Geography",
- "Digital Technologies"
- ]},
-
-GCE:{
- name:"GCE",
- type:"EXAM",
- icon:"🎓",
- subjects:[
- "English Language",
- "Mathematics",
- "Physics",
- "Chemistry",
- "Biology",
- "Agricultural Science",
- "Economics",
- "Government",
- "Literature in English",
- "Geography"
- ]}
-
+  "UNIVERSITY":[
+    ["Mathematics","🧮"],
+    ["Computer Science","💻"],
+    ["Physics","⚛️"],
+    ["Chemistry","🧪"],
+    ["Biology","🧬"],
+    ["Economics","💰"],
+    ["Accounting","📊"],
+    ["Business Administration","💼"],
+    ["Engineering","⚙️"],
+    ["Education","🎓"]
+  ]
 };
 
-
-/* =========================================================
-   TOPIC DATABASE
-========================================================= */
-
-const topicDB = {
-
-JSS:{
-
-"Mathematics":{
-"First Term":[
-"Whole Numbers and Place Value",
-"Factors and Multiples",
-"Fractions",
-"Decimals",
-"Directed Numbers",
-"Basic Algebra",
-"Simple Linear Equations"
-],
-"Second Term":[
-"Angles",
-"Triangles",
-"Quadrilaterals",
-"Perimeter",
-"Area",
-"Data Collection",
-"Tables and Charts"
-],
-"Third Term":[
-"Ratio",
-"Proportion",
-"Percentages",
-"Simple Interest",
-"Probability",
-"Statistics",
-"Revision"
-]},
-
-"English Studies":{
-"First Term":[
-"Parts of Speech",
-"Nouns",
-"Pronouns",
-"Verbs",
-"Adjectives",
-"Sentence Construction",
-"Comprehension"
-],
-"Second Term":[
-"Adverbs",
-"Prepositions",
-"Conjunctions",
-"Tenses",
-"Subject and Predicate",
-"Letter Writing",
-"Summary Writing"
-],
-"Third Term":[
-"Direct and Indirect Speech",
-"Active and Passive Voice",
-"Vocabulary Development",
-"Essay Writing",
-"Comprehension Skills",
-"Oral English",
-"Revision"
-]},
-
-"Basic Science and Technology":{
-"First Term":[
-"Living and Non-Living Things",
-"Measurement",
-"Matter",
-"Energy",
-"Heat",
-"Light",
-"Sound"
-],
-"Second Term":[
-"The Human Body",
-"Nutrition",
-"Personal Health",
-"Water",
-"Air",
-"Soil",
-"Environmental Pollution"
-],
-"Third Term":[
-"Force",
-"Machines",
-"Electricity",
-"Magnetism",
-"Technology",
-"Safety",
-"Revision"
-]},
-
-"Agricultural Science":{
-"First Term":[
-"Meaning of Agriculture",
-"Importance of Agriculture",
-"Branches of Agriculture",
-"Farm Tools",
-"Farm Safety",
-"Soil",
-"Types of Soil"
-],
-"Second Term":[
-"Crop Production",
-"Seed Selection",
-"Planting Methods",
-"Crop Maintenance",
-"Weeds",
-"Crop Pests",
-"Crop Diseases"
-],
-"Third Term":[
-"Farm Animals",
-"Animal Feeds",
-"Livestock Management",
-"Poultry Farming",
-"Fish Farming",
-"Farm Records",
-"Agricultural Marketing"
-]},
-
-"Digital Technologies":{
-"First Term":[
-"Meaning of Computer",
-"Parts of a Computer",
-"Input Devices",
-"Output Devices",
-"Storage Devices",
-"Computer Safety",
-"Data and Information"
-],
-"Second Term":[
-"Operating Systems",
-"Word Processing",
-"Keyboard Skills",
-"File Management",
-"Internet Basics",
-"Online Safety",
-"Digital Citizenship"
-],
-"Third Term":[
-"Computer Networks",
-"Programming Basics",
-"Algorithms",
-"Flowcharts",
-"Spreadsheets",
-"Presentation Software",
-"Revision"
-]},
-
-"Citizenship and Heritage Studies":{
-"First Term":[
-"Meaning of Citizenship",
-"Rights and Duties",
-"National Identity",
-"Culture",
-"Family Values",
-"Community",
-"Respect"
-],
-"Second Term":[
-"Democracy",
-"Leadership",
-"Rule of Law",
-"Human Rights",
-"National Symbols",
-"Unity",
-"Peace"
-],
-"Third Term":[
-"Responsible Citizenship",
-"National Development",
-"Corruption",
-"Drug Abuse",
-"Conflict Resolution",
-"Environmental Responsibility",
-"Revision"
-]},
-
-"Social Studies":{
-"First Term":[
-"Meaning of Social Studies",
-"Family",
-"Culture",
-"Socialization",
-"Community",
-"Values",
-"Human Relationships"
-],
-"Second Term":[
-"Marriage",
-"Population",
-"Transportation",
-"Communication",
-"Environment",
-"Health",
-"Social Problems"
-],
-"Third Term":[
-"Leadership",
-"Cooperation",
-"Conflict",
-"Crime",
-"Drug Abuse",
-"National Unity",
-"Revision"
-]},
-
-"Business Studies":{
-"First Term":[
-"Meaning of Business",
-"Office",
-"Office Equipment",
-"Communication",
-"Filing",
-"Entrepreneurship",
-"Trade"
-],
-"Second Term":[
-"Buying and Selling",
-"Consumer",
-"Advertising",
-"Banking",
-"Money",
-"Saving",
-"Insurance"
-],
-"Third Term":[
-"Bookkeeping",
-"Simple Accounts",
-"Profit and Loss",
-"Stock",
-"Business Documents",
-"Transportation",
-"Revision"
-]},
-
-"Basic Technology":{
-"First Term":[
-"Technology",
-"Workshop Safety",
-"Measuring Tools",
-"Drawing Instruments",
-"Materials",
-"Wood",
-"Metal"
-],
-"Second Term":[
-"Woodworking",
-"Metalworking",
-"Plastics",
-"Machines",
-"Simple Machines",
-"Maintenance",
-"Tools"
-],
-"Third Term":[
-"Building Materials",
-"Electrical Technology",
-"Mechanical Technology",
-"Energy",
-"Technology and Society",
-"Safety",
-"Revision"
-]}
-
-},
-
-
-/* =========================================================
-   SENIOR SECONDARY
-========================================================= */
-
-SSS:{
-
-"General Mathematics":{
-"First Term":[
-"Number Bases",
-"Indices",
-"Logarithms",
-"Surds",
-"Sets",
-"Algebraic Expressions",
-"Linear Equations"
-],
-"Second Term":[
-"Quadratic Equations",
-"Sequences",
-"Variation",
-"Trigonometry",
-"Geometry",
-"Mensuration",
-"Coordinate Geometry"
-],
-"Third Term":[
-"Statistics",
-"Probability",
-"Vectors",
-"Functions",
-"Graphs",
-"Financial Mathematics",
-"Revision"
-]},
-
-"English Language":{
-"First Term":[
-"Comprehension",
-"Summary",
-"Grammar",
-"Parts of Speech",
-"Tenses",
-"Vocabulary",
-"Essay Writing"
-],
-"Second Term":[
-"Formal Letters",
-"Informal Letters",
-"Reports",
-"Articles",
-"Argumentative Writing",
-"Oral English",
-"Sentence Structure"
-],
-"Third Term":[
-"Figures of Speech",
-"Lexis and Structure",
-"Comprehension Practice",
-"Summary Practice",
-"Speech Writing",
-"Debate",
-"Revision"
-]},
-
-"Physics":{
-"First Term":[
-"Physical Quantities",
-"Measurement",
-"Motion",
-"Speed and Velocity",
-"Acceleration",
-"Force",
-"Work Energy and Power"
-],
-"Second Term":[
-"Heat",
-"Temperature",
-"Expansion",
-"Waves",
-"Sound",
-"Light",
-"Reflection and Refraction"
-],
-"Third Term":[
-"Electricity",
-"Current",
-"Voltage",
-"Resistance",
-"Magnetism",
-"Electromagnetism",
-"Electronics"
-]},
-
-"Chemistry":{
-"First Term":[
-"Introduction to Chemistry",
-"Atoms",
-"Atomic Structure",
-"Periodic Table",
-"Chemical Bonding",
-"Chemical Formulae",
-"Mole Concept"
-],
-"Second Term":[
-"Chemical Reactions",
-"Acids Bases and Salts",
-"Solubility",
-"Water",
-"Air",
-"Metals",
-"Non-Metals"
-],
-"Third Term":[
-"Organic Chemistry",
-"Hydrocarbons",
-"Alcohols",
-"Environmental Chemistry",
-"Petroleum",
-"Polymers",
-"Revision"
-]},
-
-"Biology":{
-"First Term":[
-"Characteristics of Living Things",
-"Cell Structure",
-"Cell Division",
-"Nutrition",
-"Photosynthesis",
-"Respiration",
-"Transport System"
-],
-"Second Term":[
-"Excretion",
-"Support and Movement",
-"Reproduction",
-"Growth",
-"Coordination",
-"Sense Organs",
-"Health and Disease"
-],
-"Third Term":[
-"Genetics",
-"Heredity",
-"Evolution",
-"Ecology",
-"Food Chains",
-"Population",
-"Conservation"
-]},
-
-"Agricultural Science":{
-"First Term":[
-"Meaning and Importance of Agriculture",
-"Factors Affecting Agriculture",
-"Branches of Agriculture",
-"Farm Tools and Machinery",
-"Farm Safety",
-"Soil Formation",
-"Physical Properties of Soil",
-"Chemical Properties of Soil"
-],
-"Second Term":[
-"Crop Production",
-"Seed Selection",
-"Planting Methods",
-"Crop Nutrition",
-"Weed Control",
-"Crop Pests",
-"Crop Diseases",
-"Farm Management"
-],
-"Third Term":[
-"Animal Production",
-"Animal Nutrition",
-"Livestock Management",
-"Poultry Production",
-"Fishery",
-"Pasture and Forage Crops",
-"Farm Records",
-"Agricultural Economics"
-]},
-
-"Economics":{
-"First Term":[
-"Meaning of Economics",
-"Scarcity and Choice",
-"Opportunity Cost",
-"Scale of Preference",
-"Demand",
-"Supply",
-"Price Determination"
-],
-"Second Term":[
-"Production",
-"Factors of Production",
-"Division of Labour",
-"Market",
-"Money",
-"Banking",
-"Inflation"
-],
-"Third Term":[
-"National Income",
-"Population",
-"Unemployment",
-"International Trade",
-"Balance of Payments",
-"Economic Development",
-"Public Finance"
-]},
-
-"Government":{
-"First Term":[
-"Meaning of Government",
-"State",
-"Nation",
-"Power",
-"Authority",
-"Legitimacy",
-"Political Socialization"
-],
-"Second Term":[
-"Constitution",
-"Democracy",
-"Political Parties",
-"Pressure Groups",
-"Electoral Systems",
-"Legislature",
-"Executive"
-],
-"Third Term":[
-"Judiciary",
-"Federalism",
-"Local Government",
-"Public Administration",
-"Foreign Policy",
-"International Organizations",
-"Nigerian Government"
-]},
-
-"Literature in English":{
-"First Term":[
-"Introduction to Literature",
-"Prose",
-"Plot",
-"Characterization",
-"Setting",
-"Theme",
-"Point of View"
-],
-"Second Term":[
-"Drama",
-"Elements of Drama",
-"Tragedy",
-"Comedy",
-"Stagecraft",
-"Dialogue",
-"Conflict"
-],
-"Third Term":[
-"Poetry",
-"Types of Poetry",
-"Figures of Speech",
-"Rhyme",
-"Rhythm",
-"Tone",
-"Poetic Devices"
-]},
-
-"Digital Technologies":{
-"First Term":[
-"Computer Hardware",
-"Computer Software",
-"Operating Systems",
-"Data Representation",
-"Number Systems",
-"Computer Security",
-"File Management"
-],
-"Second Term":[
-"Computer Networks",
-"Internet",
-"Web Technologies",
-"Databases",
-"Spreadsheets",
-"Word Processing",
-"Presentation Tools"
-],
-"Third Term":[
-"Algorithms",
-"Flowcharts",
-"Programming",
-"Variables",
-"Cybersecurity",
-"Digital Ethics",
-"Revision"
-]},
-
-"Geography":{
-"First Term":[
-"Earth",
-"Latitude and Longitude",
-"Map Reading",
-"Scale",
-"Relief",
-"Rocks",
-"Weather"
-],
-"Second Term":[
-"Climate",
-"Vegetation",
-"Soils",
-"Population",
-"Settlement",
-"Transportation",
-"Communication"
-],
-"Third Term":[
-"Agriculture",
-"Industry",
-"Mineral Resources",
-"Environmental Problems",
-"Regional Geography",
-"Map Interpretation",
-"Revision"
-]}
-
-},
-
-
-/* =========================================================
-   EXAM PREPARATION
-========================================================= */
-
-EXAM:{
-
-"English Language":{
-"Module 1":[
-"Comprehension",
-"Summary",
-"Lexis and Structure",
-"Grammar",
-"Vocabulary"
-],
-"Module 2":[
-"Essay Writing",
-"Formal Letter",
-"Informal Letter",
-"Article Writing",
-"Argumentative Essay"
-],
-"Module 3":[
-"Oral English",
-"Sentence Completion",
-"Error Identification",
-"Exam Practice",
-"Full Revision"
-]},
-
-"Use of English":{
-"Module 1":[
-"Comprehension",
-"Lexis and Structure",
-"Grammar",
-"Vocabulary",
-"Sentence Interpretation"
-],
-"Module 2":[
-"Oral English",
-"Synonyms",
-"Antonyms",
-"Sentence Completion",
-"Idioms"
-],
-"Module 3":[
-"Reading Skills",
-"Summary",
-"Exam Strategy",
-"Timed Practice",
-"Full Revision"
-]},
-
-"Mathematics":{
-"Module 1":[
-"Number Bases",
-"Fractions",
-"Percentages",
-"Indices",
-"Logarithms",
-"Sets"
-],
-"Module 2":[
-"Algebra",
-"Quadratic Equations",
-"Sequences",
-"Trigonometry",
-"Mensuration",
-"Coordinate Geometry"
-],
-"Module 3":[
-"Statistics",
-"Probability",
-"Vectors",
-"Financial Mathematics",
-"Exam Practice",
-"Full Revision"
-]},
-
-"Physics":{
-"Module 1":[
-"Measurement",
-"Motion",
-"Force",
-"Energy",
-"Work Power and Machines"
-],
-"Module 2":[
-"Heat",
-"Waves",
-"Sound",
-"Light",
-"Optics"
-],
-"Module 3":[
-"Electricity",
-"Magnetism",
-"Electromagnetism",
-"Modern Physics",
-"Exam Practice"
-]},
-
-"Chemistry":{
-"Module 1":[
-"Atomic Structure",
-"Periodic Table",
-"Chemical Bonding",
-"Mole Concept",
-"Chemical Equations"
-],
-"Module 2":[
-"Acids Bases and Salts",
-"Solubility",
-"Metals",
-"Non-Metals",
-"Chemical Reactions"
-],
-"Module 3":[
-"Organic Chemistry",
-"Hydrocarbons",
-"Petroleum",
-"Environmental Chemistry",
-"Exam Practice"
-]},
-
-"Biology":{
-"Module 1":[
-"Cell Biology",
-"Nutrition",
-"Photosynthesis",
-"Respiration",
-"Transport"
-],
-"Module 2":[
-"Excretion",
-"Reproduction",
-"Coordination",
-"Health and Disease",
-"Genetics"
-],
-"Module 3":[
-"Ecology",
-"Evolution",
-"Conservation",
-"Food Chains",
-"Exam Practice"
-]},
-
-"Agricultural Science":{
-"Module 1":[
-"Agriculture and Society",
-"Soil Science",
-"Farm Tools",
-"Crop Production",
-"Crop Nutrition"
-],
-"Module 2":[
-"Weed Control",
-"Pests and Diseases",
-"Animal Nutrition",
-"Livestock Production",
-"Poultry Production"
-],
-"Module 3":[
-"Fisheries",
-"Pasture",
-"Farm Records",
-"Agricultural Economics",
-"Exam Practice"
-]},
-
-"Economics":{
-"Module 1":[
-"Scarcity",
-"Opportunity Cost",
-"Demand",
-"Supply",
-"Elasticity"
-],
-"Module 2":[
-"Production",
-"Market",
-"Money",
-"Banking",
-"Inflation"
-],
-"Module 3":[
-"National Income",
-"International Trade",
-"Development",
-"Public Finance",
-"Exam Practice"
-]},
-
-"Government":{
-"Module 1":[
-"State",
-"Power",
-"Authority",
-"Constitution",
-"Democracy"
-],
-"Module 2":[
-"Political Parties",
-"Electoral Systems",
-"Legislature",
-"Executive",
-"Judiciary"
-],
-"Module 3":[
-"Federalism",
-"Local Government",
-"Foreign Policy",
-"International Organizations",
-"Exam Practice"
-]},
-
-"Literature in English":{
-"Module 1":[
-"Prose",
-"Plot",
-"Character",
-"Setting",
-"Theme"
-],
-"Module 2":[
-"Drama",
-"Tragedy",
-"Comedy",
-"Conflict",
-"Stagecraft"
-],
-"Module 3":[
-"Poetry",
-"Rhyme",
-"Rhythm",
-"Figures of Speech",
-"Exam Practice"
-]},
-
-"Geography":{
-"Module 1":[
-"Map Reading",
-"Scale",
-"Latitude",
-"Longitude",
-"Relief"
-],
-"Module 2":[
-"Weather",
-"Climate",
-"Vegetation",
-"Soil",
-"Population"
-],
-"Module 3":[
-"Agriculture",
-"Industry",
-"Resources",
-"Environment",
-"Exam Practice"
-]}
-
-}
-
-};
-
-
-/* =========================================================
-   SUBJECT ICONS
-========================================================= */
-
-const icons={
-"Mathematics":"📐",
-"General Mathematics":"📐",
-"English Studies":"📚",
-"English Language":"📚",
-"Use of English":"📖",
-"Basic Science and Technology":"🔬",
-"Physics":"⚡",
-"Chemistry":"🧪",
-"Biology":"🧬",
-"Agricultural Science":"🌱",
-"Digital Technologies":"💻",
-"Citizenship and Heritage Studies":"🇳🇬",
-"Social Studies":"🌍",
-"Business Studies":"💼",
-"Basic Technology":"🛠️",
-"Economics":"💰",
-"Government":"🏛️",
-"Literature in English":"📕",
-"Geography":"🌍"
-};
-
-
-/* =========================================================
-   LESSON PROFILES
-========================================================= */
-
-const profiles={
-
-"Meaning of Agriculture":{
-intro:"Agriculture is the science, art and business of cultivating crops and rearing animals for human use.",
-points:[
-"Agriculture provides food.",
-"It supplies raw materials for industries.",
-"It creates employment.",
-"It can generate income and foreign exchange.",
-"It supports rural development."
-],
-example:"A farmer who grows maize for food and sells part of the harvest is practising crop production.",
-exercise:"State five importance of agriculture."
-},
-
-"Soil":{
-intro:"Soil is the upper layer of the earth's surface in which plants grow. It contains mineral particles, organic matter, air, water and living organisms.",
-points:[
-"Sand gives soil good drainage.",
-"Clay holds more water.",
-"Loam generally provides a good balance for many crops.",
-"Organic matter improves soil fertility.",
-"Soil supports plant roots."
-],
-example:"A loamy soil can be suitable for many food crops because it contains a useful balance of sand, clay and organic matter.",
-exercise:"Mention three components of soil."
-},
-
-"Types of Soil":{
-intro:"The major soil types commonly studied are sandy soil, clay soil and loamy soil.",
-points:[
-"Sandy soil has large particles and drains quickly.",
-"Clay soil has very small particles and holds water strongly.",
-"Loamy soil contains a mixture of sand, clay and organic matter.",
-"Different crops have different soil requirements."
-],
-example:"A soil that feels gritty and allows water to pass through quickly is likely to contain a large amount of sand.",
-exercise:"Compare sandy soil and clay soil."
-},
-
-"Crop Production":{
-intro:"Crop production involves the activities used to grow crops successfully from land preparation through harvesting.",
-points:[
-"Land must be prepared before planting.",
-"Good quality seeds improve establishment.",
-"Correct spacing reduces competition.",
-"Weeds and pests should be controlled.",
-"Harvesting should be done at the appropriate stage."
-],
-example:"A farmer may clear and prepare a field, plant selected maize seeds at suitable spacing, weed the field and harvest mature cobs.",
-exercise:"List five stages involved in crop production."
-},
-
-"Farm Tools":{
-intro:"Farm tools are implements used to perform agricultural operations more easily and efficiently.",
-points:[
-"The cutlass is used for clearing and cutting.",
-"The hoe is used for digging and weeding.",
-"The rake is used for gathering materials.",
-"The shovel can be used for moving soil.",
-"Tools should be cleaned and stored properly."
-],
-example:"A hoe can be used to loosen soil around a crop and remove weeds.",
-exercise:"Name five farm tools and state one use of each."
-},
-
-"Animal Nutrition":{
-intro:"Animal nutrition is the study of the nutrients animals need for growth, maintenance, reproduction and production.",
-points:[
-"Carbohydrates supply energy.",
-"Proteins support growth and tissue repair.",
-"Minerals support body functions.",
-"Vitamins help regulate body processes.",
-"Water is essential for life."
-],
-example:"A growing chicken requires a balanced feed containing adequate protein, energy, minerals, vitamins and water.",
-exercise:"List six classes of nutrients needed by farm animals."
-},
-
-"Livestock Management":{
-intro:"Livestock management involves caring for farm animals so that they remain healthy and productive.",
-points:[
-"Animals require suitable housing.",
-"They need balanced feed and clean water.",
-"Good sanitation reduces disease.",
-"Vaccination may help prevent some diseases.",
-"Proper records help farmers manage production."
-],
-example:"A poultry farmer can improve flock performance by providing clean housing, adequate feed, water and appropriate disease prevention.",
-exercise:"State five good livestock management practices."
-},
-
-"Fish Farming":{
-intro:"Fish farming, or aquaculture, involves raising fish under controlled conditions for food or commercial purposes.",
-points:[
-"Fish require suitable water.",
-"Stocking density should be controlled.",
-"Fish need appropriate feed.",
-"Water quality must be monitored.",
-"Fish are harvested when they reach marketable size."
-],
-example:"A farmer may raise catfish in a managed pond or tank and feed them regularly until they reach market size.",
-exercise:"State four requirements for successful fish farming."
-},
-
-"Cell Structure":{
-intro:"The cell is the basic structural and functional unit of living organisms.",
-points:[
-"The cell membrane controls movement of substances.",
-"The cytoplasm is the site of many chemical reactions.",
-"The nucleus contains genetic material in typical eukaryotic cells.",
-"Plant cells have a cell wall.",
-"Plant cells usually contain chloroplasts."
-],
-example:"A plant cell differs from an animal cell because it has structures such as a cell wall and chloroplasts.",
-exercise:"State three differences between a plant cell and an animal cell."
-},
-
-"Photosynthesis":{
-intro:"Photosynthesis is the process by which green plants use light energy to manufacture food from carbon dioxide and water.",
-points:[
-"Chlorophyll absorbs light energy.",
-"Carbon dioxide enters mainly through stomata.",
-"Water is absorbed by roots.",
-"Glucose is produced.",
-"Oxygen is released as a by-product."
-],
-example:"A green leaf exposed to light can manufacture glucose when carbon dioxide and water are available.",
-exercise:"Write the word equation for photosynthesis."
-},
-
-"Respiration":{
-intro:"Respiration is the process by which cells release usable energy from food.",
-points:[
-"Aerobic respiration uses oxygen.",
-"It releases energy from glucose.",
-"Carbon dioxide and water are products of aerobic respiration.",
-"Energy released supports cellular activities.",
-"Anaerobic respiration occurs without oxygen."
-],
-example:"During vigorous exercise, muscle cells may temporarily rely more on anaerobic respiration when oxygen supply cannot meet demand.",
-exercise:"Differentiate between aerobic and anaerobic respiration."
-},
-
-"Nutrition":{
-intro:"Nutrition is the process by which organisms obtain and use nutrients for energy, growth, repair and normal functioning.",
-points:[
-"Plants can manufacture organic food.",
-"Animals obtain nutrients from food.",
-"Balanced diets contain different nutrient groups.",
-"Poor nutrition can cause health problems.",
-"Water is also essential."
-],
-example:"A balanced meal may contain carbohydrate, protein, vegetables or fruits, healthy fats and water.",
-exercise:"What is a balanced diet?"
-},
-
-"Motion":{
-intro:"Motion occurs when an object's position changes with time relative to a reference point.",
-points:[
-"Distance is the total path covered.",
-"Displacement has magnitude and direction.",
-"Speed is distance divided by time.",
-"Velocity is displacement divided by time.",
-"Acceleration is change in velocity per unit time."
-],
-example:"If a car travels 100 metres in 5 seconds, its average speed is 20 m/s.",
-exercise:"A runner covers 200 m in 20 s. Calculate the average speed."
-},
-
-"Force":{
-intro:"A force is a push or pull that can change the motion or shape of an object.",
-points:[
-"Force has magnitude and direction.",
-"Force can accelerate an object.",
-"Force can change direction of motion.",
-"Balanced forces produce no acceleration.",
-"Unbalanced forces can change motion."
-],
-example:"Pushing a stationary box with sufficient force can make it move.",
-exercise:"State three effects of force."
-},
-
-"Work Energy and Power":{
-intro:"Work is done when a force causes displacement in its direction. Energy is the capacity to do work, while power is the rate of doing work.",
-points:[
-"Work is measured in joules.",
-"Energy can exist in different forms.",
-"Power is measured in watts.",
-"Mechanical energy includes kinetic and potential energy.",
-"Energy can be transferred from one form to another."
-],
-example:"If a 10 N force moves an object 5 m in the direction of the force, work done is 50 J.",
-exercise:"Calculate the work done when a 20 N force moves an object 3 m."
-},
-
-"Atomic Structure":{
-intro:"Atoms are made of subatomic particles including protons, neutrons and electrons.",
-points:[
-"Protons have positive charge.",
-"Electrons have negative charge.",
-"Neutrons have no electrical charge.",
-"The nucleus contains protons and neutrons.",
-"Electrons occupy regions around the nucleus."
-],
-example:"A neutral atom has equal numbers of protons and electrons.",
-exercise:"Name the three major subatomic particles."
-},
-
-"Chemical Bonding":{
-intro:"Chemical bonding explains how atoms combine to form substances.",
-points:[
-"Ionic bonding involves transfer of electrons.",
-"Covalent bonding involves sharing of electrons.",
-"Metallic bonding occurs among metal atoms.",
-"Bonding helps atoms achieve more stable arrangements.",
-"The type of bond affects properties."
-],
-example:"Sodium chloride is commonly used to illustrate ionic bonding because electrons are transferred between sodium and chlorine atoms.",
-exercise:"Differentiate between ionic and covalent bonding."
-},
-
-"Acids Bases and Salts":{
-intro:"Acids and bases are important classes of chemical substances. Their reactions can produce salts.",
-points:[
-"Many acids have a sour taste, but chemicals should never be tasted.",
-"Bases can neutralize acids.",
-"Indicators can help identify acidic or alkaline solutions.",
-"Neutralization produces salt and water in many cases.",
-"pH is used to describe acidity or alkalinity."
-],
-example:"Hydrochloric acid reacting with sodium hydroxide is an example of neutralization.",
-exercise:"What is neutralization?"
-},
-
-"Demand":{
-intro:"Demand refers to the quantity of a good or service consumers are willing and able to buy at a given price and time.",
-points:[
-"Demand is different from mere desire.",
-"Price often affects quantity demanded.",
-"Income can affect demand.",
-"Prices of related goods can affect demand.",
-"Tastes and preferences can affect demand."
-],
-example:"If the price of a product falls and consumers buy more of it, this illustrates movement along a demand curve, other factors remaining constant.",
-exercise:"State four factors that can affect demand."
-},
-
-"Supply":{
-intro:"Supply refers to the quantity of a good or service producers are willing and able to offer for sale at a given price and time.",
-points:[
-"Price can influence quantity supplied.",
-"Production costs affect supply.",
-"Technology can affect supply.",
-"Government policies may affect supply.",
-"Weather can influence agricultural supply."
-],
-example:"A rise in production cost may reduce the amount producers are willing to supply at a given price.",
-exercise:"Mention four factors affecting supply."
-},
-
-"Scarcity and Choice":{
-intro:"Scarcity exists because human wants are numerous while resources available to satisfy them are limited.",
-points:[
-"Resources are limited.",
-"Human wants are unlimited.",
-"Choice becomes necessary.",
-"Every choice has a cost.",
-"Scarcity is a basic economic problem."
-],
-example:"A student with limited money who chooses between buying a textbook and another item faces scarcity and choice.",
-exercise:"Explain scarcity in your own words."
-},
-
-"Constitution":{
-intro:"A constitution is the set of fundamental rules and principles by which a state is governed.",
-points:[
-"It defines government powers.",
-"It can protect citizens' rights.",
-"It describes institutions of government.",
-"It may explain how leaders are chosen.",
-"It provides a framework for governance."
-],
-example:"Rules specifying the powers of the executive, legislature and judiciary are constitutional provisions.",
-exercise:"State four functions of a constitution."
-},
-
-"Democracy":{
-intro:"Democracy is a system of government in which political authority is exercised directly or through representatives chosen by the people.",
-points:[
-"Citizens participate in government.",
-"Elections are important.",
-"Rule of law is important.",
-"Fundamental rights should be respected.",
-"Accountability is expected."
-],
-example:"A country holding competitive elections where citizens choose representatives is practising a democratic process.",
-exercise:"State five features of democracy."
-},
-
-"Prose":{
-intro:"Prose is ordinary written or spoken language arranged in sentences and paragraphs rather than verse.",
-points:[
-"Prose may be fictional or non-fictional.",
-"Novels and short stories are examples.",
-"Characters take part in events.",
-"Setting refers to time and place.",
-"Theme expresses an important idea."
-],
-example:"A short story about a student overcoming hardship can use character, setting and plot to communicate a theme.",
-exercise:"Define prose and name two forms of prose."
-},
-
-"Poetry":{
-intro:"Poetry is a literary form that uses carefully chosen language, sound, imagery and structure to communicate ideas and emotions.",
-points:[
-"Poems may use rhythm.",
-"Some poems use rhyme.",
-"Imagery creates mental pictures.",
-"Poets use figures of speech.",
-"Tone expresses attitude or emotion."
-],
-example:"A poet may compare a person's courage to a lion to create vivid imagery.",
-exercise:"Mention five features commonly found in poetry."
-},
-
-"Computer Hardware":{
-intro:"Computer hardware refers to the physical components of a computer system that can be seen and touched.",
-points:[
-"The keyboard is an input device.",
-"The monitor is an output device.",
-"The CPU processes instructions.",
-"Storage devices keep data.",
-"Hardware works with software."
-],
-example:"A keyboard sends typed information into a computer, while a monitor displays information from the computer.",
-exercise:"Give five examples of computer hardware."
-},
-
-"Computer Networks":{
-intro:"A computer network is a group of connected computers and devices that can communicate and share resources.",
-points:[
-"Networks can share files.",
-"They can share hardware resources.",
-"Local Area Networks cover relatively small areas.",
-"Wide Area Networks cover larger areas.",
-"Network security is important."
-],
-example:"Computers in a school computer laboratory can be connected to share a printer and exchange files.",
-exercise:"State three advantages of computer networking."
-},
-
-"Latitude and Longitude":{
-intro:"Latitude and longitude are imaginary lines used to locate places on the earth.",
-points:[
-"Latitude measures distance north or south of the Equator.",
-"Longitude measures distance east or west of the Prime Meridian.",
-"The Equator is 0° latitude.",
-"The Prime Meridian is 0° longitude.",
-"Coordinates help locate places."
-],
-example:"A location's latitude and longitude can be used together to identify its position on a map.",
-exercise:"Differentiate between latitude and longitude."
-}
-
-};
-
-
-/* =========================================================
-   GENERIC LESSON CONTENT
-========================================================= */
-
-function getProfile(topic,subject){
-
-if(profiles[topic]) return profiles[topic];
-
-let subjectText={
-"Mathematics":"Mathematics develops logical thinking and helps learners solve problems using numbers, symbols, patterns and measurements.",
-"General Mathematics":"Mathematics develops logical thinking and problem-solving skills using numbers, algebra, geometry, statistics and other mathematical ideas.",
-"English Language":"English Language develops communication skills in reading, writing, listening and speaking.",
-"English Studies":"English Studies develops effective communication through reading, writing, grammar, vocabulary and oral language.",
-"Physics":"Physics studies matter, energy, motion and the interactions that explain many natural phenomena.",
-"Chemistry":"Chemistry studies substances, their properties, composition and the changes they undergo.",
-"Biology":"Biology is the study of living organisms and their relationships with one another and their environment.",
-"Agricultural Science":"Agricultural Science applies scientific knowledge to crop production, animal production, soil management and agricultural business.",
-"Economics":"Economics examines how people and societies make choices about scarce resources.",
-"Government":"Government studies political institutions, political processes, authority and how states are governed.",
-"Literature in English":"Literature examines imaginative works such as prose, drama and poetry and the ideas communicated through them.",
-"Digital Technologies":"Digital Technologies develops knowledge and skills for using computers, digital systems, information and technology safely.",
-"Geography":"Geography studies places, people, environments and the physical and human processes that shape the earth.",
-"Basic Science and Technology":"Basic Science and Technology introduces scientific ideas, technology, health, environment and everyday applications.",
-"Citizenship and Heritage Studies":"This subject develops understanding of citizenship, values, heritage, rights, responsibilities and national development.",
-"Social Studies":"Social Studies helps learners understand people, relationships, society, culture and social problems.",
-"Business Studies":"Business Studies introduces commercial activities, office work, trade, entrepreneurship and basic financial ideas.",
-"Basic Technology":"Basic Technology introduces tools, materials, machines, technical drawing, safety and practical technology."
-};
-
-return{
-intro:(subjectText[subject]||"This lesson introduces an important concept in the subject.")+
-" In this lesson, you will study "+topic+" and learn how the idea is used in school work and everyday situations.",
-points:[
-"Understand the meaning of "+topic+".",
-"Identify the main ideas connected with the topic.",
-"Apply what you learn to simple examples.",
-"Use correct subject terminology.",
-"Practise questions based on the topic."
-],
-example:"For example, a student should be able to explain "+topic+" clearly, identify its important features and apply the idea when answering a related question.",
-exercise:"Write a short explanation of "+topic+" and list three important points you have learnt."
-};
-
-}
-
-
-/* =========================================================
-   QUIZ QUESTION BANK
-========================================================= */
-
-const quizBank={
-
-"Mathematics":[
-["What is 25% of 200?",["25","40","50","75"],2,"25% of 200 is 50."],
-["If x + 7 = 15, what is x?",["6","7","8","9"],2,"Subtract 7 from both sides: x = 8."],
-["What is 3/4 as a decimal?",["0.25","0.5","0.75","1.25"],2,"3 divided by 4 equals 0.75."],
-["A triangle has angles 50° and 60°. Find the third angle.",["60°","70°","80°","90°"],1,"Angles in a triangle add up to 180°."],
-["What is the probability of getting a head when tossing a fair coin?",["0","1/4","1/2","1"],2,"There are two equally likely outcomes, so the probability is 1/2."]
-],
-
-"General Mathematics":[
-["What is the value of 2³?",["5","6","8","9"],2,"2 × 2 × 2 = 8."],
-["Solve x + 5 = 12.",["5","6","7","8"],2,"x = 12 - 5 = 7."],
-["What is 20% of 150?",["20","25","30","35"],2,"0.20 × 150 = 30."],
-["The sum of angles in a triangle is:",["90°","180°","270°","360°"],1,"The interior angles of a triangle sum to 180°."],
-["If a fair die is thrown, how many possible outcomes are there?",["4","5","6","8"],2,"A standard die has six faces."]
-],
-
-"Physics":[
-["Which quantity is measured in metres?",["Mass","Length","Time","Temperature"],1,"The SI unit of length is the metre."],
-["Speed is calculated as:",["Time ÷ distance","Distance ÷ time","Mass ÷ volume","Force ÷ area"],1,"Speed = distance ÷ time."],
-["The SI unit of force is:",["Joule","Watt","Newton","Pascal"],2,"Force is measured in newtons."],
-["Which form of energy is associated with motion?",["Chemical","Kinetic","Potential","Nuclear"],1,"Kinetic energy is energy due to motion."],
-["What instrument measures temperature?",["Barometer","Thermometer","Ammeter","Voltmeter"],1,"A thermometer measures temperature."]
-],
-
-"Chemistry":[
-["The centre of an atom is called the:",["Shell","Nucleus","Ion","Molecule"],1,"The nucleus contains protons and neutrons."],
-["Which particle has a negative charge?",["Proton","Neutron","Electron","Nucleus"],2,"Electrons carry negative charge."],
-["A substance with pH below 7 is generally:",["Acidic","Neutral","Alkaline","Metallic"],0,"A pH below 7 indicates acidity."],
-["Which gas is needed for aerobic respiration?",["Nitrogen","Oxygen","Hydrogen","Helium"],1,"Aerobic respiration requires oxygen."],
-["A bond formed by sharing electrons is:",["Ionic","Covalent","Metallic","Nuclear"],1,"Covalent bonding involves shared electrons."]
-],
-
-"Biology":[
-["The basic unit of life is the:",["Organ","Cell","Tissue","System"],1,"The cell is the basic structural and functional unit of life."],
-["Photosynthesis mainly occurs in the:",["Nucleus","Chloroplast","Ribosome","Vacuole"],1,"Chloroplasts contain chlorophyll and are the main site of photosynthesis."],
-["Which gas is released during photosynthesis?",["Carbon dioxide","Nitrogen","Oxygen","Hydrogen"],2,"Oxygen is released during photosynthesis."],
-["Which system transports blood around the body?",["Digestive","Circulatory","Respiratory","Skeletal"],1,"The circulatory system transports blood."],
-["The passing of characteristics from parents to offspring is called:",["Respiration","Heredity","Digestion","Excretion"],1,"Heredity is the transmission of characteristics."]
-],
-
-"Agricultural Science":[
-["Which tool is commonly used for cutting weeds and small bushes?",["Cutlass","Ruler","Compass","Thermometer"],0,"A cutlass is commonly used for clearing and cutting vegetation."],
-["Which soil type generally has good drainage?",["Sandy soil","Heavy clay","Pure clay","Waterlogged soil"],0,"Sandy soil has relatively large particles and drains quickly."],
-["Which nutrient mainly supports growth and tissue repair in animals?",["Protein","Water only","Salt","Fibre"],0,"Protein is important for growth and tissue repair."],
-["Which activity is part of crop production?",["Weeding","Typing","Printing","Programming"],0,"Weeding is an important crop production activity."],
-["Fish farming is also known as:",["Aquaculture","Apiculture","Silviculture","Horticulture"],0,"Aquaculture is the controlled production of aquatic organisms such as fish."]
-],
-
-"Economics":[
-["The basic economic problem arises because resources are:",["Unlimited","Scarce","Free","Infinite"],1,"Resources are scarce relative to unlimited human wants."],
-["The next best alternative forgone is called:",["Profit","Demand","Opportunity cost","Supply"],2,"Opportunity cost is the next best alternative forgone."],
-["A rise in price generally causes quantity demanded to:",["Rise","Fall","Remain exactly the same","Double"],1,"Other things equal, quantity demanded usually falls when price rises."],
-["Which is a factor of production?",["Land","Inflation","Price","Demand"],0,"Land is one of the traditional factors of production."],
-["Persistent general rise in prices is called:",["Deflation","Inflation","Recession","Scarcity"],1,"Inflation is a sustained general increase in prices."]
-],
-
-"Government":[
-["The supreme law of a state is generally its:",["Manifesto","Constitution","Budget","Campaign"],1,"The constitution provides the fundamental legal framework of the state."],
-["A system in which citizens choose representatives is:",["Democracy","Dictatorship","Monarchy only","Anarchy"],0,"Representative democracy involves choosing representatives."],
-["Which arm of government makes laws?",["Judiciary","Legislature","Executive","Civil service"],1,"The legislature makes laws."],
-["Which arm interprets laws?",["Judiciary","Legislature","Executive","Media"],0,"The judiciary interprets and applies the law."],
-["An election is primarily a process for:",["Choosing representatives","Writing textbooks","Producing food","Measuring rainfall"],0,"Elections allow citizens to choose political representatives."]
-],
-
-"Digital Technologies":[
-["Which is an input device?",["Monitor","Keyboard","Speaker","Projector"],1,"A keyboard sends data into the computer."],
-["Which device displays information?",["Monitor","Keyboard","Mouse pad","Microphone"],0,"A monitor is an output device."],
-["CPU stands for:",["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Power Unit"],0,"CPU means Central Processing Unit."],
-["A network connects computers so they can:",["Only play music","Communicate and share resources","Become televisions","Stop processing"],1,"Networks allow communication and resource sharing."],
-["Which is important for online safety?",["Sharing passwords","Using strong passwords","Opening every link","Ignoring security"],1,"Strong passwords are an important security practice."]
-],
-
-"Literature in English":[
-["A story's main message is its:",["Theme","Setting","Chapter","Title"],0,"Theme is the central idea or message."],
-["The time and place of a story is its:",["Plot","Setting","Conflict","Narrator"],1,"Setting refers to time and place."],
-["A literary work written for performance is:",["Drama","Dictionary","Report","Invoice"],0,"Drama is designed for performance."],
-["A comparison using 'like' or 'as' is:",["Simile","Irony","Pun","Alliteration"],0,"A simile compares using words such as 'like' or 'as'."],
-["A poem may use rhythm to create:",["A pattern of sound","A bank account","A map","A laboratory"],0,"Rhythm is a pattern of beats or stresses in language."]
-],
-
-"Geography":[
-["The Equator is:",["0° latitude","90° latitude","0° longitude","180° longitude"],0,"The Equator is 0° latitude."],
-["The Prime Meridian is:",["0° longitude","90° longitude","0° latitude","180° latitude"],0,"The Prime Meridian is 0° longitude."],
-["A map scale shows the relationship between:",["Map distance and ground distance","Rain and wind","Population and food","Temperature and pressure only"],0,"Scale relates distance on a map to actual ground distance."],
-["Weather refers to atmospheric conditions over:",["A short period","Thousands of years only","A century only","No period"],0,"Weather describes short-term atmospheric conditions."],
-["Which is a human feature?",["Road","River","Mountain","Valley"],0,"Roads are constructed by people."]
-]
-
-};
-
-
-/* =========================================================
-   APP STATE
-========================================================= */
 
 let currentLevel="";
 let currentSubject="";
-let currentTerm="";
-let currentTopicIndex=0;
-let allCurrentTopics=[];
-let quizQuestions=[];
-let quizIndex=0;
-let quizScore=0;
 
-let progressData=JSON.parse(
-localStorage.getItem("eduproProgress")||"{}"
-);
-
-
-/* =========================================================
-   HOME
-========================================================= */
-
-function renderLevels(){
-
-const grid=document.getElementById("levelGrid");
-
-grid.innerHTML=Object.entries(levels).map(([key,l])=>`
-
-<div class="card ${l.type==="EXAM"?"exam-card":"level-card"}"
-onclick="openLevel('${key}')">
-
-<div class="icon">${l.icon}</div>
-
-<h3>${l.name}</h3>
-
-<p class="small">
-${l.type==="EXAM"
-?"Exam preparation, practice and revision"
-:"School textbook lessons, exercises and quizzes"}
-</p>
-
-</div>
-
-`).join("");
-
-}
-
-renderLevels();
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
 
 function hideAll(){
-document.getElementById("home").classList.add("hidden");
-document.getElementById("levelPage").classList.add("hidden");
-document.getElementById("subjectPage").classList.add("hidden");
-document.getElementById("lessonPage").classList.add("hidden");
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("levels").classList.add("hidden");
+  document.getElementById("subjects").classList.add("hidden");
+  document.getElementById("course").classList.add("hidden");
+  document.getElementById("dictionary").classList.add("hidden");
+  document.getElementById("motivation").classList.add("hidden");
 }
+
 
 function goHome(){
-hideAll();
-document.getElementById("home").classList.remove("hidden");
-window.scrollTo(0,0);
-}
-
-function openLevel(level){
-
-currentLevel=level;
-
-hideAll();
-
-document.getElementById("levelPage").classList.remove("hidden");
-
-const l=levels[level];
-
-document.getElementById("levelHeader").innerHTML=`
-<h1>${l.icon} ${l.name}</h1>
-<p class="small">
-Choose a subject to enter the digital textbook.
-Each subject contains learning modules, lessons, exercises and quizzes.
-</p>
-`;
-
-document.getElementById("subjectSearch").value="";
-
-renderSubjects();
-
-window.scrollTo(0,0);
+  hideAll();
+  document.getElementById("home").classList.remove("hidden");
+  window.scrollTo(0,0);
 }
 
 
-function renderSubjects(filter=""){
+function showLevels(){
+  hideAll();
+  document.getElementById("levels").classList.remove("hidden");
 
-const grid=document.getElementById("subjectGrid");
+  const grid=document.getElementById("levelGrid");
 
-const subjects=levels[currentLevel].subjects.filter(s=>
-s.toLowerCase().includes(filter.toLowerCase())
-);
+  grid.innerHTML=[
+    "JSS1","JSS2","JSS3",
+    "SSS1","SSS2","SSS3",
+    "JAMB","WAEC","NECO","UNIVERSITY"
+  ].map(level=>`
+    <div class="card level-card clickable" onclick="selectLevel('${level}')">
+      <div class="icon">${level==="UNIVERSITY"?"🎓":"📚"}</div>
+      <h3>${level}</h3>
+      <p>${level==="UNIVERSITY"?"University courses":"Study & practise"}</p>
+    </div>
+  `).join("");
 
-grid.innerHTML=subjects.map(subject=>`
-
-<div class="card subject-card"
-data-subject="${subject.toLowerCase()}">
-
-<div class="icon">${icons[subject]||"📘"}</div>
-
-<h3>${subject}</h3>
-
-<p class="small">
-Textbook lessons • Exercises • Quiz
-</p>
-
-<button onclick="event.stopPropagation();openSubject('${subject}')">
-Open Course →
-</button>
-
-</div>
-
-`).join("");
-
-}
-
-function filterSubjects(){
-renderSubjects(document.getElementById("subjectSearch").value);
+  window.scrollTo(0,0);
 }
 
 
-/* =========================================================
-   SUBJECT
-========================================================= */
+function selectLevel(level){
+  currentLevel=level;
 
-function getSubjectData(){
+  hideAll();
+  document.getElementById("subjects").classList.remove("hidden");
 
-const levelType=levels[currentLevel].type;
+  document.getElementById("subjectLevel").textContent=level;
+  document.getElementById("subjectTitle").textContent=
+    level==="UNIVERSITY" ? "Choose a university course" : "Choose a subject";
 
-return topicDB[levelType]?.[currentSubject]||{};
+  document.getElementById("subjectSearch").value="";
+  renderSubjects();
+
+  window.scrollTo(0,0);
 }
+
+
+function renderSubjects(){
+
+  const query=document.getElementById("subjectSearch").value.toLowerCase();
+
+  const list=subjects[currentLevel] || [];
+
+  const filtered=list.filter(item=>
+    item[0].toLowerCase().includes(query)
+  );
+
+  document.getElementById("subjectGrid").innerHTML=
+    filtered.map(item=>`
+      <div class="card clickable" onclick="openSubject('${item[0].replace(/'/g,"\\'")}')">
+        <h3>${item[1]} ${item[0]}</h3>
+        <p>Study • Practice • Quiz</p>
+      </div>
+    `).join("");
+}
+
 
 function openSubject(subject){
 
-currentSubject=subject;
+  currentSubject=subject;
 
-hideAll();
+  hideAll();
+  document.getElementById("course").classList.remove("hidden");
 
-document.getElementById("subjectPage").classList.remove("hidden");
+  document.getElementById("courseBread").textContent=
+    currentLevel+" › "+currentSubject;
 
-document.getElementById("subjectHeader").innerHTML=`
+  openCourseTab("learn");
 
-<h1>${icons[subject]||"📘"} ${subject}</h1>
-
-<p class="small">
-${levels[currentLevel].name} • Digital Textbook Course
-</p>
-
-<div class="progress">
-<div id="courseProgress" class="progress-bar"></div>
-</div>
-
-<p id="progressText" class="small"></p>
-`;
-
-showSubjectTab("chapters",document.querySelector(".tab"));
-
-window.scrollTo(0,0);
+  window.scrollTo(0,0);
 }
 
 
-function showSubjectTab(tab,button){
+function openCourseTab(tab){
 
-document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  document.getElementById("learnPanel").classList.add("hidden");
+  document.getElementById("practicePanel").classList.add("hidden");
+  document.getElementById("quizPanel").classList.add("hidden");
 
-if(button)button.classList.add("active");
+  document.getElementById("learnTab").classList.remove("active");
+  document.getElementById("practiceTab").classList.remove("active");
+  document.getElementById("quizTab").classList.remove("active");
 
-if(tab==="chapters"){
+  document.getElementById(tab+"Panel").classList.remove("hidden");
+  document.getElementById(tab+"Tab").classList.add("active");
 
-document.getElementById("chaptersTab").classList.remove("hidden");
-document.getElementById("quizTab").classList.add("hidden");
-
-renderChapters();
-
-}else{
-
-document.getElementById("chaptersTab").classList.add("hidden");
-document.getElementById("quizTab").classList.remove("hidden");
-
-renderCourseQuiz();
-
-}
-
+  if(tab==="learn") renderLesson();
+  if(tab==="practice") renderPractice();
+  if(tab==="quiz") renderQuiz();
 }
 
 
-/* =========================================================
-   CHAPTERS
-========================================================= */
-
-function renderChapters(){
-
-const data=getSubjectData();
-const box=document.getElementById("chaptersTab");
-
-let html="";
-
-Object.entries(data).forEach(([term,topics],termIndex)=>{
-
-html+=`
-
-<h2 class="section-title">${term}</h2>
-`;
-
-for(let i=0;i<topics.length;i+=2){
-
-let chapterTopics=topics.slice(i,i+2);
-
-html+=`
-<div class="chapter">
-
-<div class="chapter-title">
-📖 Chapter ${Math.floor(i/2)+1} — ${chapterTopics[0]}
-</div>
-`;
-
-chapterTopics.forEach((topic,j)=>{
-
-let key=progressKey(term,topic);
-
-html+=`
-<div class="topic ${progressData[key]?"done":""}"
-onclick="openLesson('${term}',${i+j})">
-
-${progressData[key]?"✓ ":""} 
-${i+j+1}. ${topic}
-
-</div>
-`;
-
-});
-
-html+=`</div>`;
-
-}
-
-});
-
-box.innerHTML=html;
-
-updateProgress();
-
-}
-
-
-/* =========================================================
-   LESSON
-========================================================= */
-
-function openLesson(term,index){
-
-currentTerm=term;
-
-const topics=getSubjectData()[term];
-
-currentTopicIndex=index;
-
-allCurrentTopics=topics;
-
-renderLesson();
-
-}
-
+/* =========================
+   LESSON CONTENT
+========================= */
 
 function renderLesson(){
 
-hideAll();
+  let content=getLesson(currentSubject);
 
-document.getElementById("lessonPage").classList.remove("hidden");
+  document.getElementById("learnPanel").innerHTML=`
+    <article class="lesson">
 
-const topic=allCurrentTopics[currentTopicIndex];
+      <span class="badge">${currentLevel}</span>
 
-const data=getProfile(topic,currentSubject);
+      <h1>${content.title}</h1>
 
-const chapter=Math.floor(currentTopicIndex/2)+1;
+      <p class="small">
+        Textbook lesson • ${currentSubject}
+      </p>
 
-document.getElementById("lessonContent").innerHTML=`
+      ${content.body}
 
-<div class="lesson">
+      <div class="keypoints">
+        <strong>Key Points to Remember</strong>
+        <ul>
+          ${content.points.map(x=>`<li>${x}</li>`).join("")}
+        </ul>
+      </div>
 
-<p class="small">
-${levels[currentLevel].name} • ${currentSubject} • ${currentTerm}
-</p>
+      <div class="actions">
+        <button class="btn" onclick="openCourseTab('practice')">
+          Continue to Practice →
+        </button>
 
-<h2>Chapter ${chapter}: ${topic}</h2>
+        <button class="btn secondary" onclick="showDictionary()">
+          📖 Check Dictionary
+        </button>
+      </div>
 
-<div class="objectives">
-
-<h3>🎯 Learning Objectives</h3>
-
-<ul>
-${data.points.slice(0,4).map(x=>`<li>Understand ${x.toLowerCase()}</li>`).join("")}
-</ul>
-
-</div>
-
-<h3>📖 Introduction</h3>
-
-<p>${data.intro}</p>
-
-<h3>🧠 What You Should Know</h3>
-
-<p>
-The important idea in this lesson is <strong>${topic}</strong>.
-Students should understand the meaning of the concept, recognise its
-main features and be able to apply the knowledge when answering questions.
-</p>
-
-<h3>📚 Key Points</h3>
-
-<div class="keybox">
-
-<ul>
-${data.points.map(x=>`<li>${x}</li>`).join("")}
-</ul>
-
-</div>
-
-<h3>✏️ Worked Example</h3>
-
-<div class="example">
-<strong>Example:</strong>
-<p>${data.example}</p>
-</div>
-
-<h3>⚠️ Common Mistakes</h3>
-
-<div class="mistakes">
-
-<ul>
-<li>Do not memorise definitions without understanding them.</li>
-<li>Read every question carefully.</li>
-<li>Use correct subject terminology.</li>
-<li>Show your working when calculation is required.</li>
-</ul>
-
-</div>
-
-<h3>📝 Student Exercise</h3>
-
-<div class="exercise">
-
-<p>${data.exercise}</p>
-
-<ol>
-<li>Explain the main idea in your own words.</li>
-<li>List three important facts from this lesson.</li>
-<li>Give one real-life example related to the topic.</li>
-</ol>
-
-</div>
-
-<h3>📌 Lesson Summary</h3>
-
-<p>
-You have studied <strong>${topic}</strong>.
-Review the key points, attempt the exercise and then use the
-course quiz to test your understanding.
-</p>
-
-</div>
-`;
-
-window.scrollTo(0,0);
+    </article>
+  `;
 }
 
 
-/* =========================================================
+/* =========================
+   LESSON DATABASE
+========================= */
+
+function getLesson(subject){
+
+  if(subject==="General Mathematics" || subject==="Mathematics"){
+
+    return {
+      title:"Mathematics: Percentages, Ratios and Algebraic Calculation",
+
+      body:`
+
+      <h2>1. Percentage</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Percentage is a way of expressing a number or quantity as a fraction of one hundred.
+      </div>
+
+      <p>
+        The word percentage means “per hundred”. It is represented by the symbol
+        <strong>%</strong>.
+      </p>
+
+      <div class="formula">
+        Percentage = (Part ÷ Whole) × 100%
+      </div>
+
+      <h3>Worked Example 1</h3>
+
+      <div class="example">
+        <strong>Question:</strong>
+        A student scored 36 marks out of 50. Find the percentage score.
+
+        <div class="step">Step 1: Identify the part = 36.</div>
+        <div class="step">Step 2: Identify the whole = 50.</div>
+        <div class="step">Step 3: Percentage = (36 ÷ 50) × 100.</div>
+        <div class="step">Step 4: 36 ÷ 50 = 0.72.</div>
+        <div class="step">Step 5: 0.72 × 100 = <strong>72%</strong>.</div>
+      </div>
+
+
+      <h2>2. Percentage Increase</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Percentage increase is the increase in a quantity expressed as a percentage of its original value.
+      </div>
+
+      <div class="formula">
+        Percentage Increase = (Increase ÷ Original Value) × 100%
+      </div>
+
+      <div class="example">
+        <strong>Example:</strong>
+        The price of a book increases from ₦2,000 to ₦2,500.
+
+        <div class="step">Increase = ₦2,500 − ₦2,000 = ₦500.</div>
+        <div class="step">Percentage increase = (500 ÷ 2,000) × 100.</div>
+        <div class="step">= <strong>25%</strong>.</div>
+      </div>
+
+
+      <h2>3. Ratio</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Ratio is a mathematical comparison of two or more quantities of the same kind.
+      </div>
+
+      <p>
+        A ratio may be written using the symbol <strong>:</strong>.
+      </p>
+
+      <div class="example">
+        If there are 12 boys and 8 girls in a class, the ratio of boys to girls is:
+        <div class="formula">12 : 8 = 3 : 2</div>
+      </div>
+
+
+      <h2>4. Simple Algebra</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Algebra is a branch of mathematics in which letters and other symbols are used to represent numbers and quantities.
+      </div>
+
+      <div class="example">
+        <strong>Example:</strong> Solve:
+
+        <div class="formula">3x + 5 = 20</div>
+
+        <div class="step">3x = 20 − 5</div>
+        <div class="step">3x = 15</div>
+        <div class="step">x = 15 ÷ 3</div>
+        <div class="step"><strong>x = 5</strong></div>
+      </div>
+
+
+      <h2>5. Simple Interest</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Simple interest is the interest calculated on the original principal throughout the period of an investment or loan.
+      </div>
+
+      <div class="formula">
+        I = (P × R × T) ÷ 100
+      </div>
+
+      <p>
+        Where <strong>P</strong> = Principal,
+        <strong>R</strong> = Rate and
+        <strong>T</strong> = Time.
+      </p>
+
+      <div class="example">
+        <strong>Example:</strong>
+        Find the simple interest on ₦50,000 at 10% per annum for 2 years.
+
+        <div class="step">I = (50,000 × 10 × 2) ÷ 100</div>
+        <div class="step">I = 100,000 ÷ 100</div>
+        <div class="step"><strong>I = ₦10,000</strong></div>
+      </div>
+
+      `,
+
+      points:[
+        "Percentage means per hundred.",
+        "Always identify the original value when calculating percentage increase.",
+        "Ratios compare quantities of the same kind.",
+        "Algebra uses symbols to represent numbers.",
+        "Simple interest is calculated from the original principal."
+      ]
+    };
+  }
+
+
+  if(subject==="Chemistry"){
+
+    return {
+      title:"Chemistry: Elements, Symbols, Formulae and Nomenclature",
+
+      body:`
+
+      <h2>1. Meaning of Chemistry</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Chemistry is the branch of science that deals with the composition, structure, properties and changes of matter.
+      </div>
+
+      <h2>2. Element</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        An element is a pure substance consisting of only one type of atom and which cannot be broken down into simpler substances by ordinary chemical means.
+      </div>
+
+      <p>
+        Elements are represented by chemical symbols. The first letter of a symbol
+        is written in uppercase while a second letter, where present, is written
+        in lowercase.
+      </p>
+
+      <div class="example">
+        <strong>Common Elements and Symbols</strong>
+
+        <ul>
+          <li>Hydrogen — H</li>
+          <li>Oxygen — O</li>
+          <li>Carbon — C</li>
+          <li>Nitrogen — N</li>
+          <li>Sodium — Na</li>
+          <li>Potassium — K</li>
+          <li>Calcium — Ca</li>
+          <li>Magnesium — Mg</li>
+          <li>Chlorine — Cl</li>
+          <li>Iron — Fe</li>
+          <li>Copper — Cu</li>
+        </ul>
+      </div>
+
+
+      <h2>3. Compound</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        A compound is a pure substance formed when two or more different elements combine chemically in a definite proportion.
+      </div>
+
+      <h2>4. Chemical Formula</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        A chemical formula is a symbolic representation showing the elements present in a substance and the relative number of their atoms.
+      </div>
+
+      <div class="formula">H₂O</div>
+
+      <p>
+        H₂O represents water. It contains hydrogen and oxygen.
+        The subscript ₂ shows that two hydrogen atoms are present for every
+        one oxygen atom.
+      </p>
+
+      <div class="formula">H₂SO₄</div>
+
+      <p>
+        H₂SO₄ represents tetraoxosulphate(VI) acid, commonly called sulphuric acid.
+        The formula contains hydrogen, sulphur and oxygen.
+      </p>
+
+
+      <h2>5. Chemical Symbols and Valencies</h2>
+
+      <div class="example">
+        <ul>
+          <li>Hydrogen — H — valency 1</li>
+          <li>Oxygen — O — valency 2</li>
+          <li>Sodium — Na — valency 1</li>
+          <li>Magnesium — Mg — valency 2</li>
+          <li>Aluminium — Al — valency 3</li>
+          <li>Chlorine — Cl — valency 1</li>
+        </ul>
+      </div>
+
+
+      <h2>6. Nomenclature</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Chemical nomenclature is the systematic method of naming chemical substances according to established rules.
+      </div>
+
+      <p>
+        Students should learn both chemical names and formulae.
+        For example:
+      </p>
+
+      <div class="example">
+        <p><strong>H₂O</strong> — Water</p>
+        <p><strong>CO₂</strong> — Carbon dioxide</p>
+        <p><strong>NaCl</strong> — Sodium chloride</p>
+        <p><strong>HCl</strong> — Hydrogen chloride</p>
+        <p><strong>H₂SO₄</strong> — Tetraoxosulphate(VI) acid / sulphuric acid</p>
+      </div>
+
+
+      <h2>7. Why Subscripts Matter</h2>
+
+      <p>
+        A subscript is the small number written at the lower right of an element
+        symbol in a chemical formula. It tells us the number of atoms of that
+        element in the substance.
+      </p>
+
+      <div class="formula">CO₂</div>
+
+      <p>
+        This means one carbon atom is combined with two oxygen atoms.
+      </p>
+
+      `,
+
+      points:[
+        "Chemistry studies matter, its composition, properties and changes.",
+        "An element contains only one type of atom.",
+        "A compound contains different elements chemically combined.",
+        "Chemical formulae show the elements and relative numbers of atoms.",
+        "Subscripts in formulae must be read carefully.",
+        "Chemical nomenclature provides systematic names for substances."
+      ]
+    };
+  }
+
+
+  if(subject==="English Language" || subject==="English Studies"){
+
+    return {
+      title:"English: Nouns and Types of Nouns",
+
+      body:`
+
+      <h2>1. Noun</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        A noun is a name of a person, animal, place, thing or idea.
+      </div>
+
+      <div class="example">
+        <strong>Examples:</strong>
+        <p>Person — teacher, Emeka, doctor</p>
+        <p>Animal — goat, lion, dog</p>
+        <p>Place — Lagos, school, Nigeria</p>
+        <p>Thing — book, table, phone</p>
+        <p>Idea — honesty, freedom, justice</p>
+      </div>
+
+
+      <h2>2. Types of Nouns</h2>
+
+      <h3>Proper Noun</h3>
+
+      <div class="definition">
+        A proper noun is the particular name given to a person, place, organisation or thing and normally begins with a capital letter.
+      </div>
+
+      <p>Examples: Nigeria, Lagos, Monday, Chinedu.</p>
+
+
+      <h3>Common Noun</h3>
+
+      <div class="definition">
+        A common noun is a general name given to a person, animal, place or thing.
+      </div>
+
+      <p>Examples: boy, city, school, country.</p>
+
+
+      <h3>Collective Noun</h3>
+
+      <div class="definition">
+        A collective noun is a noun that refers to a group of people, animals or things considered as a unit.
+      </div>
+
+      <p>Examples: team, committee, crowd, flock.</p>
+
+
+      <h3>Abstract Noun</h3>
+
+      <div class="definition">
+        An abstract noun is a noun that names an idea, quality, state or feeling that cannot normally be perceived through the five senses.
+      </div>
+
+      <p>Examples: honesty, beauty, courage, happiness.</p>
+
+
+      <h3>Material Noun</h3>
+
+      <div class="definition">
+        A material noun is a noun that refers to a substance or material from which things may be made.
+      </div>
+
+      <p>Examples: gold, iron, wood, water.</p>
+
+      `,
+
+      points:[
+        "A noun names a person, animal, place, thing or idea.",
+        "Proper nouns identify particular names.",
+        "Common nouns are general names.",
+        "Collective nouns refer to groups.",
+        "Abstract nouns refer to ideas, qualities, states or feelings."
+      ]
+    };
+  }
+
+
+  if(subject==="Physics"){
+
+    return {
+      title:"Physics: Motion, Distance, Speed and Velocity",
+
+      body:`
+
+      <h2>1. Motion</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Motion is the change in position of a body with respect to a reference point as time changes.
+      </div>
+
+
+      <h2>2. Distance</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Distance is the total length of the path travelled by a body from one point to another.
+      </div>
+
+
+      <h2>3. Speed</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Speed is the distance travelled by a body per unit time.
+      </div>
+
+      <div class="formula">
+        Speed = Distance ÷ Time
+      </div>
+
+      <div class="example">
+        <strong>Example:</strong>
+        A car travels 120 km in 2 hours. Find its average speed.
+
+        <div class="step">Speed = 120 ÷ 2</div>
+        <div class="step"><strong>Speed = 60 km/h</strong></div>
+      </div>
+
+
+      <h2>4. Velocity</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Velocity is the rate of change of displacement with respect to time in a specified direction.
+      </div>
+
+      <div class="formula">
+        Velocity = Displacement ÷ Time
+      </div>
+
+
+      <h2>5. Acceleration</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Acceleration is the rate of change of velocity with respect to time.
+      </div>
+
+      <div class="formula">
+        a = (v − u) ÷ t
+      </div>
+
+      <p>
+        Where <strong>u</strong> is initial velocity,
+        <strong>v</strong> is final velocity and
+        <strong>t</strong> is time.
+      </p>
+
+      `,
+
+      points:[
+        "Motion describes a change in position with time.",
+        "Distance is a scalar quantity.",
+        "Velocity has both magnitude and direction.",
+        "Speed = distance divided by time.",
+        "Acceleration is the rate of change of velocity."
+      ]
+    };
+  }
+
+
+  if(subject==="Biology"){
+
+    return {
+      title:"Biology: The Cell — Basic Unit of Life",
+
+      body:`
+
+      <h2>1. Cell</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        A cell is the basic structural and functional unit of life.
+      </div>
+
+      <p>
+        All living organisms are made up of cells. Some organisms consist of
+        only one cell while others are made up of many cells.
+      </p>
+
+
+      <h2>2. Cell Membrane</h2>
+
+      <div class="definition">
+        The cell membrane is a selectively permeable structure that surrounds the cell and controls the movement of substances into and out of the cell.
+      </div>
+
+
+      <h2>3. Cytoplasm</h2>
+
+      <div class="definition">
+        Cytoplasm is the jelly-like substance within the cell in which many cellular chemical reactions occur.
+      </div>
+
+
+      <h2>4. Nucleus</h2>
+
+      <div class="definition">
+        The nucleus is a membrane-bound organelle that contains the genetic material of a eukaryotic cell and controls many activities of the cell.
+      </div>
+
+
+      <h2>5. Plant and Animal Cells</h2>
+
+      <div class="example">
+        <p><strong>Plant cells:</strong> commonly possess a cell wall, chloroplasts and a large permanent vacuole.</p>
+        <p><strong>Animal cells:</strong> do not possess a cellulose cell wall or chloroplasts.</p>
+      </div>
+
+      `,
+
+      points:[
+        "The cell is the basic unit of life.",
+        "The cell membrane controls movement of substances.",
+        "The nucleus contains genetic material in eukaryotic cells.",
+        "Plant cells have structures that animal cells do not possess.",
+        "Cells carry out processes necessary for life."
+      ]
+    };
+  }
+
+
+  if(subject==="Agricultural Science"){
+
+    return {
+      title:"Agricultural Science: Meaning and Importance of Agriculture",
+
+      body:`
+
+      <h2>1. Agriculture</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Agriculture is the science, art and business of cultivating the soil, growing crops and rearing animals for the production of food, raw materials and other useful products.
+      </div>
+
+
+      <h2>2. Branches of Agriculture</h2>
+
+      <div class="example">
+        <p><strong>Crop production:</strong> cultivation and management of crops.</p>
+        <p><strong>Animal production:</strong> breeding, feeding and management of farm animals.</p>
+        <p><strong>Fisheries:</strong> production and management of fish and other aquatic organisms.</p>
+        <p><strong>Forestry:</strong> management and conservation of forest resources.</p>
+      </div>
+
+
+      <h2>3. Importance of Agriculture</h2>
+
+      <ul>
+        <li>Provides food.</li>
+        <li>Provides raw materials for industries.</li>
+        <li>Creates employment.</li>
+        <li>Provides income to farmers.</li>
+        <li>Contributes to national economic development.</li>
+        <li>Provides some export commodities.</li>
+      </ul>
+
+
+      <h2>4. Factors Affecting Agricultural Production</h2>
+
+      <p>
+        Agricultural production can be affected by climate, soil,
+        availability of capital, labour, land, technology, pests and diseases,
+        transportation and government policies.
+      </p>
+
+      `,
+
+      points:[
+        "Agriculture involves crop cultivation and animal production.",
+        "Agriculture provides food and raw materials.",
+        "Agriculture creates employment and income.",
+        "Climate and soil affect agricultural production.",
+        "Technology can improve agricultural productivity."
+      ]
+    };
+  }
+
+
+  if(subject==="Economics"){
+
+    return {
+      title:"Economics: Meaning, Scarcity and Choice",
+
+      body:`
+
+      <h2>1. Economics</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Economics is a social science concerned with how individuals, firms and governments allocate scarce resources among competing wants.
+      </div>
+
+
+      <h2>2. Scarcity</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Scarcity is the fundamental economic problem arising from the limited availability of resources in relation to unlimited human wants.
+      </div>
+
+
+      <h2>3. Choice</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Choice is the act of selecting one alternative from a number of available alternatives because resources are scarce.
+      </div>
+
+
+      <h2>4. Opportunity Cost</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Opportunity cost is the value of the next best alternative forgone when a choice is made.
+      </div>
+
+      <div class="example">
+        If a student has ₦2,000 and chooses to buy a textbook instead of a football,
+        the opportunity cost is the value of the football forgone.
+      </div>
+
+      `,
+
+      points:[
+        "Human wants are many while resources are limited.",
+        "Scarcity creates the need for choice.",
+        "Choice involves selecting among alternatives.",
+        "Opportunity cost is the next best alternative forgone."
+      ]
+    };
+  }
+
+
+  if(subject==="Government"){
+
+    return {
+      title:"Government: Rule of Law",
+
+      body:`
+
+      <h2>1. Rule of Law</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        Rule of law is a constitutional doctrine which emphasizes the supremacy of the law, equality before the law, impartiality and incorruptibility in the administration of justice by the courts.
+      </div>
+
+
+      <h2>2. Supremacy of the Law</h2>
+
+      <p>
+        The law is regarded as superior to arbitrary decisions and every person
+        and institution is expected to operate within the law.
+      </p>
+
+
+      <h2>3. Equality Before the Law</h2>
+
+      <p>
+        Individuals are subject to the law without unlawful discrimination
+        based on their status or position.
+      </p>
+
+
+      <h2>4. Importance</h2>
+
+      <ul>
+        <li>Protects citizens' rights.</li>
+        <li>Limits arbitrary exercise of power.</li>
+        <li>Promotes justice.</li>
+        <li>Supports constitutional government.</li>
+      </ul>
+
+      `,
+
+      points:[
+        "Rule of law emphasizes the supremacy of law.",
+        "Equality before the law is a major principle.",
+        "The doctrine helps limit arbitrary government action.",
+        "Courts play an important role in administering justice."
+      ]
+    };
+  }
+
+
+  /* GENERAL LESSON FOR OTHER SUBJECTS */
+
+  return {
+    title:subject+" — Introduction",
+
+    body:`
+
+      <h2>1. Meaning of ${subject}</h2>
+
+      <div class="definition">
+        <strong>Definition:</strong>
+        ${subject} is a field of study concerned with the systematic
+        acquisition and application of knowledge relating to its subject matter.
+      </div>
+
+      <h2>2. What You Will Learn</h2>
+
+      <p>
+        EduPro-NG will provide textbook-style lessons for this subject,
+        including proper academic definitions, explanations, examples,
+        worked questions, exercises and quizzes.
+      </p>
+
+      <h2>3. Study Method</h2>
+
+      <div class="example">
+        <p><strong>Step 1:</strong> Read the lesson.</p>
+        <p><strong>Step 2:</strong> Understand the definitions.</p>
+        <p><strong>Step 3:</strong> Study the examples.</p>
+        <p><strong>Step 4:</strong> Attempt the exercises.</p>
+        <p><strong>Step 5:</strong> Take the quiz.</p>
+        <p><strong>Step 6:</strong> Review your mistakes.</p>
+      </div>
+
+    `,
+
+    points:[
+      "Study the complete lesson before taking the quiz.",
+      "Learn important academic definitions.",
+      "Practise questions based on the lesson.",
+      "Review mistakes and improve."
+    ]
+  };
+}
+
+
+/* =========================
+   PRACTICE
+========================= */
+
+function renderPractice(){
+
+  const practice=getPractice(currentSubject);
+
+  document.getElementById("practicePanel").innerHTML=`
+    <section class="lesson">
+
+      <span class="badge">PRACTICE</span>
+
+      <h1>${currentSubject} Exercises</h1>
+
+      <p>
+        These exercises are based on concepts taught in the lesson.
+      </p>
+
+      ${practice.map((q,i)=>`
+        <div class="exercise">
+          <strong>${i+1}. ${q.q}</strong>
+
+          ${q.a ? `
+            <details style="margin-top:10px">
+              <summary>Show solution</summary>
+              <p>${q.a}</p>
+            </details>
+          `:""}
+        </div>
+      `).join("")}
+
+      <div class="actions">
+        <button class="btn" onclick="openCourseTab('quiz')">
+          Take Lesson Quiz →
+        </button>
+      </div>
+
+    </section>
+  `;
+}
+
+
+function getPractice(subject){
+
+  if(subject==="General Mathematics" || subject==="Mathematics"){
+    return [
+      {
+        q:"Find 15% of ₦8,000.",
+        a:"15% of ₦8,000 = (15 ÷ 100) × 8,000 = ₦1,200."
+      },
+      {
+        q:"A shirt costs ₦12,000 and is reduced by 25%. Find the new price.",
+        a:"Discount = 25% × ₦12,000 = ₦3,000. New price = ₦12,000 − ₦3,000 = ₦9,000."
+      },
+      {
+        q:"Solve: 4x + 8 = 28.",
+        a:"4x = 20, therefore x = 5."
+      },
+      {
+        q:"Find the simple interest on ₦40,000 at 5% per annum for 3 years.",
+        a:"I = PRT/100 = (40,000 × 5 × 3)/100 = ₦6,000."
+      }
+    ];
+  }
+
+  if(subject==="Chemistry"){
+    return [
+      {
+        q:"What element is represented by the symbol Na?",
+        a:"Na represents sodium."
+      },
+      {
+        q:"How many hydrogen atoms are represented in H₂O?",
+        a:"There are two hydrogen atoms."
+      },
+      {
+        q:"State the meaning of a chemical formula.",
+        a:"A chemical formula symbolically represents the elements present in a substance and their relative numbers of atoms."
+      },
+      {
+        q:"What is the formula for sulphuric acid?",
+        a:"H₂SO₄."
+      }
+    ];
+  }
+
+  if(subject==="Physics"){
+    return [
+      {
+        q:"A vehicle travels 180 km in 3 hours. Find its average speed.",
+        a:"Speed = Distance ÷ Time = 180 ÷ 3 = 60 km/h."
+      },
+      {
+        q:"State the formula for acceleration.",
+        a:"a = (v − u) ÷ t."
+      },
+      {
+        q:"What is velocity?",
+        a:"Velocity is the rate of change of displacement with respect to time in a specified direction."
+      }
+    ];
+  }
+
+  if(subject==="English Language" || subject==="English Studies"){
+    return [
+      {
+        q:"Define a noun.",
+        a:"A noun is a name of a person, animal, place, thing or idea."
+      },
+      {
+        q:"Give two examples of proper nouns.",
+        a:"Examples include Nigeria and Lagos."
+      },
+      {
+        q:"What type of noun is 'honesty'?",
+        a:"Honesty is an abstract noun."
+      }
+    ];
+  }
+
+  if(subject==="Government"){
+    return [
+      {
+        q:"Define Rule of Law.",
+        a:"Rule of law is a constitutional doctrine which emphasizes the supremacy of the law, equality before the law, impartiality and incorruptibility in the administration of justice by the courts."
+      },
+      {
+        q:"State one principle of Rule of Law.",
+        a:"Equality before the law is one principle."
+      }
+    ];
+  }
+
+  return [
+    {
+      q:"Write the definition of an important term from today's lesson.",
+      a:"Review the definition section of the lesson."
+    },
+    {
+      q:"State two important points you learned from this lesson.",
+      a:"Review the Key Points section."
+    }
+  ];
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function renderQuiz(){
+
+  const quiz=getQuiz(currentSubject);
+
+  document.getElementById("quizPanel").innerHTML=`
+    <section class="lesson">
+
+      <span class="badge">LESSON QUIZ</span>
+
+      <h1>${currentSubject} Quiz</h1>
+
+      <p>
+        Questions are connected to the textbook lesson you just studied.
+      </p>
+
+      <div id="quizQuestions">
+        ${quiz.map((q,i)=>`
+
+          <div class="exercise">
+
+            <strong>${i+1}. ${q.q}</strong>
+
+            ${q.options.map((op,j)=>`
+              <button
+                class="option"
+                onclick="answerQuiz(${i},${j},this)"
+              >
+                ${String.fromCharCode(65+j)}. ${op}
+              </button>
+            `).join("")}
+
+            <div id="explanation${i}" class="explanation"></div>
+
+          </div>
+
+        `).join("")}
+      </div>
+
+      <div class="card">
+        <h3>Your Result</h3>
+        <div id="scoreText">Answer the questions.</div>
+
+        <div class="progress-wrap">
+          <div id="scoreProgress" class="progress"></div>
+        </div>
+      </div>
+
+    </section>
+  `;
+
+  window.quizData=quiz;
+  window.quizAnswered={};
+  window.quizScore=0;
+}
+
+
+function answerQuiz(questionIndex,optionIndex,button){
+
+  if(window.quizAnswered[questionIndex]) return;
+
+  window.quizAnswered[questionIndex]=true;
+
+  const q=window.quizData[questionIndex];
+
+  const buttons=button.parentElement.querySelectorAll(".option");
+
+  buttons.forEach((b,i)=>{
+    if(i===q.answer) b.classList.add("correct");
+  });
+
+  if(optionIndex===q.answer){
+    window.quizScore++;
+    button.classList.add("correct");
+  }else{
+    button.classList.add("wrong");
+  }
+
+  document.getElementById("explanation"+questionIndex).innerHTML=
+    "<strong>Explanation:</strong> "+q.explanation;
+
+  const answered=Object.keys(window.quizAnswered).length;
+  const total=window.quizData.length;
+  const percent=Math.round((window.quizScore/total)*100);
+
+  document.getElementById("scoreText").textContent=
+    `${window.quizScore}/${total} correct — ${percent}%`;
+
+  document.getElementById("scoreProgress").style.width=percent+"%";
+
+  saveProgress();
+}
+
+
+function getQuiz(subject){
+
+  if(subject==="General Mathematics" || subject==="Mathematics"){
+    return [
+
+      {
+        q:"A student scores 36 out of 50. What is the percentage?",
+        options:["62%","72%","82%","92%"],
+        answer:1,
+        explanation:"(36 ÷ 50) × 100 = 72%."
+      },
+
+      {
+        q:"Solve: 3x + 5 = 20.",
+        options:["3","4","5","6"],
+        answer:2,
+        explanation:"3x = 15, therefore x = 5."
+      },
+
+      {
+        q:"Find the simple interest on ₦50,000 at 10% for 2 years.",
+        options:["₦5,000","₦8,000","₦10,000","₦15,000"],
+        answer:2,
+        explanation:"I = PRT/100 = ₦10,000."
+      },
+
+      {
+        q:"What is the simplified form of 12 : 8?",
+        options:["2 : 1","3 : 2","4 : 3","6 : 4"],
+        answer:1,
+        explanation:"Divide both terms by 4: 12 : 8 = 3 : 2."
+      },
+
+      {
+        q:"A book increases from ₦2,000 to ₦2,500. What is the percentage increase?",
+        options:["15%","20%","25%","30%"],
+        answer:2,
+        explanation:"Increase = ₦500. 500/2000 × 100 = 25%."
+      }
+
+    ];
+  }
+
+
+  if(subject==="Chemistry"){
+    return [
+
+      {
+        q:"Which symbol represents sodium?",
+        options:["S","So","Na","N"],
+        answer:2,
+        explanation:"The chemical symbol for sodium is Na."
+      },
+
+      {
+        q:"How many hydrogen atoms are in H₂O?",
+        options:["1","2","3","4"],
+        answer:1,
+        explanation:"The subscript 2 applies to hydrogen, so there are two hydrogen atoms."
+      },
+
+      {
+        q:"Which formula represents water?",
+        options:["CO₂","H₂O","NaCl","H₂SO₄"],
+        answer:1,
+        explanation:"H₂O is the chemical formula for water."
+      },
+
+      {
+        q:"What does a chemical formula show?",
+        options:[
+          "Only colour",
+          "Only physical state",
+          "Elements present and relative numbers of atoms",
+          "Only temperature"
+        ],
+        answer:2,
+        explanation:"A chemical formula represents the elements present and their relative numbers of atoms."
+      },
+
+      {
+        q:"What is the formula for tetraoxosulphate(VI) acid?",
+        options:["HCl","HNO₃","H₂SO₄","NaOH"],
+        answer:2,
+        explanation:"Tetraoxosulphate(VI) acid is H₂SO₄."
+      }
+
+    ];
+  }
+
+
+  if(subject==="Physics"){
+    return [
+
+      {
+        q:"What is the formula for speed?",
+        options:[
+          "Time ÷ Distance",
+          "Distance ÷ Time",
+          "Distance × Time",
+          "Mass ÷ Time"
+        ],
+        answer:1,
+        explanation:"Speed = distance divided by time."
+      },
+
+      {
+        q:"A car travels 120 km in 2 hours. What is its speed?",
+        options:["30 km/h","40 km/h","60 km/h","120 km/h"],
+        answer:2,
+        explanation:"120 ÷ 2 = 60 km/h."
+      },
+
+      {
+        q:"Velocity includes:",
+        options:["Mass only","Direction","Temperature only","Density only"],
+        answer:1,
+        explanation:"Velocity is a vector quantity and includes direction."
+      },
+
+      {
+        q:"Acceleration is the rate of change of:",
+        options:["Mass","Distance","Velocity","Density"],
+        answer:2,
+        explanation:"Acceleration is the rate of change of velocity with time."
+      }
+
+    ];
+  }
+
+
+  if(subject==="English Language" || subject==="English Studies"){
+    return [
+
+      {
+        q:"A noun is the name of a:",
+        options:[
+          "Person, animal, place, thing or idea",
+          "Verb only",
+          "Colour only",
+          "Sound only"
+        ],
+        answer:0,
+        explanation:"A noun names a person, animal, place, thing or idea."
+      },
+
+      {
+        q:"Which is a proper noun?",
+        options:["city","boy","Lagos","school"],
+        answer:2,
+        explanation:"Lagos is the particular name of a place."
+      },
+
+      {
+        q:"Which is an abstract noun?",
+        options:["table","honesty","goat","school"],
+        answer:1,
+        explanation:"Honesty is an idea or quality and is therefore an abstract noun."
+      }
+
+    ];
+  }
+
+
+  if(subject==="Government"){
+    return [
+
+      {
+        q:"Rule of Law emphasizes the:",
+        options:[
+          "Supremacy of law",
+          "Supremacy of individuals",
+          "Supremacy of wealth",
+          "Supremacy of force"
+        ],
+        answer:0,
+        explanation:"Supremacy of law is a fundamental principle of Rule of Law."
+      },
+
+      {
+        q:"Which is a principle of Rule of Law?",
+        options:[
+          "Equality before the law",
+          "Rule by force",
+          "Arbitrary government",
+          "Unequal justice"
+        ],
+        answer:0,
+        explanation:"Equality before the law is a major principle."
+      }
+
+    ];
+  }
+
+
+  return [
+
+    {
+      q:"What should you study first before taking this quiz?",
+      options:[
+        "The textbook lesson",
+        "Nothing",
+        "Only the result",
+        "Only the title"
+      ],
+      answer:0,
+      explanation:"EduPro-NG follows the Study → Practice → Quiz approach."
+    },
+
+    {
+      q:"Where can you find important academic definitions?",
+      options:[
+        "Lesson section",
+        "Only the footer",
+        "Home button",
+        "Browser settings"
+      ],
+      answer:0,
+      explanation:"Definitions are provided directly in the textbook lesson."
+    },
+
+    {
+      q:"What is the purpose of practice questions?",
+      options:[
+        "To replace learning",
+        "To apply what you learned",
+        "To skip lessons",
+        "To close the app"
+      ],
+      answer:1,
+      explanation:"Practice helps students apply and reinforce what they studied."
+    }
+
+  ];
+}
+
+
+/* =========================
+   DICTIONARY
+========================= */
+
+const dictionary={
+
+  "noun":{
+    type:"English",
+    definition:"A noun is a name of a person, animal, place, thing or idea."
+  },
+
+  "element":{
+    type:"Chemistry",
+    definition:"An element is a pure substance consisting of only one type of atom and which cannot be broken down into simpler substances by ordinary chemical means."
+  },
+
+  "compound":{
+    type:"Chemistry",
+    definition:"A compound is a pure substance formed when two or more different elements combine chemically in a definite proportion."
+  },
+
+  "h2o":{
+    type:"Chemistry",
+    definition:"H₂O is the chemical formula for water and represents two hydrogen atoms combined with one oxygen atom."
+  },
+
+  "h2so4":{
+    type:"Chemistry",
+    definition:"H₂SO₄ is the formula for tetraoxosulphate(VI) acid, commonly called sulphuric acid."
+  },
+
+  "percentage":{
+    type:"Mathematics",
+    definition:"Percentage is a way of expressing a number or quantity as a fraction of one hundred."
+  },
+
+  "ratio":{
+    type:"Mathematics",
+    definition:"Ratio is a mathematical comparison of two or more quantities of the same kind."
+  },
+
+  "velocity":{
+    type:"Physics",
+    definition:"Velocity is the rate of change of displacement with respect to time in a specified direction."
+  },
+
+  "speed":{
+    type:"Physics",
+    definition:"Speed is the distance travelled by a body per unit time."
+  },
+
+  "agriculture":{
+    type:"Agricultural Science",
+    definition:"Agriculture is the science, art and business of cultivating the soil, growing crops and rearing animals for the production of food, raw materials and other useful products."
+  },
+
+  "scarcity":{
+    type:"Economics",
+    definition:"Scarcity is the fundamental economic problem arising from the limited availability of resources in relation to unlimited human wants."
+  },
+
+  "opportunity cost":{
+    type:"Economics",
+    definition:"Opportunity cost is the value of the next best alternative forgone when a choice is made."
+  },
+
+  "rule of law":{
+    type:"Government",
+    definition:"Rule of law is a constitutional doctrine which emphasizes the supremacy of the law, equality before the law, impartiality and incorruptibility in the administration of justice by the courts."
+  },
+
+  "cell":{
+    type:"Biology",
+    definition:"A cell is the basic structural and functional unit of life."
+  }
+
+};
+
+
+function showDictionary(){
+
+  hideAll();
+  document.getElementById("dictionary").classList.remove("hidden");
+
+  document.getElementById("dictionarySearch").value="";
+  document.getElementById("dictionaryResults").innerHTML=
+    `<p class="small">Search for an academic term.</p>`;
+
+  window.scrollTo(0,0);
+}
+
+
+function searchDictionary(){
+
+  const q=document.getElementById("dictionarySearch").value.toLowerCase().trim();
+
+  const result=document.getElementById("dictionaryResults");
+
+  if(!q){
+    result.innerHTML=`<p class="small">Search for an academic term.</p>`;
+    return;
+  }
+
+  const matches=Object.entries(dictionary).filter(([term,data])=>
+    term.includes(q) ||
+    data.definition.toLowerCase().includes(q)
+  );
+
+  if(!matches.length){
+    result.innerHTML=`
+      <div class="dictionary-result">
+        No result found yet. More academic terms will be added as EduPro-NG grows.
+      </div>
+    `;
+    return;
+  }
+
+  result.innerHTML=matches.map(([term,data])=>`
+    <div class="dictionary-result">
+      <span class="badge">${data.type}</span>
+      <h3>${term}</h3>
+      <p>${data.definition}</p>
+    </div>
+  `).join("");
+}
+
+
+/* =========================
    PROGRESS
-========================================================= */
+========================= */
 
-function progressKey(term,topic){
+function saveProgress(){
 
-return currentLevel+"|"+currentSubject+"|"+term+"|"+topic;
+  const key=currentLevel+"_"+currentSubject;
 
-}
+  const progress=JSON.parse(
+    localStorage.getItem("eduproProgress") || "{}"
+  );
 
-function markComplete(){
+  progress[key]={
+    studied:true,
+    lastQuizScore:window.quizScore || 0
+  };
 
-const topic=allCurrentTopics[currentTopicIndex];
-
-progressData[progressKey(currentTerm,topic)]=true;
-
-localStorage.setItem(
-"eduproProgress",
-JSON.stringify(progressData)
-);
-
-alert("Lesson marked as completed ✓");
-
-renderLesson();
-
-}
-
-function updateProgress(){
-
-const data=getSubjectData();
-
-let total=0;
-let done=0;
-
-Object.entries(data).forEach(([term,topics])=>{
-
-topics.forEach(topic=>{
-
-total++;
-
-if(progressData[progressKey(term,topic)])done++;
-
-});
-
-});
-
-let percent=total?Math.round(done/total*100):0;
-
-const bar=document.getElementById("courseProgress");
-
-if(bar)bar.style.width=percent+"%";
-
-const text=document.getElementById("progressText");
-
-if(text)
-text.textContent=done+" of "+total+" lessons completed ("+percent+"%)";
-
+  localStorage.setItem(
+    "eduproProgress",
+    JSON.stringify(progress)
+  );
 }
 
 
-/* =========================================================
-   NEXT / PREVIOUS
-========================================================= */
-
-function nextTopic(){
-
-if(currentTopicIndex<allCurrentTopics.length-1){
-
-currentTopicIndex++;
-renderLesson();
-
-}else{
-
-alert("You have reached the end of this term. Great work! 🎉");
-
-}
-
-}
-
-function previousTopic(){
-
-if(currentTopicIndex>0){
-
-currentTopicIndex--;
-renderLesson();
-
-}else{
-
-alert("This is the first lesson in this module.");
-
-}
-
-}
-
-
-/* =========================================================
-   COURSE QUIZ
-========================================================= */
-
-function renderCourseQuiz(){
-
-const box=document.getElementById("quizTab");
-
-const questions=quizBank[currentSubject]||quizBank["Mathematics"];
-
-quizQuestions=[...questions];
-
-quizIndex=0;
-quizScore=0;
-
-box.innerHTML=`
-
-<div class="quiz-box">
-
-<h2>🧠 ${currentSubject} Course Quiz</h2>
-
-<p class="small">
-Test your understanding with original practice questions.
-</p>
-
-<div id="quizQuestion"></div>
-
-</div>
-`;
-
-showQuestion();
-
-}
-
-
-function showQuestion(){
-
-const box=document.getElementById("quizQuestion");
-
-if(quizIndex>=quizQuestions.length){
-
-box.innerHTML=`
-
-<h2>🎉 Quiz Complete!</h2>
-
-<p>
-You scored <strong>${quizScore}/${quizQuestions.length}</strong>.
-</p>
-
-<p>
-${quizScore===quizQuestions.length
-?"Excellent! Perfect score. 🔥"
-:quizScore>=quizQuestions.length/2
-?"Good work. Review your lessons and try again."
-:"Keep studying. Go back to the textbook lessons and try again."}
-</p>
-
-<button class="primary" onclick="renderCourseQuiz()">
-Try Again
-</button>
-`;
-
-return;
-
-}
-
-const q=quizQuestions[quizIndex];
-
-box.innerHTML=`
-
-<p>
-<strong>Question ${quizIndex+1} of ${quizQuestions.length}</strong>
-</p>
-
-<h3>${q[0]}</h3>
-
-<div id="options">
-
-${q[1].map((option,i)=>`
-
-<label class="option">
-
-<input type="radio"
-name="answer"
-value="${i}">
-
-${String.fromCharCode(65+i)}. ${option}
-
-</label>
-
-`).join("")}
-
-</div>
-
-<button class="primary" onclick="submitAnswer()">
-Submit Answer
-</button>
-
-<div id="answerResult"></div>
-
-`;
-
-}
-
-
-function submitAnswer(){
-
-const selected=document.querySelector(
-'input[name="answer"]:checked'
-);
-
-if(!selected){
-
-alert("Please choose an answer first.");
-
-return;
-
-}
-
-const answer=Number(selected.value);
-const q=quizQuestions[quizIndex];
-
-const result=document.getElementById("answerResult");
-
-if(answer===q[2]){
-
-quizScore++;
-
-result.innerHTML=`
-<div class="result">
-<strong>✅ Correct!</strong>
-<p>${q[3]}</p>
-<button class="primary" onclick="nextQuestion()">Next Question →</button>
-</div>
-`;
-
-}else{
-
-result.innerHTML=`
-<div class="result">
-<strong>❌ Not correct.</strong>
-<p><strong>Correct answer:</strong> ${q[1][q[2]]}</p>
-<p>${q[3]}</p>
-<button class="primary" onclick="nextQuestion()">Next Question →</button>
-</div>
-`;
-
-}
-
-document.querySelectorAll(
-'input[name="answer"]'
-).forEach(x=>x.disabled=true);
-
-}
-
-function nextQuestion(){
-
-quizIndex++;
-showQuestion();
-
-}
-
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-function searchEverything(){
-
-const value=document
-.getElementById("searchBox")
-.value
-.toLowerCase()
-.trim();
-
-if(!value){
-
-renderLevels();
-
-return;
-
-}
-
-const matches=[];
-
-Object.entries(levels).forEach(([key,level])=>{
-
-level.subjects.forEach(subject=>{
-
-if(subject.toLowerCase().includes(value)){
-
-matches.push({
-level:key,
-subject:subject
-});
-
-}
-
-});
-
-});
-
-const grid=document.getElementById("levelGrid");
-
-if(matches.length===0){
-
-grid.innerHTML=`
-<div class="card">
-<h3>No result found</h3>
-<p class="small">
-Try searching Mathematics, Biology, Agriculture,
-Physics, Chemistry, JAMB or WAEC.
-</p>
-</div>
-`;
-
-return;
-
-}
-
-grid.innerHTML=matches.map(x=>`
-
-<div class="card" onclick="openLevel('${x.level}')">
-
-<div class="icon">${icons[x.subject]||"📘"}</div>
-
-<h3>${x.subject}</h3>
-
-<p class="small">${levels[x.level].name}</p>
-
-</div>
-
-`).join("");
-
-}
+/* =========================
+   START
+========================= */
+
+goHome();
 
 </script>
 
