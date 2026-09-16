@@ -3,120 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EduPro-NG — Learn. Understand. Practise. Succeed.</title>
+<title>EduPro-NG | Learn. Understand. Practise. Succeed.</title>
 
 <style>
-:root{
-  --bg:#0b1220;
-  --bg2:#101a2d;
-  --card:#162238;
-  --card2:#1b2a43;
-  --border:#293b58;
-  --text:#e8eef7;
-  --muted:#9eacc0;
-  --green:#35d07f;
-  --green2:#20b96b;
-  --blue:#4da3ff;
-  --gold:#f5c451;
-  --danger:#ff6b6b;
-  --shadow:0 10px 30px rgba(0,0,0,.25);
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
-
-*{box-sizing:border-box}
 
 body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.65;
-}
-
-button,input,select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
+  font-family:Arial, sans-serif;
+  background:#07131f;
+  color:#edf7f3;
+  line-height:1.6;
 }
 
 header{
-  background:rgba(11,18,32,.96);
-  border-bottom:1px solid var(--border);
+  background:#0b1d2b;
+  border-bottom:1px solid #173448;
+  padding:16px;
   position:sticky;
   top:0;
   z-index:20;
-  backdrop-filter:blur(12px);
 }
 
-.nav{
+.header-inner{
   max-width:1100px;
   margin:auto;
-  padding:15px 18px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:12px;
+  gap:10px;
 }
 
 .logo{
-  font-size:21px;
-  font-weight:800;
-  color:var(--green);
+  color:#39d989;
+  font-size:22px;
+  font-weight:bold;
 }
 
-.tag{
+.tagline{
   font-size:11px;
-  color:var(--muted);
+  color:#8ea5b5;
 }
 
-.nav button{
-  background:var(--card);
-  border:1px solid var(--border);
-  color:var(--text);
+button{
+  border:none;
   border-radius:10px;
-  padding:8px 12px;
+  padding:11px 16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.green{
+  background:#39d989;
+  color:#04110b;
+}
+
+.dark-btn{
+  background:#122b3d;
+  color:#e9f7f2;
 }
 
 .container{
   max-width:1100px;
   margin:auto;
-  padding:22px 16px 60px;
+  padding:20px 15px 50px;
 }
 
 .hero{
-  background:linear-gradient(145deg,#13243a,#101b2d);
-  border:1px solid var(--border);
-  border-radius:22px;
-  padding:27px 22px;
-  box-shadow:var(--shadow);
+  background:linear-gradient(135deg,#0d293b,#0a1b29);
+  border:1px solid #183c51;
+  border-radius:20px;
+  padding:28px 20px;
   margin-bottom:20px;
 }
 
+.hero small{
+  color:#39d989;
+  font-weight:bold;
+}
+
 .hero h1{
-  margin:0 0 8px;
-  font-size:30px;
+  font-size:32px;
+  margin:8px 0;
 }
 
 .hero p{
-  color:var(--muted);
-  margin:5px 0;
+  color:#a9bcc8;
+  max-width:700px;
 }
 
-.badge{
-  display:inline-block;
-  padding:5px 10px;
-  border-radius:20px;
-  background:#173b32;
-  color:var(--green);
-  font-size:12px;
-  font-weight:bold;
-  margin-bottom:10px;
+.search{
+  margin:18px 0;
+}
+
+.search input{
+  width:100%;
+  padding:15px;
+  border-radius:12px;
+  border:1px solid #214258;
+  background:#0b202f;
+  color:white;
+  outline:none;
 }
 
 .section-title{
-  margin:28px 0 12px;
-  font-size:20px;
+  margin:25px 0 12px;
+  font-size:21px;
 }
 
 .grid{
@@ -126,268 +121,229 @@ header{
 }
 
 .card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:16px;
+  background:#0b1d2b;
+  border:1px solid #17394e;
+  border-radius:15px;
+  padding:17px;
   transition:.2s;
 }
 
 .card:hover{
+  border-color:#39d989;
   transform:translateY(-2px);
-  border-color:#3d5678;
-}
-
-.clickable{
-  cursor:pointer;
 }
 
 .card h3{
-  margin:0 0 5px;
-  font-size:16px;
+  color:#f2faf7;
+  margin-bottom:5px;
 }
 
 .card p{
-  margin:0;
-  color:var(--muted);
+  color:#8fa7b6;
   font-size:13px;
 }
 
-.level-card{
-  text-align:center;
-  padding:20px 10px;
+.subject-card{
+  cursor:pointer;
 }
 
-.level-card .icon{
-  font-size:28px;
-  margin-bottom:6px;
+.subject-icon{
+  font-size:27px;
+  margin-bottom:7px;
 }
 
-.search{
-  width:100%;
-  padding:14px 16px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  background:#111d31;
-  color:var(--text);
-  outline:none;
-  margin:8px 0 16px;
+.level{
+  border-left:4px solid #39d989;
 }
 
-.search:focus{
-  border-color:var(--green);
+.page{
+  display:none;
 }
 
-.hidden{
-  display:none!important;
+.page.active{
+  display:block;
 }
 
-.btn{
-  border:0;
-  border-radius:12px;
-  padding:11px 16px;
-  font-weight:bold;
-  background:var(--green);
-  color:#06140d;
-}
-
-.btn.secondary{
-  background:var(--card2);
-  color:var(--text);
-  border:1px solid var(--border);
-}
-
-.btn.gold{
-  background:var(--gold);
-  color:#191300;
-}
-
-.btn.danger{
-  background:var(--danger);
-  color:#210707;
-}
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:16px;
+.back{
+  margin-bottom:15px;
 }
 
 .breadcrumb{
-  color:var(--muted);
+  color:#8099aa;
   font-size:13px;
+  margin-bottom:10px;
+}
+
+.book-header{
+  background:#0c2232;
+  border:1px solid #194056;
+  padding:20px;
+  border-radius:17px;
+  margin-bottom:15px;
+}
+
+.book-header h2{
+  color:#39d989;
+}
+
+.chapter{
   margin-bottom:12px;
+  cursor:pointer;
+}
+
+.chapter-number{
+  color:#39d989;
+  font-weight:bold;
+  font-size:13px;
 }
 
 .lesson{
-  background:#111c2e;
-  border:1px solid var(--border);
+  background:#0b1d2b;
+  border:1px solid #17394e;
   border-radius:18px;
-  padding:22px;
-  box-shadow:var(--shadow);
-}
-
-.lesson h1{
-  line-height:1.25;
-  margin-top:0;
+  padding:20px;
 }
 
 .lesson h2{
-  color:var(--green);
-  margin-top:27px;
+  color:#39d989;
+  margin-bottom:15px;
 }
 
 .lesson h3{
-  color:#c9d8ec;
+  color:#70e9ad;
+  margin-top:23px;
+  margin-bottom:8px;
+}
+
+.lesson p{
+  color:#d1dfe5;
+  margin-bottom:10px;
 }
 
 .definition{
-  background:#172b3c;
-  border-left:4px solid var(--green);
-  padding:14px 16px;
+  background:#102c3d;
+  border-left:4px solid #39d989;
+  padding:15px;
   border-radius:8px;
-  margin:14px 0;
-}
-
-.formula{
-  background:#0a1625;
-  border:1px solid #29415d;
-  padding:18px;
-  border-radius:12px;
-  text-align:center;
-  font-size:21px;
-  font-weight:bold;
-  margin:15px 0;
-  overflow-x:auto;
+  margin:10px 0;
 }
 
 .example{
-  background:#18283c;
-  border:1px solid #2b415f;
-  border-radius:12px;
-  padding:16px;
-  margin:15px 0;
+  background:#111f2b;
+  border:1px solid #254255;
+  padding:15px;
+  border-radius:10px;
+  margin:10px 0;
 }
 
-.step{
-  margin:7px 0;
-  padding-left:8px;
-}
-
-.keypoints{
-  background:#142d28;
-  border:1px solid #245a4a;
-  border-radius:12px;
+.formula{
+  background:#061a27;
+  border:1px solid #39d989;
   padding:16px;
-}
-
-.exercise{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:13px;
-  padding:16px;
+  border-radius:10px;
+  font-size:19px;
+  text-align:center;
   margin:12px 0;
 }
 
-.option{
-  display:block;
-  width:100%;
-  text-align:left;
-  margin:8px 0;
-  padding:12px;
+.keypoints{
+  background:#0d2b25;
+  border:1px solid #23614c;
+  padding:15px;
   border-radius:10px;
-  border:1px solid var(--border);
-  background:#111d31;
-  color:var(--text);
+}
+
+ul,ol{
+  padding-left:22px;
+}
+
+li{
+  margin:5px 0;
+}
+
+.quiz-box{
+  background:#0b1d2b;
+  border:1px solid #1b4055;
+  border-radius:17px;
+  padding:20px;
+  margin-top:18px;
+}
+
+.option{
+  background:#10283a;
+  border:1px solid #21465d;
+  padding:12px;
+  border-radius:9px;
+  margin:8px 0;
+  cursor:pointer;
 }
 
 .option:hover{
-  border-color:var(--green);
+  border-color:#39d989;
 }
 
-.correct{
-  border-color:var(--green)!important;
-  background:#123426!important;
+.option.correct{
+  border-color:#39d989;
+  background:#103c2b;
 }
 
-.wrong{
-  border-color:var(--danger)!important;
-  background:#32191d!important;
+.option.wrong{
+  border-color:#e45b5b;
+  background:#3b171c;
 }
 
-.explanation{
-  color:var(--muted);
-  font-size:13px;
-  margin-top:9px;
-}
-
-.tabs{
-  display:flex;
-  gap:8px;
-  overflow-x:auto;
-  margin-bottom:16px;
-}
-
-.tab{
-  white-space:nowrap;
-  background:var(--card);
-  border:1px solid var(--border);
-  color:var(--text);
-  padding:10px 14px;
+.result{
+  padding:15px;
+  margin-top:12px;
   border-radius:10px;
-}
-
-.tab.active{
-  background:var(--green);
-  color:#06140d;
-  border-color:var(--green);
-}
-
-.progress-wrap{
-  background:#0a1422;
-  height:9px;
-  border-radius:10px;
-  overflow:hidden;
-  margin-top:8px;
-}
-
-.progress{
-  height:100%;
-  background:var(--green);
-  width:0%;
+  background:#102a3a;
 }
 
 .dictionary-result{
-  padding:13px;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:12px;
-  margin:8px 0;
+  margin-top:15px;
 }
 
 .pro{
-  background:linear-gradient(145deg,#2b2411,#1d1a12);
-  border:1px solid #625323;
+  background:linear-gradient(135deg,#102f2c,#102333);
+  border:1px solid #39d989;
 }
 
-.small{
-  font-size:12px;
-  color:var(--muted);
+.pro h3{
+  color:#39d989;
 }
 
-footer{
+.motivation{
   text-align:center;
-  color:var(--muted);
+  padding:25px;
+  margin-top:25px;
+  background:#0b202f;
+  border-radius:15px;
+  border:1px solid #17394e;
+}
+
+.footer{
+  text-align:center;
+  color:#718896;
   padding:30px 10px;
-  border-top:1px solid var(--border);
-  margin-top:30px;
+  font-size:12px;
+}
+
+.hide{
+  display:none;
 }
 
 @media(max-width:600px){
-  .hero h1{font-size:25px}
-  .container{padding:16px 12px 45px}
-  .lesson{padding:17px}
+  .hero h1{
+    font-size:25px;
+  }
+
+  .header-inner{
+    align-items:flex-start;
+  }
+
+  .tagline{
+    display:none;
+  }
 }
 </style>
 </head>
@@ -395,95 +351,86 @@ footer{
 <body>
 
 <header>
-  <div class="nav">
+  <div class="header-inner">
     <div>
       <div class="logo">📚 EduPro-NG</div>
-      <div class="tag">Learn. Understand. Practise. Succeed.</div>
+      <div class="tagline">Learn. Understand. Practise. Succeed.</div>
     </div>
-    <button onclick="goHome()">Home</button>
+    <button class="dark-btn" onclick="showHome()">Home</button>
   </div>
 </header>
 
-<main class="container">
+<div class="container">
 
-<div id="home">
+<!-- HOME -->
+<section id="home" class="page active">
 
-  <section class="hero">
-    <span class="badge">FREE DIGITAL TEXTBOOK</span>
+  <div class="hero">
+    <small>FREE DIGITAL TEXTBOOK</small>
     <h1>Learn without expensive textbooks.</h1>
     <p>
-      Study school subjects with proper academic definitions,
-      explanations, examples, calculations, exercises and quizzes.
+      Study school subjects like a real textbook, understand each topic,
+      practise what you have learnt and test yourself with quizzes.
     </p>
 
-    <div class="actions">
-      <button class="btn" onclick="showLevels()">Start Studying</button>
-      <button class="btn secondary" onclick="showDictionary()">📖 Dictionary</button>
-    </div>
-  </section>
+    <br>
 
-  <h2 class="section-title">Choose your level</h2>
+    <button class="green" onclick="scrollToLevels()">Start Studying</button>
+    <button class="dark-btn" onclick="showDictionary()">📖 Dictionary</button>
+  </div>
+
+  <h2 class="section-title">Choose Your Level</h2>
 
   <div class="grid">
 
-    <div class="card level-card clickable" onclick="selectLevel('JSS1')">
-      <div class="icon">📘</div>
-      <h3>JSS 1</h3>
-      <p>Junior Secondary</p>
+    <div class="card level" onclick="openLevel('JSS1')">
+      <h3>JSS1</h3>
+      <p>Junior Secondary 1</p>
     </div>
 
-    <div class="card level-card clickable" onclick="selectLevel('JSS2')">
-      <div class="icon">📗</div>
-      <h3>JSS 2</h3>
-      <p>Junior Secondary</p>
+    <div class="card level" onclick="openLevel('JSS2')">
+      <h3>JSS2</h3>
+      <p>Junior Secondary 2</p>
     </div>
 
-    <div class="card level-card clickable" onclick="selectLevel('JSS3')">
-      <div class="icon">📕</div>
-      <h3>JSS 3</h3>
-      <p>Junior Secondary</p>
+    <div class="card level" onclick="openLevel('JSS3')">
+      <h3>JSS3</h3>
+      <p>Junior Secondary 3</p>
     </div>
 
-    <div class="card level-card clickable" onclick="selectLevel('SSS1')">
-      <div class="icon">📚</div>
-      <h3>SSS 1</h3>
-      <p>Senior Secondary</p>
+    <div class="card level" onclick="openLevel('SSS1')">
+      <h3>SSS1</h3>
+      <p>Senior Secondary 1</p>
     </div>
 
-    <div class="card level-card clickable" onclick="selectLevel('SSS2')">
-      <div class="icon">📚</div>
-      <h3>SSS 2</h3>
-      <p>Senior Secondary</p>
+    <div class="card level" onclick="openLevel('SSS2')">
+      <h3>SSS2</h3>
+      <p>Senior Secondary 2</p>
     </div>
 
-    <div class="card level-card clickable" onclick="selectLevel('SSS3')">
-      <div class="icon">🎓</div>
-      <h3>SSS 3</h3>
-      <p>Exam preparation</p>
+    <div class="card level" onclick="openLevel('SSS3')">
+      <h3>SSS3</h3>
+      <p>Senior Secondary 3</p>
     </div>
 
-    <div class="card level-card clickable" onclick="selectLevel('JAMB')">
-      <div class="icon">📝</div>
+    <div class="card level" onclick="openLevel('JAMB')">
       <h3>JAMB</h3>
-      <p>UTME preparation</p>
+      <p>UTME Preparation</p>
     </div>
 
-    <div class="card level-card clickable" onclick="selectLevel('WAEC')">
-      <div class="icon">📝</div>
+    <div class="card level" onclick="openLevel('WAEC')">
       <h3>WAEC</h3>
-      <p>Exam preparation</p>
+      <p>Exam Preparation</p>
     </div>
 
-    <div class="card level-card clickable" onclick="selectLevel('NECO')">
-      <div class="icon">📝</div>
+    <div class="card level" onclick="openLevel('NECO')">
       <h3>NECO</h3>
-      <p>Exam preparation</p>
+      <p>Exam Preparation</p>
     </div>
 
-    <div class="card level-card clickable" onclick="selectLevel('UNIVERSITY')">
-      <div class="icon">🎓</div>
-      <h3>University</h3>
-      <p>Courses & modules</p>
+    <div class="card level" onclick="openLevel('University')">
+      <h3>🎓 University</h3>
+      <p>University Courses</p>
     </div>
 
   </div>
@@ -491,1706 +438,1726 @@ footer{
   <h2 class="section-title">Why EduPro-NG?</h2>
 
   <div class="grid">
+
     <div class="card">
-      <h3>📖 Textbook Learning</h3>
-      <p>Read complete lessons instead of only short notes.</p>
+      <div class="subject-icon">📖</div>
+      <h3>Textbook Learning</h3>
+      <p>Study complete lessons instead of short definitions only.</p>
     </div>
 
     <div class="card">
-      <h3>🧮 Real Calculations</h3>
-      <p>Learn formulas and solve calculations step by step.</p>
+      <div class="subject-icon">🧮</div>
+      <h3>Real Calculations</h3>
+      <p>Mathematics and science include worked calculations.</p>
     </div>
 
     <div class="card">
-      <h3>🧪 Science</h3>
-      <p>Elements, symbols, formulas, nomenclature and concepts.</p>
+      <div class="subject-icon">⚗️</div>
+      <h3>Academic Reference</h3>
+      <p>Definitions, terms, formulas, examples and rules.</p>
     </div>
 
     <div class="card">
-      <h3>📝 Practice</h3>
-      <p>Exercises based directly on what you studied.</p>
+      <div class="subject-icon">❓</div>
+      <h3>Smart Practice</h3>
+      <p>Quiz questions are connected to what you studied.</p>
     </div>
 
-    <div class="card">
-      <h3>🧠 Quiz</h3>
-      <p>Test definitions, concepts, examples and calculations.</p>
-    </div>
-
-    <div class="card pro">
-      <h3>⭐ EduPro PRO</h3>
-      <p>Advanced practice and harder exam preparation — ₦500/month.</p>
-    </div>
   </div>
 
-</div>
-
-
-<div id="levels" class="hidden">
-  <div class="breadcrumb">Home › Choose Level</div>
-  <h2>Select a level</h2>
-  <div id="levelGrid" class="grid"></div>
-</div>
-
-
-<div id="subjects" class="hidden">
-  <div class="breadcrumb">
-    <span id="subjectLevel"></span> › Subjects
+  <div class="motivation">
+    <h3>🌟 Your Education Should Not Depend On Money</h3>
+    <p>
+      EduPro-NG is being built to give students access to quality
+      digital learning materials wherever they are.
+    </p>
   </div>
 
-  <h2 id="subjectTitle">Subjects</h2>
+  <br>
 
-  <input
-    id="subjectSearch"
-    class="search"
-    placeholder="Search subject..."
-    oninput="renderSubjects()"
-  >
+  <div class="card pro">
+    <h3>⭐ EduPro-NG PRO</h3>
+    <p>
+      Advanced exam practice, harder questions, detailed solutions
+      and additional preparation materials.
+    </p>
+    <br>
+    <strong>₦500 / month</strong>
+  </div>
+
+</section>
+
+
+<!-- LEVEL PAGE -->
+<section id="levelPage" class="page">
+
+  <button class="dark-btn back" onclick="showHome()">← Back</button>
+
+  <div class="book-header">
+    <div class="breadcrumb" id="levelBreadcrumb"></div>
+    <h2 id="levelTitle"></h2>
+    <p>Choose a subject to open its digital textbook.</p>
+  </div>
 
   <div id="subjectGrid" class="grid"></div>
-</div>
+
+</section>
 
 
-<div id="course" class="hidden">
+<!-- SUBJECT PAGE -->
+<section id="subjectPage" class="page">
 
-  <div class="breadcrumb">
-    <span id="courseBread"></span>
+  <button class="dark-btn back" onclick="backToLevel()">← Back</button>
+
+  <div class="book-header">
+    <div class="breadcrumb" id="subjectBreadcrumb"></div>
+    <h2 id="subjectTitle"></h2>
+    <p>Textbook chapters</p>
   </div>
 
-  <div class="tabs">
-    <button id="learnTab" class="tab active" onclick="openCourseTab('learn')">📖 Study</button>
-    <button id="practiceTab" class="tab" onclick="openCourseTab('practice')">✍️ Practice</button>
-    <button id="quizTab" class="tab" onclick="openCourseTab('quiz')">📝 Quiz</button>
+  <div id="chapterGrid"></div>
+
+</section>
+
+
+<!-- LESSON PAGE -->
+<section id="lessonPage" class="page">
+
+  <button class="dark-btn back" onclick="backToSubject()">← Back</button>
+
+  <div class="breadcrumb" id="lessonBreadcrumb"></div>
+
+  <div id="lessonContent" class="lesson"></div>
+
+</section>
+
+
+<!-- DICTIONARY -->
+<section id="dictionaryPage" class="page">
+
+  <button class="dark-btn back" onclick="showHome()">← Back</button>
+
+  <div class="book-header">
+    <h2>📖 Academic Dictionary</h2>
+    <p>
+      Search academic terms used in EduPro-NG textbooks.
+    </p>
   </div>
 
-  <div id="learnPanel"></div>
-  <div id="practicePanel" class="hidden"></div>
-  <div id="quizPanel" class="hidden"></div>
-
-</div>
-
-
-<div id="dictionary" class="hidden">
-
-  <div class="breadcrumb">Home › Academic Dictionary</div>
-
-  <section class="hero">
-    <span class="badge">REFERENCE TOOL</span>
-    <h1>Academic Dictionary</h1>
-    <p>Search important school terms, definitions, formulas and concepts.</p>
-
+  <div class="search">
     <input
-      id="dictionarySearch"
-      class="search"
-      placeholder="Search e.g. noun, velocity, atom, democracy..."
+      id="dictionaryInput"
+      type="text"
+      placeholder="Search e.g. noun, photosynthesis, velocity, abrogate..."
       oninput="searchDictionary()"
     >
+  </div>
 
-    <div id="dictionaryResults"></div>
-  </section>
+  <div id="dictionaryResult" class="dictionary-result"></div>
 
-</div>
+</section>
 
 
-<div id="motivation" class="hidden">
-  <section class="hero">
-    <span class="badge">KEEP GOING</span>
-    <h1>📚 Your education matters.</h1>
-    <p>
-      You do not need expensive textbooks to begin learning.
-      Study one topic at a time, practise what you learn,
-      correct your mistakes and keep improving.
-    </p>
-    <div class="actions">
-      <button class="btn" onclick="showLevels()">Continue Studying</button>
-    </div>
-  </section>
-</div>
-
-</main>
-
-<footer>
-  <strong>EduPro-NG</strong><br>
-  Learn. Understand. Practise. Succeed.<br>
-  <span class="small">Built as a growing Nigerian digital learning platform.</span>
+<footer class="footer">
+  EduPro-NG © 2026<br>
+  Learn. Understand. Practise. Succeed.
 </footer>
+
+</div>
 
 
 <script>
 
-const subjects = {
+/* =========================================================
+   EDUPro-NG TEXTBOOK DATABASE
+   ========================================================= */
 
-  "JSS1":[
-    ["Mathematics","🧮"],
-    ["English Studies","📘"],
-    ["Basic Science","🔬"],
-    ["Basic Technology","⚙️"],
-    ["Computer Studies","💻"],
-    ["Agricultural Science","🌱"],
-    ["Business Studies","💼"],
-    ["Civic Education","🏛️"],
-    ["Social Studies","🌍"],
-    ["Home Economics","🏠"]
-  ],
+const BOOKS = {
 
-  "JSS2":[
-    ["Mathematics","🧮"],
-    ["English Studies","📘"],
-    ["Basic Science","🔬"],
-    ["Basic Technology","⚙️"],
-    ["Computer Studies","💻"],
-    ["Agricultural Science","🌱"],
-    ["Business Studies","💼"],
-    ["Civic Education","🏛️"],
-    ["Social Studies","🌍"],
-    ["Home Economics","🏠"]
-  ],
+English: {
+  icon:"🔤",
+  description:"English Language and communication",
+  chapters:[
+    {
+      title:"Nouns",
+      lesson:`
+        <h2>Chapter 1: Nouns</h2>
 
-  "JSS3":[
-    ["Mathematics","🧮"],
-    ["English Studies","📘"],
-    ["Basic Science","🔬"],
-    ["Basic Technology","⚙️"],
-    ["Computer Studies","💻"],
-    ["Agricultural Science","🌱"],
-    ["Business Studies","💼"],
-    ["Civic Education","🏛️"],
-    ["Social Studies","🌍"],
-    ["Home Economics","🏠"]
-  ],
+        <h3>Definition</h3>
+        <div class="definition">
+          A noun is a word used to name a person, animal, place,
+          thing, or idea.
+        </div>
 
-  "SSS1":[
-    ["General Mathematics","🧮"],
-    ["English Language","📘"],
-    ["Physics","⚛️"],
-    ["Chemistry","🧪"],
-    ["Biology","🧬"],
-    ["Agricultural Science","🌱"],
-    ["Economics","💰"],
-    ["Government","🏛️"],
-    ["Literature in English","📚"],
-    ["Geography","🌍"],
-    ["Accounting","📊"],
-    ["Digital Technologies","💻"]
-  ],
+        <h3>Types of Nouns</h3>
 
-  "SSS2":[
-    ["General Mathematics","🧮"],
-    ["English Language","📘"],
-    ["Physics","⚛️"],
-    ["Chemistry","🧪"],
-    ["Biology","🧬"],
-    ["Agricultural Science","🌱"],
-    ["Economics","💰"],
-    ["Government","🏛️"],
-    ["Literature in English","📚"],
-    ["Geography","🌍"],
-    ["Accounting","📊"],
-    ["Digital Technologies","💻"]
-  ],
+        <h3>1. Proper Noun</h3>
+        <p>
+          A proper noun is the name of a particular person, place,
+          institution, day, month or other specific entity.
+        </p>
+        <div class="example">
+          <b>Examples:</b> Nigeria, Lagos, Emmanuel, Africa,
+          Monday, January.
+        </div>
 
-  "SSS3":[
-    ["General Mathematics","🧮"],
-    ["English Language","📘"],
-    ["Physics","⚛️"],
-    ["Chemistry","🧪"],
-    ["Biology","🧬"],
-    ["Agricultural Science","🌱"],
-    ["Economics","💰"],
-    ["Government","🏛️"],
-    ["Literature in English","📚"],
-    ["Geography","🌍"],
-    ["Accounting","📊"],
-    ["Digital Technologies","💻"]
-  ],
+        <h3>2. Common Noun</h3>
+        <p>
+          A common noun is a general name given to a person, animal,
+          place or thing.
+        </p>
+        <div class="example">
+          <b>Examples:</b> boy, girl, school, city, country,
+          teacher, animal.
+        </div>
 
-  "JAMB":[
-    ["Mathematics","🧮"],
-    ["English Language","📘"],
-    ["Physics","⚛️"],
-    ["Chemistry","🧪"],
-    ["Biology","🧬"],
-    ["Economics","💰"],
-    ["Government","🏛️"],
-    ["Literature in English","📚"],
-    ["Geography","🌍"],
-    ["Accounting","📊"]
-  ],
+        <h3>3. Collective Noun</h3>
+        <p>
+          A collective noun is a noun that refers to a group of
+          people, animals or things considered as a unit.
+        </p>
+        <div class="example">
+          <b>Examples:</b> team, committee, army, flock, crowd,
+          family.
+        </div>
 
-  "WAEC":[
-    ["Mathematics","🧮"],
-    ["English Language","📘"],
-    ["Physics","⚛️"],
-    ["Chemistry","🧪"],
-    ["Biology","🧬"],
-    ["Agricultural Science","🌱"],
-    ["Economics","💰"],
-    ["Government","🏛️"],
-    ["Literature in English","📚"],
-    ["Geography","🌍"],
-    ["Accounting","📊"],
-    ["Computer Studies","💻"]
-  ],
+        <h3>4. Abstract Noun</h3>
+        <p>
+          An abstract noun names a quality, idea, feeling, state
+          or concept that cannot normally be perceived through
+          the physical senses.
+        </p>
+        <div class="example">
+          <b>Examples:</b> honesty, wisdom, happiness, freedom,
+          courage, beauty.
+        </div>
 
-  "NECO":[
-    ["Mathematics","🧮"],
-    ["English Language","📘"],
-    ["Physics","⚛️"],
-    ["Chemistry","🧪"],
-    ["Biology","🧬"],
-    ["Agricultural Science","🌱"],
-    ["Economics","💰"],
-    ["Government","🏛️"],
-    ["Literature in English","📚"],
-    ["Geography","🌍"],
-    ["Accounting","📊"]
-  ],
+        <h3>5. Concrete Noun</h3>
+        <p>
+          A concrete noun refers to a person, animal, place or
+          thing that can be perceived through the senses.
+        </p>
+        <div class="example">
+          <b>Examples:</b> book, table, teacher, dog, mango.
+        </div>
 
-  "UNIVERSITY":[
-    ["Mathematics","🧮"],
-    ["Computer Science","💻"],
-    ["Physics","⚛️"],
-    ["Chemistry","🧪"],
-    ["Biology","🧬"],
-    ["Economics","💰"],
-    ["Accounting","📊"],
-    ["Business Administration","💼"],
-    ["Engineering","⚙️"],
-    ["Education","🎓"]
+        <h3>Nouns in Sentences</h3>
+        <ol>
+          <li><b>Emmanuel</b> went to school. — Proper noun</li>
+          <li>The <b>boy</b> is reading. — Common noun</li>
+          <li>The <b>team</b> won the match. — Collective noun</li>
+          <li><b>Honesty</b> is a good quality. — Abstract noun</li>
+          <li>The <b>book</b> is on the table. — Concrete noun</li>
+        </ol>
+
+        <h3>Important Rule</h3>
+        <p>
+          Proper nouns normally begin with capital letters.
+          Common nouns do not require capital letters unless they
+          occur at the beginning of a sentence.
+        </p>
+
+        <h3>Common Mistakes</h3>
+        <div class="example">
+          ❌ nigeria is a country.<br>
+          ✅ Nigeria is a country.
+          <br><br>
+          ❌ Lagos is a city in nigeria.<br>
+          ✅ Lagos is a city in Nigeria.
+        </div>
+
+        <h3>Key Points</h3>
+        <div class="keypoints">
+          <ul>
+            <li>Nouns name people, animals, places, things and ideas.</li>
+            <li>Proper nouns identify particular names.</li>
+            <li>Common nouns give general names.</li>
+            <li>Collective nouns refer to groups.</li>
+            <li>Abstract nouns refer to ideas, qualities and feelings.</li>
+            <li>Concrete nouns can be perceived through the senses.</li>
+          </ul>
+        </div>
+
+        <h3>Chapter Exercise</h3>
+        <div class="example">
+          Identify the type of noun in each sentence:
+          <ol>
+            <li>Nigeria is in West Africa.</li>
+            <li>The army marched forward.</li>
+            <li>Honesty is important.</li>
+            <li>The teacher opened the book.</li>
+          </ol>
+        </div>
+      `,
+      quiz:[
+        {
+          q:"Which type of noun names a particular person, place or thing?",
+          options:["Common noun","Proper noun","Abstract noun","Collective noun"],
+          answer:1,
+          explanation:"A proper noun identifies a particular person, place or thing."
+        },
+        {
+          q:"Which of these is an abstract noun?",
+          options:["Table","Dog","Honesty","Lagos"],
+          answer:2,
+          explanation:"Honesty is a quality or idea and cannot normally be physically perceived."
+        },
+        {
+          q:"Which of these is a collective noun?",
+          options:["Team","Nigeria","Book","Wisdom"],
+          answer:0,
+          explanation:"Team refers to a group considered as one unit."
+        }
+      ]
+    },
+
+    {
+      title:"Pronouns",
+      lesson:`
+        <h2>Chapter 2: Pronouns</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          A pronoun is a word used in place of a noun, usually to
+          avoid unnecessary repetition.
+        </div>
+
+        <h3>Examples</h3>
+        <div class="example">
+          <b>John</b> went home because <b>he</b> was tired.<br>
+          Mary bought a book because <b>she</b> needed it.
+        </div>
+
+        <h3>Types of Pronouns</h3>
+        <ul>
+          <li>Personal pronouns</li>
+          <li>Possessive pronouns</li>
+          <li>Reflexive pronouns</li>
+          <li>Demonstrative pronouns</li>
+          <li>Interrogative pronouns</li>
+          <li>Relative pronouns</li>
+        </ul>
+
+        <h3>Personal Pronouns</h3>
+        <div class="example">
+          I, you, he, she, it, we, they, me, him, her, us, them.
+        </div>
+
+        <h3>Key Point</h3>
+        <div class="keypoints">
+          A pronoun replaces or refers to a noun in a sentence.
+        </div>
+      `,
+      quiz:[
+        {
+          q:"What is a pronoun?",
+          options:[
+            "A word that replaces a noun",
+            "A word that describes a noun",
+            "A word showing an action",
+            "A word joining sentences"
+          ],
+          answer:0,
+          explanation:"A pronoun is used in place of a noun."
+        }
+      ]
+    },
+
+    {
+      title:"Verbs",
+      lesson:`
+        <h2>Chapter 3: Verbs</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          A verb is a word that expresses an action, occurrence
+          or state of being.
+        </div>
+
+        <h3>Examples</h3>
+        <div class="example">
+          run, eat, write, sing, think, sleep, become, is, are.
+        </div>
+
+        <h3>Types of Verbs</h3>
+        <ul>
+          <li>Action verbs</li>
+          <li>Linking verbs</li>
+          <li>Auxiliary verbs</li>
+          <li>Transitive verbs</li>
+          <li>Intransitive verbs</li>
+        </ul>
+
+        <h3>Examples in Sentences</h3>
+        <div class="example">
+          The boy <b>runs</b> every morning.<br>
+          She <b>is</b> happy.<br>
+          They <b>have</b> completed the work.
+        </div>
+
+        <h3>Key Points</h3>
+        <div class="keypoints">
+          Verbs are central to sentence construction because they
+          communicate actions, events or states.
+        </div>
+      `,
+      quiz:[
+        {
+          q:"Which word is a verb?",
+          options:["Beautiful","Run","Table","Honesty"],
+          answer:1,
+          explanation:"Run expresses an action."
+        }
+      ]
+    }
   ]
+},
+
+
+Mathematics:{
+  icon:"🧮",
+  description:"Mathematics, formulas and calculations",
+  chapters:[
+    {
+      title:"Number Bases",
+      lesson:`
+        <h2>Chapter 1: Number Bases</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          A number base is a system of representing numbers using
+          a specified set of digits.
+        </div>
+
+        <h3>Common Number Bases</h3>
+        <ul>
+          <li>Binary — base 2</li>
+          <li>Octal — base 8</li>
+          <li>Decimal — base 10</li>
+          <li>Hexadecimal — base 16</li>
+        </ul>
+
+        <h3>Converting Binary to Decimal</h3>
+        <p>
+          Each position in a binary number represents a power of 2.
+        </p>
+
+        <div class="formula">
+          1011₂ = (1×2³)+(0×2²)+(1×2¹)+(1×2⁰)
+        </div>
+
+        <div class="example">
+          = 8 + 0 + 2 + 1<br>
+          = <b>11₁₀</b>
+        </div>
+
+        <h3>Worked Example</h3>
+        <p>Convert 1101₂ to decimal.</p>
+
+        <div class="example">
+          1101₂<br>
+          = (1×8)+(1×4)+(0×2)+(1×1)<br>
+          = 8+4+0+1<br>
+          = <b>13₁₀</b>
+        </div>
+
+        <h3>Key Points</h3>
+        <div class="keypoints">
+          <ul>
+            <li>Binary uses only 0 and 1.</li>
+            <li>Decimal uses digits 0–9.</li>
+            <li>Place values in binary are powers of 2.</li>
+          </ul>
+        </div>
+      `,
+      quiz:[
+        {
+          q:"What is 1011₂ in decimal?",
+          options:["9","10","11","12"],
+          answer:2,
+          explanation:"(1×8)+(0×4)+(1×2)+(1×1)=11."
+        }
+      ]
+    },
+
+    {
+      title:"Algebraic Expressions",
+      lesson:`
+        <h2>Chapter 2: Algebraic Expressions</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          An algebraic expression is a mathematical expression
+          consisting of numbers, variables and mathematical
+          operations.
+        </div>
+
+        <h3>Terms</h3>
+        <p>
+          Terms are the separate parts of an algebraic expression
+          separated by addition or subtraction signs.
+        </p>
+
+        <div class="example">
+          3x + 5y - 7
+          <br><br>
+          Terms: 3x, 5y and -7.
+        </div>
+
+        <h3>Like Terms</h3>
+        <p>
+          Like terms are terms having the same variables raised
+          to the same powers.
+        </p>
+
+        <div class="example">
+          3x + 5x = 8x
+          <br>
+          7a - 2a = 5a
+        </div>
+
+        <h3>Worked Example</h3>
+        <p>Simplify:</p>
+
+        <div class="formula">
+          4x + 7 - 2x + 3
+        </div>
+
+        <div class="example">
+          Collect like terms:<br>
+          4x - 2x = 2x<br>
+          7 + 3 = 10<br><br>
+          Answer: <b>2x + 10</b>
+        </div>
+
+        <h3>Key Points</h3>
+        <div class="keypoints">
+          Like terms can be added or subtracted.
+          Unlike terms cannot normally be combined directly.
+        </div>
+      `,
+      quiz:[
+        {
+          q:"Simplify 4x + 3x.",
+          options:["7","7x","12x","x"],
+          answer:1,
+          explanation:"4x and 3x are like terms, so 4x+3x=7x."
+        }
+      ]
+    },
+
+    {
+      title:"Quadratic Equations",
+      lesson:`
+        <h2>Chapter 3: Quadratic Equations</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          A quadratic equation is an equation that can be written
+          in the form ax² + bx + c = 0, where a ≠ 0.
+        </div>
+
+        <h3>Quadratic Formula</h3>
+
+        <div class="formula">
+          x = (-b ± √(b² - 4ac)) / 2a
+        </div>
+
+        <h3>Worked Example</h3>
+        <p>Solve x² - 5x + 6 = 0.</p>
+
+        <div class="example">
+          Factorise:
+          <br>
+          x² - 5x + 6 = 0
+          <br><br>
+          (x - 2)(x - 3) = 0
+          <br><br>
+          Therefore:
+          <br>
+          x = 2 or x = 3
+        </div>
+
+        <h3>Key Points</h3>
+        <div class="keypoints">
+          <ul>
+            <li>A quadratic equation contains x² as its highest power.</li>
+            <li>It may be solved by factorisation.</li>
+            <li>The quadratic formula can also be used.</li>
+          </ul>
+        </div>
+      `,
+      quiz:[
+        {
+          q:"Which is the standard form of a quadratic equation?",
+          options:[
+            "ax+b=0",
+            "ax²+bx+c=0",
+            "a/x=0",
+            "x+y=0"
+          ],
+          answer:1,
+          explanation:"The standard form is ax² + bx + c = 0, where a is not zero."
+        }
+      ]
+    },
+
+    {
+      title:"Percentage",
+      lesson:`
+        <h2>Chapter 4: Percentage</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Percentage is a way of expressing a number as a fraction
+          of 100.
+        </div>
+
+        <div class="formula">
+          Percentage = (Part / Whole) × 100%
+        </div>
+
+        <h3>Worked Example</h3>
+        <p>
+          A student scores 45 marks out of 60. Find the percentage.
+        </p>
+
+        <div class="example">
+          Percentage = (45/60) × 100
+          <br>
+          = 0.75 × 100
+          <br>
+          = <b>75%</b>
+        </div>
+
+        <h3>Profit and Loss</h3>
+
+        <div class="formula">
+          Profit = Selling Price - Cost Price
+        </div>
+
+        <div class="formula">
+          Loss = Cost Price - Selling Price
+        </div>
+
+        <div class="formula">
+          Profit% = (Profit / Cost Price) × 100
+        </div>
+      `,
+      quiz:[
+        {
+          q:"A student scores 45 out of 60. What percentage is this?",
+          options:["60%","65%","75%","80%"],
+          answer:2,
+          explanation:"45/60 × 100 = 75%."
+        }
+      ]
+    }
+  ]
+},
+
+
+Chemistry:{
+  icon:"⚗️",
+  description:"Elements, compounds, formulas and reactions",
+  chapters:[
+    {
+      title:"Matter and Its Classification",
+      lesson:`
+        <h2>Chapter 1: Matter and Its Classification</h2>
+
+        <h3>Definition of Matter</h3>
+        <div class="definition">
+          Matter is anything that has mass and occupies space.
+        </div>
+
+        <h3>States of Matter</h3>
+        <ul>
+          <li>Solid</li>
+          <li>Liquid</li>
+          <li>Gas</li>
+        </ul>
+
+        <h3>Elements</h3>
+        <div class="definition">
+          An element is a pure substance consisting of atoms of
+          the same atomic number and which cannot be decomposed
+          into simpler substances by ordinary chemical means.
+        </div>
+
+        <h3>Examples of Elements</h3>
+        <div class="example">
+          Hydrogen — H<br>
+          Oxygen — O<br>
+          Carbon — C<br>
+          Sodium — Na<br>
+          Calcium — Ca<br>
+          Iron — Fe<br>
+          Copper — Cu
+        </div>
+
+        <h3>Compounds</h3>
+        <div class="definition">
+          A compound is a pure substance formed when two or more
+          different elements chemically combine in a definite
+          proportion.
+        </div>
+
+        <h3>Examples</h3>
+        <div class="example">
+          Water — H₂O<br>
+          Carbon dioxide — CO₂<br>
+          Sodium chloride — NaCl
+        </div>
+      `,
+      quiz:[
+        {
+          q:"What is an element?",
+          options:[
+            "A mixture of substances",
+            "A pure substance that cannot be chemically decomposed by ordinary means",
+            "A solution",
+            "Two mixtures combined"
+          ],
+          answer:1,
+          explanation:"An element is a pure substance that cannot be decomposed into simpler substances by ordinary chemical means."
+        }
+      ]
+    },
+
+    {
+      title:"Chemical Formulae and Naming",
+      lesson:`
+        <h2>Chapter 2: Chemical Formulae and Naming</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          A chemical formula is a symbolic representation showing
+          the elements present in a substance and their relative
+          numbers.
+        </div>
+
+        <h3>Important Formulae</h3>
+
+        <div class="example">
+          Water = <b>H₂O</b><br>
+          Carbon dioxide = <b>CO₂</b><br>
+          Sodium chloride = <b>NaCl</b><br>
+          Sulphuric acid = <b>H₂SO₄</b><br>
+          Hydrochloric acid = <b>HCl</b><br>
+          Sodium hydroxide = <b>NaOH</b>
+        </div>
+
+        <h3>Tetraoxosulphate(VI) Acid</h3>
+
+        <div class="definition">
+          Tetraoxosulphate(VI) acid is the systematic name commonly
+          used in Nigerian secondary-school chemistry for sulphuric
+          acid, H₂SO₄.
+        </div>
+
+        <div class="formula">
+          H₂SO₄ = Tetraoxosulphate(VI) acid
+        </div>
+
+        <h3>Understanding the Formula</h3>
+        <p>
+          H₂SO₄ contains hydrogen, sulphur and oxygen.
+          It has two hydrogen atoms, one sulphur atom and four
+          oxygen atoms in each molecule.
+        </p>
+
+        <h3>Key Points</h3>
+        <div class="keypoints">
+          <ul>
+            <li>H₂O represents water.</li>
+            <li>H₂SO₄ represents sulphuric acid.</li>
+            <li>A chemical formula communicates composition.</li>
+            <li>Subscripts show the number of atoms of an element.</li>
+          </ul>
+        </div>
+      `,
+      quiz:[
+        {
+          q:"What is the chemical formula for water?",
+          options:["CO₂","H₂O","HCl","NaCl"],
+          answer:1,
+          explanation:"Water contains two hydrogen atoms and one oxygen atom, giving H₂O."
+        },
+        {
+          q:"H₂SO₄ is the formula for which substance?",
+          options:[
+            "Hydrochloric acid",
+            "Sodium hydroxide",
+            "Tetraoxosulphate(VI) acid",
+            "Water"
+          ],
+          answer:2,
+          explanation:"H₂SO₄ is sulphuric acid, systematically called tetraoxosulphate(VI) acid in this naming system."
+        }
+      ]
+    },
+
+    {
+      title:"Atomic Structure",
+      lesson:`
+        <h2>Chapter 3: Atomic Structure</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          An atom is the smallest particle of an element that can
+          take part in a chemical reaction while retaining the
+          chemical identity of the element.
+        </div>
+
+        <h3>Subatomic Particles</h3>
+
+        <div class="example">
+          <b>Proton:</b> positively charged particle found in the nucleus.<br><br>
+          <b>Neutron:</b> electrically neutral particle found in the nucleus.<br><br>
+          <b>Electron:</b> negatively charged particle found outside
+          the nucleus.
+        </div>
+
+        <h3>Atomic Number</h3>
+        <div class="definition">
+          The atomic number of an element is the number of protons
+          present in the nucleus of an atom of the element.
+        </div>
+
+        <h3>Mass Number</h3>
+        <div class="formula">
+          Mass Number = Number of Protons + Number of Neutrons
+        </div>
+      `,
+      quiz:[
+        {
+          q:"What determines the atomic number of an element?",
+          options:["Electrons","Neutrons","Protons","Molecules"],
+          answer:2,
+          explanation:"Atomic number is equal to the number of protons."
+        }
+      ]
+    }
+  ]
+},
+
+
+Physics:{
+  icon:"⚡",
+  description:"Motion, forces, energy, waves and electricity",
+  chapters:[
+    {
+      title:"Measurement",
+      lesson:`
+        <h2>Chapter 1: Measurement</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Measurement is the process of determining the magnitude
+          or quantity of a physical property by comparison with
+          an accepted standard unit.
+        </div>
+
+        <h3>SI Units</h3>
+        <div class="example">
+          Length — metre (m)<br>
+          Mass — kilogram (kg)<br>
+          Time — second (s)<br>
+          Temperature — kelvin (K)<br>
+          Electric current — ampere (A)
+        </div>
+
+        <h3>Derived Quantities</h3>
+        <p>
+          Derived quantities are obtained from combinations of
+          fundamental quantities.
+        </p>
+
+        <div class="example">
+          Speed = distance / time<br>
+          Unit = m/s
+        </div>
+      `,
+      quiz:[
+        {
+          q:"What is the SI unit of length?",
+          options:["Kilogram","Metre","Second","Ampere"],
+          answer:1,
+          explanation:"The SI unit of length is the metre (m)."
+        }
+      ]
+    },
+
+    {
+      title:"Motion",
+      lesson:`
+        <h2>Chapter 2: Motion</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Motion is the change in position of a body with time
+          relative to a reference point.
+        </div>
+
+        <h3>Speed</h3>
+        <div class="formula">
+          Speed = Distance / Time
+        </div>
+
+        <h3>Worked Example</h3>
+        <p>
+          A car travels 120 km in 2 hours. Calculate its average speed.
+        </p>
+
+        <div class="example">
+          Speed = 120 / 2
+          <br>
+          = <b>60 km/h</b>
+        </div>
+
+        <h3>Velocity</h3>
+        <div class="definition">
+          Velocity is the rate of change of displacement with time
+          in a specified direction.
+        </div>
+
+        <div class="formula">
+          Velocity = Displacement / Time
+        </div>
+      `,
+      quiz:[
+        {
+          q:"A car travels 120 km in 2 hours. What is its average speed?",
+          options:["30 km/h","40 km/h","60 km/h","120 km/h"],
+          answer:2,
+          explanation:"Speed = distance/time = 120/2 = 60 km/h."
+        }
+      ]
+    },
+
+    {
+      title:"Force",
+      lesson:`
+        <h2>Chapter 3: Force</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Force is a push or pull which changes or tends to change
+          the state of rest or uniform motion of a body.
+        </div>
+
+        <h3>Newton's Second Law</h3>
+
+        <div class="formula">
+          F = ma
+        </div>
+
+        <p>
+          Where F is force, m is mass and a is acceleration.
+        </p>
+
+        <h3>Worked Example</h3>
+
+        <div class="example">
+          A body of mass 5 kg accelerates at 2 m/s².
+          Find the force.
+          <br><br>
+          F = ma
+          <br>
+          F = 5 × 2
+          <br>
+          <b>F = 10 N</b>
+        </div>
+      `,
+      quiz:[
+        {
+          q:"A 5 kg body accelerates at 2 m/s². What force acts on it?",
+          options:["5 N","7 N","10 N","25 N"],
+          answer:2,
+          explanation:"F = ma = 5 × 2 = 10 N."
+        }
+      ]
+    },
+
+    {
+      title:"Work, Energy and Power",
+      lesson:`
+        <h2>Chapter 4: Work, Energy and Power</h2>
+
+        <h3>Work</h3>
+        <div class="definition">
+          Work is done when a force causes a displacement in the
+          direction of the force.
+        </div>
+
+        <div class="formula">
+          Work = Force × Distance
+        </div>
+
+        <h3>Power</h3>
+        <div class="formula">
+          Power = Work / Time
+        </div>
+
+        <h3>Worked Example</h3>
+        <div class="example">
+          A force of 20 N moves an object through 5 m.
+          <br><br>
+          Work = 20 × 5
+          <br>
+          <b>Work = 100 J</b>
+        </div>
+
+        <h3>Key Points</h3>
+        <div class="keypoints">
+          <ul>
+            <li>Work is measured in joules.</li>
+            <li>Power is measured in watts.</li>
+            <li>Energy is the capacity to do work.</li>
+          </ul>
+        </div>
+      `,
+      quiz:[
+        {
+          q:"A force of 20 N moves an object through 5 m. Calculate the work done.",
+          options:["25 J","50 J","100 J","200 J"],
+          answer:2,
+          explanation:"Work = force × distance = 20 × 5 = 100 J."
+        }
+      ]
+    }
+  ]
+},
+
+
+Biology:{
+  icon:"🧬",
+  description:"Living organisms, cells, plants and animals",
+  chapters:[
+    {
+      title:"Characteristics of Living Organisms",
+      lesson:`
+        <h2>Chapter 1: Characteristics of Living Organisms</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Biology is the scientific study of life and living
+          organisms.
+        </div>
+
+        <h3>Characteristics of Living Things</h3>
+
+        <ol>
+          <li>Movement</li>
+          <li>Respiration</li>
+          <li>Sensitivity</li>
+          <li>Growth</li>
+          <li>Reproduction</li>
+          <li>Excretion</li>
+          <li>Nutrition</li>
+        </ol>
+
+        <h3>Nutrition</h3>
+        <p>
+          Nutrition is the process by which living organisms obtain
+          and use nutrients required for growth, repair and energy.
+        </p>
+
+        <h3>Key Points</h3>
+        <div class="keypoints">
+          Living organisms carry out life processes such as
+          nutrition, respiration, growth, excretion and reproduction.
+        </div>
+      `,
+      quiz:[
+        {
+          q:"Which of the following is a characteristic of living organisms?",
+          options:["Rusting","Growth","Melting","Freezing"],
+          answer:1,
+          explanation:"Growth is one of the recognized characteristics of living organisms."
+        }
+      ]
+    },
+
+    {
+      title:"The Cell",
+      lesson:`
+        <h2>Chapter 2: The Cell</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          The cell is the basic structural and functional unit
+          of life.
+        </div>
+
+        <h3>Major Cell Structures</h3>
+
+        <div class="example">
+          <b>Cell membrane:</b> controls movement of substances
+          into and out of the cell.<br><br>
+
+          <b>Cytoplasm:</b> contains the structures where many
+          cellular activities occur.<br><br>
+
+          <b>Nucleus:</b> contains genetic material and controls
+          many activities of the cell.
+        </div>
+
+        <h3>Plant Cell Structures</h3>
+        <ul>
+          <li>Cell wall</li>
+          <li>Chloroplast</li>
+          <li>Large permanent vacuole</li>
+        </ul>
+      `,
+      quiz:[
+        {
+          q:"What is the basic structural and functional unit of life?",
+          options:["Organ","Tissue","Cell","System"],
+          answer:2,
+          explanation:"The cell is the basic structural and functional unit of life."
+        }
+      ]
+    },
+
+    {
+      title:"Photosynthesis",
+      lesson:`
+        <h2>Chapter 3: Photosynthesis</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Photosynthesis is the process by which green plants
+          manufacture organic food, mainly glucose, from carbon
+          dioxide and water using light energy absorbed by chlorophyll.
+        </div>
+
+        <h3>Word Equation</h3>
+
+        <div class="formula">
+          Carbon dioxide + Water → Glucose + Oxygen
+        </div>
+
+        <p>
+          Light energy and chlorophyll are required for the process.
+        </p>
+
+        <h3>Importance</h3>
+        <ul>
+          <li>Produces food for plants.</li>
+          <li>Provides food indirectly for animals.</li>
+          <li>Releases oxygen into the atmosphere.</li>
+          <li>Removes carbon dioxide from the atmosphere.</li>
+        </ul>
+      `,
+      quiz:[
+        {
+          q:"Which pigment absorbs light energy during photosynthesis?",
+          options:["Haemoglobin","Chlorophyll","Melanin","Keratin"],
+          answer:1,
+          explanation:"Chlorophyll absorbs light energy used in photosynthesis."
+        }
+      ]
+    }
+  ]
+},
+
+
+Agriculture:{
+  icon:"🌱",
+  description:"Agricultural science and farming",
+  chapters:[
+    {
+      title:"Agriculture and Its Importance",
+      lesson:`
+        <h2>Chapter 1: Agriculture and Its Importance</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Agriculture is the science, art and business of cultivating
+          the soil, producing crops, rearing animals and processing
+          agricultural products for human use.
+        </div>
+
+        <h3>Branches of Agriculture</h3>
+        <ul>
+          <li>Crop production</li>
+          <li>Animal production</li>
+          <li>Fisheries</li>
+          <li>Forestry</li>
+          <li>Agricultural engineering</li>
+          <li>Agricultural economics</li>
+        </ul>
+
+        <h3>Importance</h3>
+        <ol>
+          <li>Provides food.</li>
+          <li>Provides raw materials for industries.</li>
+          <li>Creates employment.</li>
+          <li>Generates income.</li>
+          <li>Contributes to national development.</li>
+        </ol>
+      `,
+      quiz:[
+        {
+          q:"Which of these is a branch of agriculture?",
+          options:["Crop production","Astronomy","Geology only","Architecture"],
+          answer:0,
+          explanation:"Crop production is a major branch of agriculture."
+        }
+      ]
+    },
+
+    {
+      title:"Farm Tools",
+      lesson:`
+        <h2>Chapter 2: Farm Tools</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Farm tools are simple implements used by farmers to
+          perform agricultural operations.
+        </div>
+
+        <h3>Examples</h3>
+        <div class="example">
+          Cutlass — clearing weeds and bushes.<br>
+          Hoe — digging and weeding.<br>
+          Rake — gathering leaves and debris.<br>
+          Spade — digging and moving soil.<br>
+          Watering can — watering plants.
+        </div>
+
+        <h3>Maintenance</h3>
+        <ul>
+          <li>Clean tools after use.</li>
+          <li>Dry metal tools properly.</li>
+          <li>Store tools in a dry place.</li>
+          <li>Sharpen cutting tools when necessary.</li>
+        </ul>
+      `,
+      quiz:[
+        {
+          q:"Which tool is commonly used for gathering leaves?",
+          options:["Rake","Cutlass","Watering can","Spade"],
+          answer:0,
+          explanation:"A rake is used for gathering leaves and debris."
+        }
+      ]
+    }
+  ]
+},
+
+
+Government:{
+  icon:"🏛️",
+  description:"Government, constitution and political institutions",
+  chapters:[
+    {
+      title:"Rule of Law",
+      lesson:`
+        <h2>Chapter 1: Rule of Law</h2>
+
+        <h3>Definition</h3>
+
+        <div class="definition">
+          Rule of law is a constitutional doctrine which emphasizes
+          the supremacy of the law, equality before the law,
+          impartiality and incorruptibility in the administration
+          of justice by the courts.
+        </div>
+
+        <h3>Principles of Rule of Law</h3>
+
+        <ol>
+          <li>Supremacy of the law</li>
+          <li>Equality before the law</li>
+          <li>Fundamental human rights</li>
+          <li>Independence of the judiciary</li>
+          <li>Fair hearing</li>
+        </ol>
+
+        <h3>Importance</h3>
+
+        <ul>
+          <li>Protects citizens' rights.</li>
+          <li>Limits arbitrary exercise of power.</li>
+          <li>Promotes equality.</li>
+          <li>Encourages justice.</li>
+        </ul>
+      `,
+      quiz:[
+        {
+          q:"Which principle means that no person is above the law?",
+          options:[
+            "Supremacy of the law",
+            "Military rule",
+            "Delegated legislation",
+            "Federal character"
+          ],
+          answer:0,
+          explanation:"Supremacy of the law means the law is superior and applies to everyone."
+        }
+      ]
+    },
+
+    {
+      title:"Democracy",
+      lesson:`
+        <h2>Chapter 2: Democracy</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Democracy is a system of government in which political
+          power is exercised directly or through elected
+          representatives by the people.
+        </div>
+
+        <h3>Features</h3>
+        <ul>
+          <li>Periodic elections</li>
+          <li>Popular participation</li>
+          <li>Rule of law</li>
+          <li>Protection of rights</li>
+          <li>Majority rule with protection of minorities</li>
+        </ul>
+      `,
+      quiz:[
+        {
+          q:"What is a major feature of democracy?",
+          options:["Periodic elections","Permanent dictatorship","No constitution","No citizen participation"],
+          answer:0,
+          explanation:"Periodic elections are a major feature of democratic government."
+        }
+      ]
+    }
+  ]
+},
+
+
+Economics:{
+  icon:"💰",
+  description:"Production, markets, money and economic principles",
+  chapters:[
+    {
+      title:"Basic Economic Concepts",
+      lesson:`
+        <h2>Chapter 1: Basic Economic Concepts</h2>
+
+        <h3>Definition</h3>
+        <div class="definition">
+          Economics is the social science that studies how scarce
+          resources are allocated among competing wants.
+        </div>
+
+        <h3>Scarcity</h3>
+        <div class="definition">
+          Scarcity refers to the limited nature of resources in
+          relation to the unlimited wants of human beings.
+        </div>
+
+        <h3>Choice</h3>
+        <p>
+          Because resources are scarce, individuals, firms and
+          governments must make choices among alternatives.
+        </p>
+
+        <h3>Opportunity Cost</h3>
+        <div class="definition">
+          Opportunity cost is the value of the next best alternative
+          forgone when a choice is made.
+        </div>
+
+        <div class="example">
+          If a student uses ₦2,000 to buy a textbook instead of
+          buying a pair of shoes, the shoes represent the
+          opportunity cost, assuming they are the next best
+          alternative forgone.
+        </div>
+      `,
+      quiz:[
+        {
+          q:"What is opportunity cost?",
+          options:[
+            "Total money spent",
+            "The next best alternative forgone",
+            "Profit made",
+            "The cheapest product"
+          ],
+          answer:1,
+          explanation:"Opportunity cost is the value of the next best alternative forgone."
+        }
+      ]
+    }
+  ]
+}
+
 };
 
 
-let currentLevel="";
-let currentSubject="";
+/* =========================================================
+   SUBJECT LIST
+   ========================================================= */
+
+const SUBJECTS = [
+  "English",
+  "Mathematics",
+  "Chemistry",
+  "Physics",
+  "Biology",
+  "Agriculture",
+  "Government",
+  "Economics"
+];
+
+let currentLevel = "";
+let currentSubject = "";
+let currentChapter = "";
 
 
-function hideAll(){
-  document.getElementById("home").classList.add("hidden");
-  document.getElementById("levels").classList.add("hidden");
-  document.getElementById("subjects").classList.add("hidden");
-  document.getElementById("course").classList.add("hidden");
-  document.getElementById("dictionary").classList.add("hidden");
-  document.getElementById("motivation").classList.add("hidden");
-}
+/* =========================================================
+   LEVEL FUNCTIONS
+   ========================================================= */
 
+function openLevel(level){
 
-function goHome(){
-  hideAll();
-  document.getElementById("home").classList.remove("hidden");
+  currentLevel = level;
+
+  hideAllPages();
+
+  document.getElementById("levelPage").classList.add("active");
+
+  document.getElementById("levelTitle").textContent =
+    level + " Digital Textbooks";
+
+  document.getElementById("levelBreadcrumb").textContent =
+    "EduPro-NG → " + level;
+
+  const grid = document.getElementById("subjectGrid");
+
+  grid.innerHTML = "";
+
+  SUBJECTS.forEach(subject=>{
+
+    const book = BOOKS[subject];
+
+    const card = document.createElement("div");
+
+    card.className = "card subject-card";
+
+    card.onclick = ()=>openSubject(subject);
+
+    card.innerHTML = `
+      <div class="subject-icon">${book.icon}</div>
+      <h3>${subject}</h3>
+      <p>${book.description}</p>
+      <br>
+      <small>${book.chapters.length} chapters available</small>
+    `;
+
+    grid.appendChild(card);
+
+  });
+
   window.scrollTo(0,0);
 }
 
 
-function showLevels(){
-  hideAll();
-  document.getElementById("levels").classList.remove("hidden");
-
-  const grid=document.getElementById("levelGrid");
-
-  grid.innerHTML=[
-    "JSS1","JSS2","JSS3",
-    "SSS1","SSS2","SSS3",
-    "JAMB","WAEC","NECO","UNIVERSITY"
-  ].map(level=>`
-    <div class="card level-card clickable" onclick="selectLevel('${level}')">
-      <div class="icon">${level==="UNIVERSITY"?"🎓":"📚"}</div>
-      <h3>${level}</h3>
-      <p>${level==="UNIVERSITY"?"University courses":"Study & practise"}</p>
-    </div>
-  `).join("");
-
-  window.scrollTo(0,0);
-}
-
-
-function selectLevel(level){
-  currentLevel=level;
-
-  hideAll();
-  document.getElementById("subjects").classList.remove("hidden");
-
-  document.getElementById("subjectLevel").textContent=level;
-  document.getElementById("subjectTitle").textContent=
-    level==="UNIVERSITY" ? "Choose a university course" : "Choose a subject";
-
-  document.getElementById("subjectSearch").value="";
-  renderSubjects();
-
-  window.scrollTo(0,0);
-}
-
-
-function renderSubjects(){
-
-  const query=document.getElementById("subjectSearch").value.toLowerCase();
-
-  const list=subjects[currentLevel] || [];
-
-  const filtered=list.filter(item=>
-    item[0].toLowerCase().includes(query)
-  );
-
-  document.getElementById("subjectGrid").innerHTML=
-    filtered.map(item=>`
-      <div class="card clickable" onclick="openSubject('${item[0].replace(/'/g,"\\'")}')">
-        <h3>${item[1]} ${item[0]}</h3>
-        <p>Study • Practice • Quiz</p>
-      </div>
-    `).join("");
-}
-
+/* =========================================================
+   SUBJECT FUNCTIONS
+   ========================================================= */
 
 function openSubject(subject){
 
-  currentSubject=subject;
+  currentSubject = subject;
 
-  hideAll();
-  document.getElementById("course").classList.remove("hidden");
+  hideAllPages();
 
-  document.getElementById("courseBread").textContent=
-    currentLevel+" › "+currentSubject;
+  document.getElementById("subjectPage").classList.add("active");
 
-  openCourseTab("learn");
+  document.getElementById("subjectTitle").textContent =
+    subject + " — Digital Textbook";
+
+  document.getElementById("subjectBreadcrumb").textContent =
+    currentLevel + " → " + subject;
+
+  const grid = document.getElementById("chapterGrid");
+
+  grid.innerHTML = "";
+
+  const book = BOOKS[subject];
+
+  book.chapters.forEach((chapter,index)=>{
+
+    const card = document.createElement("div");
+
+    card.className = "card chapter";
+
+    card.onclick = ()=>openChapter(index);
+
+    card.innerHTML = `
+      <div class="chapter-number">
+        CHAPTER ${index+1}
+      </div>
+      <h3>${chapter.title}</h3>
+      <p>
+        Read the lesson, examples, key points and practise questions.
+      </p>
+    `;
+
+    grid.appendChild(card);
+
+  });
 
   window.scrollTo(0,0);
 }
 
 
-function openCourseTab(tab){
+/* =========================================================
+   LESSON
+   ========================================================= */
 
-  document.getElementById("learnPanel").classList.add("hidden");
-  document.getElementById("practicePanel").classList.add("hidden");
-  document.getElementById("quizPanel").classList.add("hidden");
+function openChapter(index){
 
-  document.getElementById("learnTab").classList.remove("active");
-  document.getElementById("practiceTab").classList.remove("active");
-  document.getElementById("quizTab").classList.remove("active");
+  currentChapter = index;
 
-  document.getElementById(tab+"Panel").classList.remove("hidden");
-  document.getElementById(tab+"Tab").classList.add("active");
+  hideAllPages();
 
-  if(tab==="learn") renderLesson();
-  if(tab==="practice") renderPractice();
-  if(tab==="quiz") renderQuiz();
-}
+  document.getElementById("lessonPage").classList.add("active");
 
+  const book = BOOKS[currentSubject];
 
-/* =========================
-   LESSON CONTENT
-========================= */
+  const chapter = book.chapters[index];
 
-function renderLesson(){
+  document.getElementById("lessonBreadcrumb").textContent =
+    currentLevel + " → " +
+    currentSubject + " → Chapter " + (index+1);
 
-  let content=getLesson(currentSubject);
+  let html = chapter.lesson;
 
-  document.getElementById("learnPanel").innerHTML=`
-    <article class="lesson">
-
-      <span class="badge">${currentLevel}</span>
-
-      <h1>${content.title}</h1>
-
-      <p class="small">
-        Textbook lesson • ${currentSubject}
-      </p>
-
-      ${content.body}
-
-      <div class="keypoints">
-        <strong>Key Points to Remember</strong>
-        <ul>
-          ${content.points.map(x=>`<li>${x}</li>`).join("")}
-        </ul>
-      </div>
-
-      <div class="actions">
-        <button class="btn" onclick="openCourseTab('practice')">
-          Continue to Practice →
-        </button>
-
-        <button class="btn secondary" onclick="showDictionary()">
-          📖 Check Dictionary
-        </button>
-      </div>
-
-    </article>
-  `;
-}
-
-
-/* =========================
-   LESSON DATABASE
-========================= */
-
-function getLesson(subject){
-
-  if(subject==="General Mathematics" || subject==="Mathematics"){
-
-    return {
-      title:"Mathematics: Percentages, Ratios and Algebraic Calculation",
-
-      body:`
-
-      <h2>1. Percentage</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Percentage is a way of expressing a number or quantity as a fraction of one hundred.
-      </div>
-
+  html += `
+    <div class="quiz-box">
+      <h2>📝 Chapter Quiz</h2>
       <p>
-        The word percentage means “per hundred”. It is represented by the symbol
-        <strong>%</strong>.
+        Test yourself on what you have just studied.
       </p>
-
-      <div class="formula">
-        Percentage = (Part ÷ Whole) × 100%
-      </div>
-
-      <h3>Worked Example 1</h3>
-
-      <div class="example">
-        <strong>Question:</strong>
-        A student scored 36 marks out of 50. Find the percentage score.
-
-        <div class="step">Step 1: Identify the part = 36.</div>
-        <div class="step">Step 2: Identify the whole = 50.</div>
-        <div class="step">Step 3: Percentage = (36 ÷ 50) × 100.</div>
-        <div class="step">Step 4: 36 ÷ 50 = 0.72.</div>
-        <div class="step">Step 5: 0.72 × 100 = <strong>72%</strong>.</div>
-      </div>
-
-
-      <h2>2. Percentage Increase</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Percentage increase is the increase in a quantity expressed as a percentage of its original value.
-      </div>
-
-      <div class="formula">
-        Percentage Increase = (Increase ÷ Original Value) × 100%
-      </div>
-
-      <div class="example">
-        <strong>Example:</strong>
-        The price of a book increases from ₦2,000 to ₦2,500.
-
-        <div class="step">Increase = ₦2,500 − ₦2,000 = ₦500.</div>
-        <div class="step">Percentage increase = (500 ÷ 2,000) × 100.</div>
-        <div class="step">= <strong>25%</strong>.</div>
-      </div>
-
-
-      <h2>3. Ratio</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Ratio is a mathematical comparison of two or more quantities of the same kind.
-      </div>
-
-      <p>
-        A ratio may be written using the symbol <strong>:</strong>.
-      </p>
-
-      <div class="example">
-        If there are 12 boys and 8 girls in a class, the ratio of boys to girls is:
-        <div class="formula">12 : 8 = 3 : 2</div>
-      </div>
-
-
-      <h2>4. Simple Algebra</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Algebra is a branch of mathematics in which letters and other symbols are used to represent numbers and quantities.
-      </div>
-
-      <div class="example">
-        <strong>Example:</strong> Solve:
-
-        <div class="formula">3x + 5 = 20</div>
-
-        <div class="step">3x = 20 − 5</div>
-        <div class="step">3x = 15</div>
-        <div class="step">x = 15 ÷ 3</div>
-        <div class="step"><strong>x = 5</strong></div>
-      </div>
-
-
-      <h2>5. Simple Interest</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Simple interest is the interest calculated on the original principal throughout the period of an investment or loan.
-      </div>
-
-      <div class="formula">
-        I = (P × R × T) ÷ 100
-      </div>
-
-      <p>
-        Where <strong>P</strong> = Principal,
-        <strong>R</strong> = Rate and
-        <strong>T</strong> = Time.
-      </p>
-
-      <div class="example">
-        <strong>Example:</strong>
-        Find the simple interest on ₦50,000 at 10% per annum for 2 years.
-
-        <div class="step">I = (50,000 × 10 × 2) ÷ 100</div>
-        <div class="step">I = 100,000 ÷ 100</div>
-        <div class="step"><strong>I = ₦10,000</strong></div>
-      </div>
-
-      `,
-
-      points:[
-        "Percentage means per hundred.",
-        "Always identify the original value when calculating percentage increase.",
-        "Ratios compare quantities of the same kind.",
-        "Algebra uses symbols to represent numbers.",
-        "Simple interest is calculated from the original principal."
-      ]
-    };
-  }
-
-
-  if(subject==="Chemistry"){
-
-    return {
-      title:"Chemistry: Elements, Symbols, Formulae and Nomenclature",
-
-      body:`
-
-      <h2>1. Meaning of Chemistry</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Chemistry is the branch of science that deals with the composition, structure, properties and changes of matter.
-      </div>
-
-      <h2>2. Element</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        An element is a pure substance consisting of only one type of atom and which cannot be broken down into simpler substances by ordinary chemical means.
-      </div>
-
-      <p>
-        Elements are represented by chemical symbols. The first letter of a symbol
-        is written in uppercase while a second letter, where present, is written
-        in lowercase.
-      </p>
-
-      <div class="example">
-        <strong>Common Elements and Symbols</strong>
-
-        <ul>
-          <li>Hydrogen — H</li>
-          <li>Oxygen — O</li>
-          <li>Carbon — C</li>
-          <li>Nitrogen — N</li>
-          <li>Sodium — Na</li>
-          <li>Potassium — K</li>
-          <li>Calcium — Ca</li>
-          <li>Magnesium — Mg</li>
-          <li>Chlorine — Cl</li>
-          <li>Iron — Fe</li>
-          <li>Copper — Cu</li>
-        </ul>
-      </div>
-
-
-      <h2>3. Compound</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        A compound is a pure substance formed when two or more different elements combine chemically in a definite proportion.
-      </div>
-
-      <h2>4. Chemical Formula</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        A chemical formula is a symbolic representation showing the elements present in a substance and the relative number of their atoms.
-      </div>
-
-      <div class="formula">H₂O</div>
-
-      <p>
-        H₂O represents water. It contains hydrogen and oxygen.
-        The subscript ₂ shows that two hydrogen atoms are present for every
-        one oxygen atom.
-      </p>
-
-      <div class="formula">H₂SO₄</div>
-
-      <p>
-        H₂SO₄ represents tetraoxosulphate(VI) acid, commonly called sulphuric acid.
-        The formula contains hydrogen, sulphur and oxygen.
-      </p>
-
-
-      <h2>5. Chemical Symbols and Valencies</h2>
-
-      <div class="example">
-        <ul>
-          <li>Hydrogen — H — valency 1</li>
-          <li>Oxygen — O — valency 2</li>
-          <li>Sodium — Na — valency 1</li>
-          <li>Magnesium — Mg — valency 2</li>
-          <li>Aluminium — Al — valency 3</li>
-          <li>Chlorine — Cl — valency 1</li>
-        </ul>
-      </div>
-
-
-      <h2>6. Nomenclature</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Chemical nomenclature is the systematic method of naming chemical substances according to established rules.
-      </div>
-
-      <p>
-        Students should learn both chemical names and formulae.
-        For example:
-      </p>
-
-      <div class="example">
-        <p><strong>H₂O</strong> — Water</p>
-        <p><strong>CO₂</strong> — Carbon dioxide</p>
-        <p><strong>NaCl</strong> — Sodium chloride</p>
-        <p><strong>HCl</strong> — Hydrogen chloride</p>
-        <p><strong>H₂SO₄</strong> — Tetraoxosulphate(VI) acid / sulphuric acid</p>
-      </div>
-
-
-      <h2>7. Why Subscripts Matter</h2>
-
-      <p>
-        A subscript is the small number written at the lower right of an element
-        symbol in a chemical formula. It tells us the number of atoms of that
-        element in the substance.
-      </p>
-
-      <div class="formula">CO₂</div>
-
-      <p>
-        This means one carbon atom is combined with two oxygen atoms.
-      </p>
-
-      `,
-
-      points:[
-        "Chemistry studies matter, its composition, properties and changes.",
-        "An element contains only one type of atom.",
-        "A compound contains different elements chemically combined.",
-        "Chemical formulae show the elements and relative numbers of atoms.",
-        "Subscripts in formulae must be read carefully.",
-        "Chemical nomenclature provides systematic names for substances."
-      ]
-    };
-  }
-
-
-  if(subject==="English Language" || subject==="English Studies"){
-
-    return {
-      title:"English: Nouns and Types of Nouns",
-
-      body:`
-
-      <h2>1. Noun</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        A noun is a name of a person, animal, place, thing or idea.
-      </div>
-
-      <div class="example">
-        <strong>Examples:</strong>
-        <p>Person — teacher, Emeka, doctor</p>
-        <p>Animal — goat, lion, dog</p>
-        <p>Place — Lagos, school, Nigeria</p>
-        <p>Thing — book, table, phone</p>
-        <p>Idea — honesty, freedom, justice</p>
-      </div>
-
-
-      <h2>2. Types of Nouns</h2>
-
-      <h3>Proper Noun</h3>
-
-      <div class="definition">
-        A proper noun is the particular name given to a person, place, organisation or thing and normally begins with a capital letter.
-      </div>
-
-      <p>Examples: Nigeria, Lagos, Monday, Chinedu.</p>
-
-
-      <h3>Common Noun</h3>
-
-      <div class="definition">
-        A common noun is a general name given to a person, animal, place or thing.
-      </div>
-
-      <p>Examples: boy, city, school, country.</p>
-
-
-      <h3>Collective Noun</h3>
-
-      <div class="definition">
-        A collective noun is a noun that refers to a group of people, animals or things considered as a unit.
-      </div>
-
-      <p>Examples: team, committee, crowd, flock.</p>
-
-
-      <h3>Abstract Noun</h3>
-
-      <div class="definition">
-        An abstract noun is a noun that names an idea, quality, state or feeling that cannot normally be perceived through the five senses.
-      </div>
-
-      <p>Examples: honesty, beauty, courage, happiness.</p>
-
-
-      <h3>Material Noun</h3>
-
-      <div class="definition">
-        A material noun is a noun that refers to a substance or material from which things may be made.
-      </div>
-
-      <p>Examples: gold, iron, wood, water.</p>
-
-      `,
-
-      points:[
-        "A noun names a person, animal, place, thing or idea.",
-        "Proper nouns identify particular names.",
-        "Common nouns are general names.",
-        "Collective nouns refer to groups.",
-        "Abstract nouns refer to ideas, qualities, states or feelings."
-      ]
-    };
-  }
-
-
-  if(subject==="Physics"){
-
-    return {
-      title:"Physics: Motion, Distance, Speed and Velocity",
-
-      body:`
-
-      <h2>1. Motion</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Motion is the change in position of a body with respect to a reference point as time changes.
-      </div>
-
-
-      <h2>2. Distance</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Distance is the total length of the path travelled by a body from one point to another.
-      </div>
-
-
-      <h2>3. Speed</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Speed is the distance travelled by a body per unit time.
-      </div>
-
-      <div class="formula">
-        Speed = Distance ÷ Time
-      </div>
-
-      <div class="example">
-        <strong>Example:</strong>
-        A car travels 120 km in 2 hours. Find its average speed.
-
-        <div class="step">Speed = 120 ÷ 2</div>
-        <div class="step"><strong>Speed = 60 km/h</strong></div>
-      </div>
-
-
-      <h2>4. Velocity</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Velocity is the rate of change of displacement with respect to time in a specified direction.
-      </div>
-
-      <div class="formula">
-        Velocity = Displacement ÷ Time
-      </div>
-
-
-      <h2>5. Acceleration</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Acceleration is the rate of change of velocity with respect to time.
-      </div>
-
-      <div class="formula">
-        a = (v − u) ÷ t
-      </div>
-
-      <p>
-        Where <strong>u</strong> is initial velocity,
-        <strong>v</strong> is final velocity and
-        <strong>t</strong> is time.
-      </p>
-
-      `,
-
-      points:[
-        "Motion describes a change in position with time.",
-        "Distance is a scalar quantity.",
-        "Velocity has both magnitude and direction.",
-        "Speed = distance divided by time.",
-        "Acceleration is the rate of change of velocity."
-      ]
-    };
-  }
-
-
-  if(subject==="Biology"){
-
-    return {
-      title:"Biology: The Cell — Basic Unit of Life",
-
-      body:`
-
-      <h2>1. Cell</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        A cell is the basic structural and functional unit of life.
-      </div>
-
-      <p>
-        All living organisms are made up of cells. Some organisms consist of
-        only one cell while others are made up of many cells.
-      </p>
-
-
-      <h2>2. Cell Membrane</h2>
-
-      <div class="definition">
-        The cell membrane is a selectively permeable structure that surrounds the cell and controls the movement of substances into and out of the cell.
-      </div>
-
-
-      <h2>3. Cytoplasm</h2>
-
-      <div class="definition">
-        Cytoplasm is the jelly-like substance within the cell in which many cellular chemical reactions occur.
-      </div>
-
-
-      <h2>4. Nucleus</h2>
-
-      <div class="definition">
-        The nucleus is a membrane-bound organelle that contains the genetic material of a eukaryotic cell and controls many activities of the cell.
-      </div>
-
-
-      <h2>5. Plant and Animal Cells</h2>
-
-      <div class="example">
-        <p><strong>Plant cells:</strong> commonly possess a cell wall, chloroplasts and a large permanent vacuole.</p>
-        <p><strong>Animal cells:</strong> do not possess a cellulose cell wall or chloroplasts.</p>
-      </div>
-
-      `,
-
-      points:[
-        "The cell is the basic unit of life.",
-        "The cell membrane controls movement of substances.",
-        "The nucleus contains genetic material in eukaryotic cells.",
-        "Plant cells have structures that animal cells do not possess.",
-        "Cells carry out processes necessary for life."
-      ]
-    };
-  }
-
-
-  if(subject==="Agricultural Science"){
-
-    return {
-      title:"Agricultural Science: Meaning and Importance of Agriculture",
-
-      body:`
-
-      <h2>1. Agriculture</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Agriculture is the science, art and business of cultivating the soil, growing crops and rearing animals for the production of food, raw materials and other useful products.
-      </div>
-
-
-      <h2>2. Branches of Agriculture</h2>
-
-      <div class="example">
-        <p><strong>Crop production:</strong> cultivation and management of crops.</p>
-        <p><strong>Animal production:</strong> breeding, feeding and management of farm animals.</p>
-        <p><strong>Fisheries:</strong> production and management of fish and other aquatic organisms.</p>
-        <p><strong>Forestry:</strong> management and conservation of forest resources.</p>
-      </div>
-
-
-      <h2>3. Importance of Agriculture</h2>
-
-      <ul>
-        <li>Provides food.</li>
-        <li>Provides raw materials for industries.</li>
-        <li>Creates employment.</li>
-        <li>Provides income to farmers.</li>
-        <li>Contributes to national economic development.</li>
-        <li>Provides some export commodities.</li>
-      </ul>
-
-
-      <h2>4. Factors Affecting Agricultural Production</h2>
-
-      <p>
-        Agricultural production can be affected by climate, soil,
-        availability of capital, labour, land, technology, pests and diseases,
-        transportation and government policies.
-      </p>
-
-      `,
-
-      points:[
-        "Agriculture involves crop cultivation and animal production.",
-        "Agriculture provides food and raw materials.",
-        "Agriculture creates employment and income.",
-        "Climate and soil affect agricultural production.",
-        "Technology can improve agricultural productivity."
-      ]
-    };
-  }
-
-
-  if(subject==="Economics"){
-
-    return {
-      title:"Economics: Meaning, Scarcity and Choice",
-
-      body:`
-
-      <h2>1. Economics</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Economics is a social science concerned with how individuals, firms and governments allocate scarce resources among competing wants.
-      </div>
-
-
-      <h2>2. Scarcity</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Scarcity is the fundamental economic problem arising from the limited availability of resources in relation to unlimited human wants.
-      </div>
-
-
-      <h2>3. Choice</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Choice is the act of selecting one alternative from a number of available alternatives because resources are scarce.
-      </div>
-
-
-      <h2>4. Opportunity Cost</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Opportunity cost is the value of the next best alternative forgone when a choice is made.
-      </div>
-
-      <div class="example">
-        If a student has ₦2,000 and chooses to buy a textbook instead of a football,
-        the opportunity cost is the value of the football forgone.
-      </div>
-
-      `,
-
-      points:[
-        "Human wants are many while resources are limited.",
-        "Scarcity creates the need for choice.",
-        "Choice involves selecting among alternatives.",
-        "Opportunity cost is the next best alternative forgone."
-      ]
-    };
-  }
-
-
-  if(subject==="Government"){
-
-    return {
-      title:"Government: Rule of Law",
-
-      body:`
-
-      <h2>1. Rule of Law</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        Rule of law is a constitutional doctrine which emphasizes the supremacy of the law, equality before the law, impartiality and incorruptibility in the administration of justice by the courts.
-      </div>
-
-
-      <h2>2. Supremacy of the Law</h2>
-
-      <p>
-        The law is regarded as superior to arbitrary decisions and every person
-        and institution is expected to operate within the law.
-      </p>
-
-
-      <h2>3. Equality Before the Law</h2>
-
-      <p>
-        Individuals are subject to the law without unlawful discrimination
-        based on their status or position.
-      </p>
-
-
-      <h2>4. Importance</h2>
-
-      <ul>
-        <li>Protects citizens' rights.</li>
-        <li>Limits arbitrary exercise of power.</li>
-        <li>Promotes justice.</li>
-        <li>Supports constitutional government.</li>
-      </ul>
-
-      `,
-
-      points:[
-        "Rule of law emphasizes the supremacy of law.",
-        "Equality before the law is a major principle.",
-        "The doctrine helps limit arbitrary government action.",
-        "Courts play an important role in administering justice."
-      ]
-    };
-  }
-
-
-  /* GENERAL LESSON FOR OTHER SUBJECTS */
-
-  return {
-    title:subject+" — Introduction",
-
-    body:`
-
-      <h2>1. Meaning of ${subject}</h2>
-
-      <div class="definition">
-        <strong>Definition:</strong>
-        ${subject} is a field of study concerned with the systematic
-        acquisition and application of knowledge relating to its subject matter.
-      </div>
-
-      <h2>2. What You Will Learn</h2>
-
-      <p>
-        EduPro-NG will provide textbook-style lessons for this subject,
-        including proper academic definitions, explanations, examples,
-        worked questions, exercises and quizzes.
-      </p>
-
-      <h2>3. Study Method</h2>
-
-      <div class="example">
-        <p><strong>Step 1:</strong> Read the lesson.</p>
-        <p><strong>Step 2:</strong> Understand the definitions.</p>
-        <p><strong>Step 3:</strong> Study the examples.</p>
-        <p><strong>Step 4:</strong> Attempt the exercises.</p>
-        <p><strong>Step 5:</strong> Take the quiz.</p>
-        <p><strong>Step 6:</strong> Review your mistakes.</p>
-      </div>
-
-    `,
-
-    points:[
-      "Study the complete lesson before taking the quiz.",
-      "Learn important academic definitions.",
-      "Practise questions based on the lesson.",
-      "Review mistakes and improve."
-    ]
-  };
-}
-
-
-/* =========================
-   PRACTICE
-========================= */
-
-function renderPractice(){
-
-  const practice=getPractice(currentSubject);
-
-  document.getElementById("practicePanel").innerHTML=`
-    <section class="lesson">
-
-      <span class="badge">PRACTICE</span>
-
-      <h1>${currentSubject} Exercises</h1>
-
-      <p>
-        These exercises are based on concepts taught in the lesson.
-      </p>
-
-      ${practice.map((q,i)=>`
-        <div class="exercise">
-          <strong>${i+1}. ${q.q}</strong>
-
-          ${q.a ? `
-            <details style="margin-top:10px">
-              <summary>Show solution</summary>
-              <p>${q.a}</p>
-            </details>
-          `:""}
-        </div>
-      `).join("")}
-
-      <div class="actions">
-        <button class="btn" onclick="openCourseTab('quiz')">
-          Take Lesson Quiz →
-        </button>
-      </div>
-
-    </section>
-  `;
-}
-
-
-function getPractice(subject){
-
-  if(subject==="General Mathematics" || subject==="Mathematics"){
-    return [
-      {
-        q:"Find 15% of ₦8,000.",
-        a:"15% of ₦8,000 = (15 ÷ 100) × 8,000 = ₦1,200."
-      },
-      {
-        q:"A shirt costs ₦12,000 and is reduced by 25%. Find the new price.",
-        a:"Discount = 25% × ₦12,000 = ₦3,000. New price = ₦12,000 − ₦3,000 = ₦9,000."
-      },
-      {
-        q:"Solve: 4x + 8 = 28.",
-        a:"4x = 20, therefore x = 5."
-      },
-      {
-        q:"Find the simple interest on ₦40,000 at 5% per annum for 3 years.",
-        a:"I = PRT/100 = (40,000 × 5 × 3)/100 = ₦6,000."
-      }
-    ];
-  }
-
-  if(subject==="Chemistry"){
-    return [
-      {
-        q:"What element is represented by the symbol Na?",
-        a:"Na represents sodium."
-      },
-      {
-        q:"How many hydrogen atoms are represented in H₂O?",
-        a:"There are two hydrogen atoms."
-      },
-      {
-        q:"State the meaning of a chemical formula.",
-        a:"A chemical formula symbolically represents the elements present in a substance and their relative numbers of atoms."
-      },
-      {
-        q:"What is the formula for sulphuric acid?",
-        a:"H₂SO₄."
-      }
-    ];
-  }
-
-  if(subject==="Physics"){
-    return [
-      {
-        q:"A vehicle travels 180 km in 3 hours. Find its average speed.",
-        a:"Speed = Distance ÷ Time = 180 ÷ 3 = 60 km/h."
-      },
-      {
-        q:"State the formula for acceleration.",
-        a:"a = (v − u) ÷ t."
-      },
-      {
-        q:"What is velocity?",
-        a:"Velocity is the rate of change of displacement with respect to time in a specified direction."
-      }
-    ];
-  }
-
-  if(subject==="English Language" || subject==="English Studies"){
-    return [
-      {
-        q:"Define a noun.",
-        a:"A noun is a name of a person, animal, place, thing or idea."
-      },
-      {
-        q:"Give two examples of proper nouns.",
-        a:"Examples include Nigeria and Lagos."
-      },
-      {
-        q:"What type of noun is 'honesty'?",
-        a:"Honesty is an abstract noun."
-      }
-    ];
-  }
-
-  if(subject==="Government"){
-    return [
-      {
-        q:"Define Rule of Law.",
-        a:"Rule of law is a constitutional doctrine which emphasizes the supremacy of the law, equality before the law, impartiality and incorruptibility in the administration of justice by the courts."
-      },
-      {
-        q:"State one principle of Rule of Law.",
-        a:"Equality before the law is one principle."
-      }
-    ];
-  }
-
-  return [
-    {
-      q:"Write the definition of an important term from today's lesson.",
-      a:"Review the definition section of the lesson."
-    },
-    {
-      q:"State two important points you learned from this lesson.",
-      a:"Review the Key Points section."
-    }
-  ];
-}
-
-
-/* =========================
-   QUIZ
-========================= */
-
-function renderQuiz(){
-
-  const quiz=getQuiz(currentSubject);
-
-  document.getElementById("quizPanel").innerHTML=`
-    <section class="lesson">
-
-      <span class="badge">LESSON QUIZ</span>
-
-      <h1>${currentSubject} Quiz</h1>
-
-      <p>
-        Questions are connected to the textbook lesson you just studied.
-      </p>
-
-      <div id="quizQuestions">
-        ${quiz.map((q,i)=>`
-
-          <div class="exercise">
-
-            <strong>${i+1}. ${q.q}</strong>
-
-            ${q.options.map((op,j)=>`
-              <button
-                class="option"
-                onclick="answerQuiz(${i},${j},this)"
-              >
-                ${String.fromCharCode(65+j)}. ${op}
-              </button>
-            `).join("")}
-
-            <div id="explanation${i}" class="explanation"></div>
-
-          </div>
-
-        `).join("")}
-      </div>
-
-      <div class="card">
-        <h3>Your Result</h3>
-        <div id="scoreText">Answer the questions.</div>
-
-        <div class="progress-wrap">
-          <div id="scoreProgress" class="progress"></div>
-        </div>
-      </div>
-
-    </section>
+      <div id="quizArea"></div>
+    </div>
   `;
 
-  window.quizData=quiz;
-  window.quizAnswered={};
-  window.quizScore=0;
-}
+  document.getElementById("lessonContent").innerHTML = html;
 
-
-function answerQuiz(questionIndex,optionIndex,button){
-
-  if(window.quizAnswered[questionIndex]) return;
-
-  window.quizAnswered[questionIndex]=true;
-
-  const q=window.quizData[questionIndex];
-
-  const buttons=button.parentElement.querySelectorAll(".option");
-
-  buttons.forEach((b,i)=>{
-    if(i===q.answer) b.classList.add("correct");
-  });
-
-  if(optionIndex===q.answer){
-    window.quizScore++;
-    button.classList.add("correct");
-  }else{
-    button.classList.add("wrong");
-  }
-
-  document.getElementById("explanation"+questionIndex).innerHTML=
-    "<strong>Explanation:</strong> "+q.explanation;
-
-  const answered=Object.keys(window.quizAnswered).length;
-  const total=window.quizData.length;
-  const percent=Math.round((window.quizScore/total)*100);
-
-  document.getElementById("scoreText").textContent=
-    `${window.quizScore}/${total} correct — ${percent}%`;
-
-  document.getElementById("scoreProgress").style.width=percent+"%";
+  renderQuiz(chapter.quiz);
 
   saveProgress();
+
+  window.scrollTo(0,0);
 }
 
 
-function getQuiz(subject){
+/* =========================================================
+   QUIZ
+   ========================================================= */
 
-  if(subject==="General Mathematics" || subject==="Mathematics"){
-    return [
+function renderQuiz(questions){
 
-      {
-        q:"A student scores 36 out of 50. What is the percentage?",
-        options:["62%","72%","82%","92%"],
-        answer:1,
-        explanation:"(36 ÷ 50) × 100 = 72%."
-      },
+  const area = document.getElementById("quizArea");
 
-      {
-        q:"Solve: 3x + 5 = 20.",
-        options:["3","4","5","6"],
-        answer:2,
-        explanation:"3x = 15, therefore x = 5."
-      },
+  area.innerHTML = "";
 
-      {
-        q:"Find the simple interest on ₦50,000 at 10% for 2 years.",
-        options:["₦5,000","₦8,000","₦10,000","₦15,000"],
-        answer:2,
-        explanation:"I = PRT/100 = ₦10,000."
-      },
+  questions.forEach((question,index)=>{
 
-      {
-        q:"What is the simplified form of 12 : 8?",
-        options:["2 : 1","3 : 2","4 : 3","6 : 4"],
-        answer:1,
-        explanation:"Divide both terms by 4: 12 : 8 = 3 : 2."
-      },
+    const box = document.createElement("div");
 
-      {
-        q:"A book increases from ₦2,000 to ₦2,500. What is the percentage increase?",
-        options:["15%","20%","25%","30%"],
-        answer:2,
-        explanation:"Increase = ₦500. 500/2000 × 100 = 25%."
-      }
+    box.innerHTML = `
+      <h3>
+        ${index+1}. ${question.q}
+      </h3>
+    `;
 
-    ];
-  }
+    question.options.forEach((option,optIndex)=>{
 
+      const optionDiv = document.createElement("div");
 
-  if(subject==="Chemistry"){
-    return [
+      optionDiv.className = "option";
 
-      {
-        q:"Which symbol represents sodium?",
-        options:["S","So","Na","N"],
-        answer:2,
-        explanation:"The chemical symbol for sodium is Na."
-      },
+      optionDiv.textContent = option;
 
-      {
-        q:"How many hydrogen atoms are in H₂O?",
-        options:["1","2","3","4"],
-        answer:1,
-        explanation:"The subscript 2 applies to hydrogen, so there are two hydrogen atoms."
-      },
+      optionDiv.onclick = function(){
 
-      {
-        q:"Which formula represents water?",
-        options:["CO₂","H₂O","NaCl","H₂SO₄"],
-        answer:1,
-        explanation:"H₂O is the chemical formula for water."
-      },
+        const allOptions =
+          box.querySelectorAll(".option");
 
-      {
-        q:"What does a chemical formula show?",
-        options:[
-          "Only colour",
-          "Only physical state",
-          "Elements present and relative numbers of atoms",
-          "Only temperature"
-        ],
-        answer:2,
-        explanation:"A chemical formula represents the elements present and their relative numbers of atoms."
-      },
+        allOptions.forEach(x=>{
+          x.style.pointerEvents = "none";
+        });
 
-      {
-        q:"What is the formula for tetraoxosulphate(VI) acid?",
-        options:["HCl","HNO₃","H₂SO₄","NaOH"],
-        answer:2,
-        explanation:"Tetraoxosulphate(VI) acid is H₂SO₄."
-      }
+        if(optIndex === question.answer){
 
-    ];
-  }
+          optionDiv.classList.add("correct");
 
+          box.insertAdjacentHTML(
+            "beforeend",
+            `<div class="result">
+              ✅ Correct! ${question.explanation}
+            </div>`
+          );
 
-  if(subject==="Physics"){
-    return [
+        }else{
 
-      {
-        q:"What is the formula for speed?",
-        options:[
-          "Time ÷ Distance",
-          "Distance ÷ Time",
-          "Distance × Time",
-          "Mass ÷ Time"
-        ],
-        answer:1,
-        explanation:"Speed = distance divided by time."
-      },
+          optionDiv.classList.add("wrong");
 
-      {
-        q:"A car travels 120 km in 2 hours. What is its speed?",
-        options:["30 km/h","40 km/h","60 km/h","120 km/h"],
-        answer:2,
-        explanation:"120 ÷ 2 = 60 km/h."
-      },
+          allOptions[question.answer]
+            .classList.add("correct");
 
-      {
-        q:"Velocity includes:",
-        options:["Mass only","Direction","Temperature only","Density only"],
-        answer:1,
-        explanation:"Velocity is a vector quantity and includes direction."
-      },
+          box.insertAdjacentHTML(
+            "beforeend",
+            `<div class="result">
+              ❌ Incorrect.<br>
+              ${question.explanation}
+            </div>`
+          );
 
-      {
-        q:"Acceleration is the rate of change of:",
-        options:["Mass","Distance","Velocity","Density"],
-        answer:2,
-        explanation:"Acceleration is the rate of change of velocity with time."
-      }
+        }
 
-    ];
-  }
+      };
 
+      box.appendChild(optionDiv);
 
-  if(subject==="English Language" || subject==="English Studies"){
-    return [
+    });
 
-      {
-        q:"A noun is the name of a:",
-        options:[
-          "Person, animal, place, thing or idea",
-          "Verb only",
-          "Colour only",
-          "Sound only"
-        ],
-        answer:0,
-        explanation:"A noun names a person, animal, place, thing or idea."
-      },
+    area.appendChild(box);
 
-      {
-        q:"Which is a proper noun?",
-        options:["city","boy","Lagos","school"],
-        answer:2,
-        explanation:"Lagos is the particular name of a place."
-      },
+  });
 
-      {
-        q:"Which is an abstract noun?",
-        options:["table","honesty","goat","school"],
-        answer:1,
-        explanation:"Honesty is an idea or quality and is therefore an abstract noun."
-      }
-
-    ];
-  }
-
-
-  if(subject==="Government"){
-    return [
-
-      {
-        q:"Rule of Law emphasizes the:",
-        options:[
-          "Supremacy of law",
-          "Supremacy of individuals",
-          "Supremacy of wealth",
-          "Supremacy of force"
-        ],
-        answer:0,
-        explanation:"Supremacy of law is a fundamental principle of Rule of Law."
-      },
-
-      {
-        q:"Which is a principle of Rule of Law?",
-        options:[
-          "Equality before the law",
-          "Rule by force",
-          "Arbitrary government",
-          "Unequal justice"
-        ],
-        answer:0,
-        explanation:"Equality before the law is a major principle."
-      }
-
-    ];
-  }
-
-
-  return [
-
-    {
-      q:"What should you study first before taking this quiz?",
-      options:[
-        "The textbook lesson",
-        "Nothing",
-        "Only the result",
-        "Only the title"
-      ],
-      answer:0,
-      explanation:"EduPro-NG follows the Study → Practice → Quiz approach."
-    },
-
-    {
-      q:"Where can you find important academic definitions?",
-      options:[
-        "Lesson section",
-        "Only the footer",
-        "Home button",
-        "Browser settings"
-      ],
-      answer:0,
-      explanation:"Definitions are provided directly in the textbook lesson."
-    },
-
-    {
-      q:"What is the purpose of practice questions?",
-      options:[
-        "To replace learning",
-        "To apply what you learned",
-        "To skip lessons",
-        "To close the app"
-      ],
-      answer:1,
-      explanation:"Practice helps students apply and reinforce what they studied."
-    }
-
-  ];
 }
 
 
-/* =========================
+/* =========================================================
    DICTIONARY
-========================= */
+   ========================================================= */
 
-const dictionary={
+const DICTIONARY = {
 
   "noun":{
-    type:"English",
-    definition:"A noun is a name of a person, animal, place, thing or idea."
+    term:"Noun",
+    definition:
+      "A noun is a word used to name a person, animal, place, thing, or idea.",
+    type:"Part of Speech",
+    examples:"boy, Nigeria, school, dog, honesty"
   },
 
-  "element":{
-    type:"Chemistry",
-    definition:"An element is a pure substance consisting of only one type of atom and which cannot be broken down into simpler substances by ordinary chemical means."
+  "pronoun":{
+    term:"Pronoun",
+    definition:
+      "A pronoun is a word used in place of a noun.",
+    type:"Part of Speech",
+    examples:"he, she, it, they, we, them"
   },
 
-  "compound":{
-    type:"Chemistry",
-    definition:"A compound is a pure substance formed when two or more different elements combine chemically in a definite proportion."
+  "verb":{
+    term:"Verb",
+    definition:
+      "A verb is a word that expresses an action, occurrence or state of being.",
+    type:"Part of Speech",
+    examples:"run, eat, write, is, become"
   },
 
-  "h2o":{
-    type:"Chemistry",
-    definition:"H₂O is the chemical formula for water and represents two hydrogen atoms combined with one oxygen atom."
-  },
-
-  "h2so4":{
-    type:"Chemistry",
-    definition:"H₂SO₄ is the formula for tetraoxosulphate(VI) acid, commonly called sulphuric acid."
-  },
-
-  "percentage":{
-    type:"Mathematics",
-    definition:"Percentage is a way of expressing a number or quantity as a fraction of one hundred."
-  },
-
-  "ratio":{
-    type:"Mathematics",
-    definition:"Ratio is a mathematical comparison of two or more quantities of the same kind."
-  },
-
-  "velocity":{
-    type:"Physics",
-    definition:"Velocity is the rate of change of displacement with respect to time in a specified direction."
-  },
-
-  "speed":{
-    type:"Physics",
-    definition:"Speed is the distance travelled by a body per unit time."
-  },
-
-  "agriculture":{
-    type:"Agricultural Science",
-    definition:"Agriculture is the science, art and business of cultivating the soil, growing crops and rearing animals for the production of food, raw materials and other useful products."
-  },
-
-  "scarcity":{
-    type:"Economics",
-    definition:"Scarcity is the fundamental economic problem arising from the limited availability of resources in relation to unlimited human wants."
-  },
-
-  "opportunity cost":{
-    type:"Economics",
-    definition:"Opportunity cost is the value of the next best alternative forgone when a choice is made."
+  "abrogate":{
+    term:"Abrogate",
+    definition:
+      "To abrogate means to repeal, abolish or formally cancel a law, agreement or arrangement.",
+    type:"English / Government",
+    examples:"The government may abrogate an obsolete law."
   },
 
   "rule of law":{
+    term:"Rule of Law",
+    definition:
+      "Rule of law is a constitutional doctrine which emphasizes the supremacy of the law, equality before the law, impartiality and incorruptibility in the administration of justice by the courts.",
     type:"Government",
-    definition:"Rule of law is a constitutional doctrine which emphasizes the supremacy of the law, equality before the law, impartiality and incorruptibility in the administration of justice by the courts."
+    examples:"The rule of law requires laws to apply according to established legal principles."
   },
 
-  "cell":{
+  "photosynthesis":{
+    term:"Photosynthesis",
+    definition:
+      "Photosynthesis is the process by which green plants manufacture organic food, mainly glucose, from carbon dioxide and water using light energy absorbed by chlorophyll.",
     type:"Biology",
-    definition:"A cell is the basic structural and functional unit of life."
+    examples:"Green plants carry out photosynthesis."
+  },
+
+  "element":{
+    term:"Element",
+    definition:
+      "An element is a pure substance consisting of atoms of the same atomic number and which cannot be decomposed into simpler substances by ordinary chemical means.",
+    type:"Chemistry",
+    examples:"Hydrogen, oxygen, carbon, sodium and iron."
+  },
+
+  "compound":{
+    term:"Compound",
+    definition:
+      "A compound is a pure substance formed when two or more different elements chemically combine in a definite proportion.",
+    type:"Chemistry",
+    examples:"H₂O, CO₂ and NaCl."
+  },
+
+  "h2o":{
+    term:"H₂O",
+    definition:
+      "H₂O is the chemical formula for water.",
+    type:"Chemistry",
+    examples:"Two hydrogen atoms chemically combined with one oxygen atom."
+  },
+
+  "h2so4":{
+    term:"H₂SO₄",
+    definition:
+      "H₂SO₄ is the chemical formula for sulphuric acid, also called tetraoxosulphate(VI) acid in the systematic naming convention used in Nigerian secondary-school chemistry.",
+    type:"Chemistry",
+    examples:"H₂SO₄ contains hydrogen, sulphur and oxygen."
+  },
+
+  "velocity":{
+    term:"Velocity",
+    definition:
+      "Velocity is the rate of change of displacement with time in a specified direction.",
+    type:"Physics",
+    examples:"Velocity = displacement ÷ time."
+  },
+
+  "speed":{
+    term:"Speed",
+    definition:
+      "Speed is the distance travelled by a body per unit time.",
+    type:"Physics",
+    examples:"Speed = distance ÷ time."
+  },
+
+  "force":{
+    term:"Force",
+    definition:
+      "Force is a push or pull which changes or tends to change the state of rest or uniform motion of a body.",
+    type:"Physics",
+    examples:"Force is measured in newtons."
+  },
+
+  "agriculture":{
+    term:"Agriculture",
+    definition:
+      "Agriculture is the science, art and business of cultivating the soil, producing crops, rearing animals and processing agricultural products for human use.",
+    type:"Agricultural Science",
+    examples:"Crop production and animal production are branches of agriculture."
+  },
+
+  "economics":{
+    term:"Economics",
+    definition:
+      "Economics is the social science that studies how scarce resources are allocated among competing wants.",
+    type:"Economics",
+    examples:"Economics studies scarcity, choice and resource allocation."
   }
 
 };
@@ -2198,12 +2165,22 @@ const dictionary={
 
 function showDictionary(){
 
-  hideAll();
-  document.getElementById("dictionary").classList.remove("hidden");
+  hideAllPages();
 
-  document.getElementById("dictionarySearch").value="";
-  document.getElementById("dictionaryResults").innerHTML=
-    `<p class="small">Search for an academic term.</p>`;
+  document.getElementById("dictionaryPage")
+    .classList.add("active");
+
+  document.getElementById("dictionaryInput").value="";
+
+  document.getElementById("dictionaryResult").innerHTML = `
+    <div class="card">
+      <h3>Search the academic dictionary</h3>
+      <p>
+        Try: noun, verb, rule of law, photosynthesis,
+        element, H₂O, H₂SO₄, velocity, agriculture.
+      </p>
+    </div>
+  `;
 
   window.scrollTo(0,0);
 }
@@ -2211,68 +2188,157 @@ function showDictionary(){
 
 function searchDictionary(){
 
-  const q=document.getElementById("dictionarySearch").value.toLowerCase().trim();
+  const input =
+    document.getElementById("dictionaryInput")
+      .value
+      .trim()
+      .toLowerCase();
 
-  const result=document.getElementById("dictionaryResults");
+  const result =
+    document.getElementById("dictionaryResult");
 
-  if(!q){
-    result.innerHTML=`<p class="small">Search for an academic term.</p>`;
-    return;
-  }
+  if(!input){
 
-  const matches=Object.entries(dictionary).filter(([term,data])=>
-    term.includes(q) ||
-    data.definition.toLowerCase().includes(q)
-  );
-
-  if(!matches.length){
-    result.innerHTML=`
-      <div class="dictionary-result">
-        No result found yet. More academic terms will be added as EduPro-NG grows.
+    result.innerHTML = `
+      <div class="card">
+        <h3>Search the academic dictionary</h3>
+        <p>Enter an academic term above.</p>
       </div>
     `;
+
     return;
   }
 
-  result.innerHTML=matches.map(([term,data])=>`
-    <div class="dictionary-result">
-      <span class="badge">${data.type}</span>
-      <h3>${term}</h3>
-      <p>${data.definition}</p>
+  let found = null;
+
+  Object.keys(DICTIONARY).forEach(key=>{
+
+    if(key.includes(input) || input.includes(key)){
+      found = DICTIONARY[key];
+    }
+
+  });
+
+  if(!found){
+
+    result.innerHTML = `
+      <div class="card">
+        <h3>No result found yet.</h3>
+        <p>
+          This term has not been added to the EduPro-NG
+          academic dictionary yet.
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+  result.innerHTML = `
+    <div class="lesson">
+
+      <h2>${found.term}</h2>
+
+      <p>
+        <b>Category:</b> ${found.type}
+      </p>
+
+      <h3>Definition</h3>
+
+      <div class="definition">
+        ${found.definition}
+      </div>
+
+      <h3>Examples</h3>
+
+      <div class="example">
+        ${found.examples}
+      </div>
+
     </div>
-  `).join("");
+  `;
+
 }
 
 
-/* =========================
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+function hideAllPages(){
+
+  document.querySelectorAll(".page")
+    .forEach(page=>{
+      page.classList.remove("active");
+    });
+
+}
+
+
+function showHome(){
+
+  hideAllPages();
+
+  document.getElementById("home")
+    .classList.add("active");
+
+  window.scrollTo(0,0);
+
+}
+
+
+function backToLevel(){
+
+  openLevel(currentLevel);
+
+}
+
+
+function backToSubject(){
+
+  openSubject(currentSubject);
+
+}
+
+
+function scrollToLevels(){
+
+  document.querySelector(".section-title")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
    PROGRESS
-========================= */
+   ========================================================= */
 
 function saveProgress(){
 
-  const key=currentLevel+"_"+currentSubject;
-
-  const progress=JSON.parse(
-    localStorage.getItem("eduproProgress") || "{}"
-  );
-
-  progress[key]={
-    studied:true,
-    lastQuizScore:window.quizScore || 0
+  const progress = {
+    level:currentLevel,
+    subject:currentSubject,
+    chapter:currentChapter,
+    date:new Date().toISOString()
   };
 
   localStorage.setItem(
-    "eduproProgress",
+    "edupro_progress",
     JSON.stringify(progress)
   );
+
 }
 
 
-/* =========================
-   START
-========================= */
+/* =========================================================
+   WELCOME
+   ========================================================= */
 
-goHome();
+console.log(
+  "EduPro-NG textbook engine loaded successfully."
+);
 
 </script>
 
