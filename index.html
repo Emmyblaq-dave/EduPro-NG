@@ -1,157 +1,970 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EduPro-NG</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#061426">
+<meta name="description" content="EduPro-NG - Nigerian digital textbooks, lessons, practice and exam preparation.">
+<title>EduPro-NG | Learn. Practice. Prepare.</title>
+
 <style>
-:root{--bg:#061120;--card:#0c1d2f;--card2:#10263b;--line:#1d3a53;--txt:#f5f7fa;--muted:#aab9c9;--green:#39d98a}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:16px Arial,sans-serif;line-height:1.6}
-header{position:sticky;top:0;z-index:5;background:#071526;border-bottom:1px solid var(--line)}
-nav{max-width:1100px;margin:auto;padding:15px 18px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:24px;font-weight:800;color:var(--green)}button{cursor:pointer;border:1px solid var(--line);border-radius:14px;padding:13px 16px;background:var(--card);color:var(--txt);font-weight:700}
-button:hover{border-color:var(--green)}.home{background:var(--green);color:#061120;border:0}
-main{max-width:1100px;margin:auto;padding:25px 18px 70px}h1{font-size:36px;line-height:1.15}h2{font-size:26px}h3{font-size:20px}
-p{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-.card{padding:20px;min-height:130px;text-align:left}.icon{font-size:34px;display:block}.small{font-size:14px;color:var(--muted)}
-.search{margin:20px 0;padding:15px;background:var(--card);border:1px solid var(--line);border-radius:16px}
-input{width:100%;padding:14px;background:#08182a;color:white;border:1px solid var(--line);border-radius:12px;font-size:16px}
-.topic{display:flex;justify-content:space-between;align-items:center;text-align:left;width:100%;margin:9px 0}
-.num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:#14324a;color:var(--green);align-items:center;justify-content:center;margin-right:9px}
-.lesson{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin-top:18px}
-.def{border-left:4px solid var(--green);background:#0b2235;padding:13px;border-radius:8px}.example{background:#091a2b;border:1px solid var(--line);padding:14px;border-radius:10px}
-.formula{font-size:20px;color:var(--green);font-weight:800}.back{margin-bottom:15px}
-footer{text-align:center;border-top:1px solid var(--line);padding:25px;color:var(--muted)}
-@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}}
+:root{
+  --bg:#061426;
+  --panel:#0b1c30;
+  --panel2:#10253d;
+  --border:#1d3853;
+  --text:#f2f7fb;
+  --muted:#aebdcd;
+  --green:#35df8b;
+  --green2:#20c878;
+  --danger:#ff6b6b;
+  --gold:#ffd166;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+  min-height:100vh;
+}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(6,20,38,.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(10px);
+}
+.nav{
+  max-width:1150px;
+  margin:auto;
+  min-height:78px;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:27px;
+  font-weight:800;
+  color:var(--green);
+}
+.logo span{font-size:31px}
+.navlinks{display:flex;gap:8px;flex-wrap:wrap}
+.navlinks button{
+  border:0;
+  background:transparent;
+  color:var(--text);
+  padding:11px 16px;
+  border-radius:13px;
+}
+.navlinks button:hover{background:var(--panel2)}
+.navlinks .active{
+  background:var(--green);
+  color:#04150d;
+  font-weight:800;
+}
+
+main{max-width:1150px;margin:auto;padding:0 18px 60px}
+
+.hero{
+  margin-top:25px;
+  padding:42px 24px;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:
+    radial-gradient(circle at 90% 10%,rgba(53,223,139,.14),transparent 32%),
+    linear-gradient(145deg,#0b2036,#07172a);
+}
+.hero h1{font-size:clamp(32px,7vw,58px);line-height:1.05;margin-bottom:16px}
+.hero h1 strong{color:var(--green)}
+.hero p{max-width:760px;color:var(--muted);font-size:18px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.btn{
+  border:0;border-radius:14px;padding:13px 18px;font-weight:800;
+  background:var(--green);color:#04150d;
+}
+.btn:hover{background:var(--green2)}
+.btn.secondary{
+  background:var(--panel2);color:var(--text);border:1px solid var(--border)
+}
+
+.section{margin-top:32px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:16px}
+.section h2{font-size:25px}
+.section-head p{color:var(--muted);font-size:14px}
+
+.level-grid,.subject-grid,.topic-grid,.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.card{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:19px;
+  transition:.2s;
+}
+.card:hover{transform:translateY(-2px);border-color:#2c5679}
+.level-card{min-height:120px}
+.card h3{margin-bottom:7px}
+.card p{color:var(--muted);font-size:14px}
+.card .arrow{color:var(--green);font-weight:800;margin-top:12px;display:block}
+.clickable{cursor:pointer}
+
+.searchbox{
+  display:flex;gap:10px;margin:25px 0 0;
+}
+.searchbox input{
+  width:100%;padding:15px 16px;border-radius:14px;
+  border:1px solid var(--border);background:#07182b;color:var(--text);outline:none;
+}
+.searchbox input:focus{border-color:var(--green)}
+.search-results{margin-top:12px;display:none}
+.search-results.show{display:block}
+
+.page{display:none;padding-top:25px}
+.page.active{display:block}
+.breadcrumb{color:var(--muted);font-size:14px;margin-bottom:16px}
+.breadcrumb span{color:var(--green);cursor:pointer}
+.page-title{
+  background:linear-gradient(145deg,#0d243b,#09192b);
+  border:1px solid var(--border);border-radius:20px;padding:25px;margin-bottom:20px
+}
+.page-title h1{font-size:32px;margin-bottom:6px}
+.page-title p{color:var(--muted)}
+
+.back-btn{
+  border:1px solid var(--border);background:var(--panel);color:var(--text);
+  border-radius:12px;padding:10px 14px;margin-bottom:15px
+}
+
+.topic-card{min-height:135px}
+.topic-number{
+  display:inline-flex;width:30px;height:30px;border-radius:50%;
+  align-items:center;justify-content:center;background:#12304a;color:var(--green);
+  font-weight:800;margin-bottom:10px
+}
+
+.lesson{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:24px;
+}
+.lesson h2{font-size:25px;margin:24px 0 10px;color:var(--green)}
+.lesson h2:first-child{margin-top:0}
+.lesson h3{font-size:19px;margin:18px 0 8px}
+.lesson p{margin:9px 0;color:#d7e1eb}
+.lesson ul,.lesson ol{padding-left:22px;margin:9px 0}
+.lesson li{margin:7px 0;color:#d7e1eb}
+.definition{
+  border-left:4px solid var(--green);
+  background:#0d263b;padding:15px 17px;border-radius:10px;margin:12px 0
+}
+.formula{
+  background:#04101e;border:1px dashed #2c5679;border-radius:12px;
+  padding:14px;margin:12px 0;font-weight:800;overflow:auto
+}
+.example{
+  background:#0c2236;border:1px solid var(--border);border-radius:14px;padding:17px;margin:14px 0
+}
+.example strong{color:var(--gold)}
+.practice{
+  margin-top:22px;padding:20px;border-radius:16px;background:#0d2135;border:1px solid var(--border)
+}
+.practice button{
+  display:block;width:100%;text-align:left;margin-top:9px;
+  padding:12px;border-radius:10px;border:1px solid var(--border);
+  background:#07182b;color:var(--text)
+}
+.practice button:hover{border-color:var(--green)}
+.answer{margin-top:12px;color:var(--green);font-weight:700;display:none}
+.answer.show{display:block}
+
+.quiz-box{
+  background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:23px
+}
+.quiz-question{font-size:19px;font-weight:700;margin-bottom:15px}
+.quiz-option{
+  width:100%;text-align:left;padding:14px;margin:7px 0;border-radius:12px;
+  border:1px solid var(--border);background:#07182b;color:var(--text)
+}
+.quiz-option.correct{border-color:var(--green);background:#0b3023}
+.quiz-option.wrong{border-color:var(--danger);background:#321719}
+.quiz-result{margin-top:18px;font-weight:800;color:var(--green)}
+
+.footer{
+  border-top:1px solid var(--border);
+  margin-top:40px;padding:28px 18px;text-align:center;color:var(--muted)
+}
+
+.empty{
+  padding:30px;text-align:center;color:var(--muted);
+  background:var(--panel);border:1px dashed var(--border);border-radius:16px
+}
+
+@media(max-width:800px){
+  .level-grid,.subject-grid,.topic-grid,.feature-grid{grid-template-columns:repeat(2,1fr)}
+  .nav{min-height:70px}
+  .logo{font-size:23px}
+  .logo span{font-size:27px}
+}
+@media(max-width:560px){
+  .nav{padding:12px 10px}
+  .navlinks button{padding:9px 12px}
+  main{padding:0 12px 45px}
+  .hero{margin-top:15px;padding:28px 18px;border-radius:18px}
+  .hero p{font-size:16px}
+  .level-grid,.subject-grid,.topic-grid,.feature-grid{grid-template-columns:1fr}
+  .page-title h1{font-size:27px}
+  .lesson{padding:18px}
+  .section{margin-top:25px}
+}
 </style>
 </head>
+
 <body>
-<header><nav><div class="logo">📚 EduPro-NG</div><button class="home" onclick="home()">Home</button></nav></header>
-<main id="app"></main>
-<footer>EduPro-NG • Nigerian digital textbooks, practice and exam preparation</footer>
+<header>
+  <div class="nav">
+    <button class="logo" onclick="goHome()" style="border:0;background:none">
+      <span>📚</span>EduPro-NG
+    </button>
+    <div class="navlinks">
+      <button id="homeBtn" class="active" onclick="goHome()">Home</button>
+      <button onclick="showPage('libraryPage')">Library</button>
+      <button onclick="showPage('quizPage')">Quiz</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="homePage" class="page active">
+  <div class="hero">
+    <h1>Learn. Practice. <strong>Prepare.</strong></h1>
+    <p>
+      EduPro-NG is a Nigerian digital learning platform for school lessons,
+      textbook-style study, practice questions and examination preparation.
+    </p>
+    <div class="hero-actions">
+      <button class="btn" onclick="document.getElementById('levels').scrollIntoView()">Start Learning</button>
+      <button class="btn secondary" onclick="showPage('quizPage')">Practice Quiz</button>
+    </div>
+    <div class="searchbox">
+      <input id="searchInput" type="search" placeholder="Search subjects, topics or lessons..." oninput="searchLibrary()">
+    </div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <div id="levels" class="section">
+    <div class="section-head">
+      <div>
+        <h2>Choose your level</h2>
+        <p>Study school subjects or prepare for major examinations.</p>
+      </div>
+    </div>
+    <div class="level-grid" id="levelGrid"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <div>
+        <h2>What you can do</h2>
+        <p>Study first, then test what you have learned.</p>
+      </div>
+    </div>
+    <div class="feature-grid">
+      <div class="card"><h3>📖 Digital Textbooks</h3><p>Read structured lessons with definitions, explanations, examples and key points.</p></div>
+      <div class="card"><h3>🧮 Worked Examples</h3><p>Follow step-by-step calculations and methods in subjects that require them.</p></div>
+      <div class="card"><h3>📝 Practice</h3><p>Answer questions after studying a topic and check your understanding.</p></div>
+      <div class="card"><h3>🎯 Exam Preparation</h3><p>Separate sections are provided for JAMB, WAEC and NECO preparation.</p></div>
+      <div class="card"><h3>🔎 Quick Search</h3><p>Find a subject or topic quickly instead of scrolling through the whole library.</p></div>
+      <div class="card"><h3>📱 Mobile Friendly</h3><p>Designed to work comfortably on a phone, including smaller Android screens.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="libraryPage" class="page">
+  <button class="back-btn" onclick="goHome()">← Back to Home</button>
+  <div class="page-title">
+    <h1>📚 Digital Library</h1>
+    <p>Choose a level and open a subject textbook.</p>
+  </div>
+  <div id="libraryContent"></div>
+</section>
+
+<section id="subjectPage" class="page">
+  <button class="back-btn" onclick="showLibrary()">← Back to Subjects</button>
+  <div class="breadcrumb"><span onclick="goHome()">Home</span> / <span onclick="showLibrary()">Library</span> / Subject</div>
+  <div id="subjectHeader" class="page-title"></div>
+  <div id="topicGrid" class="topic-grid"></div>
+</section>
+
+<section id="lessonPage" class="page">
+  <button class="back-btn" onclick="backToTopics()">← Back to Topics</button>
+  <div class="breadcrumb"><span onclick="goHome()">Home</span> / Lesson</div>
+  <div id="lessonContent"></div>
+</section>
+
+<section id="quizPage" class="page">
+  <button class="back-btn" onclick="goHome()">← Back to Home</button>
+  <div class="page-title">
+    <h1>📝 Practice Quiz</h1>
+    <p>Questions are based on the lessons in this demo library.</p>
+  </div>
+  <div id="quizBox" class="quiz-box"></div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p><strong>EduPro-NG</strong></p>
+  <p>Digital learning • Practice • Exam preparation</p>
+  <p style="margin-top:8px">Built as a mobile-first Nigerian education platform.</p>
+</footer>
 
 <script>
-/*
-  IMPORTANT:
-  This version does NOT force every subject to have 30 chapters.
-  Each level has its own subjects, and every subject has its own natural topic list.
-  Expand the topic arrays as the curriculum content is developed.
-*/
-
-const I={English:"📖","English Studies":"📖","English Language":"📖","Use of English":"📖",Mathematics:"➗","General Mathematics":"➗",Chemistry:"⚗️",Physics:"⚡",Biology:"🧬",Agriculture:"🌱","Agricultural Science":"🌱",Government:"🏛️",Economics:"💰","Home Economics":"🏠","Basic Science":"🔬","Basic Technology":"🛠️","Business Studies":"💼","Social Studies":"🌍","Civic Education":"⚖️","Computer Studies":"💻","Computer Science":"💻","Literature":"📚","Literature in English":"📚"};
-
-const T={
-Chemistry:`Matter and Measurement|Atomic Structure|Periodic Table|Chemical Bonding|Mole Concept|Chemical Formulae|Chemical Equations|Stoichiometry|Gas Laws|Acids, Bases and Salts|Redox Reactions|Electrolysis|Energy Changes|Rates of Reaction|Equilibrium|Organic Chemistry|Hydrocarbons|Alcohols|Carboxylic Acids|Polymers|Metals|Non-metals|Water|Air and Environmental Chemistry|Industrial Chemistry`.split("|"),
-Physics:`Measurement|Units and Dimensions|Scalars and Vectors|Motion|Speed and Velocity|Acceleration|Distance-Time Graphs|Velocity-Time Graphs|Forces|Newton's Laws of Motion|Friction|Work|Energy|Power|Simple Machines|Pressure|Density|Heat|Temperature|Thermal Expansion|Waves|Sound|Light|Electricity|Magnetism|Electromagnetic Induction|Modern Physics`.split("|"),
-Biology:`Characteristics of Living Things|Classification of Living Things|Cell Structure|Cell Organisation|Cell Division|Nutrition in Plants|Photosynthesis|Nutrition in Animals|Digestive System|Respiration|Transport in Plants|Transport in Animals|Excretion|Homeostasis|Support and Movement|Reproduction in Plants|Reproduction in Animals|Growth and Development|Genetics|Variation|Evolution|Ecology|Food Chains and Food Webs|Population Studies|Adaptation|Microorganisms|Diseases and Prevention|Biological Techniques`.split("|"),
-Mathematics:`Number and Numeration|Number Bases|Fractions|Decimals|Percentages|Ratio and Proportion|Approximation|Indices|Logarithms|Surds|Algebraic Expressions|Linear Equations|Simultaneous Equations|Quadratic Equations|Inequalities|Sequences and Series|Variation|Sets|Functions|Graphs|Plane Geometry|Mensuration|Coordinate Geometry|Trigonometry|Statistics|Probability|Financial Mathematics|Calculus`.split("|"),
-"General Mathematics":`Number and Numeration|Number Bases|Fractions|Decimals|Percentages|Ratio and Proportion|Approximation|Indices|Logarithms|Surds|Algebraic Expressions|Linear Equations|Simultaneous Equations|Quadratic Equations|Inequalities|Sequences and Series|Variation|Sets|Functions|Graphs|Plane Geometry|Mensuration|Coordinate Geometry|Trigonometry|Statistics|Probability|Financial Mathematics|Calculus`.split("|"),
-"English Language":`Grammar and Usage|Parts of Speech|Nouns|Pronouns|Verbs|Adjectives|Adverbs|Prepositions|Conjunctions|Articles and Determiners|Tenses|Concord|Phrases|Clauses|Sentence Structure|Vocabulary Development|Synonyms and Antonyms|Idioms and Proverbs|Comprehension|Summary Writing|Descriptive Writing|Narrative Writing|Argumentative Writing|Formal Letters|Informal Letters|Report Writing|Oral English|Literature Appreciation`.split("|"),
-"English Studies":`Reading Skills|Writing Skills|Listening and Speaking|Nouns|Pronouns|Verbs|Adjectives|Adverbs|Prepositions|Conjunctions|Tenses|Sentence Construction|Concord|Vocabulary Development|Comprehension|Summary|Narrative Writing|Descriptive Writing|Formal and Informal Letters|Oral English|Prose|Poetry|Drama|Figures of Speech`.split("|"),
-"Use of English":`Comprehension|Cloze Tests|Lexis and Structure|Sentence Interpretation|Synonyms|Antonyms|Idioms|Oral English|Grammar|Summary Writing|Sentence Completion`.split("|"),
-Government:`Meaning of Government|Functions of Government|Forms of Government|Systems of Government|Democracy|Constitution|Constitutionalism|Rule of Law|Separation of Powers|Checks and Balances|Fundamental Human Rights|Citizenship|Political Socialisation|Political Participation|Public Opinion|Political Parties|Pressure Groups|Elections|Electoral Systems|Electoral Commission|Legislature|Executive|Judiciary|Local Government|Public Administration|Civil Service|Foreign Policy|International Organisations|Nigeria's Political Development`.split("|"),
-Economics:`Meaning of Economics|Basic Economic Problems|Scarcity|Choice and Opportunity Cost|Factors of Production|Land|Labour|Capital|Entrepreneurship|Division of Labour|Specialisation|Scale of Production|Demand|Supply|Price Determination|Elasticity of Demand|Elasticity of Supply|Production|Costs of Production|Revenue|Market Structures|Money|Banking|Inflation|Unemployment|National Income|Economic Growth and Development|Population|International Trade|Public Finance`.split("|"),
-"Agricultural Science":`Introduction to Agriculture|Importance of Agriculture|Branches of Agriculture|Factors Affecting Agriculture|Farm Planning|Farm Records|Farm Tools|Farm Machinery|Soil|Soil Formation|Soil Properties|Soil Fertility|Water and Irrigation|Farm Pests|Farm Diseases|Weeds and Weed Control|Crop Production|Seed Selection|Planting Operations|Crop Maintenance|Harvesting|Storage of Farm Produce|Livestock Production|Animal Nutrition|Animal Health|Animal Reproduction|Fisheries|Forestry|Agricultural Economics|Agricultural Marketing`.split("|"),
-"Basic Science":`Living and Non-Living Things|Measurement|Matter|The Particulate Nature of Matter|Energy|Forms of Energy|Heat|Light|Sound|Forces|Simple Machines|Air|Water|Soil|Nutrition|Human Health|Reproduction|Growth|Microorganisms|Disease Prevention|Environment|Pollution|Weather|Earth and Space`.split("|"),
-"Basic Technology":`Workshop Safety|Materials|Wood|Metals|Plastics|Tools|Measuring Instruments|Drawing Instruments|Technical Drawing|Orthographic Drawing|Building Materials|Simple Structures|Machines|Levers|Pulleys|Wheels and Axles|Electrical Components|Simple Circuits|Electronics|Communication Technology`.split("|"),
-"Business Studies":`Introduction to Business|Occupation|Production|Trade|Commerce|Office|Office Equipment|Communication|Transport|Banking|Insurance|Bookkeeping|Source Documents|Cash Book|Consumer Education|Entrepreneurship|Advertising|Business Ethics`.split("|"),
-"Social Studies":`Family|Culture|Socialisation|Community|Institutions|Values|Cooperation|Conflict|Human Rights|Population|Environment|Resources|Transportation|Communication|National Unity|Leadership|Citizenship|Drug Abuse|Career Awareness`.split("|"),
-"Civic Education":`Values|National Consciousness|Citizenship|Duties of Citizens|Human Rights|Rule of Law|Democracy|Constitution|Leadership|Followership|Community Service|National Symbols|National Unity|Peace|Conflict Resolution|Drug Abuse|Cultism|Traffic Regulations`.split("|"),
-"Computer Studies":`Computer Fundamentals|Parts of a Computer|Input Devices|Output Devices|Storage Devices|Operating Systems|Files and Folders|Keyboard Skills|Word Processing|Presentation|Internet|Email|Online Safety|Digital Citizenship|Computer Ethics|Computer Networks|Algorithms|Flowcharts`.split("|"),
-"Computer Science":`Computer Fundamentals|Data Representation|Logic Gates|Operating Systems|Algorithms|Flowcharts|Programming Concepts|Variables and Data Types|Control Structures|Arrays|Databases|Computer Networks|Internet|Web Technology|Cybersecurity|Computer Ethics|System Development|Artificial Intelligence Introduction`.split("|"),
-"Home Economics":`Introduction to Home Economics|Areas of Home Economics|The Family|Family Relationships|Family Values|Food and Nutrition|Classes of Food|Nutrients and Their Functions|Balanced Diet|Meal Planning|Kitchen Equipment|Kitchen Utensils|Kitchen Safety|Personal Hygiene|Food Hygiene|Clothing and Textiles|Fibres and Fabrics|Clothing Construction|Sewing Tools|Basic Sewing Stitches|The Home|Household Resources|Time Management|Money Management|Consumer Education|Care of Clothing|Simple Food Preparation|Child Development|Entrepreneurship`.split("|"),
-"Literature in English":`Literary Genres|Prose|Poetry|Drama|Plot|Characterisation|Setting|Theme|Style|Point of View|Figures of Speech|Diction|Tone|Mood|Conflict|Irony|Symbolism|Oral Literature|African Literature|Nigerian Literature|Literary Appreciation`.split("|")
+const levels = {
+  "JSS1": {
+    desc:"Junior Secondary School 1",
+    subjects:[
+      "English Studies","Mathematics","Basic Science","Basic Technology",
+      "Agricultural Science","Business Studies","Social Studies",
+      "Civic Education","Computer Studies","Home Economics"
+    ]
+  },
+  "JSS2": {
+    desc:"Junior Secondary School 2",
+    subjects:[
+      "English Studies","Mathematics","Basic Science","Basic Technology",
+      "Agricultural Science","Business Studies","Social Studies",
+      "Civic Education","Computer Studies","Home Economics"
+    ]
+  },
+  "JSS3": {
+    desc:"Junior Secondary School 3",
+    subjects:[
+      "English Studies","Mathematics","Basic Science","Basic Technology",
+      "Agricultural Science","Business Studies","Social Studies",
+      "Civic Education","Computer Studies","Home Economics"
+    ]
+  },
+  "SSS1": {
+    desc:"Senior Secondary School 1",
+    subjects:[
+      "English Language","Mathematics","Physics","Chemistry","Biology",
+      "Agricultural Science","Economics","Government","Geography",
+      "Literature in English","Computer Science","Financial Accounting",
+      "Commerce","Civic Education","Home Management"
+    ]
+  },
+  "SSS2": {
+    desc:"Senior Secondary School 2",
+    subjects:[
+      "English Language","Mathematics","Physics","Chemistry","Biology",
+      "Agricultural Science","Economics","Government","Geography",
+      "Literature in English","Computer Science","Financial Accounting",
+      "Commerce","Civic Education","Home Management"
+    ]
+  },
+  "SSS3": {
+    desc:"Senior Secondary School 3",
+    subjects:[
+      "English Language","Mathematics","Physics","Chemistry","Biology",
+      "Agricultural Science","Economics","Government","Geography",
+      "Literature in English","Computer Science","Financial Accounting",
+      "Commerce","Civic Education","Home Management"
+    ]
+  },
+  "JAMB": {
+    desc:"UTME examination preparation",
+    subjects:["Use of English","Mathematics","Physics","Chemistry","Biology","Economics","Government","Literature in English","Geography","Commerce","Accounting","Agricultural Science","Computer Science"]
+  },
+  "WAEC": {
+    desc:"WAEC examination preparation",
+    subjects:["English Language","Mathematics","Physics","Chemistry","Biology","Economics","Government","Geography","Literature in English","Agricultural Science","Computer Studies","Financial Accounting","Commerce","Civic Education","Home Management"]
+  },
+  "NECO": {
+    desc:"NECO examination preparation",
+    subjects:["English Language","Mathematics","Physics","Chemistry","Biology","Economics","Government","Geography","Literature in English","Agricultural Science","Computer Studies","Financial Accounting","Commerce","Civic Education","Home Management"]
+  }
 };
 
-const LEVELS={
-"JSS1":["English Studies","Mathematics","Basic Science","Basic Technology","Agricultural Science","Business Studies","Social Studies","Civic Education","Computer Studies","Home Economics"],
-"JSS2":["English Studies","Mathematics","Basic Science","Basic Technology","Agricultural Science","Business Studies","Social Studies","Civic Education","Computer Studies","Home Economics"],
-"JSS3":["English Studies","Mathematics","Basic Science","Basic Technology","Agricultural Science","Business Studies","Social Studies","Civic Education","Computer Studies","Home Economics"],
-"SSS1":["English Language","General Mathematics","Chemistry","Physics","Biology","Agricultural Science","Government","Economics","Literature in English","Home Economics","Computer Science"],
-"SSS2":["English Language","General Mathematics","Chemistry","Physics","Biology","Agricultural Science","Government","Economics","Literature in English","Home Economics","Computer Science"],
-"SSS3":["English Language","General Mathematics","Chemistry","Physics","Biology","Agricultural Science","Government","Economics","Literature in English","Home Economics","Computer Science"],
-"JAMB":["Use of English","Mathematics","Chemistry","Physics","Biology","Agricultural Science","Government","Economics"],
-"WAEC":["English Language","Mathematics","Chemistry","Physics","Biology","Agricultural Science","Government","Economics","Literature in English"],
-"NECO":["English Language","Mathematics","Chemistry","Physics","Biology","Agricultural Science","Government","Economics"]
+const topics = {
+  "Mathematics":[
+    "Number Bases and Numeration","Fractions, Decimals and Percentages",
+    "Ratio, Proportion and Rates","Indices and Logarithms",
+    "Algebraic Expressions","Linear Equations and Inequalities",
+    "Simultaneous Equations","Quadratic Equations",
+    "Sequences and Series","Variation",
+    "Geometry and Angles","Mensuration",
+    "Coordinate Geometry","Trigonometry",
+    "Statistics","Probability",
+    "Sets","Matrices and Determinants",
+    "Vectors","Financial Mathematics"
+  ],
+  "English Studies":[
+    "Parts of Speech","Nouns","Pronouns","Verbs","Adjectives",
+    "Adverbs","Conjunctions and Prepositions","Tenses",
+    "Active and Passive Voice","Direct and Indirect Speech",
+    "Reading Comprehension","Summary Writing","Essay Writing",
+    "Letter Writing","Vocabulary Development","Oral English",
+    "Punctuation","Literature and Literary Appreciation"
+  ],
+  "English Language":[
+    "Parts of Speech","Nouns and Pronouns","Verbs and Tenses",
+    "Adjectives and Adverbs","Conjunctions and Prepositions",
+    "Concord","Sentence Structure","Punctuation",
+    "Vocabulary Development","Comprehension",
+    "Summary Writing","Essay Writing","Formal Letters",
+    "Informal Letters","Report Writing","Oral English","Literary Devices"
+  ],
+  "Use of English":[
+    "Lexis and Structure","Grammar and Usage","Vocabulary",
+    "Sentence Completion","Comprehension","Cloze Tests",
+    "Registers","Synonyms and Antonyms","Oral Forms","Summary Skills"
+  ],
+  "Chemistry":[
+    "Matter and Measurement","Atomic Structure","Periodic Table",
+    "Chemical Bonding","Mole Concept","Chemical Formulae",
+    "Chemical Equations","Stoichiometry","Gas Laws",
+    "Acids, Bases and Salts","Redox Reactions","Electrolysis",
+    "Energy Changes","Rates of Reaction","Equilibrium",
+    "Organic Chemistry","Hydrocarbons","Alcohols",
+    "Carboxylic Acids","Polymers","Metals","Non-metals",
+    "Water","Air and Environmental Chemistry","Industrial Chemistry"
+  ],
+  "Physics":[
+    "Measurement and Units","Scalars and Vectors","Motion",
+    "Forces and Equilibrium","Work, Energy and Power",
+    "Simple Machines","Pressure","Heat and Temperature",
+    "Thermal Expansion","Waves","Sound","Light",
+    "Reflection and Refraction","Electric Fields","Current Electricity",
+    "Magnetism","Electromagnetic Induction","Electronics",
+    "Atomic Physics","Nuclear Physics"
+  ],
+  "Biology":[
+    "Characteristics of Living Things","Cell Structure and Organisation",
+    "Cell Division","Nutrition","Transport in Plants",
+    "Transport in Animals","Respiration","Excretion",
+    "Support and Movement","Coordination","Reproduction",
+    "Growth","Genetics","Evolution","Ecology",
+    "Food Chains and Food Webs","Population Studies",
+    "Microorganisms","Health and Disease","Conservation"
+  ],
+  "Basic Science":[
+    "Living and Non-living Things","Matter","Energy","Force and Motion",
+    "Heat","Light","Sound","Electricity","Magnetism",
+    "The Earth and Space","Human Body","Nutrition",
+    "Reproduction","Environment","Resources and Conservation",
+    "Technology and Society"
+  ],
+  "Basic Technology":[
+    "Introduction to Technology","Safety in the Workshop",
+    "Tools and Materials","Woodwork","Metalwork",
+    "Technical Drawing","Building Technology","Electricity",
+    "Electronics","Mechanisms","Machines","Maintenance"
+  ],
+  "Agricultural Science":[
+    "Meaning and Importance of Agriculture","Agricultural Ecology",
+    "Farm Tools and Machinery","Farm Safety","Soil",
+    "Soil Fertility and Conservation","Crop Production",
+    "Crop Improvement","Weeds and Weed Control","Pests and Diseases",
+    "Animal Husbandry","Animal Nutrition","Animal Health",
+    "Fisheries","Forestry","Farm Records",
+    "Agricultural Economics","Marketing of Farm Produce",
+    "Agricultural Extension","Post-Harvest Management"
+  ],
+  "Economics":[
+    "Meaning and Scope of Economics","Basic Economic Problems",
+    "Opportunity Cost","Demand","Supply","Price Determination",
+    "Elasticity","Production","Factors of Production",
+    "Division of Labour","Market Structures","National Income",
+    "Money","Banking","Inflation","Public Finance",
+    "International Trade","Economic Development","Population",
+    "Agriculture and Industry"
+  ],
+  "Government":[
+    "Meaning and Scope of Government","Basic Concepts of Government",
+    "Constitution","Rule of Law","Separation of Powers",
+    "Fundamental Human Rights","Citizenship","Political Parties",
+    "Pressure Groups","Electoral Systems","Public Opinion",
+    "Legislature","Executive","Judiciary","Local Government",
+    "Federalism","Military Rule in Nigeria","Democracy in Nigeria",
+    "Foreign Policy","International Organisations"
+  ],
+  "Geography":[
+    "Meaning and Scope of Geography","The Earth",
+    "Latitude and Longitude","Map Reading","Weather and Climate",
+    "Rocks","Relief and Drainage","Soils","Vegetation",
+    "Population","Settlement","Transportation",
+    "Agriculture","Industry","Mineral Resources",
+    "Environmental Resources","Regional Geography of Nigeria",
+    "West Africa","World Regional Geography"
+  ],
+  "Literature in English":[
+    "Meaning and Forms of Literature","Prose","Poetry","Drama",
+    "Plot and Structure","Characterisation","Setting","Theme",
+    "Point of View","Diction","Imagery","Figures of Speech",
+    "Irony","Satire","Tragedy and Comedy","African Literature",
+    "Nigerian Literature","Literary Appreciation"
+  ],
+  "Computer Studies":[
+    "Introduction to Computer","Computer Hardware","Computer Software",
+    "Data and Information","Operating Systems","File Management",
+    "Word Processing","Spreadsheets","Presentation Software",
+    "Computer Networks","Internet","Cyber Safety","Database",
+    "Programming Concepts","Algorithms and Flowcharts"
+  ],
+  "Computer Science":[
+    "Computer Fundamentals","Data Representation","Hardware",
+    "Software","Operating Systems","Algorithms",
+    "Flowcharts and Pseudocode","Programming",
+    "Data Structures","Databases","Networking","Internet Technology",
+    "Cybersecurity","Web Development","Computer Ethics"
+  ],
+  "Business Studies":[
+    "Introduction to Business","Office Practice","Communication",
+    "Record Keeping","Bookkeeping","Banking","Insurance",
+    "Transportation","Trade","Entrepreneurship","Consumer Education",
+    "Business Documents","Stock Exchange"
+  ],
+  "Commerce":[
+    "Meaning and Scope of Commerce","Trade","Home Trade",
+    "Foreign Trade","Aids to Trade","Transportation","Warehousing",
+    "Communication","Insurance","Banking","Advertising",
+    "Stock Exchange","Business Units","Sources of Finance",
+    "Consumer Protection"
+  ],
+  "Financial Accounting":[
+    "Introduction to Accounting","Accounting Concepts",
+    "Source Documents","Books of Original Entry","Ledger",
+    "Trial Balance","Cash Book","Bank Reconciliation",
+    "Depreciation","Final Accounts","Control Accounts",
+    "Partnership Accounts","Company Accounts","Manufacturing Accounts",
+    "Incomplete Records","Public Sector Accounting"
+  ],
+  "Accounting":[
+    "Introduction to Accounting","Accounting Concepts",
+    "Source Documents","Books of Original Entry","Ledger",
+    "Trial Balance","Cash Book","Bank Reconciliation",
+    "Depreciation","Final Accounts","Partnership Accounts",
+    "Company Accounts","Incomplete Records"
+  ],
+  "Civic Education":[
+    "Citizenship","Duties and Obligations of Citizens",
+    "Human Rights","Rule of Law","Democracy","Constitution",
+    "Political Participation","National Values","National Integration",
+    "Drug Abuse","Cultism","Human Trafficking","Corruption",
+    "Responsible Parenthood","Consumer Rights"
+  ],
+  "Home Economics":[
+    "Introduction to Home Economics","Family and Family Resources",
+    "Food and Nutrition","Meal Planning","Food Preparation",
+    "Kitchen Safety","Clothing and Textiles","Basic Sewing",
+    "Laundry","Home Management","Consumer Education","Child Development"
+  ],
+  "Home Management":[
+    "Home Management","Family Resources","Time Management",
+    "Money Management","Food and Nutrition","Meal Planning",
+    "Food Preparation","Clothing and Textiles","Sewing",
+    "Laundry","Child Development","Consumer Education"
+  ]
 };
 
-let S={view:"levels",level:"",subject:"",topic:""};
+const genericTopics = [
+  "Introduction and Basic Concepts","Important Terms and Definitions",
+  "Major Principles","Classification and Types","Applications",
+  "Examples and Practical Uses","Revision and Key Points"
+];
 
-function home(){S={view:"levels",level:"",subject:"",topic:""};render()}
-function level(x){S={view:"subjects",level:x,subject:"",topic:""};render()}
-function subject(x){S={view:"topics",level:S.level,subject:x,topic:""};render()}
-function topic(x){S={view:"lesson",level:S.level,subject:S.subject,topic:x};render()}
+let currentLevel = "";
+let currentSubject = "";
+let currentTopic = "";
+let quizIndex = 0;
+let quizScore = 0;
 
-function levels(){
-return `<h1>Learn. Practice. Pass.</h1>
-<p>Choose a level. EduPro-NG now uses level-specific subjects and natural topic lists instead of forcing every subject into 30 chapters.</p>
-<div class="grid">${Object.keys(LEVELS).map(x=>`<button class="card" onclick="level('${safe(x)}')"><span class="icon">${x.startsWith("JSS")?"🎒":x.startsWith("SSS")?"🏫":"🎯"}</span><b>${x}</b><div class="small">${LEVELS[x].length} subjects</div></button>`).join("")}</div>
-<div class="search"><b>Search</b><input placeholder="Search a subject or topic..." oninput="search(this.value)"><div id="results"></div></div>`;
-}
-function subjects(){
-let a=LEVELS[S.level];
-return `<div class="back"><button onclick="home()">← Levels</button></div><h1>${S.level} Textbooks</h1><p>Select a subject. Each subject has its own topic count.</p>
-<div class="grid">${a.map(x=>`<button class="card" onclick="subject('${safe(x)}')"><span class="icon">${I[x]||"📘"}</span><b>${x}</b><div class="small">${(T[x]||[]).length} topics</div></button>`).join("")}</div>`;
-}
-function topics(){
-let a=T[S.subject]||[];
-return `<div class="back"><button onclick="level('${safe(S.level)}')">← Subjects</button></div><h1>${S.subject}</h1><p>${a.length} topics</p>
-${a.map((x,i)=>`<button class="topic" onclick="topic('${safe(x)}')"><span><span class="num">${i+1}</span>${x}</span><span>›</span></button>`).join("")}`;
-}
-function lesson(){
-let t=S.topic,s=S.subject;
-let c=content(s,t);
-return `<div class="back"><button onclick="subject('${safe(s)}')">← Topics</button></div>
-<div class="lesson"><div class="small">${S.level} • ${s}</div><h1>${t}</h1>
-<div class="def"><b>Definition / Core idea</b><p>${c.def}</p></div>
-<h2>Introduction</h2><p>${c.intro}</p>
-<h2>Main areas</h2><ul>${c.points.map(x=>`<li>${x}</li>`).join("")}</ul>
-${c.formula?`<h2>Formula / Method</h2><div class="formula">${c.formula}</div>`:""}
-<h2>Worked example</h2><div class="example">${c.example}</div>
-<h2>Key points</h2><ul>${c.keys.map(x=>`<li>${x}</li>`).join("")}</ul>
-<h2>Practice</h2><p>Answer questions from this topic using the definition, examples, rules, formulae and applications studied above.</p>
-</div>`;
-}
-function content(s,t){
-let def=`${t} is an important area of ${s}. It should be studied through its meaning, major principles, examples, applications and examination questions.`;
-let intro=`Begin with the standard meaning of the topic, identify its major parts, study the examples, and then practise applying the knowledge to questions.`;
-let points=[`Know the standard terms used in ${t}.`,`Understand the main principles and relationships.`,`Study relevant examples and applications.`,`Practise questions that require the knowledge from this topic.`];
-let formula="",example=`A good answer on ${t} should state the relevant idea clearly, explain the required points and use an appropriate example where necessary.`,keys=[`Use correct subject terminology.`,`Read the command word carefully: define, state, explain, calculate, compare or discuss.`,`Revise the examples after studying the explanation.`];
+const lessonData = {
+  "Rule of Law":{
+    definition:"Rule of law is a constitutional doctrine which emphasizes the supremacy of the law, equality before the law, impartiality and incorruptibility in the administration of justice by the courts.",
+    intro:"The rule of law means that government, institutions and citizens are expected to act according to established laws. It places the law above arbitrary personal power.",
+    areas:["Supremacy of the law","Equality before the law","Protection of fundamental rights","Independent and impartial courts","Due process"],
+    key:["No person is above the law.","Government powers should be exercised according to law.","Citizens should have access to lawful and impartial justice."]
+  }
+};
 
-if(s==="Chemistry"){
-def=`${t} deals with the composition, properties, reactions or applications of substances and the chemical principles used to explain them.`;
-points=[`Learn the chemical terms, symbols and observations connected with the topic.`,`Distinguish substances, processes and chemical changes carefully.`,`Use correct formulae and equations where required.`,`Apply calculations with correct units when the topic involves numerical work.`];
-if(t==="Mole Concept"){formula="n = m ÷ M";example="For a substance of mass 18 g and molar mass 18 g mol⁻¹: n = 18 ÷ 18 = 1 mol."}
-else if(t==="Gas Laws"){formula="P₁V₁/T₁ = P₂V₂/T₂";example="For a fixed amount of gas, pressure, volume and absolute temperature are related. Temperature is converted to kelvin for this relationship."}
-else if(t==="Stoichiometry"){formula="Use the balanced equation to obtain mole ratios.";example="2H₂ + O₂ → 2H₂O shows a 2:1:2 mole relationship between hydrogen, oxygen and water."}
-else if(t==="Chemical Formulae"){formula="Balance valencies/oxidation states to obtain the simplest whole-number ratio.";example="Magnesium has valency 2 and chlorine has valency 1, so magnesium chloride is MgCl₂."}
+function iconForSubject(subject){
+  const icons={
+    "Mathematics":"🧮","English Studies":"📘","English Language":"📘","Use of English":"📘",
+    "Chemistry":"⚗️","Physics":"⚛️","Biology":"🧬","Basic Science":"🔬",
+    "Basic Technology":"🛠️","Agricultural Science":"🌱","Economics":"💰",
+    "Government":"🏛️","Geography":"🌍","Literature in English":"📚",
+    "Computer Studies":"💻","Computer Science":"💻","Business Studies":"💼",
+    "Commerce":"🏪","Financial Accounting":"📊","Accounting":"📊",
+    "Civic Education":"⚖️","Home Economics":"🏠","Home Management":"🏠"
+  };
+  return icons[subject] || "📖";
 }
-if(s==="Physics"){
-def=`${t} is a physics concept used to describe, measure or explain physical phenomena.`;
-points=[`Identify the physical quantities involved.`,`Use consistent SI units.`,`Choose the relationship or law appropriate to the question.`,`Check the final unit and whether the answer is reasonable.`];
-if(t==="Speed and Velocity"||t==="Motion"){formula="speed = distance ÷ time";example="A body travels 120 m in 10 s: speed = 120 ÷ 10 = 12 m/s."}
-else if(t==="Acceleration"){formula="a = (v − u) ÷ t";example="If velocity changes from 5 m/s to 20 m/s in 3 s: a = (20 − 5) ÷ 3 = 5 m/s²."}
-else if(t==="Work"){formula="W = F × d";example="A 20 N force moves an object 5 m in its direction: W = 20 × 5 = 100 J."}
-else if(t==="Power"){formula="P = W ÷ t";example="600 J of work completed in 20 s gives P = 600 ÷ 20 = 30 W."}
+
+function goHome(){
+  showPage("homePage");
+  window.scrollTo({top:0,behavior:"smooth"});
 }
-if(s==="Mathematics"||s==="General Mathematics"){
-def=`${t} is a mathematical area requiring the correct rules, operations and reasoning to solve problems accurately.`;
-points=[`Identify the quantities or expressions given.`,`Select the appropriate rule, formula or method.`,`Show the working step by step.`,`Check arithmetic, signs, units and the final result.`];
-if(t==="Percentage"){formula="Percentage = (part ÷ whole) × 100";example="20 out of 80 = (20 ÷ 80) × 100 = 25%."}
-else if(t==="Speed"){formula="Speed = distance ÷ time";example="120 m ÷ 10 s = 12 m/s."}
-else if(t==="Simple Interest"){formula="I = PRT/100";example="For ₦10,000 at 5% for 2 years: I = 10,000×5×2/100 = ₦1,000."}
+
+function showPage(id){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.getElementById("homeBtn").classList.toggle("active",id==="homePage");
+  window.scrollTo({top:0,behavior:"smooth"});
 }
-return {def,intro,points,formula,example,keys};
+
+function renderLevels(){
+  const box=document.getElementById("levelGrid");
+  box.innerHTML="";
+  Object.entries(levels).forEach(([level,data])=>{
+    const card=document.createElement("div");
+    card.className="card level-card clickable";
+    card.innerHTML=`<h3>${level}</h3><p>${data.desc}</p><span class="arrow">Open subjects →</span>`;
+    card.onclick=()=>openLevel(level);
+    box.appendChild(card);
+  });
 }
-function search(q){
-let r=document.getElementById("results");q=q.toLowerCase().trim();if(!q){r.innerHTML="";return}
-let a=[];
-for(let l in LEVELS)for(let s of LEVELS[l]){if(s.toLowerCase().includes(q))a.push(`<button class="topic" onclick="level('${safe(l)}');setTimeout(()=>subject('${safe(s)}'),0)">${l} — ${s}</button>`);for(let t of (T[s]||[]))if(t.toLowerCase().includes(q))a.push(`<button class="topic" onclick="level('${safe(l)}');setTimeout(()=>{subject('${safe(s)}');setTimeout(()=>topic('${safe(t)}'),0)},0)">${l} — ${s} — ${t}</button>`)}
-r.innerHTML=a.slice(0,20).join("")||"<p>No result found.</p>";
+
+function openLevel(level){
+  currentLevel=level;
+  renderLibrary(level);
+  showPage("libraryPage");
 }
-function safe(x){return String(x).replace(/\/g,"\\").replace(/'/g,"\'")}
-function render(){document.getElementById("app").innerHTML=S.view==="levels"?levels():S.view==="subjects"?subjects():S.view==="topics"?topics():lesson();scrollTo(0,0)}
-render();
+
+function renderLibrary(level=currentLevel){
+  const data=levels[level];
+  const box=document.getElementById("libraryContent");
+  if(!data){box.innerHTML='<div class="empty">Select a level first.</div>';return;}
+  box.innerHTML=`
+    <div class="section-head">
+      <div><h2>${level}</h2><p>${data.desc}</p></div>
+    </div>
+    <div class="subject-grid" id="subjectGrid"></div>`;
+  const grid=document.getElementById("subjectGrid");
+  data.subjects.forEach(subject=>{
+    const card=document.createElement("div");
+    card.className="card clickable";
+    card.innerHTML=`<h3>${iconForSubject(subject)} ${subject}</h3>
+      <p>${getTopics(subject).length} major study topics in this library.</p>
+      <span class="arrow">Open textbook →</span>`;
+    card.onclick=()=>openSubject(subject);
+    grid.appendChild(card);
+  });
+}
+
+function showLibrary(){
+  renderLibrary(currentLevel || "JSS1");
+  showPage("libraryPage");
+}
+
+function getTopics(subject){
+  return topics[subject] || genericTopics;
+}
+
+function openSubject(subject){
+  currentSubject=subject;
+  const arr=getTopics(subject);
+  document.getElementById("subjectHeader").innerHTML=`
+    <h1>${iconForSubject(subject)} ${subject}</h1>
+    <p>${currentLevel} • Textbook-style study topics</p>`;
+  const grid=document.getElementById("topicGrid");
+  grid.innerHTML="";
+  arr.forEach((topic,i)=>{
+    const card=document.createElement("div");
+    card.className="card topic-card clickable";
+    card.innerHTML=`<div class="topic-number">${i+1}</div><h3>${topic}</h3>
+      <p>Definition • Explanation • Examples • Key points • Practice</p>`;
+    card.onclick=()=>openLesson(topic);
+    grid.appendChild(card);
+  });
+  showPage("subjectPage");
+}
+
+function backToTopics(){
+  openSubject(currentSubject);
+}
+
+function makeLesson(subject,topic){
+  if(lessonData[topic]) return lessonData[topic];
+
+  const lower=topic.toLowerCase();
+  let definition=`${topic} is an important area of ${subject} that students study to understand its principles, applications and related concepts.`;
+  let intro=`This lesson introduces ${topic} and organizes the main ideas students should understand before attempting practice questions.`;
+  let areas=[
+    `Meaning and scope of ${topic}`,
+    `Important terms and concepts`,
+    `Main principles and characteristics`,
+    `Applications and examples`,
+    `Common examination points`
+  ];
+  let formula="";
+  let example="";
+
+  if(subject==="Mathematics"){
+    if(lower.includes("percentage")){
+      definition="Percentage is a way of expressing a quantity as a fraction of 100.";
+      formula="Percentage = (Part ÷ Whole) × 100";
+      example="Example: If 18 students out of 30 passed, percentage passed = (18 ÷ 30) × 100 = 60%.";
+      areas=["Converting fractions and decimals to percentages","Finding a percentage of a quantity","Percentage increase and decrease","Profit, loss and discount","Percentage applications"];
+    }else if(lower.includes("speed") || lower.includes("rates")){
+      formula="Speed = Distance ÷ Time";
+      example="Example: A car travels 150 km in 3 hours. Speed = 150 ÷ 3 = 50 km/h.";
+    }else if(lower.includes("simple interest")){
+      formula="Simple Interest = (P × R × T) ÷ 100";
+      example="Example: For P = ₦20,000, R = 5% and T = 2 years, SI = (20,000 × 5 × 2) ÷ 100 = ₦2,000.";
+    }else if(lower.includes("linear equation")){
+      formula="For ax + b = c: x = (c − b) ÷ a, where a ≠ 0.";
+      example="Example: 3x + 5 = 20. Subtract 5: 3x = 15. Divide by 3: x = 5.";
+    }else{
+      formula="Use the rule, formula or mathematical relationship stated in the question, keeping units consistent.";
+      example="Always write the known values, choose the appropriate formula or method, substitute carefully, calculate, and state the final answer with its unit where required.";
+    }
+  }
+
+  if(subject==="Physics"){
+    if(lower.includes("motion") || lower.includes("speed")){
+      definition="Speed is the distance travelled per unit time.";
+      formula="Speed = Distance ÷ Time";
+      example="A cyclist travels 120 m in 20 s. Speed = 120 ÷ 20 = 6 m/s.";
+    }else if(lower.includes("work")){
+      formula="Work done = Force × Distance moved in the direction of the force.";
+      example="A force of 10 N moves an object through 4 m. Work done = 10 × 4 = 40 J.";
+    }else if(lower.includes("power")){
+      formula="Power = Work done ÷ Time";
+      example="If 600 J of work is done in 20 s, power = 600 ÷ 20 = 30 W.";
+    }
+  }
+
+  if(subject==="Chemistry"){
+    if(lower.includes("mole")){
+      definition="The mole is the amount of substance containing the same number of specified entities as there are atoms in 12 g of carbon-12.";
+      formula="Number of moles = Mass ÷ Molar mass";
+      example="If a substance has mass 18 g and molar mass 18 g/mol, moles = 18 ÷ 18 = 1 mol.";
+    }else if(lower.includes("gas law")){
+      formula="For a fixed mass of gas at constant temperature: P₁V₁ = P₂V₂.";
+      example="If P₁ = 100 kPa, V₁ = 2 L and P₂ = 200 kPa, then V₂ = (100 × 2) ÷ 200 = 1 L.";
+    }else if(lower.includes("formula")){
+      definition="A chemical formula represents the elements present in a substance and the relative number of their atoms or ions.";
+      example="H₂O represents water and shows that each molecule contains two hydrogen atoms and one oxygen atom.";
+    }else if(lower.includes("equation")){
+      definition="A chemical equation is a symbolic representation of a chemical reaction using chemical formulae and appropriate coefficients.";
+      example="The equation 2H₂ + O₂ → 2H₂O represents the reaction of hydrogen with oxygen to form water.";
+    }else if(lower.includes("stoichiometry")){
+      formula="Use the balanced chemical equation to establish mole ratios between reactants and products.";
+      example="For 2H₂ + O₂ → 2H₂O, 2 mol of H₂ react with 1 mol of O₂ to produce 2 mol of H₂O.";
+    }
+  }
+
+  if(subject==="Biology" && lower.includes("cell")){
+    definition="A cell is the basic structural and functional unit of a living organism.";
+    areas=["Cell membrane","Cytoplasm","Nucleus","Mitochondria","Plant-cell structures","Differences between plant and animal cells"];
+    example="A plant cell has structures such as a cell wall and chloroplasts that are not found in typical animal cells.";
+  }
+
+  if(subject.includes("English") || subject==="Use of English"){
+    if(lower.includes("noun")){
+      definition="A noun is a word used to name a person, animal, place, thing, quality, activity or idea.";
+      areas=["Common nouns","Proper nouns","Collective nouns","Abstract nouns","Concrete nouns","Countable and uncountable nouns"];
+      example="Examples include teacher, Lagos, committee, honesty and book.";
+    }else if(lower.includes("verb")){
+      definition="A verb is a word that expresses an action, occurrence or state of being.";
+      areas=["Main verbs","Auxiliary verbs","Action verbs","Linking verbs","Transitive and intransitive verbs","Tenses"];
+      example="In 'The student solved the problem', solved is the verb expressing the action.";
+    }else if(lower.includes("pronoun")){
+      definition="A pronoun is a word used in place of a noun or noun phrase to avoid unnecessary repetition.";
+      areas=["Personal pronouns","Possessive pronouns","Reflexive pronouns","Demonstrative pronouns","Relative pronouns","Interrogative pronouns"];
+      example="Instead of 'Ada said Ada was ready', we can write 'Ada said she was ready.'";
+    }else if(lower.includes("adjective")){
+      definition="An adjective is a word that modifies or describes a noun or pronoun.";
+      example="In 'a difficult examination', difficult describes the noun examination.";
+    }else if(lower.includes("adverb")){
+      definition="An adverb is a word that modifies a verb, adjective, another adverb or sometimes an entire clause.";
+      example="In 'She answered quickly', quickly modifies the verb answered.";
+    }else if(lower.includes("active") || lower.includes("passive")){
+      definition="In the active voice, the subject performs the action; in the passive voice, the subject receives the action.";
+      example="Active: The teacher marked the scripts. Passive: The scripts were marked by the teacher.";
+    }
+  }
+
+  return {definition,intro,areas,formula,example,key:[
+    `Know the precise meaning of ${topic}.`,
+    `Learn the important terms and principles.`,
+    `Apply the concept to examples and examination questions.`,
+    `Review the key points before attempting practice.`
+  ]};
+}
+
+function openLesson(topic){
+  currentTopic=topic;
+  const data=makeLesson(currentSubject,topic);
+  let html=`
+    <div class="page-title">
+      <h1>${topic}</h1>
+      <p>${currentLevel} • ${currentSubject}</p>
+    </div>
+    <article class="lesson">
+      <h2>Definition</h2>
+      <div class="definition">${data.definition}</div>
+
+      <h2>Introduction</h2>
+      <p>${data.intro}</p>
+
+      <h2>Main Areas</h2>
+      <ul>${data.areas.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+
+  if(data.formula){
+    html+=`<h2>Formula / Method</h2><div class="formula">${data.formula}</div>`;
+  }
+
+  if(data.example){
+    html+=`<h2>Worked Example</h2><div class="example"><strong>Example:</strong><br>${data.example}</div>`;
+  }
+
+  html+=`<h2>Key Points</h2><ul>${data.key.map(x=>`<li>${x}</li>`).join("")}</ul>
+      <div class="practice">
+        <h2 style="margin-top:0">Quick Practice</h2>
+        <p>Which statement best matches the topic you have just studied?</p>
+        <button onclick="showPracticeAnswer(this,true)">A. It should be understood using its proper definition and application.</button>
+        <button onclick="showPracticeAnswer(this,false)">B. It can be answered correctly without understanding the concept.</button>
+        <button onclick="showPracticeAnswer(this,false)">C. Its meaning changes whenever the question changes.</button>
+        <button onclick="showPracticeAnswer(this,false)">D. Examples are never useful when studying it.</button>
+        <div class="answer"></div>
+      </div>
+    </article>`;
+  document.getElementById("lessonContent").innerHTML=html;
+  showPage("lessonPage");
+}
+
+function showPracticeAnswer(btn,correct){
+  const box=btn.parentElement.querySelector(".answer");
+  box.textContent=correct
+    ? "Correct. Understanding the definition and applying the concept are central to studying a topic."
+    : "Review the lesson: the topic should be understood through its definition, principles and applications.";
+  box.classList.add("show");
+}
+
+const quizQuestions=[
+  {
+    q:"What is the correct formula for speed?",
+    options:["Distance ÷ Time","Time ÷ Distance","Distance × Time","Distance + Time"],
+    answer:0,
+    explanation:"Speed is calculated by dividing distance travelled by time taken."
+  },
+  {
+    q:"What does H₂O represent?",
+    options:["Water","Hydrogen peroxide","Oxygen","Hydrogen chloride"],
+    answer:0,
+    explanation:"H₂O contains two hydrogen atoms and one oxygen atom and represents water."
+  },
+  {
+    q:"Which word is a noun?",
+    options:["Teacher","Quickly","Run","Beautiful"],
+    answer:0,
+    explanation:"Teacher names a person or occupation, so it functions as a noun."
+  },
+  {
+    q:"If 18 out of 30 students pass, what percentage passed?",
+    options:["60%","50%","40%","80%"],
+    answer:0,
+    explanation:"18 ÷ 30 × 100 = 60%."
+  },
+  {
+    q:"Which structure controls many activities of a typical cell?",
+    options:["Nucleus","Cell wall","Vacuole","Chloroplast"],
+    answer:0,
+    explanation:"The nucleus contains genetic material and controls many cellular activities."
+  }
+];
+
+function renderQuiz(){
+  const box=document.getElementById("quizBox");
+  if(quizIndex>=quizQuestions.length){
+    box.innerHTML=`<h2>Quiz complete</h2><p style="margin-top:8px">Your score: ${quizScore} / ${quizQuestions.length}</p>
+      <button class="btn" style="margin-top:18px" onclick="restartQuiz()">Try Again</button>`;
+    return;
+  }
+  const item=quizQuestions[quizIndex];
+  box.innerHTML=`
+    <p style="color:var(--muted);margin-bottom:8px">Question ${quizIndex+1} of ${quizQuestions.length}</p>
+    <div class="quiz-question">${item.q}</div>
+    <div>${item.options.map((x,i)=>`<button class="quiz-option" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${x}</button>`).join("")}</div>
+    <div id="quizFeedback" style="margin-top:10px;color:var(--muted)"></div>`;
+}
+
+function answerQuiz(choice){
+  const item=quizQuestions[quizIndex];
+  document.querySelectorAll(".quiz-option").forEach((b,i)=>{
+    b.disabled=true;
+    if(i===item.answer)b.classList.add("correct");
+    if(i===choice && choice!==item.answer)b.classList.add("wrong");
+  });
+  if(choice===item.answer)quizScore++;
+  document.getElementById("quizFeedback").innerHTML=
+    `${choice===item.answer?"Correct! ":""}${item.explanation}
+     <br><button class="btn" style="margin-top:14px" onclick="nextQuiz()">Next Question</button>`;
+}
+
+function nextQuiz(){
+  quizIndex++;
+  renderQuiz();
+}
+
+function restartQuiz(){
+  quizIndex=0;quizScore=0;renderQuiz();
+}
+
+function searchLibrary(){
+  const q=document.getElementById("searchInput").value.trim().toLowerCase();
+  const box=document.getElementById("searchResults");
+  if(!q){box.classList.remove("show");box.innerHTML="";return;}
+  const results=[];
+  Object.entries(levels).forEach(([level,data])=>{
+    data.subjects.forEach(subject=>{
+      if(subject.toLowerCase().includes(q)){
+        results.push({type:"subject",level,subject});
+      }
+      getTopics(subject).forEach(topic=>{
+        if(topic.toLowerCase().includes(q)){
+          results.push({type:"topic",level,subject,topic});
+        }
+      });
+    });
+  });
+  const unique=results.filter((r,i,a)=>i===a.findIndex(x=>JSON.stringify(x)===JSON.stringify(r))).slice(0,12);
+  box.classList.add("show");
+  if(!unique.length){
+    box.innerHTML='<div class="empty">No matching subject or topic found.</div>';
+    return;
+  }
+  box.innerHTML=unique.map(r=>{
+    if(r.type==="subject"){
+      return `<div class="card clickable" style="margin-top:8px" onclick="currentLevel='${r.level}';openSubject('${r.subject}')">
+        <strong>${iconForSubject(r.subject)} ${r.subject}</strong><p>${r.level} • Subject</p></div>`;
+    }
+    return `<div class="card clickable" style="margin-top:8px" onclick="currentLevel='${r.level}';currentSubject='${r.subject}';openLesson('${r.topic}')">
+      <strong>${iconForSubject(r.subject)} ${r.topic}</strong><p>${r.level} • ${r.subject} • Topic</p></div>`;
+  }).join("");
+}
+
+renderLevels();
+renderQuiz();
 </script>
 </body>
 </html>
